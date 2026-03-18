@@ -2,11 +2,8 @@ name: Generate OpenAPI from Bruno
 
 on:
   push:
-    paths:
-      - 'apiDocuments/**'
-  pull_request:
-    paths:
-      - 'apiDocuments/**'
+    branches:
+      - main
 
 jobs:
   build-openapi:
