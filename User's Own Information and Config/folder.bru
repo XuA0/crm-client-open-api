@@ -1,0 +1,56 @@
+meta {
+  name: User's Own Information and Config
+  seq: 4
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  **MFA**
+  
+  1. User's MFA Status
+      
+  
+  user's mfa status: (user.mfa || configuration?.settings.mfa) ?? false
+  
+  - Get User
+      
+  
+  <img src="https://content.pstmn.io/a6e906cc-dfca-4c11-b339-7a38266d38b5/aW1hZ2UucG5n" width="563" height="286">
+  
+  - Get Configuration
+      
+  
+  <img src="https://content.pstmn.io/0e6ce945-c41e-4d13-94a3-c52ee78c4713/aW1hZ2UucG5n" width="734" height="285">
+  
+  2\. Activate MFA
+  
+  <img src="https://content.pstmn.io/efb83f95-3dcd-42ca-aa82-fef6afd69eed/aW1hZ2UucG5n" width="575" height="261">
+  
+  3\. Deactivate MFA
+  
+  <img src="https://content.pstmn.io/01c32bfa-8126-44f1-a365-8b75f541cdde/aW1hZ2UucG5n" width="758" height="288">
+  
+  **Update Password**
+  
+  <img src="https://content.pstmn.io/4573be06-190c-477e-a169-aa6c2fba29a7/aW1hZ2UucG5n" width="626" height="337">
+  
+  **Update Email**
+  
+  <img src="https://content.pstmn.io/20c145da-f178-4be7-9d3e-f0c2cb5e7fb5/aW1hZ2UucG5n" width="677" height="349">
+  
+  **Update Phone (Only can be used when enabled Twilio Verify)**
+  
+  1. Get Twilio Service Info
+      
+  
+  Phone number update is supported only if Twilio has at least one of the following enabled: `sms`, `call`, or `whatsapp`.
+  
+  <img src="https://content.pstmn.io/a77ffd92-52d2-465a-a779-61776e6746be/aW1hZ2UucG5n" width="649" height="264">
+  
+  2\. Update Phone
+  
+  <img src="https://content.pstmn.io/cbc24a18-41ad-4bd2-a00a-71cf5ee43f89/aW1hZ2UucG5n" width="777" height="321">
+}

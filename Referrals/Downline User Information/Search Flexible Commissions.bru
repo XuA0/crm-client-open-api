@@ -1,0 +1,757 @@
+meta {
+  name: Search Flexible Commissions
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/reports/flexible/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "key": "",
+    "status": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "range": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "mine": false,
+    "skip": 0,
+    "limit": 0,
+    "is_active": true,
+    "search_type": "",
+    "mode": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/reports/flexible/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-25 16:00:00",
+                      "end": "2026-02-02 03:17:16"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": [
+              {
+                  "field": "trading_platform",
+                  "value": [
+                      "bigc8liz",
+                      "2asdas1z"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trader_client_portal",
+                  "value": [
+                      "lo0i7w3o"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_time",
+                  "value": {
+                      "start": "2026-02-01 16:00:00",
+                      "end": "2026-02-02 15:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "NZDUSD",
+                      "USDCHF"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "receiver",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "oneself", // "oneself" | "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_platform",
+                  "value": [
+                      "bigc8liz",
+                      "w82vltnr",
+                      "wallet"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_account",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_fee",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "status",
+                  "value": [
+                      "fail",
+                      "success"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reason",
+                  "value": [
+                      "mt4_unavailable",
+                      "mt5_unavailable",
+                      "account_not_found",
+                      "custom"
+                  ],
+                  "opt": "EQ"
+              }
+          ],
+          "mine": true,
+          "mode": "MINUTE", // "MINUTE" | "DAILY"
+          "key": "order id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "payouts": [
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "eae87377-d2a3-4a5e-81ca-a1f335847586",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "5voplo1f",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 10,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "fixed",
+                    "rule_id": "7juzzkqx",
+                    "config_value": "10",
+                    "formula": "1 * 10 * 1 ",
+                    "total": 10,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "R9KFsDVW",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:17",
+                    "status": "success",
+                    "created_at": 1763015472728,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30392,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Ezreal",
+                    "receiver_email": "ezreal@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-Fixed_交易者的账号货币",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 1,
+                    "reports_flexible_commissions_tier": 1,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "b932b432-4a25-40ac-91cf-2872a2f136b8",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "1ut4zjqv",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 7.185798,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "profit_percent",
+                    "rule_id": "llpwqbzv",
+                    "config_value": "1.02%",
+                    "formula": "704.49 * 1.02% * 1 ",
+                    "total": 7.19,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "hR0fnIBu",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:21",
+                    "status": "success",
+                    "created_at": 1763015478746,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30383,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Shamina",
+                    "receiver_email": "cihige5867@naymedia.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-百分比返佣",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "a3549a8f-8b47-4390-a3df-a2a1b692cc00",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "1ut4zjqv",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 0.01,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "fixed",
+                    "rule_id": "7juzzkqx",
+                    "config_value": "0.01",
+                    "formula": "1 * 0.01 * 1 ",
+                    "total": 0.01,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "JVkvxqmh",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:14",
+                    "status": "success",
+                    "created_at": 1763015470794,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30383,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Shamina",
+                    "receiver_email": "cihige5867@naymedia.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-Fixed_交易者的账号货币",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "8b0638c3-07d9-4e31-8b24-2d67ae26261e",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "5voplo1f",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 74.253246,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "profit_percent",
+                    "rule_id": "llpwqbzv",
+                    "config_value": "10.54%",
+                    "formula": "704.49 * 10.54% * 1 ",
+                    "total": 74.25,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "Anxia7vH",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:16",
+                    "status": "success",
+                    "created_at": 1763015471727,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30392,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Ezreal",
+                    "receiver_email": "ezreal@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-百分比返佣",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 1,
+                    "reports_flexible_commissions_tier": 1,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "83b5c1da-f826-4d2e-b340-d0f44413d32e",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "zm6npz88",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 30,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "fixed",
+                    "rule_id": "7juzzkqx",
+                    "config_value": "30",
+                    "formula": "1 * 30 * 1 ",
+                    "total": 30,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "3ZoJO0ZN",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:13",
+                    "status": "success",
+                    "created_at": 1763015470769,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30390,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Cait Cassiopeia",
+                    "receiver_email": "caitcassiopeia@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-Fixed_交易者的账号货币",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 3,
+                    "reports_flexible_commissions_tier": 3,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "6d1def9e-5b6b-4464-bf88-0bbd8f3b3f29",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "61r9b0h0",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 144.772695,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "profit_percent",
+                    "rule_id": "llpwqbzv",
+                    "config_value": "20.55%",
+                    "formula": "704.49 * 20.55% * 1 ",
+                    "total": 144.77,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "2LYG4vgr",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:16",
+                    "status": "fail",
+                    "created_at": 1763015473737,
+                    "locked": false,
+                    "reason": "mt_account_not_found",
+                    "rebate_account": null,
+                    "rebate_connection_id": null,
+                    "rebate_platform": null,
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Kog Mow",
+                    "receiver_email": "kogmow@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-百分比返佣",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 3,
+                    "reports_flexible_commissions_tier": 3,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "611b94d3-e149-4f75-9831-d1bcf2e04b8e",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "61r9b0h0",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 3.137572,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "fixed",
+                    "rule_id": "vysqb3lo",
+                    "config_value": "3.137572",
+                    "formula": "1 * 3.137572 * 1 ",
+                    "total": 3.14,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "fFgnRCUj",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:22",
+                    "status": "fail",
+                    "created_at": 1763015482225,
+                    "locked": false,
+                    "reason": "mt_account_not_found",
+                    "rebate_account": null,
+                    "rebate_connection_id": null,
+                    "rebate_platform": null,
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Kog Mow",
+                    "receiver_email": "kogmow@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-只返USD",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 3,
+                    "reports_flexible_commissions_tier": 3,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "3ad0ba63-be8d-449a-ad3c-aee8a3f99e70",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "zm6npz88",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 4.1334,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "fixed",
+                    "rule_id": "vysqb3lo",
+                    "config_value": "4.1334",
+                    "formula": "1 * 4.1334 * 1 ",
+                    "total": 4.13,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "kmABI4tg",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:23",
+                    "status": "success",
+                    "created_at": 1763015482366,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30390,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Cait Cassiopeia",
+                    "receiver_email": "caitcassiopeia@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-只返USD",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 3,
+                    "reports_flexible_commissions_tier": 3,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "265933de-4ee7-4230-a6f4-0ab163435262",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "zm6npz88",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 217.123818,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "profit_percent",
+                    "rule_id": "llpwqbzv",
+                    "config_value": "30.82%",
+                    "formula": "704.49 * 30.82% * 1 ",
+                    "total": 217.12,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "LALZG7Sk",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:19",
+                    "status": "success",
+                    "created_at": 1763015476741,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30390,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Cait Cassiopeia",
+                    "receiver_email": "caitcassiopeia@163.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-百分比返佣",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "tier": 3,
+                    "reports_flexible_commissions_tier": 3,
+                    "sensitive": false
+                },
+                {
+                    "trade_uuid": "f13b76d7-c760-4820-ade2-118dc44ee94f",
+                    "payout_uuid": "24b37940-3fd1-464d-9663-263cf6fec823",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "1ut4zjqv",
+                    "referrer_id": "1ut4zjqv",
+                    "currency": "USD",
+                    "commission": 1.15555565,
+                    "type": "FLEXIBLE_COMMISSIONS",
+                    "rule_type": "fixed",
+                    "rule_id": "vysqb3lo",
+                    "config_value": "1.15555565",
+                    "formula": "1 * 1.15555565 * 1 ",
+                    "total": 1.16,
+                    "group": "Sandbox4",
+                    "symbol": "USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:09",
+                    "id": "x4XR8Ire",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:21",
+                    "status": "success",
+                    "created_at": 1763015478751,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30383,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Shamina",
+                    "receiver_email": "cihige5867@naymedia.com",
+                    "referrer_name": "Shamina",
+                    "referrer_email": "cihige5867@naymedia.com",
+                    "rule_name": "ste-灵活-只返USD",
+                    "fixed_commissions_profit": 704.49,
+                    "flexible_commissions_profit": 704.49,
+                    "sensitive": false
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

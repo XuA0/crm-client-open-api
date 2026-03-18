@@ -1,0 +1,104 @@
+meta {
+  name: ROPC Verify MFA Code
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/oauth/mfa/verify
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mfa_token": "",
+      "otp_code": ""
+  }
+}
+
+script:post-response {
+  if (res.getStatus() === 200) {
+      const jsonData = res.getBody();
+      
+      // Safely extract tokens
+      const accessToken = jsonData.access_token;
+      const refreshToken = jsonData.refresh_token;
+  
+      // Validate existence before setting
+      if (accessToken) {
+          bru.setVar("AUTH_TOKEN", accessToken);
+          console.log("✅ AUTH_TOKEN updated in collection variables.");
+      } else {
+          console.warn("⚠️ No access_token found in response.");
+      }
+  
+      if (refreshToken) {
+          bru.setVar("REFRESH_TOKEN", refreshToken);
+          console.log("✅ REFRESH_TOKEN updated in collection variables.");
+      } else {
+          console.warn("⚠️ No refresh_token found in response.");
+      }
+  
+  } else {
+      console.error(`❌ Token request failed with status: ${res.getStatus()}`);
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/mfa/verify
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "mfa_token": "tvgp0m2lvob69w1fvz9ij9nsk7ky3xtk2oxjm3ttayeydyjfhhymb2ip3i8y042j",
+          "otp_code": "761854"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 05:43:51 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"2cf-IW9IB/FkGGishap36eZ6X+GauEE"
+      x-envoy-upstream-service-time: 85
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ivJlnqQchxBYX5JlnjhehS5EismXdsCKcE9yX%2BS24axukkwoJzCi3utoKHy9MYCZiT8xlk%2BtaKpjxs24CGVTKz1oIWJC9LX4tTbVrVwqBro%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a3ed4b509daff93-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFhM2Q2NGRhLWZmOTAtNDdjMS05OGVlLTg2ODIzOTEyZDhmZSJ9.eyJpc3MiOiJ0ZXN0aW5nIiwic3ViIjoiZGRrZmx5eWkiLCJhdWQiOiJ1c2VyLWFwaSIsImlhdCI6MTc2NDA0OTQzMSwiZXhwIjoxNzY0MDUzMDMxLCJjbGllbnRfaWQiOiJhZGM4ZmM2MjVmZDU2MWY2MjdlNmI1YTIifQ.JMaH6jVi5U4hLDiW3T5wv5OwmsNu_zErvrca5f1RpTXfxu345p5m8TisAHq159xHhR15ctrUPP_Z9l-jMrCf6BbDLLTmAgYVWGnrbup3JYBfZoj8CMrFdd8A_DtA9pRhaS2JS4M9DM3GkG0omZiygdJVXY4A4fA_cpEjdRFsBZng-ZAiWsPKxWd4-RwJ9XLLKmm8cn0OPlYwYmdpr6IXlpMtcsxqqcAQqCyh6zdnAICVhYzWJ7takLCGLP8s31NufYAH-Qh7ajkQwdQwuqw-y6wKRYTWUSNzSS8U7L5DdxmlZsOjDg2J8o_8ux9wNqYLQLn_p38NpwBk_hZWsg9KsQ",
+            "token_type": "Bearer",
+            "expires_in": 3600,
+            "refresh_token": "3de051c12b46-4190-a49c-e90a9d269fb3"
+        }
+      '''
+    }
+  }
+}

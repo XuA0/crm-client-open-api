@@ -1,0 +1,45 @@
+meta {
+  name: Get Downline Deposit Summary
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/reports/summary/deposit
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/reports/summary/deposit
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "direct": [
+                {
+                    "currency": "USD",
+                    "amount": 10
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

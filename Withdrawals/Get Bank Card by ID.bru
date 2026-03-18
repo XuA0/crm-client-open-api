@@ -1,0 +1,168 @@
+meta {
+  name: Get Bank Card by ID
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/withdrawals/:id/bankcard?id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  id: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/:id/bankcard
+    method: GET
+    mode: none
+    params:path: {
+      id: pe4pm8mh
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "2c586y41",
+                "method_id": "2c586y41",
+                "bankcards": [
+                    {
+                        "_id": "64b509ad05694e6611d2df13",
+                        "id": "jmfqneks",
+                        "app_id": "kyc",
+                        "method_id": "2c586y41",
+                        "bank_name": "Match 2 Pay local",
+                        "form_data": {
+                            "walletaddress": "http://localhost:8080/http://localhost:8080/http://localhost:8080/",
+                            "form_id": "izh0uk72"
+                        },
+                        "status": "approved",
+                        "user_id": "lifupiht",
+                        "created_at": "2023-07-17 09:28:13",
+                        "updated_at": "2023-07-25 09:56:40"
+                    }
+                ]
+            },
+            {
+                "_id": "ua6wfbtj",
+                "method_id": "ua6wfbtj",
+                "bankcards": [
+                    {
+                        "_id": "68103da2fcffafc3a84dc7de",
+                        "id": "d9i9g40w",
+                        "app_id": "kyc",
+                        "method_id": "ua6wfbtj",
+                        "bank_name": "AAA人民币",
+                        "form_data": {
+                            "rxikuitm": "AAA",
+                            "kjyclilh": "AAA",
+                            "milyehaz": "AAA",
+                            "vrmctrol": "AAA",
+                            "vpsgnzgc": "AAA",
+                            "bowivizf": "jeatnrki",
+                            "form_id": "r63hdl4i"
+                        },
+                        "status": "approved",
+                        "user_id": "lifupiht",
+                        "created_at": "2025-04-29 02:46:58",
+                        "updated_at": "2025-04-29 02:46:58"
+                    }
+                ]
+            },
+            {
+                "_id": "j0s11f39",
+                "method_id": "j0s11f39",
+                "bankcards": [
+                    {
+                        "_id": "67dbdc55688957bfebe5c312",
+                        "id": "7axylaes",
+                        "app_id": "kyc",
+                        "method_id": "j0s11f39",
+                        "bank_name": "Luqapay Card 001",
+                        "form_data": {
+                            "branch_name": "シモイグサ",
+                            "branch_code": "130",
+                            "bank_account": "1306858629",
+                            "country": "jp",
+                            "email": "test@gmail.com",
+                            "first_name": "Doe",
+                            "last_name": "Jhone",
+                            "beneficiary_phone_number": "9036706600",
+                            "beneficiary_city": "Tokyo",
+                            "beneficiary_postal_code": "100-0004",
+                            "beneficiary_street_address": "堺市堺区三宝町2-150-1-703, 大阪府",
+                            "beneficiary_country": "jp",
+                            "katakana_name": "シタキ コムロ",
+                            "form_id": "f9ab6691",
+                            "bank_name": "Mitsubishi UFJ Bank (三菱ＵＦＪ銀行)",
+                            "swift_code": "BOTKJPJT",
+                            "bank_code": "0005",
+                            "bank_country": "JP"
+                        },
+                        "status": "approved",
+                        "user_id": "lifupiht",
+                        "created_at": "2025-03-20 09:13:57",
+                        "updated_at": "2025-03-20 10:27:50"
+                    }
+                ]
+            },
+            {
+                "_id": "4b834f2x",
+                "method_id": "4b834f2x",
+                "bankcards": [
+                    {
+                        "_id": "67dd2a0a639b8a2fa09cc13d",
+                        "id": "l83jaf6k",
+                        "app_id": "kyc",
+                        "method_id": "4b834f2x",
+                        "bank_name": "PayPay銀行",
+                        "form_data": {
+                            "branch_name": "シモイグサ",
+                            "branch_code": "130",
+                            "bank_account": "1306858629",
+                            "country": "jp",
+                            "email": "test@gmail.com",
+                            "first_name": "Doe",
+                            "last_name": "Jhone",
+                            "beneficiary_phone_number": "9036706600",
+                            "beneficiary_city": "Tokyo",
+                            "beneficiary_postal_code": "100-0004",
+                            "beneficiary_street_address": "堺市堺区三宝町2-150-1-703, 大阪府",
+                            "beneficiary_country": "jp",
+                            "katakana_name": "シタキ コムロ",
+                            "bank_name": "Mitsubishi UFJ Bank (三菱ＵＦＪ銀行)",
+                            "form_id": "5zet7xf1"
+                        },
+                        "status": "approved",
+                        "user_id": "lifupiht",
+                        "created_at": "2025-03-21 08:57:46",
+                        "updated_at": "2025-03-31 08:48:50"
+                    }
+                ]
+            }
+        ]
+      '''
+    }
+  }
+}

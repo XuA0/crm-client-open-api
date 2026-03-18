@@ -1,0 +1,56 @@
+meta {
+  name: IB Module Get Commissions Summary
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/commissions/summary?skip=0&limit=0&package_id=&user_id=&trading_id=&connection_id=&platform=&type=&mine=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  skip: 0
+  limit: 0
+  package_id: 
+  user_id: 
+  trading_id: 
+  connection_id: 
+  platform: 
+  type: 
+  mine: true
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/commissions/summary?currency=EUR
+    method: GET
+    mode: none
+    params:query: {
+      currency: EUR
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "total": 92.39126,
+            "time": 1762992000000
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,1428 @@
+meta {
+  name: Get Downline Details
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/referrals
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+      "start": "2025-10-01 00:00:00",
+      "end": "2025-10-10 00:00:00",
+      "skip": 0,
+      "limit": 100,
+      "orders": {},
+      "from": "",
+      "to": "",
+      "platform": "",
+      "connection_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/referrals
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "from": "2026-02-02 00:00:00", // Range of statistics
+          "to": "2026-02-02 23:59:59", // Range of statistics
+          "connection_id": "bigc8liz",
+          "platform": "mt4",
+          "searches": [
+              {
+                  "field": "created_at",
+                  "value": {
+                      "start": "2026-01-18 16:00:00",
+                      "end": "2026-02-02 15:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "source",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrals_clients_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "email",
+                  "value": "312",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "phone",
+                  "value": {
+                      "country_code": "1",
+                      "number": "123"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "client_type",
+                  "value": [
+                      "ib",
+                      "trader"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "live_trading_accounts",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "demo_trading_accounts",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "status",
+                  "value": [
+                      "pending",
+                      "processing",
+                      "rejected",
+                      "verified",
+                      "obsolete"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_code",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "depth",
+                  "value": 1,
+                  "opt": "EQ"
+              },
+              {
+                  "field": "tags",
+                  "value": {
+                      "is_deposit": true,
+                      "is_open": true,
+                      "is_trade": false,
+                      "is_prop_trading": false
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "name/email/trading id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "users": [
+                {
+                    "id": "us7mqomw",
+                    "name": "ste-开户协议",
+                    "phone": {
+                        "number": "324423",
+                        "country_code": "1"
+                    },
+                    "email": "ste-1615@163.com",
+                    "form_id": "bpaeuipp",
+                    "type": "ib",
+                    "origin": "https://t-c.c64f.com",
+                    "notify": true,
+                    "language": "zh-cn",
+                    "group_id": "default0",
+                    "user_code": "us7mqomw",
+                    "utm": {},
+                    "status": "verified",
+                    "processing": false,
+                    "created_at": "2025-08-07T06:54:39.479Z",
+                    "updated_at": "2025-08-15T06:40:33.784Z",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH131",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH138",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "2qxv56rk",
+                            "trading_id": 8289002,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "21p71b23",
+                            "trading_id": 8294056,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "21p71b23",
+                            "trading_id": 8294057,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1288,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "fortex",
+                            "connection_id": "z80wqyxy",
+                            "trading_id": "QALL1"
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "z80wqyxy",
+                            "trading_id": "LAG031",
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30467
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 8288994
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30526,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 127032
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 127033
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80153
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 100528
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 110087,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 110088,
+                            "prop_trading": true
+                        }
+                    ],
+                    "referrer_num": 0,
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "last_login_timestamp": 1763019727596,
+                    "profile": {
+                        "gender": "male",
+                        "nationality": "au",
+                        "identity_number": "8768",
+                        "date_of_birth": "2025-08-01",
+                        "address": "678768123",
+                        "location": {
+                            "country": "ai"
+                        },
+                        "postal_code": "67876"
+                    },
+                    "first_deposit_approved_time": "2025-08-15 06:41:32",
+                    "first_deposit_event_triggered": true,
+                    "referrer_id": "xrlv118e",
+                    "first_deposit_amount": 100,
+                    "prop_trading": true,
+                    "first_open_time": "2025-08-07T08:54:39.000Z",
+                    "first_deposit_time": "2025-08-15T06:41:32.000Z",
+                    "first_trade_time": "2025-08-19T02:30:03.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "traded": true,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "referrals_clients_tier": 4,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "p32js9b2",
+                    "name": "ste-om1",
+                    "email": "ste-om1@163.com",
+                    "form_id": "wquzb7vs",
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "nationality": "",
+                    "referrer_id": "bxctbd4s",
+                    "group_id": "default0",
+                    "participants": [
+                        "rzi9rqcd"
+                    ],
+                    "notify": true,
+                    "language": "zh-cn",
+                    "user_code": "p32js9b2",
+                    "utm": {},
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2025-07-02T02:32:43.323Z",
+                    "updated_at": "2025-07-22T06:38:24.005Z",
+                    "demo_trading_accounts": [],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30460
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "ei2ka5vb",
+                            "trading_id": 13518
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 100524
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80151
+                        }
+                    ],
+                    "referrer_num": 0,
+                    "first_deposit_amount": 7000,
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1752734949951,
+                    "first_deposit_approved_time": "2025-07-11 07:12:06",
+                    "first_deposit_event_triggered": true,
+                    "owner_id": "hmq796z6",
+                    "owner_name": "Stephen",
+                    "phone": {
+                        "number": "234324",
+                        "country_code": "48"
+                    },
+                    "first_open_time": "2025-07-02T04:32:43.000Z",
+                    "first_deposit_time": "2025-07-02T03:00:47.000Z",
+                    "first_trade_time": "2025-07-02T05:01:38.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "traded": true,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-ctrader",
+                    "client_volume": 0,
+                    "referrals_clients_tier": 3,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "e8yjp1vr",
+                    "name": "ste-re1",
+                    "phone": {
+                        "number": "435",
+                        "country_code": "1"
+                    },
+                    "email": "ste-re1@163.com",
+                    "referrer_id": "bxctbd4s",
+                    "form_id": "da8jpc00",
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "notify": true,
+                    "language": "en-us",
+                    "group_id": "default0",
+                    "user_code": "e8yjp1vr",
+                    "utm": {},
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2025-07-02T02:23:22.731Z",
+                    "updated_at": "2025-07-02T02:23:22.731Z",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1251,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1252,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1253,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1254,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1255,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1256,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1257,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30458
+                        }
+                    ],
+                    "referrer_num": 0,
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1754287660222,
+                    "first_deposit_approved_time": "2025-07-03 03:05:23",
+                    "first_deposit_event_triggered": true,
+                    "prop_trading": true,
+                    "first_deposit_amount": 100,
+                    "first_open_time": "2025-07-02T04:23:22.000Z",
+                    "first_deposit_time": "2025-07-03T03:05:23.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "traded": false,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-ctrader",
+                    "client_volume": 0,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "nf7z7omc",
+                    "owner_id": "hmq796z6",
+                    "participants": [
+                        "f9t9k2jn"
+                    ],
+                    "name": "ste-withdraw",
+                    "nationality": "mp",
+                    "phone": {
+                        "number": "34343",
+                        "country_code": "1"
+                    },
+                    "email": "ste-withdraw@163.com",
+                    "form_data": {
+                        "ux1c1da458c3x105bfx8": "2025-06-01",
+                        "uxe6aa59d94x14deex11": "2025-06-02",
+                        "email_otp": true
+                    },
+                    "current_total_customers": "More than 1000",
+                    "new_customers_opened_per_month": "50-100/month",
+                    "current_total_funds": "$2-5 million",
+                    "years_of_employment": "1-3 years",
+                    "form_id": "09m24erk",
+                    "type": "ib",
+                    "user_code": "nf7z7omc",
+                    "group_id": "default0",
+                    "owner_name": "Stephen",
+                    "utm": null,
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2025-06-13T01:21:00.809Z",
+                    "updated_at": "2025-06-13T01:21:00.809Z",
+                    "last_login_timestamp": 1751451519430,
+                    "origin": "https://t-c.c64f.com",
+                    "language": "en-us",
+                    "referrer_num": 0,
+                    "first_deposit_amount": 500,
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "21p71b23",
+                            "trading_id": 8288967,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH073",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1240,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30446,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "z80wqyxy",
+                            "trading_id": "LAG022",
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80140
+                        }
+                    ],
+                    "prop_trading": true,
+                    "referrer_id": "xrlv118e",
+                    "first_open_time": "2025-06-20T10:54:06.000Z",
+                    "first_deposit_time": "2025-06-13T01:21:19.000Z",
+                    "first_trade_time": "2025-06-20T10:55:07.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "traded": true,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "referrals_clients_tier": 1,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "5kls98mr",
+                    "owner_id": "hmq796z6",
+                    "participants": [
+                        "97hj5s88"
+                    ],
+                    "name": "ste-ctrader_OA",
+                    "nationality": "",
+                    "phone": {
+                        "number": "4535435",
+                        "country_code": "61"
+                    },
+                    "email": "ewyhog@mailto.plus",
+                    "form_data": {
+                        "ux1c1da3ecbcx1415bx18": "2025-05-01",
+                        "email_otp": false
+                    },
+                    "form_id": "cykr4m7j",
+                    "type": "trader",
+                    "user_code": "5kls98mr",
+                    "group_id": "default0",
+                    "owner_name": "Stephen",
+                    "utm": null,
+                    "status": "verified",
+                    "processing": false,
+                    "created_at": "2025-05-09T06:15:43.108Z",
+                    "updated_at": "2025-07-16T08:12:52.644Z",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol67lk",
+                            "trading_id": 3000650,
+                            "demo": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000647
+                        },
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000648
+                        },
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000649
+                        },
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000651
+                        },
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000654
+                        },
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000660
+                        }
+                    ],
+                    "referrer_num": 0,
+                    "last_login_timestamp": 1762160446339,
+                    "origin": "https://t-c.c64f.com",
+                    "language": "en-us",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "first_deposit_amount": 5000,
+                    "first_deposit_approved_time": "2025-06-27 02:37:52",
+                    "first_deposit_event_triggered": true,
+                    "profile": {
+                        "gender": "female",
+                        "nationality": "cm",
+                        "identity_number": "736452234",
+                        "date_of_birth": "2025-07-15",
+                        "address": "中国",
+                        "location": {
+                            "country": "kh",
+                            "state": "19",
+                            "city": "Srŏk Srêsén"
+                        },
+                        "postal_code": "34343"
+                    },
+                    "referrer_id": "xrlv118e",
+                    "first_open_time": "2025-05-09T06:15:44.346Z",
+                    "first_deposit_time": "2025-05-13T06:46:28.000Z",
+                    "first_trade_time": "2025-05-14T02:21:46.857Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "traded": true,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "referrals_clients_tier": 1,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "s509t3a5",
+                    "name": "ste-推领优-多张优惠券",
+                    "email": "ste-0931@163.com",
+                    "referrer_id": "xrlv118e",
+                    "link_id": "luf1fich",
+                    "form_id": "01s11wmu",
+                    "form_data": {
+                        "email_otp": true
+                    },
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "group_id": "default0",
+                    "owner_id": "hmq796z6",
+                    "owner_name": "Stephen",
+                    "participants": [
+                        "hmq796z6"
+                    ],
+                    "user_code": "s509t3a5",
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2024-08-14T01:31:32.523Z",
+                    "updated_at": "2024-08-14T01:31:32.523Z",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "2qxv56rk",
+                            "trading_id": 8288816,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "ctrader",
+                            "connection_id": "aqol66lk",
+                            "trading_id": 3000506
+                        }
+                    ],
+                    "prop_trading": true,
+                    "referrer_num": 0,
+                    "follow_content": "你好",
+                    "follow_id": "gryzqxic",
+                    "follow_name": "Darcy",
+                    "follow_time": "2024-09-18T06:48:49.582Z",
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1748254619908,
+                    "language": "zh-tw",
+                    "first_deposit_amount": 500,
+                    "first_open_time": "2024-08-16T02:26:42.856Z",
+                    "first_deposit_time": "2024-10-28T03:18:13.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "link_name": {
+                        "zh-cn": "ste-ib->trader",
+                        "en-us": "ste-ib->trader",
+                        "zh-tw": "ste-ib->trader",
+                        "ja": "ste-ib->trader",
+                        "vi": "代理→交易者"
+                    },
+                    "traded": false,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "5zhu9e14",
+                    "name": "ste-推领优4",
+                    "phone": {
+                        "number": "3243254245",
+                        "country_code": "1"
+                    },
+                    "email": "ste-1058@163.com",
+                    "link_id": "luf1fich",
+                    "form_id": "01s11wmu",
+                    "form_data": {
+                        "email_otp": true
+                    },
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "group_id": "default0",
+                    "owner_id": "hmq796z6",
+                    "owner_name": "Stephen",
+                    "participants": [
+                        "hmq796z6"
+                    ],
+                    "user_code": "5zhu9e14",
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2024-08-12T02:59:29.229Z",
+                    "updated_at": "2024-08-12T02:59:29.229Z",
+                    "referrer_num": 0,
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1742787078334,
+                    "language": "zh-cn",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH053",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH055",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1206,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80109,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80111,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80112
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80113,
+                            "prop_trading": true
+                        }
+                    ],
+                    "prop_trading": true,
+                    "first_deposit_amount": 7000,
+                    "referrer_id": "xrlv118e",
+                    "first_deposit_time": "2025-03-20T09:05:19.000Z",
+                    "first_trade_time": "2025-03-20T11:06:38.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "link_name": {
+                        "zh-cn": "ste-ib->trader",
+                        "en-us": "ste-ib->trader",
+                        "zh-tw": "ste-ib->trader",
+                        "ja": "ste-ib->trader",
+                        "vi": "代理→交易者"
+                    },
+                    "traded": true,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "referrals_clients_tier": 3,
+                    "tags": [
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "3k0rk6jr",
+                    "name": "ste-推领优2",
+                    "email": "ste-1523@163.com",
+                    "referrer_id": "xrlv118e",
+                    "link_id": "43vvj1ne",
+                    "form_id": "01s11wmu",
+                    "form_data": {
+                        "email_otp": true
+                    },
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "group_id": "default0",
+                    "owner_id": "hmq796z6",
+                    "owner_name": "Stephen",
+                    "participants": [
+                        "rzi9rqcd"
+                    ],
+                    "user_code": "3k0rk6jr",
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2024-08-06T07:23:27.712Z",
+                    "updated_at": "2024-08-06T07:23:27.712Z",
+                    "referrer_num": 0,
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1750399076167,
+                    "language": "zh-cn",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "21p71b23",
+                            "trading_id": 8288970,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "21p71b23",
+                            "trading_id": 8288971,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [],
+                    "prop_trading": true,
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "link_name": {
+                        "zh-cn": "推开逻-代理发展直客-MT4",
+                        "en-us": "推开逻-代理发展直客",
+                        "zh-tw": "推开逻-代理发展直客"
+                    },
+                    "traded": false,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "tags": [
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "vruq5ini",
+                    "name": "ste-优惠券-推1",
+                    "email": "ste-1726@163.com",
+                    "referrer_id": "bxctbd4s",
+                    "link_id": "luf1fich",
+                    "form_id": "01s11wmu",
+                    "form_data": {
+                        "email_otp": true
+                    },
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "group_id": "default0",
+                    "owner_id": "hmq796z6",
+                    "owner_name": "Stephen",
+                    "participants": [
+                        "hmq796z6"
+                    ],
+                    "user_code": "vruq5ini",
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2024-08-01T09:27:04.012Z",
+                    "updated_at": "2024-08-01T09:27:04.012Z",
+                    "referrer_num": 0,
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "2qxv56rk",
+                            "trading_id": 8288810,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt4",
+                            "connection_id": "2qxv56rk",
+                            "trading_id": 8288811,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH101",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH122",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1161,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30454
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm",
+                            "trading_id": 100523
+                        }
+                    ],
+                    "prop_trading": true,
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1753782547951,
+                    "language": "zh-cn",
+                    "first_deposit_approved_time": "2025-07-02 02:16:40",
+                    "first_deposit_event_triggered": true,
+                    "first_deposit_amount": 10,
+                    "first_open_time": "2025-07-02T04:19:40.000Z",
+                    "first_deposit_time": "2025-07-02T02:16:40.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "link_name": {
+                        "zh-cn": "ste-ib->trader",
+                        "en-us": "ste-ib->trader",
+                        "zh-tw": "ste-ib->trader",
+                        "ja": "ste-ib->trader",
+                        "vi": "代理→交易者"
+                    },
+                    "traded": false,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-ctrader",
+                    "client_volume": 0,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                },
+                {
+                    "id": "38fgxrtr",
+                    "name": "ste-注册时已发放优惠券",
+                    "nationality": "ad",
+                    "phone": {
+                        "number": "7784",
+                        "country_code": "1"
+                    },
+                    "email": "ste-1431@163.com",
+                    "referrer_id": "xrlv118e",
+                    "link_id": "luf1fich",
+                    "form_id": "01s11wmu",
+                    "form_data": {
+                        "email_otp": true
+                    },
+                    "type": "trader",
+                    "origin": "https://t-c.c64f.com",
+                    "group_id": "default0",
+                    "owner_id": "hmq796z6",
+                    "owner_name": "Stephen",
+                    "participants": [
+                        "hmq796z6"
+                    ],
+                    "user_code": "38fgxrtr",
+                    "status": "pending",
+                    "processing": false,
+                    "created_at": "2024-08-01T06:31:32.054Z",
+                    "updated_at": "2024-08-01T06:31:32.054Z",
+                    "referrer_num": 0,
+                    "sumsub_validate_status_admin": "UNVERIFIED",
+                    "sumsub_validate_status_user": "UNVERIFIED",
+                    "last_login_timestamp": 1758596592339,
+                    "language": "zh-cn",
+                    "demo_trading_accounts": [
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH054",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y",
+                            "trading_id": "DAH071",
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1207,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1235,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1258,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1259,
+                            "demo": true,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8",
+                            "trading_id": 1274,
+                            "demo": true,
+                            "prop_trading": true
+                        }
+                    ],
+                    "live_trading_accounts": [
+                        {
+                            "platform": "mt4",
+                            "connection_id": "u5mzgkch",
+                            "trading_id": 30466
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80110,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80114
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 80115,
+                            "prop_trading": true
+                        },
+                        {
+                            "platform": "mt5",
+                            "connection_id": "7io8qo9m",
+                            "trading_id": 90048
+                        }
+                    ],
+                    "prop_trading": true,
+                    "first_deposit_amount": 7000,
+                    "first_deposit_approved_time": "2025-06-12 06:29:39",
+                    "first_deposit_event_triggered": true,
+                    "first_open_time": "2025-08-07T08:43:45.000Z",
+                    "first_deposit_time": "2025-03-20T09:17:53.000Z",
+                    "first_trade_time": "2025-08-18T08:27:59.000Z",
+                    "group_name": {
+                        "en-us": "Default"
+                    },
+                    "link_name": {
+                        "zh-cn": "ste-ib->trader",
+                        "en-us": "ste-ib->trader",
+                        "zh-tw": "ste-ib->trader",
+                        "ja": "ste-ib->trader",
+                        "vi": "代理→交易者"
+                    },
+                    "traded": true,
+                    "deposit_total_referral": {},
+                    "withdrawal_total_referral": {},
+                    "referrer_name": "ste-top",
+                    "client_volume": 0,
+                    "referrals_clients_tier": 1,
+                    "tags": [
+                        "is_open",
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false,
+                    "range_rule": {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": true,
+                        "client_bankcard": true,
+                        "min": 1,
+                        "max": "all",
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true
+                    }
+                }
+            ],
+            "count": 38
+        }
+      '''
+    }
+  }
+}

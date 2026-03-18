@@ -1,0 +1,76 @@
+meta {
+  name: Get MT5 Trading Accounts Count
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt5/accounts/search/count
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts/search/count
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "p6t5xkbm",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "count": 4
+        }
+      '''
+    }
+  }
+}

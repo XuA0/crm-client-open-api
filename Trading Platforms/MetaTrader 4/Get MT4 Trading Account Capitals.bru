@@ -1,0 +1,269 @@
+meta {
+  name: Get MT4 Trading Account Capitals
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt4/trades/capital/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "trading_id": 0,
+    "searches": [
+      {
+        "field": "",
+        "value": "",
+        "opt": ""
+      }
+    ],
+    "range": [
+      {
+        "field": "",
+        "value": "",
+        "opt": ""
+      }
+    ],
+    "last": true,
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "mine": true,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/trades/capital/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "email",
+                  "value": "mail",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_accounts_capital_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "type",
+                  "value": [
+                      "deposit",
+                      "withdrawal",
+                      "credit in",
+                      "credit out"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "amount",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "value": {
+                      "type": "like", // "startWith" ｜ "like"
+                      "content": "123"
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "orders": {
+              "amount": 1 // amount | open_time
+          },
+          "connection_id": "bigc8liz",
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 00:00:00",
+                      "end": "2026-01-29 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 5652571,
+                    "trading_id": 30869,
+                    "cmd": 6,
+                    "open_time": "2025-11-12T12:24:48.000Z",
+                    "profit": 10.46,
+                    "comment": "d_jee355tp",
+                    "currency": "USD",
+                    "group": "Sandbox4",
+                    "user_id": "4s6ov3xe",
+                    "email": "q-ib2-cl@mail.com",
+                    "name": "q-ib2-cl",
+                    "phone": {
+                        "number": "434243342",
+                        "country_code": "52"
+                    },
+                    "owner_id": "hxuxmfxo",
+                    "owner_name": "test-cl",
+                    "referrer_id": "qanzqpds",
+                    "referrer_name": "q-ib1-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_accounts_capital_tier": 5,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "type": "deposit",
+                    "amount": 10.46,
+                    "sensitive": true
+                },
+                {
+                    "order_id": 5652570,
+                    "trading_id": 30869,
+                    "cmd": 6,
+                    "open_time": "2025-11-12T12:21:38.000Z",
+                    "profit": 263.15,
+                    "comment": "d_avz5if2f_20834b4d-2581-467a-9",
+                    "currency": "USD",
+                    "group": "Sandbox4",
+                    "user_id": "4s6ov3xe",
+                    "email": "q-ib2-cl@mail.com",
+                    "name": "q-ib2-cl",
+                    "phone": {
+                        "number": "434243342",
+                        "country_code": "52"
+                    },
+                    "owner_id": "hxuxmfxo",
+                    "owner_name": "test-cl",
+                    "referrer_id": "qanzqpds",
+                    "referrer_name": "q-ib1-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_accounts_capital_tier": 5,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "type": "deposit",
+                    "amount": 263.15,
+                    "sensitive": true
+                },
+                {
+                    "order_id": 5652569,
+                    "trading_id": 30072,
+                    "cmd": 6,
+                    "open_time": "2025-11-12T12:12:52.000Z",
+                    "profit": 106.14,
+                    "comment": "d_umdqwbms_b9bcec7b-246b-47a3-a",
+                    "currency": "USD",
+                    "group": "Sandbox4",
+                    "user_id": "deuonptq",
+                    "trade_not_rebate": false,
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_accounts_capital_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "type": "deposit",
+                    "amount": 106.14,
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

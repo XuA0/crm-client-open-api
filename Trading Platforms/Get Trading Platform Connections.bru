@@ -1,0 +1,465 @@
+meta {
+  name: Get Trading Platform Connections
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/connections
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/connections
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+            {
+                "id": "bigc8liz",
+                "server_name": "QA 1",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "trading_id_start": 100000,
+                "trading_id_end": 200000,
+                "timezone": "Etc/GMT-2",
+                "limit": 10,
+                "leverages": [
+                    1,
+                    2,
+                    10,
+                    5,
+                    3,
+                    20,
+                    33
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "phone",
+                    "agent",
+                    "nationality_register"
+                ],
+                "send_reports": false,
+                "user_groups": [],
+                "disable_trading_until_funded": true,
+                "platform": "MT4"
+            },
+            {
+                "id": "w82vltnr",
+                "server_name": "Demo QA 2",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "timezone": "Etc/GMT-2",
+                "demo": true,
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300,
+                    400
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "phone",
+                    "kyc"
+                ],
+                "platform": "MT4"
+            },
+            {
+                "id": "2asdas1z",
+                "server_name": "S1",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "trading_id_start": 100700,
+                "trading_id_end": 102001,
+                "timezone": "Etc/GMT-2",
+                "limit": 30,
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "kyc",
+                    "email",
+                    "phone",
+                    "agent"
+                ],
+                "send_reports": false,
+                "rest_api": {},
+                "manager_connect_status": true,
+                "platform": "MT5"
+            },
+            {
+                "id": "2asdas2z",
+                "server_name": "S2",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "trading_id_start": 100800,
+                "trading_id_end": 100900,
+                "timezone": "Etc/GMT-2",
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "email",
+                    "agent",
+                    "kyc",
+                    "phone"
+                ],
+                "rest_api": {},
+                "manager_connect_status": false,
+                "platform": "MT5"
+            },
+            {
+                "id": "4asdas2z",
+                "server_name": "S1Mongo",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "trading_id_start": 102001,
+                "trading_id_end": 103000,
+                "timezone": "Etc/GMT-2",
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300,
+                    400
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "email",
+                    "agent",
+                    "phone"
+                ],
+                "rest_api": {},
+                "manager_connect_status": false,
+                "platform": "MT5"
+            },
+            {
+                "id": "4asdas6z",
+                "server_name": "S2Mongo",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "trading_id_start": 102001,
+                "trading_id_end": 103000,
+                "timezone": "Etc/GMT-2",
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300,
+                    400
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "email",
+                    "agent",
+                    "phone"
+                ],
+                "use_rest_api": true,
+                "rest_api": {
+                    "server_hostname": "dev.broprimeasia.com",
+                    "server_port": 443,
+                    "manager_user": "1100"
+                },
+                "manager_connect_status": true,
+                "platform": "MT5"
+            },
+            {
+                "id": "itoeaibs",
+                "server_name": "MT5 Web API",
+                "custom_range": false,
+                "demo": true,
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "use_rest_api": true,
+                "rest_api": {
+                    "server_hostname": "dev.broprimeasia.com",
+                    "server_port": 443,
+                    "manager_user": "1100"
+                },
+                "manager_connect_status": true,
+                "platform": "MT5"
+            },
+            {
+                "id": "dbry1asj",
+                "server_name": "MT5 Web API 2",
+                "custom_range": false,
+                "demo": false,
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "use_rest_api": false,
+                "rest_api": {},
+                "manager_connect_status": false,
+                "platform": "MT5"
+            },
+            {
+                "id": "a4kmlfam",
+                "server_name": "MT5-DEV NEW",
+                "custom_range": false,
+                "timezone": "Etc/GMT-1",
+                "demo": false,
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    125,
+                    150,
+                    2000,
+                    1000
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [],
+                "send_reports": false,
+                "enable_expert_advisors": false,
+                "user_groups": [],
+                "use_rest_api": true,
+                "rest_api": {
+                    "server_hostname": "103.6.130.16",
+                    "server_port": 443,
+                    "manager_user": "10024"
+                },
+                "manager_connect_status": true,
+                "disable_trading_until_funded": false,
+                "platform": "MT5"
+            },
+            {
+                "id": "74mdksjs",
+                "server_name": "MTR1-1",
+                "manager_user": "20",
+                "currencies": [
+                    "USD"
+                ],
+                "timezone": "GMT",
+                "limit": 15,
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300,
+                    400,
+                    500,
+                    1000
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "platform": "MTR"
+            },
+            {
+                "id": "74mcgsjs",
+                "platform": "WTA",
+                "server_name": "WTA1-1",
+                "currencies": [
+                    "USD"
+                ],
+                "timezone": "GMT",
+                "limit": 15,
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "email",
+                    "phone",
+                    "agent"
+                ]
+            },
+            {
+                "id": "74mcgsjx",
+                "platform": "FORTEX",
+                "server_name": "fortex-live",
+                "currencies": [
+                    "USD"
+                ],
+                "timezone": "GMT",
+                "limit": 15,
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "min_leverage": 10,
+                "max_leverage": 60,
+                "asset_classes": [
+                    "fx",
+                    "metal",
+                    "stock"
+                ]
+            },
+            {
+                "id": "1sa59bxo",
+                "platform": "FORTEX",
+                "server_name": "fortex-test",
+                "custom_range": false,
+                "demo": true,
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "asset_classes": [
+                    "fx",
+                    "metal",
+                    "stock"
+                ]
+            },
+            {
+                "id": "1ijlvhv6",
+                "platform": "CTRADER",
+                "server_name": "cTrader",
+                "custom_range": false,
+                "demo": false,
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300,
+                    400,
+                    500,
+                    1000
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "allowed_account_type": 0,
+                "default_max_leverage": 1000
+            }
+        ]
+      '''
+    }
+  }
+}

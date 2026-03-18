@@ -1,0 +1,144 @@
+meta {
+  name: Get CTrader/Fortex/Sirix Trade Details
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/trade/trades/:id(\\d+)
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id(: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 CTrader
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 12724
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "order_id": "12724",
+            "trading_id": "3000618",
+            "type": 1,
+            "symbol": "USDCHF",
+            "volume": "1.00000000000000000000",
+            "stop_loss": null,
+            "take_profit": null,
+            "swaps": 0,
+            "open_time": "2025-11-13T03:43:59.104Z",
+            "close_time": "2025-11-13T03:44:06.476Z",
+            "close_price": "0.79875000000000000000",
+            "trading_fee": "110",
+            "profit": -2.35,
+            "group": "Default",
+            "trade_side": 1,
+            "is_precise_money": false,
+            "user_id": "deuonptq"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Fortex
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/:id
+    method: GET
+    mode: json
+    params:path: {
+      id: 498813
+    }
+  
+    headers: {
+      Content-Type: application/json
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "order_id": 498813,
+            "trading_id": "Q006",
+            "email": "trader-notify2@mail.com",
+            "action": 0,
+            "symbol": "NZD/USD",
+            "volume": "0.5000",
+            "stop_loss": 0,
+            "take_profit": 0,
+            "time": "2025-11-12T22:54:01.000Z",
+            "price": 0.56556,
+            "trading_fee": 0,
+            "position": 498807,
+            "swaps": 0,
+            "profit": -2,
+            "user_id": "5878i3lf"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Sirix
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 4735536684
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "order_id": 4735536684,
+            "trading_id": 13003524,
+            "email": "ste-bronze@163.com",
+            "cmd": 0,
+            "symbol": "EURCAD.",
+            "volume": "0.2000",
+            "stop_loss": 0,
+            "take_profit": 0,
+            "open_time": "2025-11-13T09:44:26.000Z",
+            "open_price": 1.62428,
+            "swaps": 0,
+            "close_time": "2025-11-13T09:50:49.000Z",
+            "close_price": 1.62462,
+            "trading_fee": 0,
+            "profit": 4.86,
+            "user_id": "62z8o2j9"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,42 @@
+meta {
+  name: IB Module Get User Summary
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/users/summary
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/users/summary
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "direct": 1,
+            "indirect": 3,
+            "time": 1762992000000
+        }
+      '''
+    }
+  }
+}

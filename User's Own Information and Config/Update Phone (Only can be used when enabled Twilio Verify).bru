@@ -1,0 +1,59 @@
+meta {
+  name: Update Phone (Only can be used when enabled Twilio Verify)
+  type: http
+  seq: 20
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/phone/update
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "phone":{
+          "country_code":"",
+          "number":""
+      },
+      "password":"",
+      "phone_code":""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/phone/update
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "phone":{
+              "country_code":"86",
+              "number":"123456"
+          },
+          "password":"123456",
+          "phone_code":"123456"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

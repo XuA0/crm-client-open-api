@@ -1,0 +1,70 @@
+meta {
+  name: Get KYC Form Groups
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form/kyc/collection
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form/kyc/collection
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "6399430521a9fcf301ead123",
+                "app_id": "kyc",
+                "id": "r55bkpd1",
+                "name": {
+                    "en-us": "KYC form1",
+                    "zh-cn": "KYC表单1",
+                    "zh-tw": "KYC表单1",
+                    "vi": "KYC表单1",
+                    "tr": "KYC表单1",
+                    "pt": "KYC表单1",
+                    "ko": "KYC表单1"
+                },
+                "order": 1,
+                "enable": true,
+                "is_deleted": true,
+                "type": "kyc"
+            },
+            {
+                "_id": "6397e7c88280e839024e6c8b",
+                "app_id": "kyc",
+                "id": "default1",
+                "name": {
+                    "en-us": "Default",
+                    "zh-cn": "默认表单",
+                    "zh-tw": "默认表单",
+                    "vi": "默认表单",
+                    "tr": "默认表单",
+                    "ko": "默认表单"
+                },
+                "order": 1,
+                "is_deleted": false,
+                "type": "kyc",
+                "enable": true
+            }
+        ]
+      '''
+    }
+  }
+}

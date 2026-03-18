@@ -1,0 +1,76 @@
+meta {
+  name: Get MT5 Trades Detail
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt5/trades/:id(//d+)?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id(: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/trades/:id?connection_id=p6t5xkbm
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: p6t5xkbm
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "order_id": 57990,
+            "trading_id": 110080,
+            "email": "yinzheng5519@gmail.com",
+            "action": 1,
+            "symbol": "CADCHF",
+            "volume": "1.0000",
+            "stop_loss": 0,
+            "take_profit": 0,
+            "time": "2025-11-13T05:34:31.000Z",
+            "price": 0.57036,
+            "trading_fee": 0,
+            "position": 12712,
+            "swaps": 0,
+            "profit": -21.28,
+            "user_id": "deuonptq"
+        }
+      '''
+    }
+  }
+}

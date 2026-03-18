@@ -1,0 +1,57 @@
+meta {
+  name: Get Sumsub Config
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/file/sumsub/setting
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/sumsub/setting
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "6440e94f6cfd47d3a8afcd04",
+                "type": "user",
+                "level": "V e r i f y @#$%",
+                "api_token": "**********",
+                "api_secret": "**********",
+                "notification_type": [
+                    "none"
+                ],
+                "force_list": null,
+                "form_configuration": null,
+                "is_enable": true,
+                "is_action_enable": false,
+                "action_level": null,
+                "action_required": null,
+                "action_withdrawal_config": null
+            }
+        ]
+      '''
+    }
+  }
+}

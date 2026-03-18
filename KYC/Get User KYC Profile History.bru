@@ -1,0 +1,348 @@
+meta {
+  name: Get User KYC Profile History
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/user/profiles?status=&start=2025-10-23T09:07:25.559Z&end=2025-10-23T09:07:25.559Z&skip=0&limit=0
+  body: none
+  auth: bearer
+}
+
+params:query {
+  status: 
+  start: 2025-10-23T09:07:25.559Z
+  end: 2025-10-23T09:07:25.559Z
+  skip: 0
+  limit: 0
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/user/profiles?skip=0&limit=10
+    method: GET
+    mode: none
+    params:query: {
+      skip: 0
+      limit: 10
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "profiles": [
+                {
+                    "user_id": "lifupiht",
+                    "form_id": "pwlt0q4e",
+                    "name": "John Livone",
+                    "nationality": "gh",
+                    "gender": "male",
+                    "date_of_birth": "2022-12-06",
+                    "identity_number": "35435345",
+                    "phone": {
+                        "number": "4543543",
+                        "country_code": "es"
+                    },
+                    "location": {
+                        "country": "ls",
+                        "state": "F",
+                        "city": "Mohale’s Hoek"
+                    },
+                    "identity_type": "ux23390a424x13c84x2",
+                    "identity_doc": [
+                        {
+                            "id": "u4uj",
+                            "name": "real_ID_card.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/identity_doc_u4uj"
+                        }
+                    ],
+                    "ux4520010cex10c3x3": [
+                        {}
+                    ],
+                    "uxb7ef4d1e8xd2c5x4": [
+                        {
+                            "uxb7f087fc7x14905x0": [],
+                            "uxb84d002cbxcfd5x2": [
+                                "uxb84ccc08dx1d39x0"
+                            ]
+                        }
+                    ],
+                    "status": "verified",
+                    "id": "ws6amokwi4yq",
+                    "address": "11111",
+                    "postal_code": "1111",
+                    "selfie_doc": [
+                        {
+                            "id": "fauh",
+                            "name": "logo.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/du8y3ozc/selfie_doc_fauh"
+                        }
+                    ],
+                    "submitted_at": "2025-03-10 08:27:59",
+                    "alt_identity_doc": [
+                        {
+                            "id": "b2yr",
+                            "name": "real_ID_card_back_side.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/alt_identity_doc_b2yr"
+                        }
+                    ],
+                    "ip": "103.135.102.188",
+                    "language": "zh-cn",
+                    "user_type": "ib",
+                    "flow": {
+                        "_id": "6331486d997905c5d157a9ef",
+                        "type": "kyc",
+                        "steps": [
+                            {
+                                "admin_ids": [],
+                                "admin_names": [],
+                                "admin_role_names": [],
+                                "admin_roles": []
+                            }
+                        ],
+                        "version": 12,
+                        "prev_id": "63229aa571760edd9eb38415",
+                        "enable": true,
+                        "timestamp": 1664174189422,
+                        "created_by": "3ajcp3ys",
+                        "created_name": "Darcy",
+                        "created_at": "2022-09-26 06:36:29",
+                        "current": 0,
+                        "pending": {
+                            "admin_ids": [],
+                            "admin_names": [],
+                            "admin_role_names": [],
+                            "admin_roles": []
+                        },
+                        "process": []
+                    },
+                    "type": "kyc",
+                    "created_by": "open-account-form6",
+                    "auto": false
+                },
+                {
+                    "user_id": "lifupiht",
+                    "form_id": "pwlt0q4e",
+                    "name": "John Livone",
+                    "nationality": "gh",
+                    "gender": "male",
+                    "date_of_birth": "2022-12-06",
+                    "identity_number": "35435345",
+                    "phone": {
+                        "number": "4543543",
+                        "country_code": "es"
+                    },
+                    "location": {
+                        "country": "ls",
+                        "state": "F",
+                        "city": "Mohale’s Hoek"
+                    },
+                    "identity_type": "ux23390a424x13c84x2",
+                    "identity_doc": [
+                        {
+                            "id": "u4uj",
+                            "name": "real_ID_card.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/identity_doc_u4uj"
+                        }
+                    ],
+                    "ux4520010cex10c3x3": [
+                        {}
+                    ],
+                    "uxb7ef4d1e8xd2c5x4": [
+                        {
+                            "uxb7f087fc7x14905x0": [],
+                            "uxb84d002cbxcfd5x2": [
+                                "uxb84ccc08dx1d39x0"
+                            ]
+                        }
+                    ],
+                    "status": "rejected",
+                    "id": "uk694wq0zm6m",
+                    "address": "11111",
+                    "postal_code": "1111",
+                    "selfie_doc": [
+                        {
+                            "id": "fauh",
+                            "name": "logo.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/du8y3ozc/selfie_doc_fauh"
+                        }
+                    ],
+                    "submitted_at": "2025-02-26 10:20:52",
+                    "alt_identity_doc": [
+                        {
+                            "id": "b2yr",
+                            "name": "real_ID_card_back_side.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/alt_identity_doc_b2yr"
+                        }
+                    ],
+                    "review_time": "2025-03-04 09:52:53"
+                },
+                {
+                    "user_id": "lifupiht",
+                    "form_id": "pwlt0q4e",
+                    "name": "open-account-form6",
+                    "nationality": "gh",
+                    "gender": "male",
+                    "date_of_birth": "2022-12-06",
+                    "identity_number": "35435345",
+                    "phone": {
+                        "number": "4543543",
+                        "country_code": "es"
+                    },
+                    "location": {
+                        "country": "ls",
+                        "state": "F",
+                        "city": "Mohale’s Hoek"
+                    },
+                    "identity_type": "ux23390a424x13c84x2",
+                    "identity_doc": [
+                        {
+                            "id": "u4uj",
+                            "name": "real_ID_card.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/identity_doc_u4uj"
+                        }
+                    ],
+                    "ux4520010cex10c3x3": [
+                        {}
+                    ],
+                    "uxb7ef4d1e8xd2c5x4": [
+                        {
+                            "uxb7f087fc7x14905x0": [],
+                            "uxb84d002cbxcfd5x2": [
+                                "uxb84ccc08dx1d39x0"
+                            ]
+                        }
+                    ],
+                    "status": "rejected",
+                    "id": "5m7dfcu59wej",
+                    "address": "11111",
+                    "postal_code": "1111",
+                    "selfie_doc": [
+                        {
+                            "id": "fauh",
+                            "name": "logo.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/du8y3ozc/selfie_doc_fauh"
+                        }
+                    ],
+                    "submitted_at": "2025-02-26 09:35:14",
+                    "alt_identity_doc": [
+                        {
+                            "id": "qh6i",
+                            "name": "real_ID_card_back_side.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/alt_identity_doc_qh6i"
+                        }
+                    ],
+                    "review_time": "2025-02-26 09:36:36"
+                },
+                {
+                    "user_id": "lifupiht",
+                    "form_id": "du8y3ozc",
+                    "name": "open-account-form6",
+                    "nationality": "gh",
+                    "gender": "male",
+                    "date_of_birth": "2022-12-06",
+                    "identity_number": "35435345",
+                    "phone": {
+                        "number": "4543543",
+                        "country_code": "es"
+                    },
+                    "location": {
+                        "country": "ls",
+                        "state": "F",
+                        "city": "Mohale’s Hoek"
+                    },
+                    "identity_type": "ux23390a424x13c84x2",
+                    "identity_doc": [
+                        {
+                            "id": "g9kh",
+                            "name": "111.jpg",
+                            "doc": "apps/user/kyc/follow/1670577948841-2ef45c"
+                        }
+                    ],
+                    "ux4520010cex10c3x3": [
+                        {}
+                    ],
+                    "uxb7ef4d1e8xd2c5x4": [
+                        {
+                            "uxb7f087fc7x14905x0": [],
+                            "uxb84d002cbxcfd5x2": [
+                                "uxb84ccc08dx1d39x0"
+                            ]
+                        }
+                    ],
+                    "status": "rejected",
+                    "id": "9mxt7aw0cv3r",
+                    "address": "11111",
+                    "postal_code": "1111",
+                    "selfie_doc": [
+                        {
+                            "id": "fauh",
+                            "name": "logo.png",
+                            "doc": "apps/kyc/users/lifupiht/forms/du8y3ozc/selfie_doc_fauh"
+                        }
+                    ],
+                    "submitted_at": "2025-02-25 08:31:30",
+                    "review_time": "2025-02-25 09:09:18"
+                },
+                {
+                    "user_id": "lifupiht",
+                    "form_id": "p3q4vxi2",
+                    "name": "open-account-form6",
+                    "nationality": "gh",
+                    "gender": "ux215d4dda9x2133x3",
+                    "date_of_birth": "2022-12-06",
+                    "identity_number": "35435345",
+                    "phone": {
+                        "number": "4543543",
+                        "country_code": "es"
+                    },
+                    "location": {
+                        "country": "ls",
+                        "state": "F",
+                        "city": "Mohale’s Hoek"
+                    },
+                    "identity_type": "ux23390a424x13c84x2",
+                    "identity_doc": [
+                        {
+                            "id": "g9kh",
+                            "name": "111.jpg",
+                            "doc": "apps/user/kyc/follow/1670577948841-2ef45c"
+                        }
+                    ],
+                    "ux4520010cex10c3x3": [
+                        {
+                            "uxb3cf1c2e5x179a2x3": []
+                        }
+                    ],
+                    "uxb7ef4d1e8xd2c5x4": [
+                        {
+                            "uxb7f087fc7x14905x0": [],
+                            "uxb84d002cbxcfd5x2": [
+                                "uxb84ccc08dx1d39x0"
+                            ]
+                        }
+                    ],
+                    "status": "obsolete",
+                    "id": "lvlenx6x5s5r"
+                }
+            ],
+            "count": 5
+        }
+      '''
+    }
+  }
+}

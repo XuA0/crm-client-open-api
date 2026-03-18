@@ -1,0 +1,122 @@
+meta {
+  name: Get Competition Leaderboard
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/:id/leaderboard?skip=0&limit=100
+  body: none
+  auth: inherit
+}
+
+params:query {
+  skip: 0
+  limit: 100
+}
+
+params:path {
+  id: string
+}
+
+headers {
+  Accept: */*
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/:id/leaderboard?skip=0&limit=100
+    method: GET
+    mode: none
+    params:query: {
+      skip: 0
+      limit: 100
+    }
+  
+    params:path: {
+      id: string
+    }
+  
+    headers: {
+      Accept: */*
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: */*
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "contents": [
+            {
+              "platform": "string",
+              "suspend": true,
+              "prize": 717.8465405901258,
+              "connection_id": "string",
+              "competition_id": "string",
+              "trading_id": 5986,
+              "initial_balance": 9182.04879294778,
+              "deposit_during_campaign": 842.7573331112726,
+              "end_balance": 246.46181559270676,
+              "profit_percent": 2658.1248407585113,
+              "registration_fee": 4179,
+              "registration_type": "string",
+              "payment_total": 5227.1742687295555,
+              "payment_method": "string",
+              "prize_status": "string",
+              "prize_time": 7664,
+              "trading_volume": 5702.257994009849,
+              "fail_reason": "string",
+              "user_id": "string",
+              "user_name": "string",
+              "prize_currency": "string",
+              "payment_currency": "string",
+              "method_id": "string"
+            },
+            {
+              "platform": "string",
+              "suspend": true,
+              "prize": 7066.48772879922,
+              "connection_id": "string",
+              "competition_id": "string",
+              "trading_id": 8768,
+              "initial_balance": 1002.1517163144144,
+              "deposit_during_campaign": 7624.164108807917,
+              "end_balance": 7652.909600694262,
+              "profit_percent": 268.8192329753869,
+              "registration_fee": 8754,
+              "registration_type": "string",
+              "payment_total": 5991.886074917849,
+              "payment_method": "string",
+              "prize_status": "string",
+              "prize_time": 3076,
+              "trading_volume": 8230.849309670362,
+              "fail_reason": "string",
+              "user_id": "string",
+              "user_name": "string",
+              "prize_currency": "string",
+              "payment_currency": "string",
+              "method_id": "string"
+            }
+          ],
+          "count": 2759
+        }
+      '''
+    }
+  }
+}

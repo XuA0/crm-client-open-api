@@ -1,0 +1,133 @@
+meta {
+  name: Get Prop Trading User by Request ID
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/users/:init_request_id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  init_request_id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/users/:init_request_id
+    method: GET
+    mode: none
+    params:path: {
+      init_request_id: 11eblw6k
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "_id": {
+                "init_request_id": "al4la4ev"
+            },
+            "init_request_id": "al4la4ev",
+            "user_id": "1ut4zjqv",
+            "prop_trading_id": "jzy7qjhn",
+            "package_id": "hloqkqzo",
+            "steps": [
+                {
+                    "trading_id": 1318,
+                    "platform": "mt5",
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "a4ovoup8",
+                        "platform": "mt5",
+                        "group": "demo\\BBQANET",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "current": true,
+                    "connection_id": "a4ovoup8",
+                    "max_daily_loss": 358.83,
+                    "max_loss": 625.61,
+                    "equity": 7005.88,
+                    "profit_target": -1,
+                    "status": "failed",
+                    "volume": 0,
+                    "trading_days": 1,
+                    "start_time": 1757665355941,
+                    "active_timestamp": 1757665355917,
+                    "end_time": 1758038430835,
+                    "retry_counts": 0,
+                    "allow_retry": true,
+                    "period": 5,
+                    "send_time": 1758038414123
+                }
+            ],
+            "status": "failed",
+            "created_at": 1757665355941,
+            "user_name": "Shamina"
+        }
+      '''
+    }
+  }
+}

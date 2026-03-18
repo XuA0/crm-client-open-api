@@ -1,0 +1,94 @@
+meta {
+  name: Update User's Search Configurations
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/user/search/config
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "id": "",
+    "type": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": ""
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/user/search/config
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "type": "mine-report-pending-orders-MT4",
+          "searches": [
+              {
+                  "field": "cmd",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_price",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "opt": "EQ"
+              }
+          ]
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

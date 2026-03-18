@@ -1,0 +1,60 @@
+meta {
+  name: Get Referrals Nationality Distribution
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/dashboard/referrer/nationality
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+      "from": "2025-10-01 00:00:00",
+      "to": "2025-11-01 00:00:00",
+      "origin": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/dashboard/referrer/nationality
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "from": "2025-10-01 00:00:00",
+          "to": "2025-11-01 00:00:00",
+          "origin": ""
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "count": 1,
+                "nationality": "af",
+                "lat": "33.00000000",
+                "lng": "65.00000000"
+            }
+        ]
+      '''
+    }
+  }
+}

@@ -1,0 +1,127 @@
+meta {
+  name: Get Ticket List
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/private/api/v1/ticket/client/page
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+  Accept: */*
+}
+
+body:json {
+  {
+    "skip": 0,
+    "limit": 100,
+    "sortBy": "string",
+    "direction": "ASC",
+    "scene": "CLOSED",
+    "key": "",
+    "status": [
+      "CREATED", "PROCESSING"
+    ],
+    "start": 1761014425000,
+    "end": 1761705625000,
+    "replied": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/ticket/client/page
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+      Accept: */*
+    }
+  
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: */*
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "contents": [
+            {
+              "error": true,
+              "createTime": 2799,
+              "createUserId": "string",
+              "createUserName": "string",
+              "modifyTime": 1728,
+              "modifyUserId": "string",
+              "id": "string",
+              "number": "string",
+              "subject": "string",
+              "content": "string",
+              "status": "PROCESSING",
+              "handlerId": "string",
+              "handlerName": "string",
+              "owner": "string",
+              "groupId": "string",
+              "groupName": {
+                "key_0": "string"
+              },
+              "replied": false,
+              "read": false,
+              "lastTime": 7830
+            },
+            {
+              "error": false,
+              "createTime": 5584,
+              "createUserId": "string",
+              "createUserName": "string",
+              "modifyTime": 4036,
+              "modifyUserId": "string",
+              "id": "string",
+              "number": "string",
+              "subject": "string",
+              "content": "string",
+              "status": "CREATED",
+              "handlerId": "string",
+              "handlerName": "string",
+              "owner": "string",
+              "groupId": "string",
+              "groupName": {
+                "key_0": "string",
+                "key_1": "string"
+              },
+              "replied": false,
+              "read": false,
+              "lastTime": 8370
+            }
+          ],
+          "count": 6676
+        }
+      '''
+    }
+  }
+}

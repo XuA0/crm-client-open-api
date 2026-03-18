@@ -1,0 +1,66 @@
+meta {
+  name: Referrals
+  seq: 12
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  #### Example Work Flow
+  
+  ##### Get Downline Details
+  
+  1. Get User Rank【Search Field: referrals_clients_tier】
+      
+  
+  <img src="https://content.pstmn.io/15302539-0019-44b9-b8a3-59061541fecb/aW1hZ2UucG5n" width="626" height="141">
+  
+  2\. Get Referrers 【Search Field: referrer_id】【type: 'my_clients'】
+  
+  <img src="https://content.pstmn.io/4b2d1d75-ac0e-49e9-8097-277e19a1219f/aW1hZ2UucG5n" width="646" height="385">
+  
+  ##### Get Flexible Commissions / Fixed Commissions
+  
+  1. Get Connection【Search Field: trading_platform/rebate_platform】
+      
+  
+  trading_platform：Supported values include connection IDs.
+  
+  rebate_platform：Supported values include connection IDs and `wallet`.
+  
+  <img src="https://content.pstmn.io/95d0deef-a54a-4b57-8ead-57c4011d0112/aW1hZ2UucG5n" width="793" height="258">
+  
+  2\. Ger Traders【Search Field: trader_client_portal】【type: 'my_clients】
+  
+  <img src="https://content.pstmn.io/e0668beb-01d2-498d-8e46-321e15f9c6c9/aW1hZ2UucG5n" width="854" height="423">
+  
+  3\. Get Symbols【Search Field: symbol】
+  
+  <img src="https://content.pstmn.io/2805f96a-b734-4a78-a9f9-00a492a579df/aW1hZ2UucG5n" width="522" height="251">
+  
+  4.Get Referrers 【Search Field: receiver】
+  
+  <img src="https://content.pstmn.io/3fbf88f0-ea0a-4c87-90cc-fda0f8de61fa/aW1hZ2UucG5n" width="726" height="358">
+  
+  ##### Get Request History \[account / leverage / deposit / transfer / withdrawal\]
+  
+  1. Get Connection
+      
+  
+  transfer:【Search Field: source_platform / target_platform】
+  
+  withdrawal:【Search Field: trading_platform】
+  
+  others:【Search Field: server_name】
+  
+  <img src="https://content.pstmn.io/95d0deef-a54a-4b57-8ead-57c4011d0112/aW1hZ2UucG5n" width="793" height="258">
+  
+  ##### Get Request History \[prop_trading / prop_trading_live_step\]
+  
+  1. Get Referrers 【Search Field: referrer_id】【type: 'my_clients'】
+      
+  
+  <img src="https://content.pstmn.io/4b2d1d75-ac0e-49e9-8097-277e19a1219f/aW1hZ2UucG5n" width="646" height="385">
+}

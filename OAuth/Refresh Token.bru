@@ -1,0 +1,103 @@
+meta {
+  name: Refresh Token
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/oauth/token
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "grant_type": "refresh_token",
+      "refresh_token": ""
+  }
+}
+
+script:post-response {
+  if (res.getStatus() === 200) {
+      const jsonData = res.getBody();
+      
+      // Safely extract tokens
+      const accessToken = jsonData.access_token;
+      const refreshToken = jsonData.refresh_token;
+  
+      // Validate existence before setting
+      if (accessToken) {
+          bru.setVar("AUTH_TOKEN", accessToken);
+          console.log("✅ AUTH_TOKEN updated in collection variables.");
+      } else {
+          console.warn("⚠️ No access_token found in response.");
+      }
+  
+      if (refreshToken) {
+          bru.setVar("REFRESH_TOKEN", refreshToken);
+          console.log("✅ REFRESH_TOKEN updated in collection variables.");
+      } else {
+          console.warn("⚠️ No refresh_token found in response.");
+      }
+  
+  } else {
+      console.error(`❌ Token request failed with status: ${res.getStatus()}`);
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/token
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "grant_type": "refresh_token",
+          "refresh_token": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Mon, 24 Nov 2025 07:29:07 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"2cb-HGrxOleqzplBb89fHa24o7JbGks"
+      x-envoy-upstream-service-time: 116
+      server: cloudflare
+      cf-cache-status: DYNAMIC
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bjupDkmiVZC%2BOXIjoEKyvjRyeDnzwMi6w7lcRN2%2B6dsDvgRdtnYksrUVZq%2Fr3ytp5tp36%2FQ%2FUAueS%2Fmw6u0qKRRjgt8qC%2F0%2B4B5zYiTEupt7H4U2oOuP8g4Y"}]}
+      Content-Encoding: br
+      CF-RAY: 9a37318798e4fe1b-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "access_token": "",
+            "token_type": "Bearer",
+            "expires_in": 3600,
+            "refresh_token": ""
+        }
+      '''
+    }
+  }
+}

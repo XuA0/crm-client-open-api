@@ -1,0 +1,42 @@
+meta {
+  name: IB Module Get Purchase Summary
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/purchased/summary
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/purchased/summary
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "direct": 6,
+            "indirect": 41,
+            "time": 1762992000000
+        }
+      '''
+    }
+  }
+}

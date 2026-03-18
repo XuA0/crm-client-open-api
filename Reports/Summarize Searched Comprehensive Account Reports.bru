@@ -1,0 +1,1056 @@
+meta {
+  name: Summarize Searched Comprehensive Account Reports
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/statistics/reports/capital/sum
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "range": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "connection_id": "",
+    "orders": {},
+    "start": "2025-10-23T09:07:25.559Z",
+    "end": "2025-10-23T09:07:25.559Z",
+    "skip": 0,
+    "limit": 0,
+    "search_type": "",
+    "mine": true,
+    "trading_id": "",
+    "last": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: MT4
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/reports/capital/sum
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "mine":true,
+          "connection_id": "bigc8liz",
+          "searches": [
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (if type === "customer")
+                      "start_depth": 1 // 0 | 1 (if type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_capital_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "login",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "BTC",
+                      "CHF"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "deposit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_num",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_deposit_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_open_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_equity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_equity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_equity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_deposit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_credit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_total", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_type",
+                  "value": [
+                      "ib",
+                      "trader"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_profit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "last": false,
+          "start": "2026-02-01 00:00:00",
+          "end": "2026-02-01 23:59:59",
+          "key": "account id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "USD",
+                "withdrawal_sum": 0,
+                "deposit_sum": 0,
+                "commission_sum": 0,
+                "swaps_sum": 0,
+                "profit_sum": 0,
+                "order_sum": 0,
+                "close_sum": 0,
+                "open_sum": 0,
+                "first_sum": 300000102508.4,
+                "end_sum": 300000102508.4,
+                "first_equity_sum": 300000102508.4,
+                "end_equity_sum": 300000102508.4,
+                "net_deposit_sum": 0,
+                "net_equity_sum": 0,
+                "net_profit_sum": 0,
+                "currency": "USD"
+            },
+            {
+                "_id": "EUR",
+                "withdrawal_sum": 0,
+                "deposit_sum": 0,
+                "commission_sum": 0,
+                "swaps_sum": 0,
+                "profit_sum": 0,
+                "order_sum": 0,
+                "close_sum": 0,
+                "open_sum": 0,
+                "first_sum": 5000,
+                "end_sum": 5000,
+                "first_equity_sum": 5000,
+                "end_equity_sum": 5000,
+                "net_deposit_sum": 0,
+                "net_equity_sum": 0,
+                "net_profit_sum": 0,
+                "currency": "EUR"
+            }
+        ]
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/reports/capital/sum
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "mine":true,
+          "connection_id": "2asdas1z",
+          "searches": [
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (if type === "customer")
+                      "start_depth": 1 // 0 | 1 (if type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_capital_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "login",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "BTC",
+                      "USD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "deposit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_num",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_deposit_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_open_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_equity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_equity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_equity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_deposit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_credit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_total", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_type",
+                  "value": [
+                      "ib",
+                      "trader"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "net_profit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "last": false,
+          "start": "2026-02-01 00:00:00",
+          "end": "2026-02-01 23:59:59",
+          "key": "account id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/reports/capital/sum
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "mine":true,
+          "connection_id": "1ijlvhv6",
+          "searches": [
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (if type === "customer")
+                      "start_depth": 1 // 0 | 1 (if type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_capital_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "login",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "BTC",
+                      "USD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "deposit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_num",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_deposit_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_open_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "last": false,
+          "start": "2026-02-01 00:00:00",
+          "end": "2026-02-01 23:59:59",
+          "key": "account id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/reports/capital/sum
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "mine":true,
+          "connection_id": "74mcgsjx",
+          "searches": [
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (if type === "customer")
+                      "start_depth": 1 // 0 | 1 (if type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_capital_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "BTC",
+                      "JPY"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "deposit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_num",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_deposit_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_open_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "last": false,
+          "start": "2026-02-01 00:00:00",
+          "end": "2026-02-01 23:59:59",
+          "key": "account id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/reports/capital/sum
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "mine":true,
+          "connection_id": "74mcgsjs",
+          "searches": [
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (if type === "customer")
+                      "start_depth": 1 // 0 | 1 (if type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_capital_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "login",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "USC",
+                      "JPY"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "deposit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_num",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_deposit_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_open_time",
+                  "value": {
+                      "start": "2026-02-02 00:00:00",
+                      "end": "2026-02-02 23:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "first_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "end_total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "last": false,
+          "start": "2026-02-01 00:00:00",
+          "end": "2026-02-01 23:59:59",
+          "key": "account id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

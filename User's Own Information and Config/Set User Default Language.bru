@@ -1,0 +1,45 @@
+meta {
+  name: Set User Default Language
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/language
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "language": "en-us" // "en-us", "zh-cn", "zh-tw", "vi", "ja", "th", "id", "de", "es", "pt", "tr", "ko", "kur-ckb", "kur-kmr", "ar", "fa", "ms"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/language
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "language": "en-us"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

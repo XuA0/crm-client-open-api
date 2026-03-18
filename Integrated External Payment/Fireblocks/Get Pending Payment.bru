@@ -1,0 +1,96 @@
+meta {
+  name: Get Pending Payment
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/getPendingPayments?payment_currency=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  payment_currency: 
+}
+
+params:path {
+  type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/getPendingPayments?payment_currency=USD
+    method: GET
+    mode: none
+    params:query: {
+      payment_currency: USD
+    }
+  
+    params:path: {
+      type: fireblocks
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "_id": "6915407c663178536196f156",
+            "app_id": "testing",
+            "id": "ouljtjbtd87vrc5f",
+            "user_id": "twnpwxyh",
+            "pay_status": "pending",
+            "channel_id": "wkpgvem5",
+            "trading_currency": "USD",
+            "trading_amount": "3438287.41",
+            "rate": 0.000290842469,
+            "payment_platform": "fireblocks",
+            "payment_method": "Fireblocks-V2",
+            "payment_currency": "Ethereum Test (Sepolia)",
+            "payment_total": "1000",
+            "payment_fee": 0,
+            "fee": 0,
+            "method_id": "de00632j",
+            "request_type": "deposit",
+            "form_data": {
+                "form_id": "ejksyiz4",
+                "client_ip": "171.213.158.76",
+                "user_agent": "axios/1.13.2"
+            },
+            "create_timestamp": 1763000444766,
+            "trading_platform": "ctrader",
+            "trading_connection_id": "aqol66lk",
+            "trading_id": "3000721",
+            "ip": "13.214.73.215",
+            "user_name": "Lin",
+            "user_type": "trader",
+            "language": "zh-cn",
+            "wallet_address": {
+                "assetId": "ETH_TEST5",
+                "address": "0xEf68a8722B8b72E57d3EE387188015D4DCcC9807",
+                "tag": "",
+                "description": "",
+                "type": "Permanent",
+                "legacyAddress": "",
+                "enterpriseAddress": "",
+                "bip44AddressIndex": 0,
+                "userDefined": false
+            },
+            "payment_display_currency": "Ethereum Test (Sepolia)"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,37 @@
+meta {
+  name: POST /private/v1/mtr/trades/search
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mtr/trades/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

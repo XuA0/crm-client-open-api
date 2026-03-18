@@ -1,0 +1,71 @@
+meta {
+  name: Deposits
+  seq: 16
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  # Deposit
+  
+  ## 1\. Get All Payment Methods
+  
+  <img src="https://content.pstmn.io/b2a7a7a4-1305-4a0e-9a6e-a7a063adf0a7/aW1hZ2UucG5n">
+  
+  ## 2\. Get Payment Form By Payment Method ID
+  
+  <img src="https://content.pstmn.io/dd72859e-6b93-4c88-952a-02811232d210/Mi5wbmc=">
+  
+  ## 3\. Check Has Pending Payment Order (Only for fireblocks)
+  
+  <img src="https://content.pstmn.io/2f4c0f84-863e-4db6-b37a-f62e7fbf9378/My5wbmc=">
+  
+  **If the pending payment order returns not null, show** **`wallet_address.address`** **for the user until the order is expired or the user cancels the order.**
+  
+  ## 4\. Get Currencies
+  
+  <img src="https://content.pstmn.io/d98b3fd5-f76b-48a8-96b4-4ba31de2e473/NC5wbmc=">
+  
+  ## 5\. Get Exchange Rate
+  
+  <img src="https://content.pstmn.io/6e97a36e-d058-4acb-93ce-89ebcafa5140/Ni5wbmc=">
+  
+  ## 6\. Get Fireblocks Deposit Wallet Address (Create Pending Payment Order)
+  
+  <img src="https://content.pstmn.io/bf7a7942-2b8f-437b-915d-c6cd6a0b3f58/aW1hZ2UucG5n" width="1774" height="782">
+  
+  ``` json
+  {
+      "method_id": "de00632j",    // payment method id
+      "payment_currency": "Ethereum Test (Sepolia)",   // payment currency
+      "trading_currency": "USD",   // deposit currency
+      "trading_platform": "mt4",   // deposit platform (List of value:[mt4,mt5,mtr,wta,ctrader,fortex])
+      "trading_connection_id": "u5mzgkch",// deposit connection id
+      "trading_id": 30935,   // deposit trading account 
+      "trading_amount": "30275.32",  // deposit amount 
+      "payment_total": "10",  // payment amount
+      "payment_fee": "0",   // payment fee
+      "request_type": "deposit",   // request type (deposit)
+      "convert_way": "P2T", // input Payment Amount to calculate Deposit Amount (for backend check rate)
+      "form_data": {
+          "form_id": "ejksyiz4"  // deposit method's form id
+      }
+  }
+  
+   ```
+  
+  1. When you deposit to wallet, there is no need to pass `trading_platform`, `trading_connection_id`, and `trading_id`.
+      
+  2. When you use Fireblocks to deposit, `convert_way` must be `P2T`. And you need to calculate `trading_amount` by `payment_total` with the exchange rate.
+      
+  
+  ## 7\. Get PSP Payment Url
+  
+  <img src="https://content.pstmn.io/4e6700c9-3ba4-46b9-afa4-20c1dee699af/aW1hZ2UucG5n" width="924" height="494">
+  
+  1. When you deposit to wallet, there is no need to pass `trading_platform`, `trading_connection_id`, and `trading_id`.
+      
+  2. When you use Fireblocks to deposit, `convert_way` must be `P2T`. And you need to calculate `trading_amount` by `payment_total` with the exchange rate.
+}

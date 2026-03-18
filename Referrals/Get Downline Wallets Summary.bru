@@ -1,0 +1,170 @@
+meta {
+  name: Get Downline Wallets Summary
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/wallets/search/summary
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/wallets/search/summary
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "searches": [
+              {
+                  "field": "id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "BTC",
+                      "CHF",
+                      "USD",
+                      "JPY",
+                      "USC"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "balance",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "pending_withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "name/wallet id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "statistics": [
+                {
+                    "sum_currency": "BTC",
+                    "sum_balance": "100000.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "100000.00000000"
+                },
+                {
+                    "sum_currency": "CHF",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                },
+                {
+                    "sum_currency": "ETH",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                },
+                {
+                    "sum_currency": "EUR",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                },
+                {
+                    "sum_currency": "EUR.i",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                },
+                {
+                    "sum_currency": "GBP",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                },
+                {
+                    "sum_currency": "JPY",
+                    "sum_balance": "1000270.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "1000270.00000000"
+                },
+                {
+                    "sum_currency": "USC",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                },
+                {
+                    "sum_currency": "USD",
+                    "sum_balance": "311.20000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "311.20000000"
+                },
+                {
+                    "sum_currency": "USDT",
+                    "sum_balance": "0.00000000",
+                    "sum_pending_withdrawal": "0.00000000",
+                    "sum_available_balance": "0.00000000"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

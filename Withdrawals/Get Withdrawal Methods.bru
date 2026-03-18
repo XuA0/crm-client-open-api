@@ -1,0 +1,438 @@
+meta {
+  name: Get Withdrawal Methods
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/withdrawals/methods
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/methods
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "2c586y41",
+                "channel": "ldpkowuo",
+                "platform": "match2pay",
+                "label": {
+                    "zh-cn": "match2pay",
+                    "en-us": "match2pay",
+                    "zh-tw": "match2pay",
+                    "tr": "match2pay",
+                    "ko": "match2pay",
+                    "vi": "match2pay",
+                    "ja": "match2pay"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "currencies": [
+                    {
+                        "code": "BTC",
+                        "min_withdrawal": "10",
+                        "fee": 1,
+                        "decimals": 2,
+                        "name": "match2pay BTC"
+                    }
+                ],
+                "name": "match2pay"
+            },
+            {
+                "id": "70oge7d5",
+                "channel": "de4vkv94",
+                "platform": "cryptoOrange",
+                "label": {
+                    "zh-cn": "CryptoOrange",
+                    "en-us": "CryptoOrange",
+                    "zh-tw": "CryptoOrange",
+                    "kur-ckb": "CryptoOrange"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "currencies": [
+                    {
+                        "code": "BTC",
+                        "min_withdrawal": "0",
+                        "fee": 0,
+                        "decimals": 2,
+                        "name": "match2pay BTC"
+                    }
+                ],
+                "name": "CryptoOrange"
+            },
+            {
+                "id": "kiyhm3qb",
+                "channel": "i4v1fcyj",
+                "platform": "fireblocks",
+                "label": {
+                    "zh-cn": "Fireblocks-1",
+                    "en-us": "Fireblocks-1",
+                    "ar": "Fireblocks-1"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "currencies": [
+                    {
+                        "code": "Bitcoin Test",
+                        "fireblocks_currency_id": "BTC_TEST",
+                        "min_withdrawal": "0",
+                        "fee": 1,
+                        "decimals": 8,
+                        "name": "Bitcoin Test"
+                    }
+                ],
+                "name": "Fireblocks-1"
+            },
+            {
+                "id": "4b834f2x",
+                "channel": "ccxb982u",
+                "platform": "luqapay",
+                "label": {
+                    "zh-cn": "Luqapay002",
+                    "en-us": "Luqapay002",
+                    "fa": "Luqapay002"
+                },
+                "currencies": [
+                    {
+                        "code": "JPY",
+                        "min_withdrawal": "0",
+                        "fee": 10,
+                        "decimals": 0,
+                        "name": "JPY"
+                    }
+                ],
+                "name": "Luqapay002",
+                "users": [],
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ]
+            },
+            {
+                "id": "cdfx1hcq",
+                "channel": "other",
+                "platform": "other",
+                "label": {
+                    "zh-cn": "New Form",
+                    "en-us": "New Form",
+                    "fa": "New Form"
+                },
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "min_withdrawal": "0",
+                        "fee": 0,
+                        "decimals": 2,
+                        "name": "USD"
+                    }
+                ],
+                "name": "New Form",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ]
+            },
+            {
+                "id": "ua6wfbtj",
+                "name": "人民币",
+                "label": {
+                    "en-us": "CNY",
+                    "zh-tw": "Name",
+                    "zh-cn": "人民币"
+                },
+                "currencies": [
+                    {
+                        "code": "KRW",
+                        "min_withdrawal": "1",
+                        "fee": 0,
+                        "decimals": 2,
+                        "name": "KRW"
+                    },
+                    {
+                        "code": "CNY",
+                        "min_withdrawal": "1",
+                        "max_withdrawal": "10000",
+                        "fee": 0,
+                        "max_fee": "10",
+                        "decimals": 2,
+                        "name": "CNY"
+                    }
+                ],
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "p10bzvme",
+                    "6baahm8p"
+                ],
+                "order": 1,
+                "updated_at": 1647487042990,
+                "updated_by": "il4oi1sb",
+                "channel": "other",
+                "platform": "other",
+                "external_rate_id": "i5c3fxle",
+                "use_external_rate": true
+            },
+            {
+                "id": "dkyhsfuj",
+                "name": "USD",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "min_withdrawal": "0",
+                        "max_withdrawal": "1000000",
+                        "fee": 1,
+                        "max_fee": "20",
+                        "decimals": 2,
+                        "name": "USD"
+                    }
+                ],
+                "label": {
+                    "en-us": "USD Withdrawal",
+                    "zh-cn": "美元",
+                    "ja": "USD",
+                    "zh-tw": "USD",
+                    "vi": "USD",
+                    "th": "USD"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "order": 2,
+                "updated_at": 1647487042990,
+                "updated_by": "il4oi1sb",
+                "channel": "other",
+                "platform": "other"
+            }
+        ]
+      '''
+    }
+  }
+}

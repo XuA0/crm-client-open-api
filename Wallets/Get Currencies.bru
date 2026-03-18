@@ -1,0 +1,129 @@
+meta {
+  name: Get Currencies
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/currencies
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/currencies
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "ns6i1jav",
+                "name": "BTC",
+                "code": "BTC",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 8
+            },
+            {
+                "id": "tc30n070",
+                "name": "CHF",
+                "code": "CHF",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 2
+            },
+            {
+                "id": "3bhbryfo",
+                "name": "ETH",
+                "code": "ETH",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 8
+            },
+            {
+                "id": "30auxh8s",
+                "name": "EUR",
+                "code": "EUR",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 2
+            },
+            {
+                "id": "xxsrl4f9",
+                "name": "EUR.i",
+                "code": "EUR.i",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 2
+            },
+            {
+                "id": "k8ylgoa1",
+                "name": "GBP",
+                "code": "GBP",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 2
+            },
+            {
+                "id": "vn28fo8r",
+                "name": "JPY",
+                "code": "JPY",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 0
+            },
+            {
+                "id": "anwq4gpw",
+                "name": "USC",
+                "code": "USC",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 2
+            },
+            {
+                "id": "2xml0ui3",
+                "name": "USD",
+                "code": "USD",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 2
+            },
+            {
+                "id": "piq21pei",
+                "name": "USDT",
+                "code": "USDT",
+                "minimum_withdrawal": "0.00000000",
+                "deposit": 0,
+                "withdraw": 0,
+                "decimals": 8
+            }
+        ]
+      '''
+    }
+  }
+}

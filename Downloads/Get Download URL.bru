@@ -1,0 +1,62 @@
+meta {
+  name: Get Download URL
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/file/:id/download
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: string
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/:id/download
+    method: GET
+    mode: none
+    params:path: {
+      id: 
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "691591aea1c0a54916db1071",
+            "name": "Reports_TradeHistory_MT4_QA 1 test show account_20251113080710.xlsx",
+            "downloadUrl": "https://crm-broctagon-testing-private.s3.ap-southeast-1.amazonaws.com/apps/testing/admins/us7mqomw/files/Reports_TradeHistory_MT4_QA%201%20test%20show%20account_20251113080710.xlsx?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEID%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0xIkYwRAIgH30HW1E2c%2BI74bHGXRBheRe34FMxWkas8azhAYSzDEcCIAGAsrracYP8KtFMf8m2KhERd%2FZuim3zKmuXHrkQbJe9KoYECEkQBBoMMjU4MTgzNzEyNjgyIgz2QdpBuFM1b4qjnbYq4wN8Qt0AR9%2BdUjGJvPjqOPymETCMwSXOjlN64yFNi6PpGS7Jpog%2FQMN7K6UVprBZzOPWe%2FUJ1ZkeGjY0Oh%2B8WJJOX6zIFHfnZj4HshoEkbQIihmb7MCYybi73ibFSRNFmXqtE2Oq%2Bv6vXJaQQeHBNpSnU114pcV%2BO4U39dN6B3acYo%2F2CfbQ0fAQZ0GefKwRUo1hM0QsBrQ02ARDah3WhJMn3K1QAp64md61eg2pqndeO%2FN2LE3U9xSxEK%2FZTz7D%2FsiyHybnrWTCAW9HM5ZXxVjDj6jrXU15Br5QrnQ7Epnn%2FmsxG8B1v19kErk5F%2FWvBC%2FLCL4QCZldKo4IbIZdakFy6yckTVb6jGss25BfqHp400YE%2Bo%2BCna5%2Baq18kB3D4uH1fAgDPx%2FOth2n7unb20Di26Zf%2BwUS8ZZ%2FOYKrBgVH00ge%2BBz8ICctv9C4mECj5WJiHwZhhulkK2Sjaudqcb7eJ7x4%2Bp4%2BrTWMGaW4DCGRwJUoWBryGStcIc5rXmyIjbW5fQFR5IutRg8h1B40UhikaGkIYY9nJ6qCq9PEav6thb%2F5bcW4v3VNHvOG8ySGakfotA3XZbD0VunfwzOexDgQIJPMNBh0OCSFHC5JnyE%2BVqaOOg%2BdI7UX3ubRJO7jcZLcs6Mw1KHWyAY6pgGK%2FL3YZeQDG5vYHcV3Aff1Aii%2F3HxrLH9m5ATOd%2Fgf7EQpDPYpzTQJPXv9BVVzsfTBgsobFpB511lS9eC5AU62Vwvmpu2Lur4U6N4eAxvR%2Bxmi%2By7KoFpL41UvlqE4Q55rwI%2BgoPCm5Aj9w%2B5kuhkOL3N1uhGDr%2FqNeZULf8cS%2FBX31qQ9HYcE4M%2FDSYqVRORSUyK8wFvNnXlP4ZVq0qExM6YdAKOw&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20251113T080800Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604749&X-Amz-Credential=ASIATYHHSZ6VJDOJCDWP%2F20251113%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=b590f7d95365027a0a72ae83485184d00f77943a077c134e988593f3ce5950d4",
+            "total": 1,
+            "state": "SUCCESS",
+            "scene": "TRADE_REPORTS_TRADE_HISTORY_MT4",
+            "type": "USER_REPORT",
+            "exportTime": "2025-11-13 08:07:00",
+            "searches": [
+                {
+                    "field": "download_time",
+                    "opt": "EQ",
+                    "value": "2025-11-13 08:07:11"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

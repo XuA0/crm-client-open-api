@@ -1,0 +1,224 @@
+meta {
+  name: Get Competitions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/setting?skip=0&limit=1000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  skip: 0
+  limit: 1000
+}
+
+headers {
+  Accept: */*
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/setting?skip=0&limit=20
+    method: GET
+    mode: none
+    params:query: {
+      skip: 0
+      limit: 20
+    }
+  
+    headers: {
+      Accept: */*
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: */*
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "contents": [
+            {
+              "appId": "string",
+              "execTime": 6506,
+              "createTime": 6437,
+              "createUserId": "string",
+              "createUserName": "string",
+              "modifyTime": 8297,
+              "modifyUserId": "string",
+              "isEnable": true,
+              "isDelete": false,
+              "id": "string",
+              "name": {
+                "key_0": "string",
+                "key_1": "string"
+              },
+              "platform": "string",
+              "description": "string",
+              "prizes": [
+                {
+                  "rank": 7993,
+                  "amount": 3205,
+                  "currency": "string",
+                  "type": "string"
+                },
+                {
+                  "rank": 8670,
+                  "amount": 5250,
+                  "currency": "string",
+                  "type": "string"
+                }
+              ],
+              "display": {
+                "picture": {
+                  "id": "string",
+                  "name": "string",
+                  "doc": "string",
+                  "doc_url": "string"
+                },
+                "poster": {
+                  "id": "string",
+                  "name": "string",
+                  "doc": "string",
+                  "doc_url": "string"
+                },
+                "description": {
+                  "key_0": "string",
+                  "key_1": "string"
+                },
+                "schema": {
+                  "key_0": "string",
+                  "key_1": "string"
+                }
+              },
+              "status": "string",
+              "lock": true,
+              "connection_id": "string",
+              "registration_fee": {
+                "type": "string",
+                "amount": 2277,
+                "currency": "string",
+                "payment_type": [
+                  "string",
+                  "string"
+                ]
+              },
+              "leader_board_limit": 7379,
+              "ranking_criteria": "string",
+              "time_zone": 7046,
+              "competition_start_time": 5004,
+              "competition_end_time": 7339,
+              "enter_start_time": 3861,
+              "enter_end_time": 4,
+              "prize_payment": {
+                "type": "string",
+                "payment_target": "string",
+                "payment_time": 4742
+              },
+              "time_interval": 3249,
+              "next_calculate_time": 9144
+            },
+            {
+              "appId": "string",
+              "execTime": 9550,
+              "createTime": 4975,
+              "createUserId": "string",
+              "createUserName": "string",
+              "modifyTime": 9892,
+              "modifyUserId": "string",
+              "isEnable": true,
+              "isDelete": true,
+              "id": "string",
+              "name": {
+                "key_0": "string",
+                "key_1": "string"
+              },
+              "platform": "string",
+              "description": "string",
+              "prizes": [
+                {
+                  "rank": 1952,
+                  "amount": 3089,
+                  "currency": "string",
+                  "type": "string"
+                },
+                {
+                  "rank": 4252,
+                  "amount": 1706,
+                  "currency": "string",
+                  "type": "string"
+                }
+              ],
+              "display": {
+                "picture": {
+                  "id": "string",
+                  "name": "string",
+                  "doc": "string",
+                  "doc_url": "string"
+                },
+                "poster": {
+                  "id": "string",
+                  "name": "string",
+                  "doc": "string",
+                  "doc_url": "string"
+                },
+                "description": {
+                  "key_0": "string",
+                  "key_1": "string",
+                  "key_2": "string"
+                },
+                "schema": {
+                  "key_0": "string"
+                }
+              },
+              "status": "string",
+              "lock": false,
+              "connection_id": "string",
+              "registration_fee": {
+                "type": "string",
+                "amount": 2585,
+                "currency": "string",
+                "payment_type": [
+                  "string",
+                  "string"
+                ]
+              },
+              "leader_board_limit": 3754,
+              "ranking_criteria": "string",
+              "time_zone": 4954,
+              "competition_start_time": 2853,
+              "competition_end_time": 7406,
+              "enter_start_time": 5801,
+              "enter_end_time": 7444,
+              "prize_payment": {
+                "type": "string",
+                "payment_target": "string",
+                "payment_time": 6815
+              },
+              "time_interval": 2726,
+              "next_calculate_time": 69
+            }
+          ],
+          "count": 7302
+        }
+      '''
+    }
+  }
+}

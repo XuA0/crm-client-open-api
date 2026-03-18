@@ -1,0 +1,125 @@
+meta {
+  name: Get CTrader/Fortex/Sirix Trading Account Transfer Info
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/trade/accounts/:id/transfer/info?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 CTrader
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/:id/transfer/info?connection_id=aqol66lk
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: aqol66lk
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 3000743
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trading_id": "3000743",
+            "currency": "USD",
+            "connection_id": "aqol66lk",
+            "platform": "ctrader"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Fortex
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/:id/transfer/info?connection_id=z80wqyxy
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: z80wqyxy
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: QASTELIVE2
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trading_id": "QASTELIVE2",
+            "currency": "USD",
+            "connection_id": "z80wqyxy",
+            "platform": "fortex",
+            "account_type_id": "k6gl38xg"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Sirix
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/:id/transfer/info?connection_id=xi3u7ek5
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: xi3u7ek5
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 13003524
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trading_id": 13003524,
+            "currency": "USD",
+            "connection_id": "xi3u7ek5",
+            "platform": "wta"
+        }
+      '''
+    }
+  }
+}

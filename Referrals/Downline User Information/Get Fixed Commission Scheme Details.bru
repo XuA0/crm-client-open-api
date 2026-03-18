@@ -1,0 +1,132 @@
+meta {
+  name: Get Fixed Commission Scheme Details
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/scheme/user?rank_id=&tier=0
+  body: none
+  auth: bearer
+}
+
+params:query {
+  rank_id: 
+  tier: 0
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/scheme/user
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": pe4pm8mh
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "scheme": {
+                "app_id": "kyc",
+                "id": "qjs8cu9p",
+                "order": 117,
+                "name": "Trader Ranks",
+                "created_at": "2022-11-10T05:50:17.875Z",
+                "created_by": "56oetael",
+                "updated_by": "rzdj166y",
+                "symbol_groups": [
+                    {
+                        "id": "0eyuvnec",
+                        "symbol_group_id": "veqfr9e2",
+                        "groups": [
+                            "Sandbox4",
+                            "Sandbox5",
+                            "DemoBO",
+                            "demo\\BBQANET",
+                            "demo\\BBQAHEDGE",
+                            "demoDMDusd-A1",
+                            "demoDMDusd-B2",
+                            "realITPusd-B1",
+                            "realITPusd-MAMdetach",
+                            "demoITPusd-B2",
+                            "realITPusd-MAMslave",
+                            "testUSD",
+                            "demoDMDusd-B1",
+                            "realITPusd-B2",
+                            "demoITPusd-B1",
+                            "demoDMDDetach",
+                            "testMTTusdSlave",
+                            "testMTTusdDetach",
+                            "demoDMDSlave"
+                        ],
+                        "commission": {
+                            "model": "rank",
+                            "type": "fixed",
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "height": 3,
+                                    "value": 3
+                                }
+                            ],
+                            "max_payout": 6
+                        },
+                        "name": "TraderFX",
+                        "option": false,
+                        "symbols": [
+                            "MT4-AUDNZD",
+                            "MT4-EURAUD",
+                            "MT4-EURCHF",
+                            "MT4-EURGBP",
+                            "MT4-EURNZD",
+                            "MT4-GBPAUD",
+                            "MT4-GBPCAD",
+                            "MT4-GBPJPY",
+                            "MT4-HKDJPY",
+                            "MT4-NZDSGD"
+                        ]
+                    }
+                ],
+                "rank": {
+                    "id": "rd3ktdmy",
+                    "name": "Trader Ranks",
+                    "tiers": [
+                        "Trader",
+                        "Senior Trader",
+                        "Master Trader"
+                    ],
+                    "order": 4,
+                    "updated_at": "2022-11-10T05:49:59.497Z",
+                    "updated_by": "56oetael"
+                }
+            }
+        }
+      '''
+    }
+  }
+}

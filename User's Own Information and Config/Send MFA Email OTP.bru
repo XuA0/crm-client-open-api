@@ -1,0 +1,780 @@
+meta {
+  name: Send MFA Email OTP
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/mfa/email/request
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "scene":"active_mfa"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 Activate Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"active_mfa"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:25:18 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 107
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=3Itsgke72hAIaJPZajjPbMxzxEhiEGCF8yuL4iVug7XEPzifIWncvZKOSODgZ%2BI%2BKLKBa3ny5mh8J98aXtbHPVPfPo8rOhLEi5LZxL9dZDE%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a4019184a029f6b-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Deactivate Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"inactive_mfa"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:23:52 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 912
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=QxRswUJ%2FYYTNbyXfIcjbcanA40S1NTp3PPZ52YP9CLSOXNQ9NxmeiqiMYL4066o%2F88nBmGwRuU%2F1nCENKZMBljPaK%2FZZ8m0%2F%2F0%2FZL6fi450%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a4016f97cf39f6b-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Deposit Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"deposit"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:27:03 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 108
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=rp4wfTyFVm%2F%2BgMsX47MWss0ZFnW9wx%2BkoLT4ChbNYq%2FFBRv9q7C2VDO%2Ba6xJEeC0LVttoNpVD15aShVznSB0YIRQxRWVAInQOwi8EF1FGlU%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a401ba7ab289f6b-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Withdrawal Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"withdrawal"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:27:23 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 101
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Yv0hm%2B20rtWxwG8PYNiG7QbaYRe1I5mCN1jjt3KjlREwvNPxRwrC7%2Bp1p48wRvjsNbk1wXdpLU0ad32p3Zip3UqhU6unuTT%2BDg0kP4dzm38%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a401c23cf989f6b-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Transfer Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"transfer"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:34:20 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 123
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=WRwdY1i9uOPBWi%2B2lbRPeCxLjtKczx%2BK6KNMogJCcutkPubIzoUORChiFfRGTgBCDFIRraUcxmR9SkeKI2c68wtk9FxJ8q7zwOLuf0a4%2FRM%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a4026506fb181bc-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Update Password Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"update_password"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:35:09 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 126
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Ll941ZaUbpBp73qWZK6ucINLeGz%2BnUhYrrLOg%2BRlG6qv70hEyWp4yXSh4fUDcX8eKqgSGDe9wvSN9FMqdw3ACyTBHMPtPYchJOvuR30LegQ%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a402781fc4581bc-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Update Email Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"update_email"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:35:41 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 116
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=2p3%2FK5yuiGGUmVDgJ4Itou91Gt0YTrTL02JK0RqDeo1UpGVABy64VcZWI21BeFe%2BhB3wyJjNELql2sgRb4uH0U%2BiSWAc9CN%2F3Re1WynEA1I%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a40284a487a81bc-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Trading Competition Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"trading_competition"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:39:56 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 564
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=v5i0d3mqq79%2Fj9Ip5hoUVTJGK2S9f%2BMVJmRhCRhG2jLeUxf6SRjriFEbpBM9dUCeuZzIW7Cq5O%2BF%2FYafYtS5FwlxhZQMwDzUOYSsJqAGL%2Fs%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a402e844d32ce8d-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Prop Trading Email MFA
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"prop_trading"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:42:13 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 114
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=SiYGasq5cW5ejrX3DTYoNuuG%2FqTrhuKZiUfBx6wGf6PV34tLGChr%2F2jtRWYKvrk0bCZw6BZsQPQq8lwi5L4EKvbT%2FuiBHvRppPMU0%2BUspB0%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a4031de2a3b3e60-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        ""
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 MFA Activated (when activated user called activate MFA)
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"active_mfa"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Wed, 26 Nov 2025 08:06:17 GMT
+      Content-Type: application/json
+      Content-Length: 90
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"5a-S9ttr4OXWAFGjAU1XFieejHYq7I"
+      x-envoy-upstream-service-time: 48
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=TclNI9AmpseizsI5KloP1bZiykvyuV4a7AKMC3KDdB2bm%2Fph9AygAea3%2BvasFWcol%2F%2BILeLHbE%2F8VpulPBnXaNKq1d35Au5NNyo0%2FxPY8Bc%3D"}]}
+      CF-RAY: 9a47e2b5a860fde7-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: Bad Request
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "error": true,
+            "code": 400,
+            "type": "mfa_activated",
+            "trace_id": "587184a68d",
+            "t": 1764144377297
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Email MFA not Activated
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"transfer"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Wed, 26 Nov 2025 08:04:17 GMT
+      Content-Type: application/json
+      Content-Length: 94
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"5e-Vb6cXwObQT/7tvvDa1EBvdQ6YHg"
+      x-envoy-upstream-service-time: 1064
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=nS0DIMAEsfY0Pq3TMFzROyFenztXNxNx5Ahu1Y5VOnALoEamlo75q00GiXde%2BWFis5bRDKbJcie%2BxElBcoA%2BSE0UMyK5eP%2BJbrwO5FGu4eM%3D"}]}
+      CF-RAY: 9a47dfc48a360548-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: Bad Request
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "error": true,
+            "code": 400,
+            "type": "mfa_not_activated",
+            "trace_id": "a85ab95946",
+            "t": 1764144257798
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 Invalid Request (Authenticator MFA User calling email endpoint)
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "scene":"inactive_mfa"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Wed, 26 Nov 2025 08:08:08 GMT
+      Content-Type: application/json
+      Content-Length: 92
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"5c-ceOUsM7MGSlfQahsYu/VNxoRAK8"
+      x-envoy-upstream-service-time: 617
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BMUPEbFGwzDthV%2FmM4lbzrETo6RACD0a5q8kxU1ihwrHIoN%2FzJn7e7rhMocRK83secz5iel7LQkWSFGx7MMl6f%2F7gUBUSPl%2BPvLroo8Ibi4%3D"}]}
+      CF-RAY: 9a47e569ea303ded-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: Bad Request
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "error": true,
+            "code": 400,
+            "type": "invalid_request",
+            "trace_id": "87184a68dc",
+            "t": 1764144488682
+        }
+      '''
+    }
+  }
+}

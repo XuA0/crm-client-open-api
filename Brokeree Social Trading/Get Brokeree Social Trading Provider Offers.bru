@@ -1,0 +1,50 @@
+meta {
+  name: Get Brokeree Social Trading Provider Offers
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/socialTrading/brokeree/providers/:provider_id/offers
+  body: none
+  auth: bearer
+}
+
+params:path {
+  provider_id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/socialTrading/brokeree/providers/:provider_id/offers
+    method: GET
+    mode: none
+    params:path: {
+      provider_id: 
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": 12,
+                "name": "LyraFX"
+            }
+        ]
+      '''
+    }
+  }
+}

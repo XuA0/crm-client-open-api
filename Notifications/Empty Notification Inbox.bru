@@ -1,0 +1,50 @@
+meta {
+  name: Empty Notification Inbox
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{BASE_URL}}/private/api/v1/notify/inbox?type=ROBOT&level=TENANT_PAY&isActive=true
+  body: none
+  auth: inherit
+}
+
+params:query {
+  type: ROBOT
+  level: TENANT_PAY
+  isActive: true
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/inbox?type=ROBOT&level=TENANT_PAY&isActive=true
+    method: DELETE
+    mode: none
+    params:query: {
+      type: ROBOT
+      level: TENANT_PAY
+      isActive: true
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

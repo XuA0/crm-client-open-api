@@ -1,0 +1,49 @@
+meta {
+  name: Get Wallets
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/wallets
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/wallets
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "staumtxn",
+                "currency": "USD",
+                "balance": "9999999990.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "9999999990.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            }
+        ]
+      '''
+    }
+  }
+}

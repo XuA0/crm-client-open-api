@@ -1,0 +1,70 @@
+meta {
+  name: Get MT5 Trading Accounts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt5/accounts
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 110102,
+                    "currency": "USD",
+                    "balance": 0.74,
+                    "credit": 0,
+                    "available_withdrawal": 0.74,
+                    "balance_previous_month": 0.74,
+                    "balance_previous_day": 0.74,
+                    "equity": 0.74,
+                    "margin_free": 0.74,
+                    "profit": 0,
+                    "leverage": 100,
+                    "enable": true,
+                    "created_at": "2025-10-14T12:47:14.000Z",
+                    "last_active": "2025-10-14T12:47:14.000Z",
+                    "connection_id": "p6t5xkbm",
+                    "server_name": "Server 1",
+                    "user_id": "02biharf",
+                    "account_type_id": "loq293r6",
+                    "rebate": true,
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,65 @@
+meta {
+  name: Withdrawals
+  seq: 17
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  # Withdrawal
+  
+  ## 1\. Get Withdrawal Methods
+  
+  <img src="https://content.pstmn.io/502b4875-47c4-45fa-95fe-98b043e81824/MTEucG5n">
+  
+  ## 2\. Get External Wallet Address(Only for fireblocks)
+  
+  <img src="https://content.pstmn.io/e3457c18-a75d-44ad-8518-17f58dda937b/MTIucG5n">
+  
+  ## 3\. Get External Rates
+  
+  <img src="https://content.pstmn.io/fd53af3f-7ef4-4753-a2c7-05ed26762984/MTMucG5n">
+  
+  ## 4\. Submit Withdrawal Requests
+  
+  <img src="https://content.pstmn.io/0960a1b4-e8ca-4b6e-8891-57dc947adb04/MTQucG5n">
+  
+  ``` json
+  {
+      "trading_currency": "USD", // crm withdrawal currency
+      "trading_platform": "fortex",  // withdrawal platform 
+      "trading_connection_id": "z80wqyxy", // withdrawal connection id
+      "trading_id": "STEV1", // withdrawal trading account
+      "method_id": "f14vugl8", // withdrawal method id
+      "withdrawal_currency": "Ethereum Test (Sepolia)", // user withdrawal currency
+      "trading_amount": "10", // withdrawl amount from crm 
+      "withdrawal_total": "0.0004", // withdrawal amount for user withdrawal currency 
+      "form_data": {
+          "walletaddress": "0x74bcA5a31AF44b744B29d0355C6B461ac19d1377",  //wallet address , only for fireblocks
+          "form_id": "vdev2ngk" // form id 
+      },
+      "withdrawal_fee": "0"  //withdrawal fee
+  }
+  1. when you withdrawal from wallet , there is no need to pass trading_platform,trading_connection_id and trading_id
+  
+   ```
+  
+  ## **5\. Bank Card**
+  
+  - Get Withdrawal Methods
+      
+  
+  <img src="https://content.pstmn.io/e69ba6ff-dac3-42e6-9399-f48028d8b4b7/aW1hZ2UucG5n" width="580" height="282">
+  
+  - Get Bank Cards for Withdrawal Method
+      
+  
+  <img src="https://content.pstmn.io/ea1f3b32-4b3e-4685-be25-3cb833f35ac1/aW1hZ2UucG5n" width="1179" height="330">
+  
+  - Get Withdrawal Dynamic Form
+      
+  
+  <img src="https://content.pstmn.io/5d88f150-5bad-482a-9db3-916725b61df5/aW1hZ2UucG5n" width="1146" height="354">
+}

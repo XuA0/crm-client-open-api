@@ -1,0 +1,55 @@
+meta {
+  name: Create Brokeree Social Trading Access Token for SSO
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/socialTrading/brokeree/accessToken
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "platform": "",
+    "trading_id": 0
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/socialTrading/brokeree/accessToken
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "trading_id": 10152,
+          "connection_id": "a4kmlfam",
+          "platform": "mt5"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMDA5MyIsIm5hbWUiOiIxMDA5MyIsInJvbGUiOiJDbGllbnQiLCJ1c2VyX2lkIjoiODkiLCJzZXJ2ZXJfaWQiOiIxIiwibmJmIjoxNzYzNjk1NzQ2LCJleHAiOjE3NjM3Mzg5NDZ9.Hc9OaJ6Tq1d1_4x2lfYItUkQ1SAAuQGTlnUT2dbOf9Y"
+        }
+      '''
+    }
+  }
+}

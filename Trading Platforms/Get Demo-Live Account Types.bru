@@ -1,0 +1,116 @@
+meta {
+  name: Get Demo/Live Account Types
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/trading/accounts/:type
+  body: none
+  auth: bearer
+}
+
+params:path {
+  type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trading/accounts/:type
+    method: GET
+    mode: none
+    params:path: {
+      type: live
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 30 Oct 2025 14:10:26 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2608-4NRHRCVu6zWkyBxsq/0LaMd7t/M"
+      x-envoy-upstream-service-time: 4297
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=d5O9SGDRgsukft4gL9WUZeQu7R9KQXrq7gt%2Fhlu7VYbjATfnzfrZ4mb5%2Fv9Z933bS2GtE7MLfsFr6q%2FDY4TubiMq53Dz5Hu8F4G0U%2BBbSmo%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 996b7ee0fa047ffa-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+            {
+                "id": "9jp6nwbu",
+                "connection_id": "u5mzgkch",
+                "hide": false,
+                "label": {
+                    "zh-cn": "S-MT4-1",
+                    "en-us": "S-MT4-1",
+                    "zh-tw": "S-MT4-1"
+                },
+                "groups": [
+                    "default0",
+                    "nsyuy9qc",
+                    "gqnt98yo",
+                    "h991n162",
+                    "i6xlzo6u",
+                    "xk7w5wql"
+                ],
+                "group": "Sandbox5",
+                "leverages": [
+                    100,
+                    75,
+                    66
+                ],
+                "min_deposit": "0",
+                "trading_id_end": 60000,
+                "trading_id_start": 50001,
+                "description": "Sandbox5 50001~60000 1:100 10",
+                "disable_trading_until_funded": false,
+                "platform": "mt4",
+                "server_name": "QA 1 test",
+                "demo": false
+            }
+        ]
+      '''
+    }
+  }
+}

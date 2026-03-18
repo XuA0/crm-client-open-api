@@ -1,0 +1,444 @@
+meta {
+  name: Get Fixed Commission Schemes
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/scheme
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/scheme
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+            "id": "vrbcpk6l",
+            "name": "固定佣金方案4",
+            "order": 1,
+            "rank_id": "l9dvqiug",
+            "updated_by": "rzdj166y",
+            "symbol_groups": [
+                {
+                    "symbol_group_id": "3fh6bdlr",
+                    "commission": {
+                        "model": "rank",
+                        "type": "commission_percent",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 0.1
+                            },
+                            {
+                                "height": 2,
+                                "value": 0.2
+                            },
+                            {
+                                "height": 3,
+                                "value": 0.3
+                            },
+                            {
+                                "height": 4,
+                                "value": 0.4
+                            },
+                            {
+                                "height": 5,
+                                "value": 0.5
+                            }
+                        ],
+                        "depth": 3
+                    },
+                    "groups": [
+                        "Sandbox4",
+                        "Sandbox5",
+                        "DemoBO",
+                        "Sandbox4-EUR",
+                        "QAJPY",
+                        "demo\\BBQANET",
+                        "demo\\BBQAHEDGE",
+                        "demo\\BBQAHEDGEEUR"
+                    ],
+                    "id": "icz12c8n",
+                    "overriding": {
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            },
+                            {
+                                "height": 2,
+                                "value": 2
+                            },
+                            {
+                                "height": 3,
+                                "value": 3
+                            },
+                            {
+                                "height": 4,
+                                "value": 4
+                            },
+                            {
+                                "height": 5,
+                                "value": 5
+                            }
+                        ]
+                    },
+                    "bonus": {
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            },
+                            {
+                                "height": 2,
+                                "value": 2
+                            },
+                            {
+                                "height": 3,
+                                "value": 3
+                            },
+                            {
+                                "height": 4,
+                                "value": 4
+                            },
+                            {
+                                "height": 5,
+                                "value": 5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "symbol_group_id": "m55le7s1",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            },
+                            {
+                                "height": 2,
+                                "value": 2
+                            },
+                            {
+                                "height": 3,
+                                "value": 3
+                            },
+                            {
+                                "height": 4,
+                                "value": 4
+                            },
+                            {
+                                "height": 5,
+                                "value": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "demo\\BBQANET"
+                    ],
+                    "id": "7o7oo30p",
+                    "overriding": {
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            },
+                            {
+                                "height": 2,
+                                "value": 2
+                            },
+                            {
+                                "height": 3,
+                                "value": 3
+                            },
+                            {
+                                "height": 4,
+                                "value": 4
+                            },
+                            {
+                                "height": 5,
+                                "value": 5
+                            }
+                        ]
+                    },
+                    "bonus": {
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            },
+                            {
+                                "height": 2,
+                                "value": 2
+                            },
+                            {
+                                "height": 3,
+                                "value": 3
+                            },
+                            {
+                                "height": 4,
+                                "value": 4
+                            },
+                            {
+                                "height": 5,
+                                "value": 5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "symbol_group_id": "8983knu6",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox5"
+                    ],
+                    "id": "p547yu74"
+                },
+                {
+                    "symbol_group_id": "jng46u49",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox5"
+                    ],
+                    "id": "f5dnzfqf"
+                },
+                {
+                    "symbol_group_id": "rx98pp28",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox4",
+                        "demo\\BBQANET"
+                    ],
+                    "id": "796cmv93"
+                },
+                {
+                    "symbol_group_id": "eqmp6rze",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox5"
+                    ],
+                    "id": "hl9y6fmc"
+                },
+                {
+                    "symbol_group_id": "ujxxx4zl",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox4"
+                    ],
+                    "id": "ymgpqilm"
+                },
+                {
+                    "symbol_group_id": "ajmrluzm",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox4"
+                    ],
+                    "id": "7x19s8lf"
+                },
+                {
+                    "symbol_group_id": "asrixqkq",
+                    "commission": {
+                        "model": "rank",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox5"
+                    ],
+                    "id": "fdqic84r"
+                },
+                {
+                    "symbol_group_id": "x88ym1f6",
+                    "commission": {
+                        "model": "level",
+                        "type": "fixed",
+                        "rebate_currency": "account_currency",
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            }
+                        ]
+                    },
+                    "groups": [
+                        "Sandbox4-EUR"
+                    ],
+                    "id": "vlikj7e7"
+                }
+            ],
+            "updated_at": "2025-11-11T07:45:47.843Z",
+            "default": true
+        }
+        ]
+      '''
+    }
+  }
+}

@@ -1,0 +1,58 @@
+meta {
+  name: Get Competition Status
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/:id/enterStatus
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: string
+}
+
+headers {
+  Accept: */*
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/:id/enterStatus
+    method: GET
+    mode: none
+    params:path: {
+      id: 
+    }
+  
+    headers: {
+      Accept: */*
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: */*
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        true
+      '''
+    }
+  }
+}

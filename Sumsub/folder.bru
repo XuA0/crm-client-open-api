@@ -1,0 +1,36 @@
+meta {
+  name: Sumsub
+  seq: 30
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  **Get User Sumsub Kyc Status**  
+  params: type=user&user_id=''  
+  sumsub kyc passed: res?.reviewResult?.reviewAnswer === 'GREEN'
+  
+  sumsub kyc failed: res?.reviewResult?.reviewAnswer === 'RED'
+  
+  sumsub kyc pending: res?.reviewResult?.reviewAnswer === 'PENDING'
+  
+  sumsub kyc uncertified: !res?.reviewResult?.reviewAnswer || res?.reviewResult?.reviewAnswer === 'UNVERIFIED'
+  
+  <img src="https://content.pstmn.io/f0d83fd0-6411-4ad1-a4d6-8c09c44e72f6/aW1hZ2UucG5n" width="967" height="338">
+  
+  **Create Access Token**
+  
+  Authentication
+  
+  <img src="https://content.pstmn.io/95dcbb4f-4191-41e9-a486-3bdc40079069/aW1hZ2UucG5n" width="647" height="265">
+  
+  **Create Action Access Token**
+  
+  if turn on applicant actions level, use sumsub actions to validate before submitting the withdrawal form.
+  
+  <img src="https://content.pstmn.io/548d5b29-4d4c-49ba-bbd6-653e24c0884c/aW1hZ2UucG5n" width="1847" height="901">
+  
+  <img src="https://content.pstmn.io/91889ee8-9fbd-4f78-817e-adad6ac0631f/aW1hZ2UucG5n" width="626" height="272">
+}

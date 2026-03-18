@@ -1,0 +1,135 @@
+meta {
+  name: Create Bank Card
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "bank_name": "",
+    "method_id": "",
+    "form_data": {},
+    "user_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: matchpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "bank_name": "AAAA",
+          "method_id": "2c586y41",
+          "form_data": {
+              "walletaddress": "xxxxxxx",
+              "form_id": "izh0uk72"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: luqapay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "bank_name": "AAA",
+          "method_id": "4b834f2x",
+          "form_data": {
+              "bank_name": "Hokkaido Bank (北海道銀行)",
+              "branch_name": "AAA",
+              "branch_code": "AAA",
+              "bank_account": "AAA",
+              "country": "jp",
+              "email": "aaa@mail.com",
+              "first_name": "AAA",
+              "last_name": "AAA",
+              "beneficiary_phone_number": "123456789",
+              "beneficiary_city": "AAA",
+              "beneficiary_postal_code": "1234",
+              "beneficiary_street_address": "AAA",
+              "beneficiary_country": "jp",
+              "katakana_name": "AAA",
+              "swift_code": "HKDBJPJT",
+              "bank_code": null,
+              "bank_country": "JP",
+              "form_id": "5zet7xf1"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: other
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "bank_name": "AAA",
+          "method_id": "ua6wfbtj",
+          "form_data": {
+              "rxikuitm": "AAA",
+              "kjyclilh": "AAA",
+              "milyehaz": "AAA",
+              "vrmctrol": "AAA",
+              "vpsgnzgc": "AAA",
+              "form_id": "gmijwlqq"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

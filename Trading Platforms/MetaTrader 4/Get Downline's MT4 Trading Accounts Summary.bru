@@ -1,0 +1,84 @@
+meta {
+  name: Get Downline's MT4 Trading Accounts Summary
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt4/accounts/search/summary
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/accounts/search/summary
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "u5mzgkch",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "statistics": [
+                {
+                    "sum_currency": "USD",
+                    "sum_balance": 0,
+                    "sum_equity": 0,
+                    "sum_margin_free": 0,
+                    "sum_credit": 0
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

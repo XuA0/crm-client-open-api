@@ -1,0 +1,1402 @@
+meta {
+  name: Get Prop Trading Packages
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/package?name=&challenge_type=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  challenge_type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/package
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "data": [
+                {
+                    "_id": "67db7430bcbb904c76ae155e",
+                    "app_id": "kyc",
+                    "created_timestamp": 1742435376910,
+                    "updated_timestamp": 1762930626906,
+                    "id": "gvg6dp10",
+                    "is_deleted": false,
+                    "publish_status": "published",
+                    "status": "pending",
+                    "position": -20,
+                    "groups": [
+                        "all"
+                    ],
+                    "form": {
+                        "account_type": {
+                            "label": {
+                                "en-us": "Account Type",
+                                "zh-cn": "账号类型"
+                            },
+                            "display": true
+                        },
+                        "balance": {
+                            "label": {
+                                "en-us": "Initial Balance Amount",
+                                "zh-cn": "初始余额"
+                            },
+                            "display": true
+                        },
+                        "leverage": {
+                            "label": {
+                                "en-us": "Challenge Leverage",
+                                "zh-cn": "挑战杠杆"
+                            },
+                            "display": true
+                        },
+                        "trading_period": {
+                            "label": {
+                                "en-us": "Trading Period",
+                                "zh-cn": "交易期限"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_days": {
+                            "label": {
+                                "en-us": "Minimum Trading Days",
+                                "zh-cn": "最小交易天数"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_volumes": {
+                            "label": {
+                                "en-us": "Minimum Trading Volumes",
+                                "zh-cn": "最小交易手数"
+                            },
+                            "display": true
+                        },
+                        "profit_days": {
+                            "label": {
+                                "en-us": "Profitable Days",
+                                "zh-cn": "盈利天数"
+                            },
+                            "display": true
+                        },
+                        "max_close_loss_percent": {
+                            "label": {
+                                "en-us": "Maximum Loss Per Close",
+                                "zh-cn": "最大单笔平仓亏损"
+                            },
+                            "display": true
+                        },
+                        "max_daily_loss_percent": {
+                            "label": {
+                                "en-us": "Maximum Daily Loss",
+                                "zh-cn": "最大单日损失"
+                            },
+                            "display": true
+                        },
+                        "max_loss_percent": {
+                            "label": {
+                                "en-us": "Maximum Loss",
+                                "zh-cn": "最大损失"
+                            },
+                            "display": true
+                        },
+                        "profit_target_percent": {
+                            "label": {
+                                "en-us": "Profit Target",
+                                "zh-cn": "盈利目标"
+                            },
+                            "display": true
+                        },
+                        "free_repeat": {
+                            "label": {
+                                "en-us": "Retry Current Stage",
+                                "zh-cn": "重试当前阶段"
+                            },
+                            "display": true
+                        },
+                        "pay_repeat": {
+                            "label": {
+                                "en-us": "Retry Cost",
+                                "zh-cn": "重试成本"
+                            },
+                            "display": true
+                        },
+                        "max_retry_count": {
+                            "label": {
+                                "en-us": "Maximum Retry Count",
+                                "zh-cn": "最大重试次数"
+                            },
+                            "display": true
+                        },
+                        "fee": {
+                            "label": {
+                                "en-us": "Fee",
+                                "zh-cn": "费用"
+                            },
+                            "display": true
+                        }
+                    },
+                    "challenge_active_type": "auto",
+                    "challenge_type_id": "pzwg57dz",
+                    "currency": "USD",
+                    "display_card_rule": "first_stage",
+                    "fee_refundable": true,
+                    "immediately_upgrade": true,
+                    "max_daily_loss_calculate_rule": [
+                        "daily",
+                        "dynamic"
+                    ],
+                    "name": {
+                        "en-us": "惊喜套餐",
+                        "zh-cn": "惊喜套餐"
+                    },
+                    "payment_method": [
+                        "balance_deduct"
+                    ],
+                    "profit_sharing_method": "auto",
+                    "profit_sharing_user_type": "all",
+                    "profit_target_logic": "only_closed_orders",
+                    "prop_trading_id": "gsgru2y4",
+                    "publish_timestamp": 1762930626906,
+                    "rebate_rules": [
+                        {
+                            "model": "rank",
+                            "rank_id": "w4lalfzw",
+                            "include_participants": false,
+                            "type": "fixed",
+                            "rank_calculate": {
+                                "type": "realtime"
+                            },
+                            "id": "6d3ed3f0e4a3-4a4d-9da1-5e2a4a798e09",
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 3,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 4,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 5,
+                                    "value": 10
+                                }
+                            ],
+                            "overriding": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    }
+                                ]
+                            },
+                            "bonus": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "model": "rank",
+                            "rank_id": "bmxmji0h",
+                            "include_participants": true,
+                            "type": "profit_percent",
+                            "rank_calculate": {
+                                "day": "23",
+                                "hour": "08:00:00",
+                                "type": "monthly"
+                            },
+                            "created_timestamp": 1756952431955,
+                            "id": "3dc4e09e137e-4797-bfc2-039da311bf6c",
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 1
+                                },
+                                {
+                                    "height": 3,
+                                    "value": 1
+                                },
+                                {
+                                    "height": 4,
+                                    "value": 1
+                                },
+                                {
+                                    "height": 5,
+                                    "value": 1
+                                }
+                            ],
+                            "overriding": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    }
+                                ]
+                            },
+                            "bonus": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "model": "level",
+                            "rank_id": "uoe4px81",
+                            "include_participants": false,
+                            "type": "payment_percent",
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 2
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 4
+                                }
+                            ],
+                            "id": "a367ba45e8eb-41c0-ad5c-79dadf100804",
+                            "overriding": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    },
+                                    {
+                                        "height": 6
+                                    },
+                                    {
+                                        "height": 7
+                                    }
+                                ]
+                            },
+                            "bonus": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    },
+                                    {
+                                        "height": 6
+                                    },
+                                    {
+                                        "height": 7
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "step": 1,
+                            "name": {
+                                "en-us": "Step 1",
+                                "zh-cn": "Step 1"
+                            },
+                            "profit_sharing": {
+                                "structure": [
+                                    {
+                                        "height": 1,
+                                        "value": 1
+                                    }
+                                ],
+                                "calculate_time": {
+                                    "type": "fixed_interval",
+                                    "value": 1
+                                },
+                                "condition": {
+                                    "trading_days_logic": "and",
+                                    "trading_days_and_profit_logic": "or",
+                                    "max_daily_profit_percent": 100
+                                }
+                            },
+                            "account_type": "live",
+                            "balance": 100,
+                            "connection_id": "bigc8liz",
+                            "platform": "mt4",
+                            "group": "Sandbox4",
+                            "leverage": 1,
+                            "trading_period": -1,
+                            "minimum_trading_days": 1,
+                            "minimum_trading_volumes": 1,
+                            "profit_days_percent": 1,
+                            "profit_days": 1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "profit_target_percent": 1,
+                            "free_repeat": false,
+                            "fee": {
+                                "amount": 1000,
+                                "currency": "USD"
+                            },
+                            "max_daily_loss": 1,
+                            "max_loss": 1,
+                            "profit_target": 1,
+                            "profit_days_percent_value": 1
+                        }
+                    ],
+                    "prop_trading": {
+                        "_id": "68a3e2956bc9849ad75cb2b0",
+                        "app_id": "kyc",
+                        "id": "gsgru2y4",
+                        "time_zone": 8,
+                        "start_time": 1743350400000,
+                        "created_timestamp": 1755570837412,
+                        "is_deleted": false,
+                        "next_calculate_time": 1763049600000,
+                        "time_interval": 86400000
+                    },
+                    "challenge_type": {
+                        "en-us": "简单",
+                        "zh-cn": "简单"
+                    }
+                },
+                {
+                    "_id": "65952ff93e318fb2c4953dd9",
+                    "name": {
+                        "zh-cn": "套餐——入金通道",
+                        "en-us": "套餐——入金通道",
+                        "ar": "套餐——入金通道"
+                    },
+                    "currency": "USD",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "name": {
+                                "zh-cn": "关卡1",
+                                "en-us": "关卡1",
+                                "ar": "关卡1"
+                            },
+                            "account_type": "demo",
+                            "balance": 100,
+                            "connection_id": "w82vltnr",
+                            "platform": "mt4",
+                            "group": "Sandbox6",
+                            "leverage": 50,
+                            "trading_period": 1,
+                            "minimum_trading_days": 1,
+                            "minimum_trading_volumes": 1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "profit_target_percent": 1,
+                            "free_repeat": false,
+                            "fee": {
+                                "amount": 20,
+                                "currency": "USD"
+                            },
+                            "max_daily_loss": 1,
+                            "max_loss": 1,
+                            "profit_target": 1,
+                            "profit_sharing": {
+                                "calculate_time": {
+                                    "type": "fixed_date",
+                                    "value": 17
+                                },
+                                "structure": [
+                                    {
+                                        "height": 1,
+                                        "value": 1
+                                    },
+                                    {
+                                        "height": 2,
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            "max_close_loss_percent": 1,
+                            "max_close_loss": 1
+                        },
+                        {
+                            "step": 2,
+                            "name": {
+                                "zh-cn": "关卡2",
+                                "en-us": "关卡2",
+                                "ar": "关卡2"
+                            },
+                            "profit_sharing": {
+                                "structure": [
+                                    {
+                                        "height": 1,
+                                        "value": 1
+                                    },
+                                    {
+                                        "height": 2,
+                                        "value": 1
+                                    }
+                                ],
+                                "calculate_time": {
+                                    "type": "fixed_date",
+                                    "value": 9
+                                }
+                            },
+                            "account_type": "live",
+                            "balance": 200,
+                            "connection_id": "bigc8liz",
+                            "platform": "mt4",
+                            "group": "Sandbox5",
+                            "leverage": 20,
+                            "trading_period": -1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "max_daily_loss": 2,
+                            "max_loss": 2,
+                            "free_repeat": false,
+                            "max_close_loss_percent": 1,
+                            "max_close_loss": 2
+                        }
+                    ],
+                    "form": {
+                        "account_type": {
+                            "label": {
+                                "zh-cn": "账号类型",
+                                "en-us": "Account Type",
+                                "ar": "Account Type"
+                            },
+                            "display": true
+                        },
+                        "balance": {
+                            "label": {
+                                "zh-cn": "初始余额",
+                                "en-us": "Initial Balance Amount",
+                                "ar": "Initial Balance"
+                            },
+                            "display": true
+                        },
+                        "leverage": {
+                            "label": {
+                                "zh-cn": "挑战杠杆",
+                                "en-us": "Challenge Leverage",
+                                "ar": "Challenge Leverage"
+                            },
+                            "display": true
+                        },
+                        "trading_period": {
+                            "label": {
+                                "zh-cn": "交易期限",
+                                "en-us": "Trading Period",
+                                "ar": "Trading Period"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_days": {
+                            "label": {
+                                "zh-cn": "最小交易天数",
+                                "en-us": "Minimum Trading Days",
+                                "ar": "Minimum Trading Days"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_volumes": {
+                            "label": {
+                                "zh-cn": "最小交易手数",
+                                "en-us": "Minimum Trading Volumes",
+                                "ar": "Minimum Trading Volumes"
+                            },
+                            "display": true
+                        },
+                        "max_daily_loss_percent": {
+                            "label": {
+                                "zh-cn": "最大单日损失",
+                                "en-us": "Maximum Daily Loss",
+                                "ar": "Maximum Daily Loss"
+                            },
+                            "display": true
+                        },
+                        "max_loss_percent": {
+                            "label": {
+                                "zh-cn": "最大损失",
+                                "en-us": "Maximum Loss",
+                                "ar": "Maximum Loss"
+                            },
+                            "display": true
+                        },
+                        "profit_target_percent": {
+                            "label": {
+                                "zh-cn": "盈利目标",
+                                "en-us": "Profit Target",
+                                "ar": "Profit Target"
+                            },
+                            "display": true
+                        },
+                        "free_repeat": {
+                            "label": {
+                                "zh-cn": "免费重试",
+                                "en-us": "Free Repeat",
+                                "ar": "Free Repeat"
+                            },
+                            "display": true
+                        },
+                        "max_retry_count": {
+                            "label": {
+                                "zh-cn": "最大重试次数",
+                                "en-us": "Maximum Retry Count",
+                                "ar": "Maximum Retry Count"
+                            },
+                            "display": true
+                        },
+                        "fee": {
+                            "label": {
+                                "zh-cn": "费用",
+                                "en-us": "Fee",
+                                "ar": "Fee"
+                            },
+                            "display": true
+                        },
+                        "max_close_loss_percent": {
+                            "label": {
+                                "de": "Maximaler Verlust pro Schließung",
+                                "en-us": "Maximum Loss Per Close",
+                                "es": "Pérdida Máxima por Cierre",
+                                "id": "Kerugian Maksimum Per Penutupan",
+                                "ja": "クローズごとの最大損失",
+                                "th": "การขาดทุนสูงสุดต่อการปิด",
+                                "vi": "Mức lỗ tối đa mỗi lần đóng",
+                                "zh-cn": "最大单笔平仓亏损",
+                                "zh-tw": "最大單筆平倉虧損",
+                                "tr": "Kapanış Başına Maksimum Kayıp",
+                                "pt": "Perda Máxima por Fechamento",
+                                "ko": "각 마감당 최대 손실",
+                                "kur-ckb": "زیانە زۆرترین بۆ هەر داخستنێك",
+                                "kur-kmr": "زیاڵی زۆرترین بۆ هەر گرتنێك",
+                                "ar": "الحد الأقصى للخسارة لكل إغلاق",
+                                "fa": "حداکثر زیان برای هر بستن"
+                            },
+                            "display": true
+                        }
+                    },
+                    "fee_refundable": true,
+                    "immediately_upgrade": true,
+                    "profit_sharing_method": "auto",
+                    "profit_sharing_user_type": "all",
+                    "profit_target_logic": "only_closed_orders",
+                    "rebate_rules": [
+                        {
+                            "model": "level",
+                            "include_participants": true,
+                            "type": "profit_percent",
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 1
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "height": 3,
+                                    "value": 3
+                                }
+                            ]
+                        }
+                    ],
+                    "payment_methods": [
+                        "fx21guyw",
+                        "o35wh6ti",
+                        "otyupzn0",
+                        "evqloy8m",
+                        "j139ohym",
+                        "ps1ziflu",
+                        "6cdeebn0"
+                    ],
+                    "payment_method": [
+                        "otyupzn0",
+                        "qn75mhpw",
+                        "o35wh6ti",
+                        "fx21guyw",
+                        "evqloy8m",
+                        "zwywn4b9",
+                        "by7fy2aa",
+                        "z7zwdkgs"
+                    ],
+                    "app_id": "kyc",
+                    "prop_trading_id": "hxk24bq8",
+                    "created_timestamp": 1704275961156,
+                    "id": "f1peegjd",
+                    "is_deleted": false,
+                    "status": "pending",
+                    "groups": [
+                        "all"
+                    ],
+                    "challenge_type_id": "pzwg57dz",
+                    "position": 3.5,
+                    "publish_status": "published",
+                    "display_card_rule": "first_stage",
+                    "publish_timestamp": 1713344913424,
+                    "updated_timestamp": 1713344913424,
+                    "challenge_active_type": "auto",
+                    "prop_trading": {
+                        "_id": "65f955236cc805a58b3d3961",
+                        "app_id": "kyc",
+                        "id": "hxk24bq8",
+                        "name": {
+                            "zh-cn": "挑战0103",
+                            "en-us": "挑战0103",
+                            "zh-tw": "挑战0103",
+                            "kur-ckb": "挑战0103"
+                        },
+                        "time_zone": 8,
+                        "start_time": 1704297600000,
+                        "display": {
+                            "description": {
+                                "zh-cn": "1",
+                                "en-us": "1",
+                                "zh-tw": "1",
+                                "kur-ckb": "1"
+                            },
+                            "schema": {},
+                            "poster": {
+                                "id": "isag",
+                                "name": "icon.png",
+                                "doc": "apps/user/kyc/prop_trading/1704275687032-6bcd10"
+                            },
+                            "picture": {
+                                "id": "k1e7",
+                                "name": "detail-1.png",
+                                "doc": "apps/user/kyc/prop_trading/1704275688264-4e1351"
+                            },
+                            "challenge_detail_first": false
+                        },
+                        "created_timestamp": 1704275689917,
+                        "is_deleted": false,
+                        "next_calculate_time": 1763049600000,
+                        "time_interval": 86400000,
+                        "groups": [
+                            "all"
+                        ]
+                    },
+                    "challenge_type": {
+                        "en-us": "简单",
+                        "zh-cn": "简单"
+                    }
+                },
+                {
+                    "_id": "65952f6a723da61adf718238",
+                    "name": {
+                        "zh-cn": "套餐——直接入金",
+                        "en-us": "套餐——直接入金",
+                        "ar": "套餐——直接入金"
+                    },
+                    "currency": "USD",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "name": {
+                                "zh-cn": "关卡1",
+                                "en-us": "关卡1",
+                                "ar": "关卡1"
+                            },
+                            "account_type": "demo",
+                            "balance": 100,
+                            "connection_id": "w82vltnr",
+                            "platform": "mt4",
+                            "group": "Sandbox6",
+                            "leverage": 100,
+                            "trading_period": 1,
+                            "minimum_trading_days": 1,
+                            "minimum_trading_volumes": 1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "profit_target_percent": 1,
+                            "free_repeat": false,
+                            "fee": {
+                                "amount": 100,
+                                "currency": "USD"
+                            },
+                            "max_daily_loss": 1,
+                            "max_loss": 1,
+                            "profit_target": 1,
+                            "max_close_loss_percent": 1,
+                            "max_close_loss": 1
+                        },
+                        {
+                            "step": 2,
+                            "name": {
+                                "zh-cn": "关卡2",
+                                "en-us": "关卡2",
+                                "ar": "关卡2"
+                            },
+                            "profit_sharing": {
+                                "structure": [
+                                    {
+                                        "height": 1,
+                                        "value": 1
+                                    },
+                                    {
+                                        "height": 2,
+                                        "value": 1
+                                    }
+                                ],
+                                "calculate_time": {
+                                    "type": "fixed_interval",
+                                    "value": 1
+                                }
+                            },
+                            "account_type": "live",
+                            "balance": 1,
+                            "connection_id": "4asdas2z",
+                            "platform": "mt5",
+                            "group": "demo\\BBQANET",
+                            "leverage": 25,
+                            "trading_period": -1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "max_daily_loss": 0.01,
+                            "max_loss": 0.01,
+                            "free_repeat": false,
+                            "max_close_loss_percent": 1,
+                            "max_close_loss": 0.01
+                        }
+                    ],
+                    "form": {
+                        "account_type": {
+                            "label": {
+                                "zh-cn": "账号类型",
+                                "en-us": "Account Type",
+                                "ar": "Account Type"
+                            },
+                            "display": true
+                        },
+                        "balance": {
+                            "label": {
+                                "zh-cn": "初始余额",
+                                "en-us": "Initial Balance Amount",
+                                "ar": "Initial Balance"
+                            },
+                            "display": true
+                        },
+                        "leverage": {
+                            "label": {
+                                "zh-cn": "挑战杠杆",
+                                "en-us": "Challenge Leverage",
+                                "ar": "Challenge Leverage"
+                            },
+                            "display": true
+                        },
+                        "trading_period": {
+                            "label": {
+                                "zh-cn": "交易期限",
+                                "en-us": "Trading Period",
+                                "ar": "Trading Period"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_days": {
+                            "label": {
+                                "zh-cn": "最小交易天数",
+                                "en-us": "Minimum Trading Days",
+                                "ar": "Minimum Trading Days"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_volumes": {
+                            "label": {
+                                "zh-cn": "最小交易手数",
+                                "en-us": "Minimum Trading Volumes",
+                                "ar": "Minimum Trading Volumes"
+                            },
+                            "display": true
+                        },
+                        "max_daily_loss_percent": {
+                            "label": {
+                                "zh-cn": "最大单日损失",
+                                "en-us": "Maximum Daily Loss",
+                                "ar": "Maximum Daily Loss"
+                            },
+                            "display": true
+                        },
+                        "max_loss_percent": {
+                            "label": {
+                                "zh-cn": "最大损失",
+                                "en-us": "Maximum Loss",
+                                "ar": "Maximum Loss"
+                            },
+                            "display": true
+                        },
+                        "profit_target_percent": {
+                            "label": {
+                                "zh-cn": "盈利目标",
+                                "en-us": "Profit Target",
+                                "ar": "Profit Target"
+                            },
+                            "display": true
+                        },
+                        "free_repeat": {
+                            "label": {
+                                "zh-cn": "免费重试",
+                                "en-us": "Free Repeat",
+                                "ar": "Free Repeat"
+                            },
+                            "display": true
+                        },
+                        "max_retry_count": {
+                            "label": {
+                                "zh-cn": "最大重试次数",
+                                "en-us": "Maximum Retry Count",
+                                "ar": "Maximum Retry Count"
+                            },
+                            "display": true
+                        },
+                        "fee": {
+                            "label": {
+                                "zh-cn": "费用",
+                                "en-us": "Fee",
+                                "ar": "Fee"
+                            },
+                            "display": true
+                        },
+                        "max_close_loss_percent": {
+                            "label": {
+                                "de": "Maximaler Verlust pro Schließung",
+                                "en-us": "Maximum Loss Per Close",
+                                "es": "Pérdida Máxima por Cierre",
+                                "id": "Kerugian Maksimum Per Penutupan",
+                                "ja": "クローズごとの最大損失",
+                                "th": "การขาดทุนสูงสุดต่อการปิด",
+                                "vi": "Mức lỗ tối đa mỗi lần đóng",
+                                "zh-cn": "最大单笔平仓亏损",
+                                "zh-tw": "最大單筆平倉虧損",
+                                "tr": "Kapanış Başına Maksimum Kayıp",
+                                "pt": "Perda Máxima por Fechamento",
+                                "ko": "각 마감당 최대 손실",
+                                "kur-ckb": "زیانە زۆرترین بۆ هەر داخستنێك",
+                                "kur-kmr": "زیاڵی زۆرترین بۆ هەر گرتنێك",
+                                "ar": "الحد الأقصى للخسارة لكل إغلاق",
+                                "fa": "حداکثر زیان برای هر بستن"
+                            },
+                            "display": true
+                        }
+                    },
+                    "fee_refundable": true,
+                    "immediately_upgrade": true,
+                    "profit_sharing_method": "auto",
+                    "profit_sharing_user_type": "all",
+                    "profit_target_logic": "only_closed_orders",
+                    "rebate_rules": [
+                        {
+                            "model": "level",
+                            "rank_id": "w4lalfzw",
+                            "include_participants": true,
+                            "type": "profit_percent",
+                            "overriding": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    }
+                                ]
+                            },
+                            "bonus": {
+                                "structure": [
+                                    {
+                                        "height": 1
+                                    },
+                                    {
+                                        "height": 2
+                                    },
+                                    {
+                                        "height": 3
+                                    },
+                                    {
+                                        "height": 4
+                                    },
+                                    {
+                                        "height": 5
+                                    }
+                                ]
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 0.01
+                                }
+                            ]
+                        }
+                    ],
+                    "payment_methods": [
+                        "balance_deduct"
+                    ],
+                    "payment_method": [
+                        "balance_deduct"
+                    ],
+                    "app_id": "kyc",
+                    "prop_trading_id": "cber0yr3",
+                    "created_timestamp": 1704275818753,
+                    "id": "j8enaxfg",
+                    "is_deleted": false,
+                    "status": "pending",
+                    "groups": [
+                        "all"
+                    ],
+                    "position": 11,
+                    "publish_status": "published",
+                    "challenge_type_id": "pzwg57dz",
+                    "display_card_rule": "first_stage",
+                    "publish_timestamp": 1713149784921,
+                    "updated_timestamp": 1713149784921,
+                    "challenge_active_type": "auto",
+                    "prop_trading": {
+                        "_id": "661c97587f97340cae24ca13",
+                        "app_id": "kyc",
+                        "id": "cber0yr3",
+                        "name": null,
+                        "time_zone": 8,
+                        "start_time": 1704297600000,
+                        "display": null,
+                        "created_timestamp": 1713149784858,
+                        "is_deleted": false,
+                        "next_calculate_time": 1763049600000,
+                        "time_interval": 86400000
+                    },
+                    "challenge_type": {
+                        "en-us": "简单",
+                        "zh-cn": "简单"
+                    }
+                },
+                {
+                    "_id": "6595306d3e318fb2c4953dda",
+                    "name": {
+                        "en-us": "套餐——all",
+                        "zh-cn": "套餐——所有方式入金"
+                    },
+                    "currency": "USD",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "name": {
+                                "en-us": "关卡1",
+                                "zh-cn": "关卡1"
+                            },
+                            "account_type": "demo",
+                            "balance": 1,
+                            "connection_id": "w82vltnr",
+                            "platform": "mt4",
+                            "group": "Sandbox6",
+                            "leverage": 50,
+                            "trading_period": 1,
+                            "minimum_trading_days": 1,
+                            "minimum_trading_volumes": 1,
+                            "max_close_loss_percent": 1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "profit_target_percent": 1,
+                            "free_repeat": false,
+                            "fee": {
+                                "amount": 800,
+                                "currency": "USD"
+                            },
+                            "max_daily_loss": 0.01,
+                            "max_loss": 0.01,
+                            "profit_target": 0.01,
+                            "max_close_loss": 0.01
+                        },
+                        {
+                            "step": 2,
+                            "name": {
+                                "en-us": "关卡2",
+                                "zh-cn": "关卡2"
+                            },
+                            "profit_sharing": {
+                                "structure": [
+                                    {
+                                        "height": 1,
+                                        "value": 1
+                                    },
+                                    {
+                                        "height": 2,
+                                        "value": 1
+                                    }
+                                ],
+                                "calculate_time": {
+                                    "type": "fixed_interval",
+                                    "value": 1
+                                }
+                            },
+                            "account_type": "live",
+                            "balance": 1,
+                            "connection_id": "2asdas1z",
+                            "platform": "mt5",
+                            "group": "demo\\BBQAHEDGE",
+                            "leverage": 175,
+                            "trading_period": -1,
+                            "max_close_loss_percent": 1,
+                            "max_daily_loss_percent": 1,
+                            "max_loss_percent": 1,
+                            "free_repeat": false,
+                            "max_daily_loss": 0.01,
+                            "max_loss": 0.01,
+                            "max_close_loss": 0.01
+                        }
+                    ],
+                    "form": {
+                        "account_type": {
+                            "label": {
+                                "en-us": "Account Type",
+                                "zh-cn": "账号类型"
+                            },
+                            "display": true
+                        },
+                        "balance": {
+                            "label": {
+                                "en-us": "Initial Balance Amount",
+                                "zh-cn": "初始余额"
+                            },
+                            "display": true
+                        },
+                        "leverage": {
+                            "label": {
+                                "en-us": "Challenge Leverage",
+                                "zh-cn": "挑战杠杆"
+                            },
+                            "display": true
+                        },
+                        "trading_period": {
+                            "label": {
+                                "en-us": "Trading Period",
+                                "zh-cn": "交易期限"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_days": {
+                            "label": {
+                                "en-us": "Minimum Trading Days",
+                                "zh-cn": "最小交易天数"
+                            },
+                            "display": true
+                        },
+                        "minimum_trading_volumes": {
+                            "label": {
+                                "en-us": "Minimum Trading Volumes",
+                                "zh-cn": "最小交易手数"
+                            },
+                            "display": true
+                        },
+                        "profit_days": {
+                            "display": true,
+                            "label": {
+                                "en-us": "Profitable Days",
+                                "zh-cn": "盈利天数"
+                            }
+                        },
+                        "max_close_loss_percent": {
+                            "label": {
+                                "en-us": "Maximum Loss Per Close",
+                                "zh-cn": "最大单笔平仓亏损"
+                            },
+                            "display": true
+                        },
+                        "max_daily_loss_percent": {
+                            "label": {
+                                "en-us": "Maximum Daily Loss",
+                                "zh-cn": "最大单日损失"
+                            },
+                            "display": true
+                        },
+                        "max_loss_percent": {
+                            "label": {
+                                "en-us": "Maximum Loss",
+                                "zh-cn": "最大损失"
+                            },
+                            "display": true
+                        },
+                        "profit_target_percent": {
+                            "label": {
+                                "en-us": "Profit Target",
+                                "zh-cn": "盈利目标"
+                            },
+                            "display": true
+                        },
+                        "free_repeat": {
+                            "label": {
+                                "en-us": "Free Repeat",
+                                "zh-cn": "免费重试"
+                            },
+                            "display": true
+                        },
+                        "pay_repeat": {
+                            "display": true,
+                            "label": {
+                                "en-us": "Retry Cost",
+                                "zh-cn": "重试成本"
+                            }
+                        },
+                        "max_retry_count": {
+                            "label": {
+                                "en-us": "Maximum Retry Count",
+                                "zh-cn": "最大重试次数"
+                            },
+                            "display": true
+                        },
+                        "fee": {
+                            "label": {
+                                "en-us": "Fee",
+                                "zh-cn": "费用"
+                            },
+                            "display": true
+                        }
+                    },
+                    "fee_refundable": true,
+                    "immediately_upgrade": true,
+                    "profit_sharing_method": "auto",
+                    "profit_sharing_user_type": "all",
+                    "profit_target_logic": "only_closed_orders",
+                    "rebate_rules": [
+                        {
+                            "type": "profit_percent",
+                            "include_participants": false
+                        }
+                    ],
+                    "payment_methods": [
+                        "otyupzn0",
+                        "sve6raf5",
+                        "4ro6w5vq",
+                        "qn75mhpw",
+                        "k1gay05d",
+                        "o35wh6ti",
+                        "fx21guyw",
+                        "lescnz3k",
+                        "8cbnoyqd",
+                        "t47hhs6f",
+                        "e8inwaxw",
+                        "hmiitx1c",
+                        "5vp4jb3i",
+                        "evqloy8m",
+                        "bl1zdjl3",
+                        "j139ohym",
+                        "ps1ziflu",
+                        "6cdeebn0",
+                        "q83yysbf",
+                        "49cfdscd",
+                        "mypccbjm",
+                        "0k28tdv1",
+                        "1fafarll",
+                        "yxhhwpyw",
+                        "yvkpdb2f",
+                        "ppfvn4u6",
+                        "zwywn4b9",
+                        "mehi0es4",
+                        "rpclg0kj",
+                        "balance_deduct"
+                    ],
+                    "payment_method": [
+                        "balance_deduct",
+                        "otyupzn0",
+                        "sve6raf5",
+                        "4ro6w5vq",
+                        "qn75mhpw",
+                        "k1gay05d",
+                        "o35wh6ti",
+                        "fx21guyw",
+                        "lescnz3k",
+                        "8cbnoyqd",
+                        "t47hhs6f",
+                        "e8inwaxw",
+                        "hmiitx1c",
+                        "5vp4jb3i",
+                        "evqloy8m",
+                        "bl1zdjl3",
+                        "q83yysbf",
+                        "49cfdscd",
+                        "mypccbjm",
+                        "0k28tdv1",
+                        "yxhhwpyw",
+                        "1fafarll",
+                        "yvkpdb2f",
+                        "ppfvn4u6",
+                        "zwywn4b9",
+                        "mehi0es4",
+                        "rpclg0kj",
+                        "by7fy2aa",
+                        "z7zwdkgs",
+                        "bc3pen0q",
+                        "74j0o361"
+                    ],
+                    "app_id": "kyc",
+                    "prop_trading_id": "j1odgcog",
+                    "created_timestamp": 1704276077351,
+                    "id": "pbzitnni",
+                    "is_deleted": false,
+                    "status": "pending",
+                    "groups": [
+                        "all"
+                    ],
+                    "challenge_type_id": "pzwg57dz",
+                    "position": 16,
+                    "publish_status": "draft",
+                    "display_card_rule": "first_stage",
+                    "publish_timestamp": 1751530356644,
+                    "updated_timestamp": 1751530356644,
+                    "max_daily_loss_calculate_rule": [
+                        "daily",
+                        "dynamic"
+                    ],
+                    "challenge_active_type": "auto",
+                    "prop_trading": {
+                        "_id": "65f955236cc805a58b3d3962",
+                        "app_id": "kyc",
+                        "id": "j1odgcog",
+                        "name": {
+                            "zh-cn": "挑战0103",
+                            "en-us": "挑战0103",
+                            "zh-tw": "挑战0103",
+                            "kur-ckb": "挑战0103"
+                        },
+                        "time_zone": 8,
+                        "start_time": 1704297600000,
+                        "display": {
+                            "description": {
+                                "zh-cn": "1",
+                                "en-us": "1",
+                                "zh-tw": "1",
+                                "kur-ckb": "1"
+                            },
+                            "schema": {},
+                            "poster": {
+                                "id": "isag",
+                                "name": "icon.png",
+                                "doc": "apps/user/kyc/prop_trading/1704275687032-6bcd10"
+                            },
+                            "picture": {
+                                "id": "k1e7",
+                                "name": "detail-1.png",
+                                "doc": "apps/user/kyc/prop_trading/1704275688264-4e1351"
+                            },
+                            "challenge_detail_first": false
+                        },
+                        "created_timestamp": 1704275689917,
+                        "is_deleted": false,
+                        "next_calculate_time": 1763049600000,
+                        "time_interval": 86400000,
+                        "groups": [
+                            "all"
+                        ]
+                    },
+                    "challenge_type": {
+                        "en-us": "简单",
+                        "zh-cn": "简单"
+                    }
+                }
+            ],
+            "count": 4
+        }
+      '''
+    }
+  }
+}

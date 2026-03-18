@@ -1,0 +1,3240 @@
+meta {
+  name: Get CTrader/Fortex/Sirix Trades
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/trade/trades/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 CTrader Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "1ijlvhv6",
+          "orders": {
+              "volume": 1 // volume | open_price | close_price | close_time | stop_loss | take_profit | commission | swaps | trade_history_profit
+          },
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trade_side",
+                  "value": [
+                      "1", // Buy
+                      "2" // Sell
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_trade_side",
+                  "value": [
+                      "1", // Buy
+                      "2" // Sell
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "type",
+                  "value": [
+                      "1", // MARKET
+                      "4", // STOP_LOSS_TAKE_PROFIT
+                      "6", // STOP_LIMIT
+                      "2", // LIMIT
+                      "5", // MARKET_RANGE
+                      "3" // STOP
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "USDTRY",
+                      "EURTRY"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_fee",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_trade_history_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [1, 2, 3]
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-28 23:59:59"
+                  }
+              },
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-21 00:00:00",
+                      "end": "2026-01-28 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": "12741",
+                    "trading_id": 3000618,
+                    "type": 4,
+                    "symbol": "AUDCAD",
+                    "volume": 1,
+                    "stop_loss": 0.9185,
+                    "take_profit": 0.9213,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T11:21:12.846Z",
+                    "open_time": "2025-11-13T07:22:45.370Z",
+                    "close_price": 0.9185,
+                    "trading_fee": 0.72,
+                    "open_price": 0.92,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 2,
+                    "position_id": "1471",
+                    "currency": "USD",
+                    "trade_history_profit": -107.9,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 1,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12734",
+                    "trading_id": 3000618,
+                    "type": 4,
+                    "symbol": "AUDSGD",
+                    "volume": 1,
+                    "stop_loss": 0.7355,
+                    "take_profit": 0.7322,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T06:53:18.256Z",
+                    "open_time": "2025-11-13T06:34:39.251Z",
+                    "close_price": 0.7355,
+                    "trading_fee": 0.72,
+                    "open_price": 0.7335,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "position_id": "1472",
+                    "currency": "USD",
+                    "trade_history_profit": -152.03,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12732",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "USDCAD",
+                    "volume": 0.9,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T03:45:52.726Z",
+                    "open_time": "2025-11-13T03:45:51.234Z",
+                    "close_price": 1.4007,
+                    "trading_fee": 1,
+                    "open_price": 1.40069,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "position_id": "1489",
+                    "currency": "USD",
+                    "trade_history_profit": -1.64,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12730",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "USDCAD",
+                    "volume": 0.9,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T03:45:48.074Z",
+                    "open_time": "2025-11-13T03:45:46.374Z",
+                    "close_price": 1.40071,
+                    "trading_fee": 1,
+                    "open_price": 1.40069,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "position_id": "1488",
+                    "currency": "USD",
+                    "trade_history_profit": -2.29,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12728",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "USDCAD",
+                    "volume": 0.9,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T03:45:42.396Z",
+                    "open_time": "2025-11-13T03:45:40.245Z",
+                    "close_price": 1.40069,
+                    "trading_fee": 1,
+                    "open_price": 1.4007,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 2,
+                    "position_id": "1487",
+                    "currency": "USD",
+                    "trade_history_profit": -1.64,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 1,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12726",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "USDCHF",
+                    "volume": 1,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T03:44:10.847Z",
+                    "open_time": "2025-11-13T03:44:09.271Z",
+                    "close_price": 0.79873,
+                    "trading_fee": 1.1,
+                    "open_price": 0.79875,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 2,
+                    "position_id": "1486",
+                    "currency": "USD",
+                    "trade_history_profit": -3.6,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 1,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12724",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "USDCHF",
+                    "volume": 1,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T03:44:06.476Z",
+                    "open_time": "2025-11-13T03:43:59.104Z",
+                    "close_price": 0.79875,
+                    "trading_fee": 1.1,
+                    "open_price": 0.79874,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "position_id": "1485",
+                    "currency": "USD",
+                    "trade_history_profit": -2.35,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12723",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "USDCHF",
+                    "volume": 1,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 0,
+                    "close_time": "2025-11-13T03:44:04.879Z",
+                    "open_time": "2025-11-13T03:43:56.131Z",
+                    "close_price": 0.79873,
+                    "trading_fee": 1.1,
+                    "open_price": 0.79876,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 2,
+                    "position_id": "1484",
+                    "currency": "USD",
+                    "trade_history_profit": -4.86,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 1,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12720",
+                    "trading_id": 3000618,
+                    "type": 1,
+                    "symbol": "NZDUSD",
+                    "volume": 1,
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "swaps": 10,
+                    "close_time": "2025-11-13T03:43:20.840Z",
+                    "open_time": "2025-11-05T02:45:17.170Z",
+                    "close_price": 0.56578,
+                    "trading_fee": 0.62,
+                    "open_price": 0.5641,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "position_id": "1436",
+                    "currency": "USD",
+                    "trade_history_profit": -158.62,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": "12719",
+                    "trading_id": 3000618,
+                    "type": 4,
+                    "symbol": "GBPUSD",
+                    "volume": 0.1,
+                    "stop_loss": 1.31805,
+                    "take_profit": 1.31505,
+                    "swaps": 0,
+                    "close_time": "2025-11-11T14:36:57.953Z",
+                    "open_time": "2025-11-11T13:26:22.123Z",
+                    "close_price": 1.31805,
+                    "trading_fee": 0.14,
+                    "open_price": 1.31705,
+                    "is_precise_money": false,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "position_id": "1470",
+                    "currency": "USD",
+                    "trade_history_profit": -10.14,
+                    "trade_history_mine_profit": 0,
+                    "open_trade_side": 2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Fortex Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "74mcgsjx",
+          "orders": {},
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "position",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "action",
+                  "value": [
+                      "0", // Buy
+                      "3", // Sell Limit
+                      "1", // Sell
+                      "4", // Buy Stop
+                      "2", // Buy Limit
+                      "5" // Sell Stop
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "AAPL",
+                      "AUD/CHF",
+                      "AUD/NZD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "entry",
+                  "value": [
+                      "0", // In
+                      "3", // CloseBy
+                      "1", // Out
+                      "2" // Reversal
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_fee",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "value": {
+                      "type": "like", // "startWith" ｜ "like"
+                      "content": "123"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_trade_history_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [1, 2, 3]
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-21 00:00:00",
+                      "end": "2026-01-28 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 499531,
+                    "trading_id": "Q001",
+                    "action": 1,
+                    "entry": 1,
+                    "symbol": "GBP/CHF",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-13T02:29:04.000Z",
+                    "price": 1.04784,
+                    "trading_fee": -1.31,
+                    "position": 499526,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": -3.13,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 499527,
+                    "trading_id": "Q001",
+                    "action": 0,
+                    "entry": 0,
+                    "symbol": "GBP/CHF",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-13T02:28:58.000Z",
+                    "price": 1.04789,
+                    "trading_fee": -1.31,
+                    "position": 499526,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": 0,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 499516,
+                    "trading_id": "Q001",
+                    "action": 1,
+                    "entry": 1,
+                    "symbol": "EUR/GBP",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-13T02:24:28.000Z",
+                    "price": 0.88333,
+                    "trading_fee": 0,
+                    "position": 499511,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": -1.97,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 499512,
+                    "trading_id": "Q001",
+                    "action": 0,
+                    "entry": 0,
+                    "symbol": "EUR/GBP",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-13T02:24:25.000Z",
+                    "price": 0.88336,
+                    "trading_fee": 0,
+                    "position": 499511,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": 0,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 498896,
+                    "trading_id": "Q001",
+                    "action": 0,
+                    "entry": 1,
+                    "symbol": "EUR/AUD",
+                    "volume": "0.1000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-12T22:55:43.000Z",
+                    "price": 1.76735,
+                    "trading_fee": 0,
+                    "position": 498876,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": -0.52,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 498877,
+                    "trading_id": "Q001",
+                    "action": 1,
+                    "entry": 0,
+                    "symbol": "EUR/AUD",
+                    "volume": "0.1000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-12T22:55:36.000Z",
+                    "price": 1.76727,
+                    "trading_fee": 0,
+                    "position": 498876,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": 0,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 498869,
+                    "trading_id": "Q001",
+                    "action": 1,
+                    "entry": 1,
+                    "symbol": "EUR/AUD",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-12T22:55:30.000Z",
+                    "price": 1.76722,
+                    "trading_fee": 0,
+                    "position": 498861,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": -3.61,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 498872,
+                    "trading_id": "Q001",
+                    "action": 1,
+                    "entry": 1,
+                    "symbol": "EUR/AUD",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-12T22:55:30.000Z",
+                    "price": 1.76718,
+                    "trading_fee": 0,
+                    "position": 498861,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": -5.9,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 498862,
+                    "trading_id": "Q001",
+                    "action": 0,
+                    "entry": 0,
+                    "symbol": "EUR/AUD",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-12T22:55:26.000Z",
+                    "price": 1.76733,
+                    "trading_fee": 0,
+                    "position": 498861,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": 0,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 498865,
+                    "trading_id": "Q001",
+                    "action": 0,
+                    "entry": 0,
+                    "symbol": "EUR/AUD",
+                    "volume": "0.5000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-12T22:55:26.000Z",
+                    "price": 1.76736,
+                    "trading_fee": 0,
+                    "position": 498861,
+                    "comment": "XC.ORD.USER.Q001",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "currency": "USD",
+                    "swaps": 0,
+                    "trade_history_profit": 0,
+                    "trade_history_mine_profit": null,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Sirix Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "74mcgsjs",
+          "orders": {
+              "volume": 1 // volume ｜ open_price ｜ open_time ｜ close_price ｜ close_time ｜ stop_loss ｜ take_profit ｜ commission ｜ swaps ｜ trade_history_profit 
+          },
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "cmd",
+                  "value": [
+                      "0", // Buy
+                      "3", // Sell Limit
+                      "1", // Sell
+                      "4", // Buy Stop
+                      "2", // Buy Limit
+                      "5" // Sell Stop
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "NIFTY-SEP21",
+                      "USDCNH.I"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "open_price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "close_price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_fee",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "value": {
+                      "type": "like", // "startWith" ｜ "like"
+                      "content": "123"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_trade_history_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [1, 2, 3]
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-28 23:59:59"
+                  }
+              },
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-21 00:00:00",
+                      "end": "2026-01-28 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 1098820,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "EURCHF.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-08-15T12:55:07.000Z",
+                    "open_price": 0.94148,
+                    "swaps": 0,
+                    "close_time": "2025-08-15T12:55:13.000Z",
+                    "close_price": 0.94143,
+                    "trading_fee": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": -0.06,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098818,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "AUDNZD.",
+                    "volume": 0.5,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-08-15T12:54:32.000Z",
+                    "open_price": 1.09819,
+                    "swaps": 0,
+                    "close_time": "2025-08-15T12:54:39.000Z",
+                    "close_price": 1.09814,
+                    "trading_fee": -32.53,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": -1.48,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098815,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "AUDUSD.",
+                    "volume": 0.5,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-08-15T12:51:35.000Z",
+                    "open_price": 0.65072,
+                    "swaps": 0,
+                    "close_time": "2025-08-15T12:51:42.000Z",
+                    "close_price": 0.6507,
+                    "trading_fee": -3253.6,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": -1,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098813,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "GBPAUD.",
+                    "volume": 0.5,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-08-15T09:48:12.000Z",
+                    "open_price": 2.08248,
+                    "swaps": 0,
+                    "close_time": "2025-08-15T09:48:28.000Z",
+                    "close_price": 2.08222,
+                    "trading_fee": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": -8.46,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098811,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "GBPAUD.",
+                    "volume": 0.03,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T12:18:03.000Z",
+                    "open_price": 1.8295,
+                    "swaps": -148.44,
+                    "close_time": "2025-08-15T09:39:56.000Z",
+                    "close_price": 2.08284,
+                    "trading_fee": 0,
+                    "comment": "Sirix 挂单 备注",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": 494.49,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098810,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "GBPUSD.",
+                    "volume": 0.5,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-08-15T06:32:55.000Z",
+                    "open_price": 1.35488,
+                    "swaps": 0,
+                    "close_time": "2025-08-15T06:37:13.000Z",
+                    "close_price": 1.35484,
+                    "trading_fee": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": -2,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098808,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "EURCHF.",
+                    "volume": 0.5,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-08-15T06:32:19.000Z",
+                    "open_price": 0.94073,
+                    "swaps": 0,
+                    "close_time": "2025-08-15T06:32:27.000Z",
+                    "close_price": 0.94066,
+                    "trading_fee": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "trade_history_profit": -4.34,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_trade_history_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Ctrader Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "1ijlvhv6",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-11-30 00:00:00",
+                      "end": "2026-01-29 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {
+              "open_time": 1 // open_time | stop_loss | take_profit
+          },
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "position_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "USDTRY",
+                      "EURHKD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_open_positions_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "position_id": "1532",
+                    "trading_id": 3000618,
+                    "symbol": "NZDUSD",
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "open_time": "2025-11-20T07:22:58.682Z",
+                    "contract_size": "10000000",
+                    "digits": 5,
+                    "asset_digits": 2,
+                    "group": "Default",
+                    "is_precise_money": false,
+                    "currency": "USD",
+                    "open_price": 0.56126,
+                    "trade_side": 1,
+                    "volume": 0.8,
+                    "swaps": 0,
+                    "trading_fee": 0.25,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "position_id": "1475",
+                    "trading_id": 3000618,
+                    "symbol": "AUDUSD",
+                    "stop_loss": null,
+                    "take_profit": null,
+                    "open_time": "2025-11-11T06:58:46.671Z",
+                    "contract_size": "10000000",
+                    "digits": 5,
+                    "asset_digits": 2,
+                    "group": "Default",
+                    "is_precise_money": false,
+                    "currency": "USD",
+                    "open_price": 0.65187,
+                    "trade_side": 1,
+                    "volume": 1,
+                    "swaps": 55,
+                    "trading_fee": 0.36,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Fortex Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "74mcgsjx",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-29 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "position",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "action",
+                  "value": [
+                      "0", // Buy
+                      "1", // Sell
+                      "2", // Buy Limit
+                      "3", // Sell Limit
+                      "4", // Buy Stop
+                      "5"  // Sell Stop
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "AUD/CHF",
+                      "AUD/NZD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_open_positions_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "value": {
+                      "type": "like", // "startWith" ｜ "like"
+                      "content": "123"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 5652514,
+                    "trading_id": 50036,
+                    "cmd": 1,
+                    "symbol": "NZDCADecn",
+                    "volume": 0.5,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2025-11-07T12:06:22.000Z",
+                    "open_price": 0.79305,
+                    "swaps": -10.35,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0.78861,
+                    "trading_fee": -4,
+                    "trade_history_profit": 137.09,
+                    "comment": "",
+                    "group": "Sandbox4-EUR",
+                    "reason": 0,
+                    "currency": "EUR",
+                    "open_position_profit": 137.09,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Sirix Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "74mcgsjs",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-11-30 00:00:00",
+                      "end": "2026-01-29 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {
+              "volume": 1 // volume | open_price | open_time | stop_loss | take_profit | commission | swaps | open_position_profit
+          },
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "position",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "cmd",
+                  "value": [
+                      "0", // Buy
+                      "1", // Sell
+                      "2", // Buy Limit
+                      "3", // Sell Limit
+                      "4", // Buy Stop
+                      "5"  // Sell Stop
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "USDCNH.I",
+                      "XMRUSDT.sb"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_open_positions_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "swaps",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "value": {
+                      "type": "like", // "startWith" ｜ "like"
+                      "content": "123"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 1098027,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "EURGBP.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T12:09:50.000Z",
+                    "open_price": 0.88065,
+                    "swaps": -67.87999999999985,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0.88337,
+                    "trading_fee": 0,
+                    "trade_history_profit": 1.66,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": 1.66,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098014,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "GBPCAD.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:54:29.000Z",
+                    "open_price": 1.66879,
+                    "swaps": -58.13000000000004,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 1.83447,
+                    "trading_fee": 0,
+                    "trade_history_profit": 119.32,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": 119.32,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098013,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "GBPAUD.",
+                    "volume": 0.04,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:54:24.000Z",
+                    "open_price": 1.82584,
+                    "swaps": -219.5,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 2.01534,
+                    "trading_fee": 0,
+                    "trade_history_profit": 496.18,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": 496.18,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098012,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "CHFJPY.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:53:56.000Z",
+                    "open_price": 147.034,
+                    "swaps": -50.82999999999994,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 195.048,
+                    "trading_fee": 0,
+                    "trade_history_profit": 306.05,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": 306.05,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098011,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "CADJPY.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:53:51.000Z",
+                    "open_price": 97.781,
+                    "swaps": -19.579999999999988,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 111.848,
+                    "trading_fee": 0,
+                    "trade_history_profit": 89.59,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": 89.59,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098010,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "CADCHF.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:53:46.000Z",
+                    "open_price": 0.66501,
+                    "swaps": 0,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0.57307,
+                    "trading_fee": 0,
+                    "trade_history_profit": -113.9,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": -113.9,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098007,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "AUDSGD.",
+                    "volume": 0.01,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:53:17.000Z",
+                    "open_price": 0.89757,
+                    "swaps": -21.65,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0.84644,
+                    "trading_fee": 0,
+                    "trade_history_profit": -39.16,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": -39.16,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098005,
+                    "trading_id": 11799,
+                    "cmd": 0,
+                    "symbol": "AUDNZD.",
+                    "volume": 2,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "2023-03-14T10:44:00.000Z",
+                    "open_price": 1.07172,
+                    "swaps": -7863.019999999999,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 1.15599,
+                    "trading_fee": 0,
+                    "trade_history_profit": 9273.07,
+                    "comment": "Sirix 备注2",
+                    "group": "BR USD 2",
+                    "currency": "USD",
+                    "open_position_profit": 9273.07,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_open_positions_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 CTrader Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "1ijlvhv6",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-11-30 00:00:00",
+                      "end": "2026-01-29 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {
+              "volume": 1 // volume | price | stop_loss | take_profit
+          },
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_pending_orders_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trade_side",
+                  "value": [
+                      "1", // Buy
+                      "2"  // Sell
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "type",
+                  "value": [
+                      "1", // MARKET
+                      "2", // LIMIT
+                      "3", // STOP
+                      "4", // STOP_LOSS_TAKE_PROFIT
+                      "5", // MARKET_RANGE
+                      "6"  // STOP_LIMIT
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "USDTRY",
+                      "EURTRY"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": "2871",
+                    "trading_id": 3000618,
+                    "type": 2,
+                    "symbol": "USDCHF",
+                    "volume": 1,
+                    "time": "2025-11-20T09:19:07.574Z",
+                    "limit_price": "0.80550000000000000000",
+                    "stop_price": null,
+                    "relative_stop_loss": null,
+                    "relative_take_profit": null,
+                    "group": "Default",
+                    "trade_side": 1,
+                    "price": 0.8055,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_pending_orders_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Fortex Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "74mcgsjx",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-29 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_pending_orders_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "type",
+                  "value": [
+                      "0", // Buy
+                      "1", // Sell
+                      "2", // Buy Limit
+                      "3", // Sell Limit
+                      "4", // Buy Stop
+                      "5"  // Sell Stop
+                  
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "AMZN",
+                      "AUD/CAD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 477185,
+                    "trading_id": "Q001",
+                    "email": "yinzheng5519@gmail.com",
+                    "type": 2,
+                    "symbol": "GBP/CHF",
+                    "volume": "1.0000",
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "time": "2025-11-04T21:47:40.000Z",
+                    "price": 0.5,
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "comment": "",
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_pending_orders_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Sirix Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/trades/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "74mcgsjs",
+          "range": [],
+          "last": false,
+          "orders": {
+              "volume": 1 // volume | open_price | stop_loss | take_profit
+          },
+          "searches": [
+              {
+                  "field": "name",
+                  "value": "user",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reports_pending_orders_tier",
+                  "value": {
+                      "rank_id": "rd3ktdmy",
+                      "tiers": [
+                          1
+                      ]
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "cmd",
+                  "value": [
+                      "0", // Buy
+                      "1", // Sell
+                      "2", // Buy Limit
+                      "3", // Sell Limit
+                      "4", // Buy Stop
+                      "5"  // Sell Stop
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "NIFTY-SEP20",
+                      "NIFTY-SEP21"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "price",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "stop_loss",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "take_profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "referrer_id",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "all", // "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "comment",
+                  "value": {
+                      "type": "like", // "startWith" ｜ "like"
+                      "content": "123"
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "" // Order ID
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trades": [
+                {
+                    "order_id": 1098017,
+                    "trading_id": 11799,
+                    "cmd": 3,
+                    "symbol": "EURUSD.",
+                    "volume": 0.01,
+                    "stop_loss": 1.4,
+                    "take_profit": 1.1,
+                    "open_time": "1970-01-01T00:00:00.000Z",
+                    "open_price": 1.3,
+                    "swaps": 0,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0,
+                    "trading_fee": 0,
+                    "trade_history_profit": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_pending_orders_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098015,
+                    "trading_id": 11799,
+                    "cmd": 2,
+                    "symbol": "EURPLN.",
+                    "volume": 0.06,
+                    "stop_loss": 0,
+                    "take_profit": 0,
+                    "open_time": "1970-01-01T00:00:00.000Z",
+                    "open_price": 4,
+                    "swaps": 0,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0,
+                    "trading_fee": 0,
+                    "trade_history_profit": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_pending_orders_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                },
+                {
+                    "order_id": 1098016,
+                    "trading_id": 11799,
+                    "cmd": 5,
+                    "symbol": "EURSEK.",
+                    "volume": 0.01,
+                    "stop_loss": 11,
+                    "take_profit": 9,
+                    "open_time": "1970-01-01T00:00:00.000Z",
+                    "open_price": 10,
+                    "swaps": 0,
+                    "close_time": "1970-01-01T00:00:00.000Z",
+                    "close_price": 0,
+                    "trading_fee": 0,
+                    "trade_history_profit": 0,
+                    "comment": "",
+                    "group": "BR USD 2",
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "reports_pending_orders_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

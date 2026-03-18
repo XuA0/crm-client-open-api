@@ -1,0 +1,53 @@
+meta {
+  name: Get Announcements
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/announcements/user
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/announcements/user
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "title": {
+                    "en-us": "📢 CRM Maintenance Notice",
+                    "zh-cn": "📢 CRM Maintenance Notice"
+                },
+                "content": {
+                    "en-us": "Dear Valued Users,\n\nPlease be informed that scheduled maintenance will be carried out on our CRM system during the following period:\n\n🗓 Date: [Insert Date]\n🕒 Time: [Insert Time Range, e.g., 10:00 PM – 2:00 AM (GMT+8)]\n⚙️ Purpose: System optimization and performance upgrades\n\nDuring this time, the CRM may be temporarily unavailable. We advise all users to save your work and log out before the maintenance begins to avoid any data loss.\n\nWe appreciate your patience and understanding as we work to improve your experience. If you have any urgent matters, please reach out to our support team at [Insert Contact Info].\n\nThank you for your continued support.",
+                    "zh-cn": "Dear Valued Users,\n\nPlease be informed that scheduled maintenance will be carried out on our CRM system during the following period:\n\n🗓 Date: [Insert Date]\n🕒 Time: [Insert Time Range, e.g., 10:00 PM – 2:00 AM (GMT+8)]\n⚙️ Purpose: System optimization and performance upgrades\n\nDuring this time, the CRM may be temporarily unavailable. We advise all users to save your work and log out before the maintenance begins to avoid any data loss.\n\nWe appreciate your patience and understanding as we work to improve your experience. If you have any urgent matters, please reach out to our support team at [Insert Contact Info].\n\nThank you for your continued support."
+                },
+                "text_align": "center",
+                "font_color": "#000",
+                "background_color": "#ffffff",
+                "id": "o5ofdmg0"
+            }
+        ]
+      '''
+    }
+  }
+}

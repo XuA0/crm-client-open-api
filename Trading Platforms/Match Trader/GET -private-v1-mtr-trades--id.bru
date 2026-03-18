@@ -1,0 +1,37 @@
+meta {
+  name: GET /private/v1/mtr/trades/:id
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mtr/trades/:id?connection_id=&key=&trading_id=0&searches=&range=&last=true&orders=[object Object]&mine=true&skip=0&limit=0&search_type=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  key: 
+  trading_id: 0
+  searches: 
+  range: 
+  last: true
+  orders: [object Object]
+  mine: true
+  skip: 0
+  limit: 0
+  search_type: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}

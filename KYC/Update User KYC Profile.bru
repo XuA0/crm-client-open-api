@@ -1,0 +1,96 @@
+meta {
+  name: Update User KYC Profile
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{BASE_URL}}/private/v2/user/profile
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "form_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/user/profile
+    method: PATCH
+    mode: json
+    body:json: {
+      {
+          "name": "John Livone",
+          "nationality": "bz",
+          "gender": "male",
+          "date_of_birth": "1986-10-13",
+          "identity_number": "432324",
+          "phone": {
+              "number": "34342332",
+              "country_code": "kz"
+          },
+          "location": {
+              "country": "cn",
+              "state": "SH",
+              "city": "Shanghai"
+          },
+          "postal_code": "11111",
+          "address": "11111",
+          "ux1605475a75x1716ex11": [],
+          "ux160547e203x1142x12": [],
+          "ux1605483785x12d3ax13": "",
+          "identity_type": "ux23390a424x161d6x2",
+          "identity_doc": [
+              {
+                  "id": "0p67",
+                  "name": "real_ID_card.png",
+                  "doc": "apps/kyc/users/klp9koqa/forms/pwlt0q4e/identity_doc_0p67"
+              }
+          ],
+          "alt_identity_doc": [
+              {
+                  "id": "kn30",
+                  "name": "real_ID_card_back_side.png",
+                  "doc": "apps/kyc/users/klp9koqa/forms/pwlt0q4e/alt_identity_doc_kn30"
+              }
+          ],
+          "bank_card_doc": [],
+          "selfie_doc": [],
+          "address_doc": [],
+          "ux4520010cex10c3x3": [
+              {
+                  "ux64e722649xb05bx1": {
+                      "country": "",
+                      "state": "",
+                      "city": ""
+                  },
+                  "uxb3cf1c2e5x179a2x3": []
+              }
+          ],
+          "form_id": "gl18dz8t"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

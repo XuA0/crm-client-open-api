@@ -1,0 +1,258 @@
+meta {
+  name: Get User Info
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/user
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/user
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "xxxx",
+            "name": "xxxx",
+            "email": "xxxx",
+            "form_id": "xxxx",
+            "type": "ib",
+            "origin": "https://xxxx.com",
+            "notify": true,
+            "language": "zh-cn",
+            "group_id": "xxxx",
+            "user_code": "xxxx",
+            "status": "verified",
+            "processing": false,
+            "created_at": "2022-12-09T10:46:36.178Z",
+            "updated_at": "2025-02-12T08:04:45.189Z",
+            "profile": {
+                "gender": "male",
+                "nationality": "gh",
+                "identity_number": "xxxx",
+                "date_of_birth": "2022-12-06",
+                "address": "11111",
+                "location": {
+                    "country": "ls",
+                    "state": "F",
+                    "city": "Mohale’s Hoek"
+                },
+                "postal_code": "1111"
+            },
+            "trading_accounts": [
+                {
+                    "platform": "mt5",
+                    "connection_id": "xxxx",
+                    "trading_id": 123456
+                }
+            ],
+            "referrer_num": 3,
+            "referrer_id": "xxxx",
+            "form_data": {
+                "ux11f09758f6x886cx8": "ao"
+            },
+            "phone": {
+                "number": "xxxx",
+                "country_code": "xxxx"
+            },
+            "demo_trading_accounts": [
+                {
+                    "platform": "mt5",
+                    "connection_id": "xxxx",
+                    "trading_id": 123456
+                }
+            ],
+            "current_total_customers": "1-10",
+            "current_total_funds": "$5-10 million",
+            "nationality": "aw",
+            "new_customers_opened_per_month": "0-5/month",
+            "sumsub_validate_status_user": "GREEN",
+            "sumsub_validate_status_admin": "GREEN",
+            "prop_trading": true,
+            "last_login_timestamp": 1762831140617,
+            "first_deposit_amount": 100,
+            "shufti_pro": {
+                "document_status": "accepted"
+            },
+            "first_open_time": "2023-05-17T12:36:50.000Z",
+            "first_deposit_time": "2023-02-01T10:24:36.000Z",
+            "first_trade_time": "2023-06-27T04:53:05.000Z",
+            "referrer_user_code": "xxxx",
+            "referrer": {
+                "id": "xxxx",
+                "name": "xxxx",
+                "email": "xxxx",
+                "type": "ib",
+                "origin": "https://xxxx.com",
+                "group_id": "xxxx",
+                "user_code": "xxxx",
+                "created_at": "2022-12-09T10:32:47.918Z",
+                "referrer_id": "xxxx"
+            },
+            "tags": [
+                "is_open",
+                "is_deposit",
+                "is_trade",
+                "is_prop_trading"
+            ],
+            "acl": {
+                "dashboard": true,
+                "web_trader": true,
+                "sofinx": true,
+                "trading_accounts": true,
+                "create_trading_accounts": true,
+                "bind_existing_accounts": true,
+                "update_trading_accounts_password": true,
+                "reset_trading_accounts_password": true,
+                "update_trading_accounts_leverage": true,
+                "create_demo_trading_accounts": true,
+                "funds": true,
+                "create_deposit_requests": true,
+                "create_transfer": true,
+                "create_withdrawal_requests": true,
+                "cancel_deposit_requests": true,
+                "cancel_transfer": true,
+                "cancel_withdrawal_requests": true,
+                "create_transfer_to_others": true,
+                "referrals_commissions": true,
+                "referrals_commissions_total": true,
+                "referrals_commissions_fixed": true,
+                "referrals_commissions_flexible": true,
+                "referrals_commissions_download": true,
+                "report_trade_history": true,
+                "report_open_positions": true,
+                "report_pending_orders": true,
+                "profile_kyc": true,
+                "profile_settings": true,
+                "update_password": true,
+                "update_email": true,
+                "update_mfa": true,
+                "registration_information": true,
+                "update_registration_information": true,
+                "clients_reports": true,
+                "clients_reports_range": [
+                    {
+                        "transactions": true,
+                        "account_capital": true,
+                        "trade_history": true,
+                        "open_positions": true,
+                        "pending_orders": true,
+                        "fixed_commissions": true,
+                        "flexible_commissions": true,
+                        "client_account_reports": true,
+                        "sensitive": true,
+                        "download": true,
+                        "min": 1,
+                        "max": 1
+                    }
+                ],
+                "clients_reports_data_permission_part": 1,
+                "my_clients": true,
+                "my_clients_range": [
+                    {
+                        "client_information": true,
+                        "client_kyc_profiles": true,
+                        "client_accounts": true,
+                        "client_funds": true,
+                        "client_referral": true,
+                        "client_commission_rules": true,
+                        "sensitive": false,
+                        "client_bankcard": true,
+                        "download": true,
+                        "min": 1,
+                        "max": 1
+                    }
+                ],
+                "get_referral_link": true,
+                "overview": true,
+                "my_clients_data_permission_part": 1,
+                "pamm": true,
+                "52qu08uq": true,
+                "sinv35jr": true,
+                "79ryolwj": true,
+                "66wi4fbp": true,
+                "zjvs94n8": true,
+                "yfx6wgli": true,
+                "profile_bankcard": true,
+                "create_profile_bankcard": true,
+                "update_profile_bankcard": true,
+                "delete_profile_bankcard": true,
+                "bank_card_need_approve": false,
+                "clients_requests": true,
+                "clients_requests_range": [
+                    {
+                        "open_account": true,
+                        "deposit": true,
+                        "withdrawal": true,
+                        "transfer": true,
+                        "update_leverage": true,
+                        "reset_password": true,
+                        "sensitive": true,
+                        "prop_trading_live_step": true,
+                        "min": 1,
+                        "max": 1
+                    }
+                ],
+                "clients_requests_data_permission_part": 1,
+                "read_and_submit_ticket": true,
+                "w1kors4t": true,
+                "prop_trading": true,
+                "report_account_reports": true,
+                "mb2y3pbz": false,
+                "trading_competition": true,
+                "report_account_capital": true,
+                "report_transactions": true,
+                "prop_trading_performance": true,
+                "prop_trading_performance_range": [
+                    {
+                        "participants": true,
+                        "commission": true,
+                        "profit_sharing": true,
+                        "download": true,
+                        "min": 1,
+                        "max": "all"
+                    }
+                ],
+                "social_trading_follower": true,
+                "social_trading_provider": true
+            },
+            "mfa": false,
+            "default_currency": "USD",
+            "last_login_address": {
+                "country": "KR",
+                "country_name": "South Korea",
+                "region": "41",
+                "region_name": "Gyeonggi-do",
+                "city": 1842485,
+                "city_name": "Goyang-si",
+                "type": "maxmind"
+            },
+            "last_login_ip": "14.4.158.117",
+            "mfa_type": "email",
+            "failed_login_count": 0,
+            "failed_login_ips": [],
+            "last_device_id": "9b991b1d5dee5e72dbe784ab35f103ca",
+            "last_device_name": "mac",
+            "last_explorer_name": "chrome",
+            "last_login_time": 1762831149593
+        }
+      '''
+    }
+  }
+}

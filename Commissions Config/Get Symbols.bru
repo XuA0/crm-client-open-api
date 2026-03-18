@@ -1,0 +1,41 @@
+meta {
+  name: Get Symbols
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/symbols
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/symbols
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            "MT4-AUDUSD",
+            "MT4-EURUSD"
+        ]
+      '''
+    }
+  }
+}

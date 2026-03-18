@@ -1,0 +1,71 @@
+meta {
+  name: Cancel Request
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/:id/:type/cancel
+  body: json
+  auth: bearer
+}
+
+params:path {
+  id: 
+  type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "comment": "",
+    "atts": [
+      {
+        "url": "",
+        "name": ""
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/:id/:type/cancel
+    method: POST
+    mode: json
+    params:path: {
+      id: yg4zmc37
+      type: deposit
+    }
+  
+    body:json: {
+      {
+        "comment": "",
+        "atts": [
+          {
+            "url": "",
+            "name": ""
+          }
+        ]
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,214 @@
+meta {
+  name: ROPC Get Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/oauth/token
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "grant_type": "password",
+      "username": "",
+      "password": ""
+  }
+}
+
+script:post-response {
+  if (res.getStatus() === 200) {
+      const jsonData = res.getBody();
+      
+      // Safely extract tokens
+      const accessToken = jsonData.access_token;
+      const refreshToken = jsonData.refresh_token;
+  
+      // Validate existence before setting
+      if (accessToken) {
+          bru.setVar("AUTH_TOKEN", accessToken);
+          console.log("✅ AUTH_TOKEN updated in collection variables.");
+      } else {
+          console.warn("⚠️ No access_token found in response.");
+      }
+  
+      if (refreshToken) {
+          bru.setVar("REFRESH_TOKEN", refreshToken);
+          console.log("✅ REFRESH_TOKEN updated in collection variables.");
+      } else {
+          console.warn("⚠️ No refresh_token found in response.");
+      }
+  
+  } else {
+      console.error(`❌ Token request failed with status: ${res.getStatus()}`);
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/token
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "grant_type": "password",
+          "username": "",
+          "password": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 23 Oct 2025 06:57:12 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"2cf-yjdY0X70tBoO5DvebUwagWyghXQ"
+      x-envoy-upstream-service-time: 278
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=2QOHFrBKVKIxaNcZdzO5iBmMrQ1gcXNg%2Bq4yWz6durNHfGMpZlj4tQIFdd1j68XIZEItP7NflvG054uxDeGtv%2BzFWlF%2BMBiJgR4%2FHpelpi4%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 992f56bd7c0b3725-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "access_token": "***",
+            "token_type": "Bearer",
+            "expires_in": 3600,
+            "refresh_token": "***"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 MFA Activation Required
+  
+  request: {
+    url: {{BASE_URL}}/oauth/token
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "grant_type": "password",
+          "username": "",
+          "password": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 23 Oct 2025 07:35:39 GMT
+      Content-Type: application/json
+      Content-Length: 162
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"a2-QRmveBS4uC/KHgvbo1fI6lXEx34"
+      x-envoy-upstream-service-time: 98
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=CyHifNKuAkSgBHn2aRSAzMDCu4eFUvXP7dxyLm3N%2B23teO9UmJGMOYJr17V%2BBoJpQijqa5XgfIH6RJLOKzB7oPYRSoy92BGRMeUtGlFQpes%3D"}]}
+      CF-RAY: 992f8f10de28d633-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: Bad Request
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "error": "mfa_required",
+            "error_description": "Multi-factor authentication required",
+            "mfa_token": "62q8cqou9qd58g2t2d3movwim880c5xjdbkt8zye19vx72oxd8x5r4brivl5oi5j"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400 MFA Code Verification Required
+  
+  request: {
+    url: {{BASE_URL}}/oauth/token
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "grant_type": "password",
+          "username": "jinweimai13@gmail.com",
+          "password": "Password123!"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 05:29:25 GMT
+      Content-Type: application/json
+      Content-Length: 221
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"dd-21/M3QTit5GgAqm3zXHC8mkvhDI"
+      x-envoy-upstream-service-time: 41
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=eQrHmnsjbWBvdCybK1aBGLvqBPBHJhu6u4w12AYWpzHBRkTIrqZPiaZsDbWRodp3tB8eg6tFemW9aGqrTzq2WUYsMZv4ewmLt1fdwSW1S9A%3D"}]}
+      CF-RAY: 9a3ebf8de9819aaf-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: Bad Request
+      text: 400
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "error": "mfa_required",
+            "error_description": "Multi-factor authentication required",
+            "email": "",
+            "mfa_type": "authenticator",
+            "mfa_token": "iyiggr1rxf364z2p02dupqod8p61oohvehhz5lx3y4erxrt4hqcd2jrtbftgrjou"
+        }
+      '''
+    }
+  }
+}

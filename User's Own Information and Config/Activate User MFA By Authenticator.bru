@@ -1,0 +1,50 @@
+meta {
+  name: Activate User MFA By Authenticator
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/mfa
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "otp":"718221"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 204
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "otp":"135735"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: No Content
+      text: 204
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

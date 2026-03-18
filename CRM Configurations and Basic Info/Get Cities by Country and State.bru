@@ -1,0 +1,56 @@
+meta {
+  name: Get Cities by Country and State
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/configuration/cities?country_code=&state_code=
+  body: none
+  auth: inherit
+}
+
+params:query {
+  country_code: 
+  state_code: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/configuration/cities?country_code=ls&state_code=f
+    method: GET
+    mode: none
+    params:query: {
+      country_code: ls
+      state_code: f
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "621d895b4cb8df6c575c6f07",
+                "name": "Mohale’s Hoek",
+                "countryCode": "ls",
+                "stateCode": "f",
+                "latitude": "-30.15137",
+                "longitude": "27.47691",
+                "translation": {
+                    "en-us": "Mohale’s Hoek",
+                    "zh-cn": "Mohale’s Hoek"
+                }
+            }
+        ]
+      '''
+    }
+  }
+}

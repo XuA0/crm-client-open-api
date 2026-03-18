@@ -1,0 +1,117 @@
+meta {
+  name: Get Prop Challenge Types
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/challengeType?label=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  label: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/challengeType
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "65f955236cc805a58b3d3956",
+                "app_id": "kyc",
+                "id": "c7hgt94t",
+                "label": {
+                    "zh-cn": "挑战0816",
+                    "en-us": "挑战0816",
+                    "zh-tw": "挑战0816",
+                    "tr": "挑战0816"
+                }
+            },
+            {
+                "_id": "65f955236cc805a58b3d3957",
+                "app_id": "kyc",
+                "id": "pjxk428r",
+                "label": {
+                    "zh-cn": "挑战0817",
+                    "en-us": "挑战0817",
+                    "zh-tw": "挑战0817",
+                    "tr": "挑战0817"
+                }
+            },
+            {
+                "_id": "65f955236cc805a58b3d3958",
+                "app_id": "kyc",
+                "id": "3rbj0j6a",
+                "label": {
+                    "zh-cn": "挑战0824",
+                    "en-us": "挑战0824",
+                    "fa": "挑战0824"
+                }
+            },
+            {
+                "_id": "65f955236cc805a58b3d395a",
+                "app_id": "kyc",
+                "id": "871rg09c",
+                "label": {
+                    "zh-cn": "挑战无限",
+                    "en-us": "挑战无限",
+                    "ar": "挑战无限"
+                }
+            },
+            {
+                "_id": "65f955236cc805a58b3d395b",
+                "app_id": "kyc",
+                "id": "j3i6xwq3",
+                "label": {
+                    "zh-cn": "挑战0103",
+                    "en-us": "挑战0103",
+                    "zh-tw": "挑战0103",
+                    "kur-ckb": "挑战0103"
+                }
+            },
+            {
+                "_id": "66011c12d83612ecea6a9e8b",
+                "app_id": "kyc",
+                "id": "pzwg57dz",
+                "label": {
+                    "en-us": "简单",
+                    "zh-cn": "简单"
+                },
+                "create_timestamp": 1711348754803
+            },
+            {
+                "_id": "6618a53f6d08f24570a08111",
+                "app_id": "kyc",
+                "id": "rmupfdla",
+                "label": {
+                    "zh-cn": "复杂",
+                    "en-us": "复杂",
+                    "fa": "复杂"
+                },
+                "create_timestamp": 1712891199373
+            }
+        ]
+      '''
+    }
+  }
+}

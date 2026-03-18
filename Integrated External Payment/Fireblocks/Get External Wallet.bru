@@ -1,0 +1,57 @@
+meta {
+  name: Get External Wallet
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/getExternalWallet?payment_currency=&method_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  payment_currency: 
+  method_id: 
+}
+
+params:path {
+  type: 
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/getExternalWallet?payment_currency=USD&method_id=e8inwaxw
+    method: GET
+    mode: none
+    params:query: {
+      payment_currency: USD
+      method_id: e8inwaxw
+    }
+  
+    params:path: {
+      type: fireblocks
+      id: 2vvuv8jk
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        "0xEf68a8722B8b72E57d3EE387188015D4DCcC9807"
+      '''
+    }
+  }
+}

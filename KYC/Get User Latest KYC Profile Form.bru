@@ -1,0 +1,715 @@
+meta {
+  name: Get User Latest KYC Profile Form
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form/kyc
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form/kyc
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "groups": [
+                {
+                    "key": "personalInfo",
+                    "label": {
+                        "en-us": "Basic Information",
+                        "zh-cn": "基本信息",
+                        "vi": "Thông tin cơ bản",
+                        "zh-tw": "基本信息",
+                        "ja": "基本情報",
+                        "th": "ข้อมูลพื้นฐาน",
+                        "id": "Informasi dasar",
+                        "es": "Información básica",
+                        "de": "Grundinformation",
+                        "tr": "Temel Bilgiler",
+                        "pt": "Informação básica",
+                        "ko": "기본 정보"
+                    },
+                    "default": true,
+                    "fields": [
+                        {
+                            "label": {
+                                "en-us": "Name",
+                                "zh-cn": "名称",
+                                "zh-tw": "Name"
+                            },
+                            "description": {
+                                "en-us": "Name",
+                                "zh-tw": "Name",
+                                "zh-cn": "这是个单行文本"
+                            },
+                            "required": false,
+                            "block_duplicate": true,
+                            "type": "text",
+                            "min": 0,
+                            "max": 100,
+                            "key": "name",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Nationality",
+                                "zh-cn": "国籍-更新",
+                                "ar": "Nationality"
+                            },
+                            "required": true,
+                            "description": {
+                                "zh-cn": "这是个国籍字段"
+                            },
+                            "type": "country",
+                            "key": "nationality",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Gender",
+                                "zh-cn": "性别-更新",
+                                "ar": "Gender"
+                            },
+                            "required": true,
+                            "options": [
+                                {
+                                    "label": {
+                                        "zh-cn": "男性",
+                                        "en-us": "Male",
+                                        "ar": "Male"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "male"
+                                },
+                                {
+                                    "label": {
+                                        "zh-cn": "女性",
+                                        "en-us": "Female",
+                                        "ar": "Female"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "female"
+                                }
+                            ],
+                            "description": {
+                                "zh-cn": "这是个单选"
+                            },
+                            "type": "radio",
+                            "key": "gender",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Date of Birth",
+                                "zh-cn": "生日1",
+                                "ar": "Date of Birth"
+                            },
+                            "required": true,
+                            "description": {
+                                "zh-cn": "这是个日期字段"
+                            },
+                            "type": "date",
+                            "key": "date_of_birth",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Identity Card/Passport Number",
+                                "zh-cn": "身份证/护照号码-new"
+                            },
+                            "required": true,
+                            "block_duplicate": true,
+                            "type": "text",
+                            "min": 0,
+                            "max": 100,
+                            "key": "identity_number",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Phone",
+                                "zh-cn": "手机",
+                                "ar": "Phone"
+                            },
+                            "required": true,
+                            "description": {
+                                "zh-cn": "这是个手机号字段"
+                            },
+                            "type": "phone",
+                            "key": "phone",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Place of Residence",
+                                "zh-cn": "居住地1",
+                                "ar": "Place of Residence"
+                            },
+                            "required": true,
+                            "description": {
+                                "zh-cn": "这是个城市字段"
+                            },
+                            "type": "location",
+                            "key": "location",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "zh-cn": "邮政编码1",
+                                "en-us": "Postal code",
+                                "ko": "우편 번호"
+                            },
+                            "required": true,
+                            "type": "text",
+                            "min": 0,
+                            "max": 100,
+                            "key": "postal_code",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Address",
+                                "zh-cn": "详细地址1",
+                                "ar": "Address"
+                            },
+                            "required": true,
+                            "description": {
+                                "zh-cn": "这是个多行文本"
+                            },
+                            "type": "textarea",
+                            "min": 0,
+                            "max": 1000,
+                            "key": "address",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Declaration Form",
+                                "zh-cn": "声明表"
+                            },
+                            "description": {
+                                "en-us": "",
+                                "zh-cn": "这是个文件下载"
+                            },
+                            "docs": [
+                                {
+                                    "id": "fjxn",
+                                    "name": "Declaration Form.docx",
+                                    "doc": "apps/kyc/forms/5jyzutvi/kyc_readonly_document_fjxn",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/5jyzutvi/kyc_readonly_document_fjxn"
+                                },
+                                {
+                                    "id": "jo0q",
+                                    "name": "real_ID_card_back_side.png",
+                                    "doc": "apps/kyc/forms/z3jwjjkj/kyc_readonly_document_jo0q",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/z3jwjjkj/kyc_readonly_document_jo0q"
+                                },
+                                {
+                                    "id": "sidz",
+                                    "name": "real_ID_card.png",
+                                    "doc": "apps/kyc/forms/msuv0fdi/kyc_readonly_document_sidz",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/msuv0fdi/kyc_readonly_document_sidz"
+                                }
+                            ],
+                            "display": "preview",
+                            "readonly": true,
+                            "type": "readonlyDocument",
+                            "key": "uxb41543501x58d7x20"
+                        },
+                        {
+                            "label": {
+                                "en-us": "liveliest sounds at this hour were the cicadas cthe treesLotus picking is an old custom in the South of the Yangtze River.  You can get a sense of it from the poetry.  The lotus gatherers were young girls who went in small boats singing erotic songs,",
+                                "zh-cn": "下拉单选",
+                                "ar": "下拉单选"
+                            },
+                            "description": {
+                                "zh-cn": "4",
+                                "ar": "3",
+                                "en-us": "2"
+                            },
+                            "required": false,
+                            "options": [
+                                {
+                                    "label": {
+                                        "zh-cn": "选项 1",
+                                        "en-us": "选项 1",
+                                        "ar": "选项 1"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "ux9f8a502d2x1a8fx0"
+                                }
+                            ],
+                            "type": "select",
+                            "key": "ux847a45ce0xad35x9"
+                        },
+                        {
+                            "label": {
+                                "en-us": "多选",
+                                "zh-cn": "多选",
+                                "ar": "多选"
+                            },
+                            "required": false,
+                            "options": [
+                                {
+                                    "label": {
+                                        "zh-cn": "选项1",
+                                        "en-us": "选项1",
+                                        "ar": "选项1"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "ux160546c3c9x2b11x0"
+                                },
+                                {
+                                    "label": {
+                                        "zh-cn": "选项2",
+                                        "en-us": "选项2",
+                                        "ar": "选项2"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "ux1605471e1bxcd3fx1"
+                                },
+                                {
+                                    "label": {
+                                        "zh-cn": "选项3",
+                                        "en-us": "选项3",
+                                        "ar": "选项3"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "ux1605473f07x2ef2x2"
+                                }
+                            ],
+                            "description": {
+                                "zh-cn": "这是个多选"
+                            },
+                            "type": "checkbox",
+                            "key": "ux1605475a75x1716ex11"
+                        },
+                        {
+                            "label": {
+                                "en-us": "文件上传",
+                                "zh-cn": "文件上传",
+                                "ar": "文件上传"
+                            },
+                            "required": false,
+                            "max": 5,
+                            "description": {
+                                "zh-cn": "这是个文件上传"
+                            },
+                            "type": "document",
+                            "key": "ux160547e203x1142x12"
+                        },
+                        {
+                            "label": {
+                                "en-us": "国家",
+                                "zh-cn": "国家",
+                                "ar": "国家"
+                            },
+                            "required": false,
+                            "description": {
+                                "zh-cn": "这是个国家字段"
+                            },
+                            "type": "nation",
+                            "key": "ux1605483785x12d3ax13"
+                        },
+                        {
+                            "label": {
+                                "en-us": "信用卡卡号",
+                                "zh-cn": "信用卡卡号",
+                                "ar": "信用卡卡号"
+                            },
+                            "required": false,
+                            "min": 6,
+                            "max": 6,
+                            "type": "number_string",
+                            "key": "ux1820f94b62x8f61x14"
+                        }
+                    ]
+                },
+                {
+                    "key": "documents",
+                    "label": {
+                        "zh-cn": "文件",
+                        "en-us": "Documents",
+                        "ko": "서류"
+                    },
+                    "default": true,
+                    "fields": [
+                        {
+                            "label": {
+                                "en-us": "Identity Document Type1",
+                                "zh-cn": "身份证明文件类型1",
+                                "vi": "Loại tài liệu xác thực",
+                                "zh-tw": "身份證明文件類型",
+                                "ja": "身分証明用書類のタイプ",
+                                "th": "ประเภทเอกสารประจำตัว",
+                                "id": "Tipe Dokumen Identitas",
+                                "es": "Tipo de Documento de Identidad",
+                                "de": "Identitätsdokument Typ",
+                                "ko": "신원 증명서 유형"
+                            },
+                            "required": true,
+                            "options": [
+                                {
+                                    "label": {
+                                        "zh-cn": "身份证",
+                                        "en-us": "Identity Card"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "ux23390a424x13c84x2"
+                                },
+                                {
+                                    "label": {
+                                        "zh-cn": "护照",
+                                        "en-us": "Passport"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "ux23390a424x161d6x2"
+                                }
+                            ],
+                            "type": "select",
+                            "key": "identity_type",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Identity Document",
+                                "zh-cn": "身份证明文件",
+                                "vi": "Tài liệu xác thực",
+                                "zh-tw": "身份證明文件",
+                                "ja": "身分証明用書類",
+                                "th": "เอกสารประจำตัว",
+                                "id": "Dokumen Identitas",
+                                "es": "Documento de Identidad",
+                                "de": "Ausweisdokument",
+                                "ko": "신분 증명서"
+                            },
+                            "required": true,
+                            "max": 2,
+                            "type": "document",
+                            "key": "identity_doc",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Identity Document (Back)",
+                                "es": "Documento de Identidad (reverso)",
+                                "de": "Ausweisdokument (Rückseite)",
+                                "zh-cn": "身份证明文件(背面)",
+                                "ja": "身分証明用書類 (裏面)",
+                                "zh-tw": "身份證明文件背面",
+                                "vi": "Tài liệu xác thực (mặt sau)",
+                                "th": "เอกสารประจำตัว (ด้านหลัง)",
+                                "id": "Dokumen identitas (belakang)",
+                                "ko": "신분 증명서(뒷면)"
+                            },
+                            "required": false,
+                            "max": 2,
+                            "type": "document",
+                            "key": "alt_identity_doc",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "zh-cn": "银行卡",
+                                "en-us": "Bank card"
+                            },
+                            "required": false,
+                            "max": 5,
+                            "type": "document",
+                            "key": "bank_card_doc",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Selfie-update",
+                                "es": "Selfie",
+                                "de": "Selfie",
+                                "zh-cn": "自拍-更新",
+                                "ja": "自撮り写真",
+                                "zh-tw": "自拍",
+                                "vi": "Ảnh chân dung",
+                                "th": "เซลฟี่",
+                                "id": "Selfie",
+                                "ko": "셀카"
+                            },
+                            "required": false,
+                            "max": 1,
+                            "type": "document",
+                            "key": "selfie_doc",
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Address Document(Utility bill,Bank statement,Receipt bill)",
+                                "es": "Documento de Dirección (factura de servicios públicos, extracto bancario, factura de recibos)",
+                                "de": "Adressdokument (Rechnung eines Versorgungsunternehmens, Kontoauszug, Quittungsbeleg)",
+                                "zh-cn": "地址文件（水电费帐单，银行对 账单，收据单)",
+                                "ja": "住所確認書類（光熱費請求書、銀行取引明細書、領収書）",
+                                "zh-tw": "地址文件（水電費帳單，銀行對帳單，收據單）",
+                                "vi": "Bằng chứng nơi cư trú (hóa đơn tiện ích, sao kê ngân hàng, hóa đơn thanh toán)",
+                                "th": "เอกสารที่อยู่ (ใบแจ้งหนี้ค่าสาธารณูปโภค, ใบแจ้งยอดธนาคาร, ใบเสร็จรับเงิน)",
+                                "id": "Alamat dokumen (tagihan, bank, bon)",
+                                "ko": "주소 문서(공과금 고지서, 은행 명세서, 영수증 청구서)"
+                            },
+                            "required": false,
+                            "max": 4,
+                            "type": "document",
+                            "key": "address_doc",
+                            "default": true
+                        },
+                        {
+                            "key": "ux88fb37d34x22dex6",
+                            "label": {
+                                "zh-cn": "城市-测试",
+                                "en-us": "City-Test",
+                                "zh-tw": "11",
+                                "ja": "22",
+                                "vi": "33",
+                                "th": "44",
+                                "id": "55",
+                                "es": "66",
+                                "de": "77"
+                            },
+                            "required": false,
+                            "type": "location",
+                            "disabled": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "Sunny-File-Download- Picture",
+                                "zh-cn": "Sunny-文件下载-图片",
+                                "zh-tw": "Sunny-文件下载-图片",
+                                "vi": "Sunny-文件下载-图片",
+                                "tr": "Sunny-文件下载-图片",
+                                "ko": "Sunny-文件下载-图片"
+                            },
+                            "docs": [
+                                {
+                                    "id": "9nn1",
+                                    "name": "537eff8cly1gmxgqilfvdj20c90i2q5i.jpg",
+                                    "doc": "apps/kyc/forms/jn53lhei/kyc_readonly_document_9nn1",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/jn53lhei/kyc_readonly_document_9nn1"
+                                }
+                            ],
+                            "display": "click",
+                            "readonly": true,
+                            "type": "readonlyDocument",
+                            "key": "uxb32f983adx70cax7"
+                        },
+                        {
+                            "key": "uxb382671dcx14eb2x8",
+                            "display": "preview",
+                            "label": {
+                                "zh-cn": "pdf",
+                                "en-us": "pdf"
+                            },
+                            "readonly": true,
+                            "docs": [
+                                {
+                                    "id": "wzo6",
+                                    "name": "a9e4ea88-4b2c-4065-b303-a0c4692a34a2.pdf",
+                                    "doc": "apps/kyc/forms/fpjszqxq/kyc_readonly_document_wzo6",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/fpjszqxq/kyc_readonly_document_wzo6"
+                                }
+                            ],
+                            "type": "readonlyDocument"
+                        },
+                        {
+                            "display": "preview",
+                            "label": {
+                                "zh-cn": "downloadfile - excel",
+                                "en-us": "downloadfile - excel"
+                            },
+                            "readonly": true,
+                            "docs": [
+                                {
+                                    "id": "yxq4",
+                                    "name": "Leads_Import_Template.xlsx",
+                                    "doc": "apps/kyc/forms/4rso4ic6/kyc_readonly_document_yxq4",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/4rso4ic6/kyc_readonly_document_yxq4"
+                                },
+                                {
+                                    "id": "dzd3",
+                                    "name": "测试.doc",
+                                    "doc": "apps/kyc/forms/x32wjj61/kyc_readonly_document_dzd3",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/x32wjj61/kyc_readonly_document_dzd3"
+                                }
+                            ],
+                            "type": "readonlyDocument",
+                            "key": "uxb39255ee1xbb60x9"
+                        },
+                        {
+                            "key": "uxb42715d93x122e6x10",
+                            "display": "preview",
+                            "label": {
+                                "zh-cn": "wordtest",
+                                "en-us": "wordtest"
+                            },
+                            "readonly": true,
+                            "docs": [
+                                {
+                                    "id": "bm31",
+                                    "name": "新建 Microsoft Word 文档.docx",
+                                    "doc": "apps/kyc/forms/mru2di3t/kyc_readonly_document_bm31",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/mru2di3t/kyc_readonly_document_bm31"
+                                }
+                            ],
+                            "type": "readonlyDocument"
+                        },
+                        {
+                            "label": {
+                                "en-us": "test pdf",
+                                "zh-cn": "test pdf",
+                                "zh-tw": "test pdf",
+                                "ja": "test pdf",
+                                "vi": "test pdf",
+                                "tr": "test pdf",
+                                "ko": "test pdf"
+                            },
+                            "docs": [
+                                {
+                                    "id": "ylh6",
+                                    "name": "QA Back Office _ KYC Fields Settings Detail.pdf",
+                                    "doc": "apps/kyc/forms/2m6b4hsy/kyc_readonly_document_ylh6",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/2m6b4hsy/kyc_readonly_document_ylh6"
+                                }
+                            ],
+                            "display": "preview",
+                            "readonly": true,
+                            "type": "readonlyDocument",
+                            "key": "uxc2e0be1adx17c65x11"
+                        }
+                    ]
+                },
+                {
+                    "key": "ux4520010cex10c3x3",
+                    "label": {
+                        "zh-cn": "test2",
+                        "en-us": "Agreement"
+                    },
+                    "fields": [
+                        {
+                            "key": "ux4520042eex23d9x0",
+                            "label": {
+                                "en-us": "test2test2",
+                                "zh-cn": "test2test2",
+                                "ja": "test2test2",
+                                "zh-tw": "test2test2",
+                                "vi": "test2test2",
+                                "th": "test2test2"
+                            },
+                            "required": false,
+                            "type": "text",
+                            "min": 0,
+                            "max": 100
+                        },
+                        {
+                            "label": {
+                                "zh-cn": "城市",
+                                "en-us": "城市",
+                                "zh-tw": "城市"
+                            },
+                            "required": true,
+                            "type": "location",
+                            "key": "ux64e722649xb05bx1"
+                        },
+                        {
+                            "key": "ux7403adec3x73c4x2",
+                            "label": {
+                                "zh-cn": "数据",
+                                "en-us": "data",
+                                "zh-tw": "数据1",
+                                "ja": "213",
+                                "vi": "543",
+                                "th": "3",
+                                "id": "453",
+                                "es": "4534",
+                                "de": "453"
+                            },
+                            "required": false,
+                            "type": "text",
+                            "min": 0,
+                            "max": 100
+                        },
+                        {
+                            "key": "uxb3cf1c2e5x179a2x3",
+                            "label": {
+                                "zh-cn": "文件上传",
+                                "en-us": "文件上传"
+                            },
+                            "required": false,
+                            "max": 4,
+                            "type": "document"
+                        },
+                        {
+                            "label": {
+                                "en-us": "图片",
+                                "zh-cn": "图片",
+                                "zh-tw": "图片",
+                                "ja": "图片",
+                                "vi": "图片",
+                                "tr": "图片",
+                                "ko": "图片"
+                            },
+                            "docs": [
+                                {
+                                    "id": "fj2r",
+                                    "name": "prelogin_logo.jpg",
+                                    "doc": "apps/kyc/forms/mq0ryy9s/kyc_readonly_document_fj2r",
+                                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/mq0ryy9s/kyc_readonly_document_fj2r"
+                                }
+                            ],
+                            "display": "preview",
+                            "readonly": true,
+                            "type": "readonlyDocument",
+                            "key": "uxc1a385a43x14ddfx4"
+                        }
+                    ],
+                    "multiple": true
+                },
+                {
+                    "key": "uxb7ef4d1e8xd2c5x4",
+                    "label": {
+                        "en-us": "test_3",
+                        "zh-cn": "test-3",
+                        "zh-tw": "33",
+                        "tr": "tt",
+                        "pt": "hh"
+                    },
+                    "fields": [],
+                    "multiple": true
+                }
+            ],
+            "collection_id": "default1",
+            "id": "gl18dz8t",
+            "updated_at": "2025-11-11T08:40:33.736Z",
+            "created_at": "2025-11-11T08:40:33.736Z"
+        }
+      '''
+    }
+  }
+}

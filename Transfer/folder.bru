@@ -1,0 +1,46 @@
+meta {
+  name: Transfer
+  seq: 18
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  # Transfer
+  
+  #### Transfer flow
+  
+  1. Get Wallets (See Wallets -> Get Wallets)
+      
+  2. Get Trading Accounts (See Trading Platform -> MT4,MT5, CTRADER,FORTEX,SIRIX) -> Get Trading Accounts
+      
+  3. Get Transfer Exchange Rate
+      
+  
+  <img src="https://content.pstmn.io/715718a8-4303-4a5b-a9a4-e49350521513/aW1hZ2UucG5n" width="1144" height="812">
+  
+  ```
+  if you input source amount, use rate to calculate target amount.
+  if you input target amount, use rate2 to calculate source amount.
+  
+   ```
+  
+  4\. create Transfer Requets( See Requests-> Create Transfer Request)
+  
+  ##### Additional Logic( See Crm Configurations and Basic Info -> Get Client portal Configurations)
+  
+  - Whether Transfer from the wallet is allowed
+      
+  - Whether Transfer to the wallet is allowed
+      
+  - Whether Transfer from the trading account is allowed
+      
+  - Whether Transfer from the trading account is allowed
+      
+  - Whether Transfer to others is allowed
+      
+  
+  <img src="https://content.pstmn.io/6d977386-c349-41d9-973a-5395976b6967/aW1hZ2UucG5n" alt="" height="734" width="1652">
+}

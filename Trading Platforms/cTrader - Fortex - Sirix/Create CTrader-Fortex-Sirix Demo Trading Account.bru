@@ -1,0 +1,121 @@
+meta {
+  name: Create CTrader/Fortex/Sirix Demo Trading Account
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/trade/accounts/demo
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "group": "",
+    "leverage": 0,
+    "account_type_id": "",
+    "ctrader_account_type": 0,
+    "access_rights": 0,
+    "currency": "",
+    "total_margin_calculation_type": 0,
+    "max_leverage": 0,
+    "fortex_username": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 201 Ctrader
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/demo
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "connection_id": "aqol67lk",
+          "currency": "USD",
+          "leverage": 100,
+          "max_leverage": 200,
+          "total_margin_calculation_type": 0,
+          "account_type_id": "ya9jizmd",
+          "ctrader_account_type": 0,
+          "group": "Demo 1",
+          "access_rights": 0
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "password": "UbzqrqJl",
+            "investor_password": "",
+            "login": 3000750
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 201 Fortex
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/demo
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "connection_id": "uvpefn1y",
+          "leverage": 3.3,
+          "fortex_username": "ACDSE123",
+          "currency": "USD",
+          "account_type_id": "k8ybt498",
+          "group": "dev\\CRM\\QA_testing\\Demo-fortex"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "password": "QOv$7yfe",
+            "investor_password": "",
+            "login": "ACDSE123"
+        }
+      '''
+    }
+  }
+}

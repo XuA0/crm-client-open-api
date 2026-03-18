@@ -1,0 +1,197 @@
+meta {
+  name: Get Coupons
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/payments/discounts/coupon?invalid=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  invalid: true
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/payments/discounts/coupon?invalid=false
+    method: GET
+    mode: none
+    params:query: {
+      invalid: false
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "data": [
+                {
+                    "_id": "689e9ce35dacf0897949b60a",
+                    "discount_id": "g7o5ctt7pl",
+                    "app_id": "kyc",
+                    "user_id": "d2a0tvnp",
+                    "claimed_timestamp": 1755225315015,
+                    "discount": {
+                        "id": "g7o5ctt7pl",
+                        "type": "coupon",
+                        "discount_name": {
+                            "en-us": "年末促销-66",
+                            "zh-cn": "年末促销-66"
+                        },
+                        "display": {
+                            "title": {
+                                "en-us": "Congratulations!",
+                                "zh-cn": "好消息！"
+                            },
+                            "content": {
+                                "en-us": "Surprise! We've just sent you a gift.",
+                                "zh-cn": "恭喜！你获得了一张优惠券。"
+                            },
+                            "style_file_name": "coupon_style_4"
+                        },
+                        "scene": "prop_trading",
+                        "discount_level": {
+                            "type": "fixed_amount",
+                            "amount": 66,
+                            "currency": "all"
+                        },
+                        "allow_stacking_with_promo_code": true,
+                        "validity_period": {
+                            "type": "unlimited"
+                        },
+                        "apply_object_ids": [
+                            "all"
+                        ]
+                    },
+                    "end_time": null,
+                    "invalid": false,
+                    "link_id": null,
+                    "revoked": false,
+                    "unread": false,
+                    "used": false,
+                    "used_count": 0,
+                    "used_limit": 0,
+                    "used_record": []
+                },
+                {
+                    "_id": "66f1260c5cb7ba5e1894340d",
+                    "app_id": "kyc",
+                    "user_id": "d2a0tvnp",
+                    "claimed_timestamp": 1727079948332,
+                    "used": false,
+                    "used_count": 0,
+                    "used_limit": 0,
+                    "used_record": [],
+                    "unread": false,
+                    "discount_id": "0mj2idf6ax",
+                    "end_time": null,
+                    "invalid": false,
+                    "revoked": false,
+                    "link_id": null,
+                    "discount": {
+                        "id": "0mj2idf6ax",
+                        "type": "coupon",
+                        "discount_name": {
+                            "zh-cn": "百分百优惠-100",
+                            "en-us": "百分百优惠-100",
+                            "fa": "百分百优惠-100"
+                        },
+                        "display": {
+                            "title": {
+                                "zh-cn": "好消息！",
+                                "en-us": "Congratulations!",
+                                "fa": "好消息！"
+                            },
+                            "content": {
+                                "zh-cn": "恭喜！你获得了一张优惠券。",
+                                "en-us": "Surprise! We've just sent you a gift.",
+                                "fa": "恭喜！你获得了一张优惠券。"
+                            },
+                            "style_file_name": "coupon_style_1"
+                        },
+                        "scene": "prop_trading",
+                        "discount_level": {
+                            "type": "fixed_amount",
+                            "amount": 100
+                        },
+                        "allow_stacking_with_promo_code": false,
+                        "validity_period": {
+                            "type": "unlimited"
+                        },
+                        "apply_object_ids": [
+                            "all"
+                        ]
+                    }
+                },
+                {
+                    "_id": "66d8148ce027d17b1722aeae",
+                    "app_id": "kyc",
+                    "user_id": "d2a0tvnp",
+                    "claimed_timestamp": 1725437068956,
+                    "used": false,
+                    "used_count": 0,
+                    "used_limit": 0,
+                    "used_record": [],
+                    "unread": false,
+                    "discount_id": "q2mjkeikf4",
+                    "end_time": null,
+                    "invalid": false,
+                    "revoked": false,
+                    "link_id": null,
+                    "discount": {
+                        "id": "q2mjkeikf4",
+                        "type": "coupon",
+                        "discount_name": {
+                            "zh-cn": "无敌折扣-100%",
+                            "en-us": "无敌折扣-100%",
+                            "fa": "无敌折扣-100%"
+                        },
+                        "display": {
+                            "title": {
+                                "zh-cn": "好消息！",
+                                "en-us": "Congratulations!",
+                                "fa": "好消息！"
+                            },
+                            "content": {
+                                "zh-cn": "恭喜！你获得了一张优惠券。",
+                                "en-us": "Surprise! We've just sent you a gift.",
+                                "fa": "恭喜！你获得了一张优惠券。"
+                            },
+                            "style_file_name": "coupon_style_4"
+                        },
+                        "scene": "prop_trading",
+                        "discount_level": {
+                            "type": "fixed_percent",
+                            "amount": 100
+                        },
+                        "allow_stacking_with_promo_code": true,
+                        "validity_period": {
+                            "type": "unlimited"
+                        },
+                        "apply_object_ids": [
+                            "all"
+                        ]
+                    }
+                }
+            ],
+            "count": 3
+        }
+      '''
+    }
+  }
+}

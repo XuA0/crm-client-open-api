@@ -1,0 +1,66 @@
+meta {
+  name: Sync Ctrader SubAccounts
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/trade/accounts/syncSubAccounts
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "tradings": [
+      {
+        "trading_id": 0,
+        "connection_id": ""
+      }
+    ],
+    "user_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 204
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/syncSubAccounts
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "tradings": [
+          {
+            "trading_id": 0,
+            "connection_id": ""
+          }
+        ],
+        "user_id": ""
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

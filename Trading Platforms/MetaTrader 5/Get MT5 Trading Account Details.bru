@@ -1,0 +1,101 @@
+meta {
+  name: Get MT5 Trading Account Details
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt5/accounts/:id(//d+)?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id(: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts/:id?connection_id=p6t5xkbm
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: p6t5xkbm
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 100547
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "app_id": "testing",
+            "user_id": "4s6ov3xe",
+            "trading_id": 100547,
+            "currency": "EUR",
+            "balance": 0.6,
+            "credit": 0,
+            "available_withdrawal": 0.6,
+            "balance_previous_month": 0.6,
+            "balance_previous_day": 0.6,
+            "equity": 0.6,
+            "margin_free": 0.6,
+            "trading_account_profit": 0,
+            "leverage": 100,
+            "enable": "1",
+            "enable_readonly": "0",
+            "group": "demo\\BBQAHEDGEEUR",
+            "created_at": "2025-10-14T11:47:46.000Z",
+            "last_active": "2025-10-14T11:47:46.000Z",
+            "mt_name": "q-ib2-cl",
+            "margin_level": 0,
+            "mt_email": "q-ib2-cl@mail.com",
+            "comment": "",
+            "agent_account": 0,
+            "lead_source": "",
+            "margin": 0,
+            "enable_change_password": "1",
+            "enable_otp": "0",
+            "send_reports": "1",
+            "enable_expert_advisors": "0",
+            "account_type_id": "loq293r6",
+            "rebate": false,
+            "allow_crm_deposit": true,
+            "allow_crm_withdrawal": true,
+            "allow_crm_transfer": true,
+            "name": "q-ib2-cl",
+            "email": "q-ib2-cl@mail.com",
+            "phone": {
+                "number": "434243342",
+                "country_code": "52"
+            }
+        }
+      '''
+    }
+  }
+}

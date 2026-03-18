@@ -1,0 +1,95 @@
+meta {
+  name: Get MT4 Trading Account Details
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt4/accounts/:id(//d+)?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id(: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/accounts/:id?connection_id=u5mzgkch
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: u5mzgkch
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 50085
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "app_id": "testing",
+            "user_id": "dc53prbf",
+            "trading_id": 30450,
+            "currency": "USD",
+            "balance": 0,
+            "credit": 0,
+            "available_withdrawal": 0,
+            "balance_previous_month": 0,
+            "balance_previous_day": 0,
+            "equity": 0,
+            "margin_free": 0,
+            "leverage": 125,
+            "enable": 1,
+            "enable_readonly": 0,
+            "group": "Sandbox4",
+            "created_at": "2025-06-25T04:44:57.000Z",
+            "last_active": "2025-06-25T04:44:57.000Z",
+            "mt_name": "mt4-crea1",
+            "margin_level": 0,
+            "mt_email": "mt4-crea1@mail.com",
+            "comment": "",
+            "agent_account": 0,
+            "lead_source": "",
+            "enable_change_password": 1,
+            "enable_otp": 0,
+            "send_reports": 0,
+            "margin": 0,
+            "account_type_id": "puh9sqlc",
+            "allow_crm_deposit": true,
+            "allow_crm_withdrawal": true,
+            "allow_crm_transfer": true,
+            "name": "mt4-crea1",
+            "email": "mt4-crea1@mail.com",
+            "trading_account_profit": 0
+        }
+      '''
+    }
+  }
+}

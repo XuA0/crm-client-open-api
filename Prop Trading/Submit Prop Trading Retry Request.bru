@@ -1,0 +1,116 @@
+meta {
+  name: Submit Prop Trading Retry Request
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/propTradingRetry
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "package_id": "",
+    "package_name": {},
+    "registration_type": "",
+    "trading_currency": "",
+    "trading_amount": 0,
+    "method_id": "",
+    "payment_platform": "",
+    "payment_currency": "",
+    "payment_fee": 0,
+    "payment_total": 0,
+    "payment_trading_id": "",
+    "payment_connection_id": "",
+    "form_data": {},
+    "coupon_id": "",
+    "promo_code": "",
+    "discount_amount": 0,
+    "init_request_id": "",
+    "package_step": 0
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: balance_deduct
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/propTradingRetry
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "package_id": "pbzitnni",
+          "package_name": {
+              "en-us": "套餐——all",
+              "zh-cn": "套餐——所有方式入金"
+          },
+          "registration_type": "balance_deduct",
+          "trading_amount": 0,
+          "trading_currency": "USD",
+          "payment_fee": 0,
+          "payment_total": 0,
+          "coupon_id": "q2mjkeikf4",
+          "discount_amount": 800,
+          "package_step": 1,
+          "init_request_id": "z80wqyxy"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: new_deposit
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/propTradingRetry
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "fx21guyw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "8000",
+          "form_data": {
+              "form_id": "r1jnsoxu"
+          },
+          "payment_fee": "0",
+          "package_id": "pbzitnni",
+          "registration_type": "new_deposit",
+          "payment_platform": "other",
+          "package_name": {
+              "en-us": "套餐——all",
+              "zh-cn": "套餐——所有方式入金"
+          },
+          "package_step": 1,
+          "init_request_id": "z80wqyxy"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

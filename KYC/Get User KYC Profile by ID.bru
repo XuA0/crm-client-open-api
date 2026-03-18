@@ -1,0 +1,143 @@
+meta {
+  name: Get User KYC Profile by ID
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/user/profiles/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/user/profiles/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: ws6amokwi4yq
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "user_id": "lifupiht",
+            "form_id": "pwlt0q4e",
+            "name": "John Livone",
+            "nationality": "gh",
+            "gender": "male",
+            "date_of_birth": "2022-12-06",
+            "identity_number": "35435345",
+            "phone": {
+                "number": "4543543",
+                "country_code": "es"
+            },
+            "location": {
+                "country": "ls",
+                "state": "F",
+                "city": "Mohale’s Hoek"
+            },
+            "identity_type": "ux23390a424x13c84x2",
+            "identity_doc": [
+                {
+                    "id": "u4uj",
+                    "name": "real_ID_card.png",
+                    "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/identity_doc_u4uj",
+                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/users/lifupiht/forms/pwlt0q4e/identity_doc_u4uj?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIATYHHSZ6VJM3FOEII%2F20251111%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20251111T070443Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEsaDmFwLXNvdXRoZWFzdC0xIkYwRAIgBo%2BnBGmlV%2BeUxYsyc3gIl7HSyxb1zI%2FWGvXZbX05w4wCIF%2FaYmpzF32cUEZUo58mBnpZW2kX784bTK7b%2Byw4uZzHKo4ECBQQBBoMMjU4MTgzNzEyNjgyIgw1UzOahgftnRwl6rsq6wN%2BAUJfcWp8WUV5sPj%2BP2o8P7QUGa1wy5iCUwmbs1c6s0LPD96fjRRdHidzZagWIw%2F99vtMgdFDQ2E5Z2gqpTYDEFimIWwwhPkb33LPAArf86aS9DJiwqR4QHFU6ujXxoFg6jerODCq20bA9nuM9WqlyIQJzUyZJpji83qWI1S3PVBh8mF8hw9rc2GpOlRSZO7%2F3nRuUeGjFp0exFsQ3R3d7508lUMdF0cBQoFGMIQiEWyn%2BrB%2FomGy5NOdWtF3C1e7kBQiRpHetB5lgVFEpMQcw5NnAXOTGab5Z6dXrDXVhyrCvePl%2By%2B9XHlNwdpR%2BnW8VtRlt9BkqwwWAGUzjTrGWVfL1MaBfNJnDlc55d66gZem5WoGpw%2BWAVTVUwfBO37I5lwxfxVHIsuEOBYreOgHZg6aHLtNQ34eBy2KHI33NcLI%2F383IWTmjsHBB6esABtjKFAR1HV0i8QiQHC%2F%2B2u8M11Q9LkDmhm0K6KWDCqjfoSp4y0kUlOsN0EZSmGDCkOIeAAB%2BTDAu4zh3BExbZL6r7JgQ9t971j9HUG03xNFUbSejRM4GUJ4oAk8RmdLaIllSNMm4yZ3NKLL7OWWY8dgKEYn3hBr2kyqHYKqQlmcZSc%2B7Xjk3kB%2BGhe8EO3ULgytHAwxs%2FiHhtJf9DDB1MrIBjqnAbAHtv%2BbOcDw5f%2FN7CBzD1zkx3y5YRxftaSyXDEuLFCoAl3Az1OkeqImc4VXYs8372h1RMdRE7JneN5lMJi%2F0i6D7DkqtyQC9xCaB1FwTQBDarIn2RvEC6MmTo16MZIT61KV5OTd1J%2F4Di6a9U4ECGUZHzaL%2FlekIvQCPwkZ9lxzFGiN1S9Nyw7fOoYVFPVdwuOl4e0VRcRhBKI0pr5axY0P7defhOWE&X-Amz-Signature=eee42da5716c4089774f10125c48eaf621686e2eb656c49071905f6e39a56cb7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22real_ID_card.png%22&x-id=GetObject"
+                }
+            ],
+            "ux4520010cex10c3x3": [
+                {}
+            ],
+            "uxb7ef4d1e8xd2c5x4": [
+                {
+                    "uxb7f087fc7x14905x0": [],
+                    "uxb84d002cbxcfd5x2": [
+                        "uxb84ccc08dx1d39x0"
+                    ]
+                }
+            ],
+            "status": "verified",
+            "id": "ws6amokwi4yq",
+            "address": "11111",
+            "postal_code": "1111",
+            "selfie_doc": [
+                {
+                    "id": "fauh",
+                    "name": "logo.png",
+                    "doc": "apps/kyc/users/lifupiht/forms/du8y3ozc/selfie_doc_fauh",
+                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/users/lifupiht/forms/du8y3ozc/selfie_doc_fauh?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIATYHHSZ6VJM3FOEII%2F20251111%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20251111T070443Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEsaDmFwLXNvdXRoZWFzdC0xIkYwRAIgBo%2BnBGmlV%2BeUxYsyc3gIl7HSyxb1zI%2FWGvXZbX05w4wCIF%2FaYmpzF32cUEZUo58mBnpZW2kX784bTK7b%2Byw4uZzHKo4ECBQQBBoMMjU4MTgzNzEyNjgyIgw1UzOahgftnRwl6rsq6wN%2BAUJfcWp8WUV5sPj%2BP2o8P7QUGa1wy5iCUwmbs1c6s0LPD96fjRRdHidzZagWIw%2F99vtMgdFDQ2E5Z2gqpTYDEFimIWwwhPkb33LPAArf86aS9DJiwqR4QHFU6ujXxoFg6jerODCq20bA9nuM9WqlyIQJzUyZJpji83qWI1S3PVBh8mF8hw9rc2GpOlRSZO7%2F3nRuUeGjFp0exFsQ3R3d7508lUMdF0cBQoFGMIQiEWyn%2BrB%2FomGy5NOdWtF3C1e7kBQiRpHetB5lgVFEpMQcw5NnAXOTGab5Z6dXrDXVhyrCvePl%2By%2B9XHlNwdpR%2BnW8VtRlt9BkqwwWAGUzjTrGWVfL1MaBfNJnDlc55d66gZem5WoGpw%2BWAVTVUwfBO37I5lwxfxVHIsuEOBYreOgHZg6aHLtNQ34eBy2KHI33NcLI%2F383IWTmjsHBB6esABtjKFAR1HV0i8QiQHC%2F%2B2u8M11Q9LkDmhm0K6KWDCqjfoSp4y0kUlOsN0EZSmGDCkOIeAAB%2BTDAu4zh3BExbZL6r7JgQ9t971j9HUG03xNFUbSejRM4GUJ4oAk8RmdLaIllSNMm4yZ3NKLL7OWWY8dgKEYn3hBr2kyqHYKqQlmcZSc%2B7Xjk3kB%2BGhe8EO3ULgytHAwxs%2FiHhtJf9DDB1MrIBjqnAbAHtv%2BbOcDw5f%2FN7CBzD1zkx3y5YRxftaSyXDEuLFCoAl3Az1OkeqImc4VXYs8372h1RMdRE7JneN5lMJi%2F0i6D7DkqtyQC9xCaB1FwTQBDarIn2RvEC6MmTo16MZIT61KV5OTd1J%2F4Di6a9U4ECGUZHzaL%2FlekIvQCPwkZ9lxzFGiN1S9Nyw7fOoYVFPVdwuOl4e0VRcRhBKI0pr5axY0P7defhOWE&X-Amz-Signature=cdd2d7238b52d5c4d36fc067fb379f1837301916f0e90b5eb65b05d8ee2dba68&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22logo.png%22&x-id=GetObject"
+                }
+            ],
+            "submitted_at": "2025-03-10 08:27:59",
+            "alt_identity_doc": [
+                {
+                    "id": "b2yr",
+                    "name": "real_ID_card_back_side.png",
+                    "doc": "apps/kyc/users/lifupiht/forms/pwlt0q4e/alt_identity_doc_b2yr",
+                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/users/lifupiht/forms/pwlt0q4e/alt_identity_doc_b2yr?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIATYHHSZ6VJM3FOEII%2F20251111%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20251111T070443Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEsaDmFwLXNvdXRoZWFzdC0xIkYwRAIgBo%2BnBGmlV%2BeUxYsyc3gIl7HSyxb1zI%2FWGvXZbX05w4wCIF%2FaYmpzF32cUEZUo58mBnpZW2kX784bTK7b%2Byw4uZzHKo4ECBQQBBoMMjU4MTgzNzEyNjgyIgw1UzOahgftnRwl6rsq6wN%2BAUJfcWp8WUV5sPj%2BP2o8P7QUGa1wy5iCUwmbs1c6s0LPD96fjRRdHidzZagWIw%2F99vtMgdFDQ2E5Z2gqpTYDEFimIWwwhPkb33LPAArf86aS9DJiwqR4QHFU6ujXxoFg6jerODCq20bA9nuM9WqlyIQJzUyZJpji83qWI1S3PVBh8mF8hw9rc2GpOlRSZO7%2F3nRuUeGjFp0exFsQ3R3d7508lUMdF0cBQoFGMIQiEWyn%2BrB%2FomGy5NOdWtF3C1e7kBQiRpHetB5lgVFEpMQcw5NnAXOTGab5Z6dXrDXVhyrCvePl%2By%2B9XHlNwdpR%2BnW8VtRlt9BkqwwWAGUzjTrGWVfL1MaBfNJnDlc55d66gZem5WoGpw%2BWAVTVUwfBO37I5lwxfxVHIsuEOBYreOgHZg6aHLtNQ34eBy2KHI33NcLI%2F383IWTmjsHBB6esABtjKFAR1HV0i8QiQHC%2F%2B2u8M11Q9LkDmhm0K6KWDCqjfoSp4y0kUlOsN0EZSmGDCkOIeAAB%2BTDAu4zh3BExbZL6r7JgQ9t971j9HUG03xNFUbSejRM4GUJ4oAk8RmdLaIllSNMm4yZ3NKLL7OWWY8dgKEYn3hBr2kyqHYKqQlmcZSc%2B7Xjk3kB%2BGhe8EO3ULgytHAwxs%2FiHhtJf9DDB1MrIBjqnAbAHtv%2BbOcDw5f%2FN7CBzD1zkx3y5YRxftaSyXDEuLFCoAl3Az1OkeqImc4VXYs8372h1RMdRE7JneN5lMJi%2F0i6D7DkqtyQC9xCaB1FwTQBDarIn2RvEC6MmTo16MZIT61KV5OTd1J%2F4Di6a9U4ECGUZHzaL%2FlekIvQCPwkZ9lxzFGiN1S9Nyw7fOoYVFPVdwuOl4e0VRcRhBKI0pr5axY0P7defhOWE&X-Amz-Signature=cec5a45ba308825baa9e882276a93729d7bc93e51df51abaa77307af9a70204b&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22real_ID_card_back_side.png%22&x-id=GetObject"
+                }
+            ],
+            "ip": "103.135.102.188",
+            "language": "zh-cn",
+            "user_type": "ib",
+            "flow": {
+                "_id": "6331486d997905c5d157a9ef",
+                "type": "kyc",
+                "steps": [
+                    {
+                        "admin_ids": [],
+                        "admin_names": [],
+                        "admin_role_names": [],
+                        "admin_roles": []
+                    }
+                ],
+                "version": 12,
+                "prev_id": "63229aa571760edd9eb38415",
+                "enable": true,
+                "timestamp": 1664174189422,
+                "created_by": "3ajcp3ys",
+                "created_name": "Darcy",
+                "created_at": "2022-09-26 06:36:29",
+                "current": 0,
+                "pending": {
+                    "admin_ids": [],
+                    "admin_names": [],
+                    "admin_role_names": [],
+                    "admin_roles": []
+                },
+                "process": []
+            },
+            "type": "kyc",
+            "created_by": "open-account-form6",
+            "auto": false,
+            "logs": [
+                {
+                    "event": "submitted",
+                    "timestamp": "2025-03-10 08:27:59"
+                }
+            ],
+            "collection_id": "default1"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,77 @@
+meta {
+  name: Get MT4 Trades Detail
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt4/trades/:id(//d+)?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id(: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/trades/:id?connection_id=u5mzgkch
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: u5mzgkch
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 5657294
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "order_id": 5657294,
+            "trading_id": 30072,
+            "email": "yinzheng5519@gmail.com",
+            "cmd": 1,
+            "symbol": "EURAUDecn",
+            "volume": "1.0000",
+            "stop_loss": 0,
+            "take_profit": 0,
+            "open_time": "2025-11-17T10:51:47.000Z",
+            "open_price": 1.77895,
+            "swaps": 0,
+            "close_time": "2025-11-17T10:51:50.000Z",
+            "close_price": 1.77901,
+            "trading_fee": -2,
+            "profit": -3.92,
+            "user_id": "deuonptq"
+        }
+      '''
+    }
+  }
+}

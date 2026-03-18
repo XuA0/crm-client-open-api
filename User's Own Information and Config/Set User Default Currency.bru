@@ -1,0 +1,45 @@
+meta {
+  name: Set User Default Currency
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/currency
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "currency": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/currency
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "default_currency": "ETH"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

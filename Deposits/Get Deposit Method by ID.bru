@@ -1,0 +1,149 @@
+meta {
+  name: Get Deposit Method by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/deposits/methods/:id?disabled=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  disabled: true
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/deposits/methods/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: rpclg0kj
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+                "id": "rpclg0kj",
+                "platform": "other",
+                "label": {
+                    "zh-cn": "bankwire04",
+                    "en-us": "56789",
+                    "pt": "bankwire04",
+                    "tr": "bankwire04",
+                    "de": "bankwire04",
+                    "ja": "hfhfgh",
+                    "th": "hfhgfg",
+                    "zh-tw": "hfhgff"
+                },
+                "information": {
+                    "zh-cn": "XXX",
+                    "en-us": "XXXX",
+                    "pt": "XXXX",
+                    "tr": "XXXX",
+                    "de": "XXXX",
+                    "ja": "dss",
+                    "th": "sdss",
+                    "zh-tw": "XX"
+                },
+                "currencies": [
+                    {
+                        "name": "USD",
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 0.7
+                    },
+                    {
+                        "name": "EUR",
+                        "code": "EUR",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.2
+                    },
+                    {
+                        "name": "JPY",
+                        "code": "JPY",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.5
+                    },
+                    {
+                        "name": "AUD",
+                        "code": "AUD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.3
+                    },
+                    {
+                        "name": "GBP",
+                        "code": "GBP",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.5
+                    },
+                    {
+                        "name": "CHF",
+                        "code": "CHF",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.4
+                    },
+                    {
+                        "name": "CAD",
+                        "code": "CAD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 0
+                    }
+                ],
+                "method": "56789",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "order": 23,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            }
+      '''
+    }
+  }
+}

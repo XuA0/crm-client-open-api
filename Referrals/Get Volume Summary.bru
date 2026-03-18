@@ -1,0 +1,78 @@
+meta {
+  name: Get Volume Summary
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/summary/volume
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/summary/volume
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Date: Fri, 31 Oct 2025 08:35:39 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"c-IuUTIKf143QvqdmGO72HWrXXLkk"
+      x-envoy-upstream-service-time: 1480
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bBHVbbp%2B8AAKeTItoUJURU8Xo35BlfkpWm%2FMDhiXEg5Spp1S2J%2FmheOSt54VZNZFznejGIujqWkFQLJCVFcOYhYLhx06d8p2xtZociSbMr4%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9971d1f03cb5286e-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "volume": 0
+        }
+      '''
+    }
+  }
+}

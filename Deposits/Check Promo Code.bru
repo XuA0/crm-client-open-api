@@ -1,0 +1,89 @@
+meta {
+  name: Check Promo Code
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/payments/discounts/promoCode/check
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "promo_code": "",
+    "apply_object_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/payments/discounts/promoCode/check
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "promo_code": "",
+        "apply_object_id": ""
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "scene": "prop_trading",
+            "discount_level": {
+                "type": "fixed_percent",
+                "amount": 50
+            },
+            "allow_stacking_with_coupon": true
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 400
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/payments/discounts/promoCode/check
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "promo_code": "",
+        "apply_object_id": ""
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "error": true,
+            "code": 400,
+            "type": "promo_code_not_apply",
+            "trace_id": "2592bf0147",
+            "t": 1762935811097
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,885 @@
+meta {
+  name: Get Navigation Menu
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/navigation
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/navigation
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 23 Oct 2025 09:55:15 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"39a2-deERi4Onk7sI482zLBt14QohrGY"
+      x-envoy-upstream-service-time: 81
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=FxzV23kNlKf8nS7Twx86O7fqU%2FsM5YZxErSnhAX%2FOtZ7ksKXXH97%2BrSHcWQ23Cyi%2B%2BJlM%2FfBMskSG%2BcxR1bYQA6%2F4ZTk5VajJdSR9neYtDI%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 99305b8e9938318a-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "portal": "user",
+            "menu": [
+                {
+                    "key": "dashboard",
+                    "label": {
+                        "en-us": "Dashboard",
+                        "zh-cn": "仪表盘",
+                        "zh-tw": "儀錶盤",
+                        "ja": "ダッシュボード",
+                        "ar": "الصفحة الرئيسية"
+                    },
+                    "default": true,
+                    "type": "navigation",
+                    "icon": "icon-dashboard"
+                },
+                {
+                    "key": "funds",
+                    "label": {
+                        "en-us": "Funds",
+                        "zh-cn": "资金",
+                        "vi": "Quỹ",
+                        "zh-tw": "資金",
+                        "ja": "資金",
+                        "th": "เงินทุน",
+                        "id": "Dana",
+                        "es": "Fondos",
+                        "de": "Guthaben",
+                        "tr": "Para kaynağı",
+                        "pt": "Fundos",
+                        "ko": "자금",
+                        "kur-ckb": "پارەکان",
+                        "kur-kmr": "پاره\u200c",
+                        "ar": "الأموال"
+                    },
+                    "default": true,
+                    "type": "navigation",
+                    "icon": "icon-wallet"
+                },
+                {
+                    "key": "accounts",
+                    "label": {
+                        "en-us": "Accounts",
+                        "zh-cn": "交易账号",
+                        "vi": "Tài khoản",
+                        "zh-tw": "交易帳號",
+                        "ja": "アカウント",
+                        "th": "บัญชี",
+                        "id": "Akun",
+                        "es": "Cuentas",
+                        "de": "Konten",
+                        "tr": "Ticaret Hesapları",
+                        "pt": "Contas de negociação",
+                        "ko": "거래 계좌",
+                        "kur-ckb": "هەژمارەکان",
+                        "kur-kmr": "هه\u200cژمار",
+                        "ar": "الحسابات"
+                    },
+                    "default": true,
+                    "type": "navigation",
+                    "icon": "icon-accounts"
+                },
+                {
+                    "key": "pamm",
+                    "label": {
+                        "en-us": "PAMM/MAM",
+                        "zh-cn": "PAMM/MAM",
+                        "vi": "PAMM/MAM",
+                        "zh-tw": "PAMM/MAM",
+                        "ja": "PAMM/MAM",
+                        "th": "PAMM/MAM",
+                        "id": "PAMM/MAM",
+                        "es": "PAMM/MAM",
+                        "de": "PAMM/MAM",
+                        "tr": "PAMM/MAM",
+                        "pt": "PAMM/MAM",
+                        "ko": "PAMM/MAM",
+                        "kur-ckb": "PAMM/MAM",
+                        "kur-kmr": "PAMM/MAM",
+                        "ar": "PAMM/MAM"
+                    },
+                    "default": true,
+                    "type": "navigation",
+                    "icon": "icon-a-PAMMMAM",
+                    "disabled": true
+                },
+                {
+                    "key": "referral",
+                    "label": {
+                        "en-us": "Referral",
+                        "zh-cn": "推荐人",
+                        "vi": "Giới thiệu",
+                        "zh-tw": "推薦人",
+                        "ja": "紹介人",
+                        "th": "การแนะนำ",
+                        "id": "Rujukan",
+                        "es": "Referencias",
+                        "de": "Empfehlungen",
+                        "tr": "Referans",
+                        "pt": "Referência",
+                        "ko": "추천인",
+                        "kur-ckb": "ئای بی",
+                        "kur-kmr": "ئاى بى",
+                        "ar": "المعرفون"
+                    },
+                    "default": true,
+                    "type": "group",
+                    "icon": "icon-referrer",
+                    "items": [
+                        {
+                            "key": "my_clients",
+                            "label": {
+                                "en-us": "My Clients",
+                                "zh-cn": "我的客户",
+                                "zh-tw": "我的客戶",
+                                "ja": "自分のお客様",
+                                "ko": "내 고객",
+                                "kur-ckb": "بەشداربووەکانی من",
+                                "kur-kmr": "به\u200cشداربوويێن من",
+                                "ar": "عملائي"
+                            },
+                            "default": true,
+                            "type": "navigation",
+                            "icon": "icon-n-commission"
+                        },
+                        {
+                            "key": "clients_reports",
+                            "label": {
+                                "en-us": "Clients' Report",
+                                "zh-cn": "客户报表",
+                                "vi": "Báo cáo của khách hàng",
+                                "zh-tw": "客戶報表",
+                                "ja": "顧客' レポート",
+                                "th": "รายงานของลูกค้า",
+                                "id": "Laporan Klien",
+                                "es": "Informes de Clientes",
+                                "de": "Berichte für Kunden",
+                                "tr": "Müşteri Raporları",
+                                "pt": "Relatórios de clientes",
+                                "ko": "고객의 보고서",
+                                "kur-ckb": "راپۆرتی بەشداربووەکان",
+                                "kur-kmr": "راپۆرتا به\u200cشداربوويان",
+                                "ar": "تقارير العملاء"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "commission",
+                            "label": {
+                                "en-us": "Commission",
+                                "zh-cn": "佣金",
+                                "zh-tw": "傭金",
+                                "ja": "コミッション",
+                                "ko": "수수료",
+                                "kur-ckb": "عمولە",
+                                "kur-kmr": "عموله\u200c",
+                                "ar": "العمولات"
+                            },
+                            "default": true,
+                            "type": "navigation",
+                            "icon": "icon-n-commission"
+                        },
+                        {
+                            "key": "clients_requests",
+                            "label": {
+                                "en-us": "Clients' Requests",
+                                "zh-cn": "客户请求",
+                                "vi": "Yêu cầu của khách hàng",
+                                "zh-tw": "客戶請求",
+                                "ja": "お客様のご要望",
+                                "th": "คำขอของลูกค้า",
+                                "id": "Permintaan Klien",
+                                "es": "Solicitudes de los clientes",
+                                "de": "Kundenwünsche",
+                                "tr": "Müşterilerin İstekleri",
+                                "pt": "Pedidos dos Clientes",
+                                "ko": "고객의 요청",
+                                "kur-ckb": "داواکارییەکانی بەشداربووان",
+                                "kur-kmr": "داخوازيێن به\u200cشداربوويان\u200c",
+                                "ar": "طلبات العملاء"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "prop_trading_performance",
+                            "label": {
+                                "en-us": "Prop Trading Performance",
+                                "zh-cn": "自营交易表现",
+                                "vi": "Hiệu suất giao dịch tự doanh",
+                                "zh-tw": "",
+                                "ja": "自己勘定による取引成績",
+                                "th": "ผลการดำเนินงานการซื้อขายเพื่อตนเอง",
+                                "id": "Kinerja Perdagangan Milik Sendiri",
+                                "es": "Rendimiento de la negociación propia",
+                                "de": "Eigenhandelsergebnis",
+                                "tr": "Özel Hesaplı İşlem Performansı",
+                                "pt": "Desempenho da negociação própria",
+                                "ko": "자기매매 성과"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        }
+                    ]
+                },
+                {
+                    "key": "reports",
+                    "label": {
+                        "en-us": "Reports",
+                        "zh-cn": "报表",
+                        "vi": "Báo cáo",
+                        "zh-tw": "報表",
+                        "ja": "レポート",
+                        "th": "รายงาน",
+                        "id": "Laporan",
+                        "es": "Informes",
+                        "de": "Berichte",
+                        "tr": "Raporlar",
+                        "pt": "Relatórios",
+                        "ko": "보고서",
+                        "kur-ckb": "راپۆرتەکان",
+                        "kur-kmr": "راپۆرت",
+                        "ar": "التقارير"
+                    },
+                    "default": true,
+                    "type": "group",
+                    "icon": "icon-reports",
+                    "items": [
+                        {
+                            "key": "trade_history",
+                            "label": {
+                                "en-us": "Trade History",
+                                "zh-cn": "交易历史",
+                                "zh-tw": "交易記錄",
+                                "ja": "取引履歴",
+                                "ko": "거래 내역",
+                                "kur-ckb": "مێژووی بازرگانی",
+                                "kur-kmr": "مێژوويا بازرگانى",
+                                "ar": "تاريخ التداول"
+                            },
+                            "default": true,
+                            "type": "navigation",
+                            "icon": "icon-n-commission"
+                        },
+                        {
+                            "key": "open_positions",
+                            "label": {
+                                "en-us": "Open Positions",
+                                "zh-cn": "持仓",
+                                "vi": "Mở lệnh mới",
+                                "zh-tw": "持倉頭寸",
+                                "ja": "オープンポジション",
+                                "th": "ตำแหน่งเปิด",
+                                "id": "Posisi terbuka",
+                                "es": "Posiciones Abiertas",
+                                "de": "Offene Positionen",
+                                "tr": "Açık pozisyonlar",
+                                "pt": "Posições Abertas",
+                                "ko": "오픈 포지션",
+                                "kur-ckb": "مامەڵە کراوەکان",
+                                "kur-kmr": "مامه\u200cله\u200cيێن ڤه\u200cكرى",
+                                "ar": "المراكز المفتوحة"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "pending_orders",
+                            "label": {
+                                "en-us": "Pending Orders",
+                                "zh-cn": "挂单记录",
+                                "vi": "Lệnh chờ",
+                                "zh-tw": "掛單記錄",
+                                "ja": "注文処理待ち",
+                                "th": "คำสั่งซื้อที่รอดำเนินการ",
+                                "id": "Pesanan menunggu",
+                                "es": "Pedidos Pendientes",
+                                "de": "Ausstehende Bestellungen",
+                                "tr": "Bekleyen Siparişler",
+                                "pt": "Ordens pendentes",
+                                "ko": "주문을 보류",
+                                "kur-ckb": "مامەڵە چاوەڕێکان",
+                                "kur-kmr": "مامه\u200cله\u200cيێن چاڤه\u200cرێكرى",
+                                "ar": "المراكز المعلقة"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "account_capital",
+                            "label": {
+                                "en-us": "Account Capital",
+                                "zh-cn": "账号资金",
+                                "vi": "Tài khoản vốn",
+                                "zh-tw": "帳號資金",
+                                "ja": "アカウントの資金",
+                                "th": "ทุนบัญชี",
+                                "id": "Akun pusat",
+                                "es": "Capital de la Cuenta",
+                                "de": "Konto-Kapital",
+                                "tr": "Sermaye Hesabı",
+                                "pt": "Capital da conta",
+                                "ko": "계정 자본"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "transactions",
+                            "label": {
+                                "en-us": "Transactions",
+                                "zh-cn": "账户明细111",
+                                "zh-tw": "帳戶明細",
+                                "ja": "取引",
+                                "id": "Transaksi"
+                            },
+                            "default": true,
+                            "type": "navigation",
+                            "icon": "icon-n-commission"
+                        },
+                        {
+                            "label": {
+                                "en-us": "Comprehensive Account Statement",
+                                "zh-cn": "综合账户报表"
+                            },
+                            "default": true,
+                            "type": "navigation",
+                            "key": "account_reports",
+                            "icon": "icon-n-commission"
+                        }
+                    ]
+                },
+                {
+                    "key": "my_profile",
+                    "label": {
+                        "en-us": "My Profile",
+                        "zh-cn": "我的资料",
+                        "vi": "Thông tin của tôi",
+                        "zh-tw": "我的資料",
+                        "ja": "個人情報",
+                        "th": "โปรไฟล์ของฉัน",
+                        "id": "Profil Saya",
+                        "es": "Mi perfil",
+                        "de": "Mein Profil",
+                        "tr": "Benim profilim",
+                        "pt": "Meu perfil",
+                        "ko": "내 프로필",
+                        "kur-ckb": "پرۆفایلی من",
+                        "kur-kmr": "پرۆفايلێ من",
+                        "ar": "ملفي الشخصي"
+                    },
+                    "default": true,
+                    "type": "group",
+                    "icon": "icon-myprofile",
+                    "items": [
+                        {
+                            "key": "registration_information",
+                            "label": {
+                                "en-us": "Registration Information",
+                                "zh-cn": "注册信息",
+                                "vi": "Thông tin đăng kí",
+                                "zh-tw": "註冊資訊",
+                                "ja": "新規登録情報",
+                                "th": "ข้อมูลการลงทะเบียน",
+                                "id": "Informasi Registrasi",
+                                "es": "Información de Registro",
+                                "de": "Informationen zur Registrierung",
+                                "tr": "kayıt Bilgileri",
+                                "pt": "Informações de registro",
+                                "ko": "등록 정보",
+                                "kur-ckb": "زانیاری تۆمارکردن",
+                                "kur-kmr": "زانياريێن تۆماركرنێ",
+                                "ar": "بيانات التسجيل"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "settings",
+                            "label": {
+                                "en-us": "Settings",
+                                "zh-cn": "设置",
+                                "vi": "Cài đặt",
+                                "zh-tw": "設置",
+                                "ja": "設定",
+                                "th": "ตั้งค่า",
+                                "id": "Pengaturan",
+                                "es": "Configuración",
+                                "de": "Einstellungen",
+                                "tr": "Ayarlar",
+                                "pt": "Definições",
+                                "ko": "설정",
+                                "kur-ckb": "رێکخستنەکان",
+                                "kur-kmr": "رێكخستن",
+                                "ar": "الإعدادات"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "bankcard",
+                            "label": {
+                                "en-us": "Bank Card",
+                                "zh-cn": "银行卡",
+                                "vi": "Thẻ ngân hàng",
+                                "zh-tw": "銀行卡",
+                                "ja": "バンクカード",
+                                "th": "บัตรเครดิตธนาคาร",
+                                "id": "Kartu bank",
+                                "es": "Tarjeta bancaria",
+                                "de": "Bankkarte",
+                                "tr": "Banka kartı",
+                                "pt": "Cartão do banco",
+                                "ko": "은행 카드",
+                                "kur-ckb": "زانیاری راکێشانی پارە",
+                                "kur-kmr": "زانیاریێت راکێشانا پارەیێ",
+                                "ar": "البطاقة البنكية"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "4qf22j3d",
+                            "icon": "icon-n-commission",
+                            "label": {
+                                "en-us": "My Promotion Link",
+                                "zh-cn": "我的推广链接",
+                                "zh-tw": "My promotion link",
+                                "ja": "我的推广链接",
+                                "tr": "我的推广链接",
+                                "pt": "我的推广链接",
+                                "ko": "我的推广链接"
+                            },
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "user_information",
+                            "label": {
+                                "en-us": "User Information",
+                                "zh-cn": "用户资料",
+                                "zh-tw": "用戶資料",
+                                "ja": "ユーザー情報",
+                                "vi": "Thông tin người dùng",
+                                "th": "ข้อมูลผู้ใช้งาน",
+                                "id": "Informasi pengguna",
+                                "fa": "Informasi pengguna"
+                            },
+                            "default": true,
+                            "type": "navigation",
+                            "icon": "icon-n-commission"
+                        }
+                    ]
+                },
+                {
+                    "key": "trading_competition",
+                    "label": {
+                        "en-us": "trading competition",
+                        "zh-cn": "交易竞赛",
+                        "zh-tw": "交易竞赛",
+                        "ja": "交易 竞赛",
+                        "ko": "111"
+                    },
+                    "default": true,
+                    "type": "navigation",
+                    "icon": "icon-a-TradingCompetition"
+                },
+                {
+                    "key": "prop_trading",
+                    "label": {
+                        "en-us": "Challenges",
+                        "zh-cn": "自营交易",
+                        "zh-tw": "Prop Trading-1",
+                        "ja": "Challenges",
+                        "ar": "Challenges"
+                    },
+                    "default": true,
+                    "type": "navigation",
+                    "icon": "icon-accounts"
+                },
+                {
+                    "key": "social_trading_brokeree",
+                    "label": {
+                        "en-us": "Social Trading",
+                        "zh-cn": "社交交易",
+                        "zh-tw": "社群交易",
+                        "ja": "ソーシャルトレーディング",
+                        "vi": "Giao dịch xã hội",
+                        "th": "โซเชียลเทรดดิ้ง",
+                        "id": "Perdagangan Sosial",
+                        "es": "Trading Social",
+                        "de": "Soziales Trading",
+                        "tr": "Sosyal Ticaret",
+                        "pt": "Trading Social",
+                        "ko": "소셜 트레이딩",
+                        "ar": "التداول الاجتماعي",
+                        "kur-ckb": "کردوونەی کۆمەڵایەتی",
+                        "kur-kmr": "بازرگانی کۆمەڵایەتی",
+                        "fa": "معاملات اجتماعی"
+                    },
+                    "icon": "icon-brokeree",
+                    "default": true,
+                    "type": "group",
+                    "items": [
+                        {
+                            "key": "social_trading_brokeree_provider",
+                            "label": {
+                                "en-us": "Provider",
+                                "zh-cn": "提供者",
+                                "zh-tw": "提供者",
+                                "ja": "プロバイダー",
+                                "vi": "Người cung cấp",
+                                "th": "ผู้ให้สัญญาณการเทรด",
+                                "id": "Penyedia Sinyal",
+                                "es": "Proveedor de señales",
+                                "de": "Signalgeber",
+                                "tr": "Sinyal Sağlayıcı",
+                                "pt": "Fornecedor de sinais",
+                                "ko": "신호 제공자",
+                                "ar": "مزود الإشارات",
+                                "kur-ckb": "پێشکێشکەری نیشان",
+                                "kur-kmr": "پێشکێشکەری نیشان",
+                                "fa": "ارائه\u200cدهنده سیگنال"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "social_trading_brokeree_follower",
+                            "label": {
+                                "en-us": "Follower",
+                                "zh-cn": "跟单者",
+                                "zh-tw": "跟單者",
+                                "ja": "フォロワー",
+                                "vi": "Người sao chép",
+                                "th": "ผู้ติดตามการเทรด",
+                                "id": "Pengikut",
+                                "es": "Seguidor",
+                                "de": "Follower",
+                                "tr": "Takipçi",
+                                "pt": "Seguidor",
+                                "ko": "팔로워",
+                                "ar": "المتابع",
+                                "kur-ckb": "شوپوان",
+                                "kur-kmr": "شوپوان",
+                                "fa": "دنبال\u200cکننده"
+                            },
+                            "default": true,
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "jrtrbkji",
+                            "icon": "icon-n-commission",
+                            "label": {
+                                "en-us": "Ratings Widget",
+                                "zh-cn": "Ratings Widget",
+                                "zh-tw": "Ratings Widget",
+                                "ja": "Ratings Widget",
+                                "ko": "Ratings Widget",
+                                "ar": "Ratings Widget"
+                            },
+                            "type": "navigation"
+                        }
+                    ]
+                },
+                {
+                    "key": "o3nosi1c",
+                    "icon": "icon-n-application",
+                    "label": {
+                        "en-us": "Download",
+                        "zh-cn": "下载",
+                        "zh-tw": "Download",
+                        "ja": "下载",
+                        "ko": "下载"
+                    },
+                    "type": "navigation",
+                    "disabled": true
+                },
+                {
+                    "key": "f4uu2pw0",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "分组1",
+                        "zh-cn": "分组1",
+                        "zh-tw": "分组1",
+                        "ja": "分组1",
+                        "ko": "分组1"
+                    },
+                    "type": "group",
+                    "items": [
+                        {
+                            "key": "00plexb7",
+                            "icon": "icon-n-commission",
+                            "label": {
+                                "en-us": "11",
+                                "zh-cn": "11",
+                                "zh-tw": "11",
+                                "ja": "11",
+                                "ko": "11"
+                            },
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "nbnbbhfm",
+                            "icon": "icon-n-buy",
+                            "label": {
+                                "en-us": "22",
+                                "zh-cn": "22",
+                                "zh-tw": "22",
+                                "ja": "22",
+                                "ko": "22"
+                            },
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "qb89idub",
+                            "icon": "icon-n-hot",
+                            "label": {
+                                "en-us": "33",
+                                "zh-cn": "33",
+                                "zh-tw": "33",
+                                "ja": "33",
+                                "ko": "33"
+                            },
+                            "type": "navigation"
+                        },
+                        {
+                            "key": "jy28i5o3",
+                            "icon": "icon-n-commission",
+                            "label": {
+                                "en-us": "Custom Title",
+                                "zh-cn": "自定义标题",
+                                "zh-tw": "自定义标题",
+                                "ja": "自定义标题",
+                                "ko": "自定义标题",
+                                "ar": "自定义标题"
+                            },
+                            "type": "navigation"
+                        }
+                    ],
+                    "disabled": true
+                },
+                {
+                    "key": "ocfm38qy",
+                    "icon": "icon-n-medal",
+                    "label": {
+                        "en-us": "Game-Test1",
+                        "zh-cn": "Game-Test1",
+                        "zh-tw": "Game-Test1",
+                        "ja": "Game-Test1",
+                        "ko": "Game-Test1"
+                    },
+                    "type": "navigation",
+                    "disabled": true
+                },
+                {
+                    "key": "5qtao047",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "分组",
+                        "zh-cn": "分组",
+                        "zh-tw": "分组",
+                        "ja": "分组",
+                        "ko": "分组"
+                    },
+                    "type": "group",
+                    "items": [
+                        {
+                            "key": "b2w2u2ho",
+                            "icon": "icon-n-commission",
+                            "label": {
+                                "en-us": "导航3-3",
+                                "zh-cn": "导航3-3",
+                                "zh-tw": "导航3-3",
+                                "ja": "导航3-3",
+                                "ko": "导航3"
+                            },
+                            "type": "navigation"
+                        }
+                    ]
+                },
+                {
+                    "key": "3j5dutjd",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "KYC",
+                        "zh-cn": "KYC",
+                        "zh-tw": "KYC",
+                        "ja": "KYC",
+                        "vi": "KYC",
+                        "th": "KYC",
+                        "id": "KYC",
+                        "fa": "KYC"
+                    },
+                    "type": "navigation"
+                },
+                {
+                    "key": "1qu8yrya",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "嵌入页面",
+                        "zh-cn": "嵌入页面",
+                        "zh-tw": "嵌入页面",
+                        "ja": "嵌入页面",
+                        "vi": "嵌入页面",
+                        "th": "嵌入页面",
+                        "id": "嵌入页面",
+                        "fa": "嵌入页面"
+                    },
+                    "type": "navigation"
+                },
+                {
+                    "key": "um63hyys",
+                    "icon": "icon-n-link_solid",
+                    "label": {
+                        "en-us": "导航2-1",
+                        "zh-cn": "导航2-1",
+                        "zh-tw": "导航2",
+                        "ja": "导航2",
+                        "vi": "导航2-1",
+                        "th": "导航2-1",
+                        "id": "导航2-1",
+                        "fa": "导航2-1"
+                    },
+                    "type": "navigation"
+                },
+                {
+                    "key": "8mgdrgt0",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "Agreements",
+                        "zh-cn": "协议",
+                        "zh-tw": "Agreements",
+                        "ja": "Agreements",
+                        "kur-ckb": "Agreements",
+                        "kur-kmr": "Agreements",
+                        "ar": "Agreements",
+                        "fa": "Agreements"
+                    },
+                    "type": "group",
+                    "items": [
+                        {
+                            "key": "uwss1a39",
+                            "icon": "icon-n-commission",
+                            "label": {
+                                "en-us": "Agreement 1",
+                                "zh-cn": "Agreement 1",
+                                "zh-tw": "Agreement 1",
+                                "ja": "Agreement 1",
+                                "kur-ckb": "Agreement 1",
+                                "kur-kmr": "Agreement 1",
+                                "ar": "Agreement 1",
+                                "fa": "Agreement 1"
+                            },
+                            "type": "navigation"
+                        }
+                    ]
+                },
+                {
+                    "key": "ij9xpsu4",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "Test FX Blue",
+                        "zh-cn": "Test FX Blue",
+                        "zh-tw": "Test FX Blue",
+                        "ja": "Test FX Blue",
+                        "th": "Test FX Blue",
+                        "ko": "Test FX Blue",
+                        "kur-ckb": "Test FX Blue"
+                    },
+                    "type": "navigation"
+                },
+                {
+                    "key": "fvpwtvtk",
+                    "icon": "icon-n-quick",
+                    "label": {
+                        "en-us": "Trade",
+                        "zh-cn": "交易",
+                        "zh-tw": "实验室",
+                        "ja": "交易",
+                        "ar": "交易"
+                    },
+                    "type": "navigation",
+                    "disabled": true
+                },
+                {
+                    "key": "r4zakn7w",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "44",
+                        "zh-cn": "44",
+                        "zh-tw": "44",
+                        "ja": "44",
+                        "vi": "44",
+                        "ar": "44",
+                        "fa": "44"
+                    },
+                    "type": "navigation",
+                    "disabled": true
+                },
+                {
+                    "key": "imbowx4u",
+                    "icon": "icon-n-commission",
+                    "label": {
+                        "en-us": "aaa",
+                        "zh-cn": "aaa",
+                        "zh-tw": "aaa",
+                        "ja": "aaaa",
+                        "ko": "aaa"
+                    },
+                    "type": "navigation"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

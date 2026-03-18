@@ -1,0 +1,260 @@
+meta {
+  name: Get Searched Request Summary
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/search/summary
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "type": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": "",
+        "type": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": "",
+    "mine": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: transfer
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/search/summary
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "type": "transfer",
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "statistics": {
+                "source": [
+                    {
+                        "sum_source_total": 55.51,
+                        "sum_source_trading_currency": "USD"
+                    },
+                    {
+                        "sum_source_total": 10,
+                        "sum_source_trading_currency": "JPY"
+                    }
+                ],
+                "target": [
+                    {
+                        "sum_target_total": 55.51,
+                        "sum_target_trading_currency": "USD"
+                    },
+                    {
+                        "sum_target_total": 0.07,
+                        "sum_target_trading_currency": "EUR"
+                    }
+                ]
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: deposit
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/search/summary
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "type": "deposit",
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "statistics": {
+                "trading": [
+                    {
+                        "sum_trading_amount": 110.06584332,
+                        "sum_trading_currency": "USDT"
+                    },
+                    {
+                        "sum_trading_amount": 131.67000000000002,
+                        "sum_trading_currency": "CNY"
+                    },
+                    {
+                        "sum_trading_amount": 163.1276,
+                        "sum_trading_currency": "BTC"
+                    },
+                    {
+                        "sum_trading_amount": 91578.1,
+                        "sum_trading_currency": "USD"
+                    },
+                    {
+                        "sum_trading_amount": 498.11,
+                        "sum_trading_currency": "EUR"
+                    },
+                    {
+                        "sum_trading_amount": 303.99,
+                        "sum_trading_currency": "JPY"
+                    }
+                ],
+                "payment": [
+                    {
+                        "sum_payment_total": 144.55,
+                        "sum_payment_currency": "USDT"
+                    },
+                    {
+                        "sum_payment_total": 887.75,
+                        "sum_payment_currency": "EUR"
+                    },
+                    {
+                        "sum_payment_total": 76547.77,
+                        "sum_payment_currency": "USD"
+                    },
+                    {
+                        "sum_payment_total": 164.4079496,
+                        "sum_payment_currency": "BTC"
+                    },
+                    {
+                        "sum_payment_total": 2433.13,
+                        "sum_payment_currency": "CNY"
+                    },
+                    {
+                        "sum_payment_total": 1.18,
+                        "sum_payment_currency": "ETH"
+                    },
+                    {
+                        "sum_payment_total": 10,
+                        "sum_payment_currency": "CAD"
+                    },
+                    {
+                        "sum_payment_total": 414.21,
+                        "sum_payment_currency": "JPY"
+                    }
+                ]
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: withdrawal
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/search/summary
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "type": "withdrawal",
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "statistics": {
+                "trading": [
+                    {
+                        "sum_trading_amount": 52.589999999999996,
+                        "sum_trading_currency": "BTC"
+                    },
+                    {
+                        "sum_trading_amount": 26.009999999999998,
+                        "sum_trading_currency": "EUR"
+                    },
+                    {
+                        "sum_trading_amount": 20184.86,
+                        "sum_trading_currency": "USD"
+                    }
+                ],
+                "withdrawal": [
+                    {
+                        "sum_withdrawal_total": 1080.99,
+                        "sum_withdrawal_currency": "USD"
+                    },
+                    {
+                        "sum_withdrawal_total": 10.98,
+                        "sum_withdrawal_currency": "EUR"
+                    },
+                    {
+                        "sum_withdrawal_total": 0.01114254,
+                        "sum_withdrawal_currency": "ETH"
+                    },
+                    {
+                        "sum_withdrawal_total": 136846.772,
+                        "sum_withdrawal_currency": "JPY"
+                    },
+                    {
+                        "sum_withdrawal_total": 409.12,
+                        "sum_withdrawal_currency": "CNY"
+                    },
+                    {
+                        "sum_withdrawal_total": 52.80651466,
+                        "sum_withdrawal_currency": "BTC"
+                    },
+                    {
+                        "sum_withdrawal_total": 0.0286,
+                        "sum_withdrawal_currency": "Ethereum Test (Sepolia)"
+                    },
+                    {
+                        "sum_withdrawal_total": 0.00038,
+                        "sum_withdrawal_currency": "Bitcoin Test"
+                    }
+                ]
+            }
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,69 @@
+meta {
+  name: ROPC Send Email MFA Code
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/oauth/mfa/email/send
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mfa_token": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/mfa/email/send
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "mfa_token": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 05:41:08 GMT
+      Content-Type: text/plain; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"2-nOO9QiTIwXgNtWtBJezz8kv3SLc"
+      x-envoy-upstream-service-time: 117
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=iv7OBkzdIINg5%2Fg4lm41lRRMOi%2BdU7Guf5rF%2FgaNOlpFuWWuKZX8BkH7P51j20qUarj43tiugNlrfnGCOcNRpWHE1awUMmXUcfAx6%2BSYN5g%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a3ed0b50eaeff93-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        OK
+      '''
+    }
+  }
+}

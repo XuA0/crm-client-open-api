@@ -1,0 +1,23 @@
+meta {
+  name: GET /private/v1/mtr/accounts/offers
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mtr/accounts/offers?connection_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}

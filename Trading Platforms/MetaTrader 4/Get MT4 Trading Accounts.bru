@@ -1,0 +1,254 @@
+meta {
+  name: Get MT4 Trading Accounts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt4/accounts
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/accounts
+    method: GET
+    mode: none
+    headers: {
+      Content-Type: application/json
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 40190,
+                    "currency": "USD",
+                    "balance": 0,
+                    "credit": 0,
+                    "available_withdrawal": 0,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 0,
+                    "equity": 0,
+                    "margin_free": 0,
+                    "leverage": 1,
+                    "enable": true,
+                    "created_at": "2025-10-27T08:42:44.000Z",
+                    "last_active": "2025-10-27T08:42:44.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "first_deposit": true,
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true
+                },
+                {
+                    "trading_id": 40189,
+                    "currency": "USD",
+                    "balance": 100,
+                    "credit": 0,
+                    "available_withdrawal": 100,
+                    "balance_previous_month": 100,
+                    "balance_previous_day": 100,
+                    "equity": 100,
+                    "margin_free": 100,
+                    "leverage": 1,
+                    "enable": true,
+                    "created_at": "2025-08-19T08:37:30.000Z",
+                    "last_active": "2025-08-19T08:37:30.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true,
+                    "prop_trading": true
+                },
+                {
+                    "trading_id": 40188,
+                    "currency": "USD",
+                    "balance": 100,
+                    "credit": 0,
+                    "available_withdrawal": 100,
+                    "balance_previous_month": 100,
+                    "balance_previous_day": 100,
+                    "equity": 100,
+                    "margin_free": 100,
+                    "leverage": 1,
+                    "enable": true,
+                    "created_at": "2025-08-19T05:25:22.000Z",
+                    "last_active": "2025-08-19T05:25:22.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true,
+                    "prop_trading": true
+                },
+                {
+                    "trading_id": 40187,
+                    "currency": "USD",
+                    "balance": 100,
+                    "credit": 0,
+                    "available_withdrawal": 100,
+                    "balance_previous_month": 100,
+                    "balance_previous_day": 100,
+                    "equity": 100,
+                    "margin_free": 100,
+                    "leverage": 1,
+                    "enable": true,
+                    "created_at": "2025-08-19T04:38:55.000Z",
+                    "last_active": "2025-08-19T04:38:55.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true,
+                    "prop_trading": true
+                },
+                {
+                    "trading_id": 50075,
+                    "currency": "USD",
+                    "balance": 1100,
+                    "credit": 0,
+                    "available_withdrawal": 1100,
+                    "balance_previous_month": 1100,
+                    "balance_previous_day": 1100,
+                    "equity": 1100,
+                    "margin_free": 1100,
+                    "leverage": 1,
+                    "enable": true,
+                    "created_at": "2024-08-05T08:35:42.000Z",
+                    "last_active": "2024-08-05T08:35:42.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true
+                },
+                {
+                    "trading_id": 40186,
+                    "currency": "USD",
+                    "balance": 100,
+                    "credit": 0,
+                    "available_withdrawal": 100,
+                    "balance_previous_month": 100,
+                    "balance_previous_day": 100,
+                    "equity": 100,
+                    "margin_free": 100,
+                    "leverage": 1,
+                    "enable": true,
+                    "created_at": "2024-02-23T10:30:57.000Z",
+                    "last_active": "2024-02-23T10:30:57.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true,
+                    "prop_trading": true
+                },
+                {
+                    "trading_id": 40184,
+                    "currency": "USD",
+                    "balance": 100000000000,
+                    "credit": 0,
+                    "available_withdrawal": 100000000000,
+                    "balance_previous_month": 100000000000,
+                    "balance_previous_day": 100000000000,
+                    "equity": 100000000000,
+                    "margin_free": 100000000000,
+                    "leverage": 33,
+                    "enable": true,
+                    "created_at": "2023-08-17T10:56:39.000Z",
+                    "last_active": "2023-08-17T10:56:39.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true,
+                    "prop_trading": true
+                },
+                {
+                    "trading_id": 40183,
+                    "currency": "USD",
+                    "balance": 100000000044,
+                    "credit": 0,
+                    "available_withdrawal": 100000000044,
+                    "balance_previous_month": 100000000044,
+                    "balance_previous_day": 100000000044,
+                    "equity": 100000000044,
+                    "margin_free": 100000000044,
+                    "leverage": 33,
+                    "enable": true,
+                    "created_at": "2023-08-17T04:52:03.000Z",
+                    "last_active": "2023-08-17T04:52:03.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true,
+                    "prop_trading": true
+                },
+                {
+                    "trading_id": 30815,
+                    "currency": "USD",
+                    "balance": 100000100640.74,
+                    "credit": 0,
+                    "available_withdrawal": 100000100640.74,
+                    "balance_previous_month": 100000100640.74,
+                    "balance_previous_day": 100000100640.74,
+                    "equity": 100000100640.74,
+                    "margin_free": 100000100640.74,
+                    "leverage": 2,
+                    "enable": true,
+                    "created_at": "2023-05-17T12:36:50.000Z",
+                    "last_active": "2023-07-31T09:15:34.000Z",
+                    "trading_account_profit": 0,
+                    "connection_id": "bigc8liz",
+                    "server_name": "QA 1",
+                    "user_id": "lifupiht",
+                    "account_type_id": "tzlgx9nj",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

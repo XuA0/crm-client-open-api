@@ -1,0 +1,68 @@
+meta {
+  name: Get Trading Competition PSP Payment URL
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/psp/tradingCompetition/payment
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "channel_id": "",
+    "order_no": "",
+    "request_type": "",
+    "enter_trading_id": 0,
+    "competition_id": "",
+    "package_id": "",
+    "package_name": {},
+    "convert_way": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/psp/tradingCompetition/payment
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "e8inwaxw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "5835.37",
+          "form_data": {
+              "form_id": "7i8illty"
+          },
+          "payment_fee": "57.77",
+          "request_type": "trading_competition",
+          "enter_trading_id": 9502700
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "url": "https://www.yahoo.com",
+            "order_no": "zri1irls2fo6vcnz",
+            "channel_id": "c1vhwxw8",
+            "method_id": "y8b13rhv"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,68 @@
+meta {
+  name: Create MT4 Demo Trading Account
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt4/accounts/demo
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "group": "",
+    "leverage": 0,
+    "account_type_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 201
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/accounts/demo
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "connection_id": "21p71b23",
+          "leverage": 100,
+          "account_type_id": "hoo5dhnk",
+          "group": "Sandbox6"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "trading_id": 8294090,
+            "password": "SmfHRWSG",
+            "investor_password": "5uhwb2eG"
+        }
+      '''
+    }
+  }
+}

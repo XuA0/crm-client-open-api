@@ -1,0 +1,240 @@
+meta {
+  name: Get Withdrawal Banks
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/withdraw/banks
+  body: json
+  auth: bearer
+}
+
+params:path {
+  type: 
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "country": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/withdraw/banks
+    method: POST
+    mode: json
+    params:path: {
+      type: luqapay
+      id: aogqz9r7
+    }
+  
+    body:json: {
+      {
+        "country": ""
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "bankName": "Hokkaido Bank (北海道銀行)",
+                "swiftCode": "HKDBJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "3b17f2d5-5c39-452a-bb35-bdb7e8fa1f18",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Hokuriku Bank (北陸銀行)",
+                "swiftCode": "RIKBJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "ed71b51c-ef52-4a3e-915a-b82a95f55254",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "SBI Shinsei Bank (ＳＢＩ新生銀行)",
+                "swiftCode": "LTCBJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "d6916aba-fa13-4148-8a77-d4ceba90785d",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Nishi-nippon City Bank (西日本シティ銀行)",
+                "swiftCode": "NISIJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "51a6921f-4959-4eb5-a62e-2d762f5aff21",
+                "onlyIban": false,
+                "bankCode": "0190"
+            },
+            {
+                "bankName": "SMBC (三井住友銀行)",
+                "swiftCode": "SMBCJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "2fb21aba-fe01-47b6-afa2-d29359e831c0",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Hiroshima Bank (広島銀行)",
+                "swiftCode": "HIROJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "b4af4eae-7444-4d7f-bad9-c336478e4515",
+                "onlyIban": false,
+                "bankCode": "0169"
+            },
+            {
+                "bankName": "Gogin (山陰合同銀行)",
+                "swiftCode": "SGBKJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "6640324b-6b20-430f-8532-ab3b030c92f9",
+                "onlyIban": false,
+                "bankCode": "0167"
+            },
+            {
+                "bankName": "Suruga Bank (スルガ銀行)",
+                "swiftCode": "SRFXJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "e8042828-88c8-4603-b836-a540b5877e7e",
+                "onlyIban": false,
+                "bankCode": "0150"
+            },
+            {
+                "bankName": "Rakuten Bank (楽天銀行)",
+                "swiftCode": "RAKTJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "010a26f3-f96f-4c5f-96a3-81c957fcbb19",
+                "onlyIban": false,
+                "bankCode": null
+            },
+            {
+                "bankName": "Kagoshima Bank (鹿児島銀行)",
+                "swiftCode": "KAGOJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "d62a4441-6d9b-4001-9cbc-cd7d1c88e6d5",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Musashino Bank (武蔵野銀行)",
+                "swiftCode": "MUBKJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "2dbf9aa6-fcc0-4d80-93d5-19222bcf4738",
+                "onlyIban": false,
+                "bankCode": "0133"
+            },
+            {
+                "bankName": "Gunma (群馬銀行)",
+                "swiftCode": "GUMAJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "65fee809-7e39-4317-8c58-7d214119a263",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Hachijuni Bank (八十二銀行)",
+                "swiftCode": "HABKJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "a8a5b90a-6b97-4797-aae6-47b9a3f24a7d",
+                "onlyIban": false,
+                "bankCode": "0143"
+            },
+            {
+                "bankName": "77 Bank (七十七銀行)",
+                "swiftCode": "BOSSJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "1bbf6563-ed38-423f-8f5c-138d020078a8",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Tokyo Star Bank (東京スター銀行)",
+                "swiftCode": "TSBKJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "d3182525-9feb-4802-8f8b-b9da41ee6833",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "Chiba Bank (千葉銀行)",
+                "swiftCode": "CHBAJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "baa2a4f4-a6fb-41a4-8cc4-d0217061c1e5",
+                "onlyIban": false,
+                "bankCode": "0134"
+            },
+            {
+                "bankName": "Shizuoka Bank (静岡銀行)",
+                "swiftCode": "SHIZJPJT",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "9328f969-6243-4e03-ae0e-e4c271366ec8",
+                "onlyIban": false,
+                "bankCode": "0149"
+            },
+            {
+                "bankName": "Kansai Mirai Bank (関西みらい銀行)",
+                "swiftCode": "OSABJPJS",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "05c9ef31-e86e-4194-9a2d-01ee2309bc6e",
+                "onlyIban": false,
+                "bankCode": "0159"
+            },
+            {
+                "bankName": "Seven Bank (セブン銀行)",
+                "swiftCode": "SVVNJPJJ",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "dfa49a0b-f923-4673-9c5f-ae12298fecce",
+                "onlyIban": true,
+                "bankCode": null
+            },
+            {
+                "bankName": "PayPay Bank (ＰａｙＰａｙ銀行)",
+                "swiftCode": "JANEJPJ1",
+                "country": "JP",
+                "status": "ACTIVE",
+                "uuid": "ca2d126d-3cfe-411e-aeae-d132e43a29cb",
+                "onlyIban": false,
+                "bankCode": "0033"
+            }
+        ]
+      '''
+    }
+  }
+}

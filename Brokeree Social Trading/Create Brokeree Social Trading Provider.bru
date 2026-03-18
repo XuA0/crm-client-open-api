@@ -1,0 +1,55 @@
+meta {
+  name: Create Brokeree Social Trading Provider
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/socialTrading/brokeree/provider
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "platform": "",
+    "trading_id": 0,
+    "nickname": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/socialTrading/brokeree/provider
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "nickname": "AAAAAA",
+          "trading_id": 10151,
+          "connection_id": "a4kmlfam",
+          "platform": "mt5"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

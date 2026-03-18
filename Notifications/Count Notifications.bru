@@ -1,0 +1,66 @@
+meta {
+  name: Count Notifications
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/api/v1/notify/inbox/count
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "level": "USER",
+      "type": "POP_UP",
+      "read": false,
+      "clientType": "user",
+      "isActive": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/inbox/count
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "level": "USER",
+          "type": "POP_UP",
+          "read": false,
+          "clientType": "user",
+          "isActive": true
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        4
+      '''
+    }
+  }
+}

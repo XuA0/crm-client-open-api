@@ -1,0 +1,69 @@
+meta {
+  name: ROPC Deactivate MFA
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/oauth/mfa/deactivation/request
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mfa_token":""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/mfa/deactivation/request
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "mfa_token":""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 05:29:42 GMT
+      Content-Type: text/plain; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"2-nOO9QiTIwXgNtWtBJezz8kv3SLc"
+      x-envoy-upstream-service-time: 77
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=6T7daMzf78titoCcXo1%2FjjYFqt1q1kd%2F9DUHf%2BgqZVw3sOr%2B4YyhHb%2Bbah3nzJmuKzzw35fQx9yL4F%2Bx7qnBhs97AFgwFOsTCk7XpqCK5sI%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a3ebff9cb0d9aaf-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        OK
+      '''
+    }
+  }
+}

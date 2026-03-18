@@ -1,0 +1,108 @@
+meta {
+  name: Get Banks
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/banks
+  body: json
+  auth: bearer
+}
+
+params:path {
+  type: 
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "country": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/banks
+    method: POST
+    mode: json
+    params:path: {
+      type: luqapay
+      id: aogqz9r7
+    }
+  
+    body:json: {
+      {
+        "country": ""
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "swiftCode": "JICRJPJT",
+                "bankName": "au Jibun Bank (au じぶん銀行)"
+            },
+            {
+                "swiftCode": "JPPSJPJ1",
+                "bankName": "Japan Post Bank (Yucho) (ゆうちょ銀行)"
+            },
+            {
+                "swiftCode": "MHCBJPJT",
+                "bankName": "Mizuho Bank (みずほ銀行)"
+            },
+            {
+                "swiftCode": "JANEJPJT",
+                "bankName": "PayPay銀行 (ジャパンネット銀行)"
+            },
+            {
+                "swiftCode": "RAKTJPJT",
+                "bankName": "Rakuten Bank (楽天銀行)"
+            },
+            {
+                "swiftCode": "DIWAJPJT",
+                "bankName": "Resona Bank (りそな銀行)"
+            },
+            {
+                "swiftCode": "SAIBJPJT",
+                "bankName": "Saitama Resona Bank (埼玉りそな銀行)"
+            },
+            {
+                "swiftCode": "SVVNJPJJ",
+                "bankName": "Seven Bank (セブン銀行)"
+            },
+            {
+                "swiftCode": "SMBCJPJT",
+                "bankName": "SMBC - Sumitomo Mitsui Banking Corporation (三井住友銀行)"
+            },
+            {
+                "swiftCode": "NTSSJPJT",
+                "bankName": "Sumishin SBI Net Bank (住信SBIネット銀行)"
+            },
+            {
+                "swiftCode": "FKBKJPJT",
+                "bankName": "The Bank of Fukuoka (福岡銀行)"
+            },
+            {
+                "swiftCode": "BOTKJPJT",
+                "bankName": "三菱UFJ銀行 - MUFG Bank, Ltd."
+            }
+        ]
+      '''
+    }
+  }
+}

@@ -1,0 +1,56 @@
+meta {
+  name: Get Wallet Transfer Config
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/wallets/:id/transfer/info?allow_crm_deposit=true&allow_crm_withdrawal=true&allow_crm_transfer=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  allow_crm_deposit: true
+  allow_crm_withdrawal: true
+  allow_crm_transfer: true
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/wallets/:id/transfer/info
+    method: GET
+    mode: none
+    params:path: {
+      id: 
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "n504wv39",
+            "user_id": "0od6txbn",
+            "currency": "EUR.i",
+            "allow_crm_transfer": true
+        }
+      '''
+    }
+  }
+}

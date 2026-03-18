@@ -1,0 +1,146 @@
+meta {
+  name: Get Wallets
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/wallets
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id([a-z0-9]{8}): 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/wallets
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": pe4pm8mh
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "kss5nu0f",
+                "currency": "BTC",
+                "balance": "100000.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "100000.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "qs4enfip",
+                "currency": "CHF",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "7vjsq80y",
+                "currency": "ETH",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "mxjrlq77",
+                "currency": "EUR",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "bodzztas",
+                "currency": "EUR.i",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "ke0toq0s",
+                "currency": "GBP",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "whe0x2fy",
+                "currency": "JPY",
+                "balance": "1000270.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "1000270.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "mf8zflxw",
+                "currency": "USC",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            },
+            {
+                "id": "dus2q5x7",
+                "currency": "USD",
+                "balance": "311.20000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "311.20000000",
+                "allow_crm_deposit": false,
+                "allow_crm_withdrawal": false,
+                "allow_crm_transfer": false
+            },
+            {
+                "id": "tcx1y9c4",
+                "currency": "USDT",
+                "balance": "0.00000000",
+                "pending_withdrawal": "0.00000000",
+                "available_balance": "0.00000000",
+                "allow_crm_deposit": true,
+                "allow_crm_withdrawal": true,
+                "allow_crm_transfer": true
+            }
+        ]
+      '''
+    }
+  }
+}

@@ -1,0 +1,518 @@
+meta {
+  name: Get Registration Form by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form/registration/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form/registration/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 509mlteu
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "_id": "67ac12d45d22c63a38444907",
+            "id": "509mlteu",
+            "updated_at": "2025-02-12T03:17:40.926Z",
+            "created_at": "2025-02-12T03:17:40.926Z",
+            "groups": [
+                {
+                    "fields": [
+                        {
+                            "key": "nationality",
+                            "type": "country",
+                            "label": {
+                                "en-us": "Nationality",
+                                "zh-cn": "国籍",
+                                "vi": "Quốc tịch",
+                                "zh-tw": "國籍",
+                                "ja": "国籍",
+                                "th": "สัญชาติ",
+                                "id": "Kebangsaan",
+                                "es": "Nacionalidad",
+                                "de": "Staatsangehörigkeit",
+                                "ko": "국적"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "国家",
+                                "zh-cn": "国家",
+                                "zh-tw": "国家",
+                                "tr": "国家"
+                            },
+                            "required": true,
+                            "type": "nation",
+                            "key": "ux11f09758f6x886cx8"
+                        },
+                        {
+                            "key": "name",
+                            "type": "text",
+                            "label": {
+                                "en-us": "Name",
+                                "zh-cn": "姓名",
+                                "fa": "姓名"
+                            },
+                            "required": true,
+                            "default": true,
+                            "identifier": true,
+                            "description": {
+                                "en-us": "132",
+                                "zh-cn": "132",
+                                "fa": "132"
+                            }
+                        },
+                        {
+                            "key": "phone",
+                            "type": "phone",
+                            "label": {
+                                "en-us": "Phone",
+                                "zh-cn": "手机",
+                                "vi": "Số điện thoại",
+                                "zh-tw": "手機號",
+                                "ja": "電話番号",
+                                "th": "โทรศัพท์",
+                                "id": "Telepon",
+                                "es": "Teléfono",
+                                "de": "Telefon",
+                                "ko": "전화 번호"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "label": {
+                                "en-us": "email",
+                                "zh-cn": "电子邮箱",
+                                "zh-tw": "電子郵箱",
+                                "es": "Correo Electrónico",
+                                "tr": "Correo Electrónico",
+                                "kur-ckb": "Correo Electrónico"
+                            },
+                            "required": true,
+                            "otp": false,
+                            "type": "email",
+                            "key": "email",
+                            "default": true
+                        },
+                        {
+                            "key": "password",
+                            "type": "password",
+                            "label": {
+                                "en-us": "password",
+                                "zh-cn": "密码",
+                                "vi": "Mật khẩu",
+                                "zh-tw": "密碼",
+                                "ja": "パスワード",
+                                "th": "รหัสผ่าน",
+                                "id": "Kata Sandi",
+                                "es": "Contraseña",
+                                "de": "Kennwort",
+                                "ko": "비밀번호"
+                            },
+                            "default": true,
+                            "required": true,
+                            "identifier": true,
+                            "min": 8,
+                            "max": 120,
+                            "lowercase": true,
+                            "uppercase": true,
+                            "number": true,
+                            "special": false
+                        },
+                        {
+                            "label": {
+                                "en-us": "Referrals",
+                                "zh-cn": "推荐人",
+                                "zh-tw": "推薦人",
+                                "tr": "123",
+                                "pt": "321",
+                                "ko": "추천인"
+                            },
+                            "required": false,
+                            "type": "text",
+                            "min": 0,
+                            "max": 100,
+                            "key": "referrer_id",
+                            "default": true
+                        },
+                        {
+                            "key": "ux7feb9533bx1255dx6",
+                            "label": {
+                                "zh-cn": "文件下载测试",
+                                "en-us": "文件下载测试",
+                                "zh-tw": "文件下载测试",
+                                "ja": "文件下载测试",
+                                "vi": "文件下载测试",
+                                "id": "文件下载测试",
+                                "th": "文件下载测试",
+                                "es": "文件下载测试",
+                                "de": "文件下载测试"
+                            },
+                            "readonly": true,
+                            "docs": [
+                                {
+                                    "id": "7f12",
+                                    "name": "13213.png",
+                                    "doc": "apps/kyc/forms/woh73pkt/kyc_readonly_document_7f12"
+                                }
+                            ],
+                            "type": "readonlyDocument"
+                        },
+                        {
+                            "label": {
+                                "en-us": "13",
+                                "zh-cn": "下拉多选",
+                                "zh-tw": "2554",
+                                "tr": "452",
+                                "pt": "542"
+                            },
+                            "required": false,
+                            "options": [
+                                {
+                                    "label": {
+                                        "zh-cn": "542",
+                                        "en-us": "25",
+                                        "tr": "52",
+                                        "pt": "45225",
+                                        "zh-tw": "42"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "uxb8573f7aex1406fx0"
+                                },
+                                {
+                                    "label": {
+                                        "zh-cn": "3653",
+                                        "en-us": "2543",
+                                        "tr": "653",
+                                        "pt": "653",
+                                        "zh-tw": "653"
+                                    },
+                                    "disabled": false,
+                                    "default": false,
+                                    "value": "uxb857a3681x2756x1"
+                                }
+                            ],
+                            "type": "multiselect",
+                            "key": "uxb857a4e3axe095x7"
+                        },
+                        {
+                            "label": {
+                                "en-us": "生日",
+                                "zh-cn": "生日",
+                                "ar": "生日"
+                            },
+                            "required": false,
+                            "type": "date",
+                            "key": "ux187501fdb9x118ax9"
+                        }
+                    ],
+                    "label": {
+                        "en-us": "Personal Information",
+                        "zh-cn": "个人信息",
+                        "vi": "Thông tin cá nhân",
+                        "zh-tw": "個人資訊",
+                        "ja": "個人情報",
+                        "th": "ข้อมูลส่วนบุคคล",
+                        "id": "Informasi Pribadi",
+                        "es": "Información personal",
+                        "de": "Persönliche Informationen",
+                        "ko": "개인 정보"
+                    },
+                    "default": true,
+                    "key": "personalInfo"
+                },
+                {
+                    "fields": [],
+                    "label": {
+                        "zh-cn": "yona测试",
+                        "en-us": "yona测试"
+                    },
+                    "key": "ux78db66176xdc70x4"
+                },
+                {
+                    "fields": [],
+                    "label": {
+                        "zh-cn": "新组",
+                        "en-us": "new",
+                        "tr": "54333",
+                        "pt": "5737",
+                        "zh-tw": "845",
+                        "ja": "543",
+                        "vi": "3544",
+                        "th": "3543",
+                        "id": "45345",
+                        "es": "3453453",
+                        "de": "4524"
+                    },
+                    "key": "uxa17155b8dxf0a3x3"
+                },
+                {
+                    "fields": [
+                        {
+                            "key": "company",
+                            "type": "text",
+                            "label": {
+                                "en-us": "Company",
+                                "zh-cn": "公司",
+                                "vi": "Công ty",
+                                "zh-tw": "公司",
+                                "ja": "会社",
+                                "th": "บริษัท",
+                                "id": "perusahaan",
+                                "es": "Empresa",
+                                "de": "Gesellschaft"
+                            },
+                            "required": false,
+                            "default": true
+                        },
+                        {
+                            "key": "current_total_customers",
+                            "type": "select",
+                            "options": [
+                                {
+                                    "value": "1-10",
+                                    "label": {
+                                        "en_us": "1-10",
+                                        "zh_cn": "1-10"
+                                    }
+                                },
+                                {
+                                    "value": "10-50",
+                                    "label": {
+                                        "en-us": "10-50",
+                                        "zh-cn": "10-50"
+                                    }
+                                },
+                                {
+                                    "value": "50-200",
+                                    "label": {
+                                        "en-us": "50-200",
+                                        "zh-cn": "50-200"
+                                    }
+                                },
+                                {
+                                    "value": "200-500",
+                                    "label": {
+                                        "en-us": "200-500",
+                                        "zh-cn": "200-500"
+                                    }
+                                },
+                                {
+                                    "value": "500-1000",
+                                    "label": {
+                                        "en-us": "500-1000",
+                                        "zh-cn": "500-1000"
+                                    }
+                                },
+                                {
+                                    "value": "More than 1000",
+                                    "label": {
+                                        "en-us": "More than 1000",
+                                        "zh-cn": "超过 1000",
+                                        "vi": "Hơn 1000",
+                                        "zh-tw": "超過 1000",
+                                        "ja": "1000以上",
+                                        "th": "มากกว่า 1000"
+                                    }
+                                }
+                            ],
+                            "label": {
+                                "en-us": "Total number of current customers",
+                                "zh-cn": "当前客户总数",
+                                "vi": "Tổng số khách hàng hiện tại",
+                                "zh-tw": "當前客戶總數",
+                                "ja": "現在の総顧客",
+                                "th": "ลูกค้าปัจจุบันทั้งหมด",
+                                "id": "Jumlah total pelanggan saat ini",
+                                "es": "Número total de clientes actuales",
+                                "de": "Gesamtzahl der aktuellen Kunden"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "key": "new_customers_opened_per_month",
+                            "type": "select",
+                            "options": [
+                                {
+                                    "value": "0-5/month",
+                                    "label": {
+                                        "en_us": "0-5/month",
+                                        "zh_cn": "每月0-5",
+                                        "vi": "0-5 mỗi tháng",
+                                        "zh-tw": "每月0-5",
+                                        "ja": "月額0-5",
+                                        "th": "0-5 ต่อเดือน"
+                                    }
+                                },
+                                {
+                                    "value": "5-10/month",
+                                    "label": {
+                                        "en-us": "5-10/month",
+                                        "zh-cn": "每月5-10",
+                                        "vi": "5-10 mỗi tháng",
+                                        "zh-tw": "每月5-10",
+                                        "ja": "月額5-10",
+                                        "th": "5-10 ต่อเดือน"
+                                    }
+                                },
+                                {
+                                    "value": "10-50/month",
+                                    "label": {
+                                        "en-us": "10-50/month",
+                                        "zh-cn": "每月10-50",
+                                        "vi": "10-50 mỗi tháng",
+                                        "zh-tw": "每月10-50",
+                                        "ja": "月額10-50",
+                                        "th": "10-50 ต่อเดือน"
+                                    }
+                                },
+                                {
+                                    "value": "50-100/month",
+                                    "label": {
+                                        "en-us": "50-100/month",
+                                        "zh-cn": "每月50-100",
+                                        "vi": "50-100 mỗi tháng",
+                                        "zh-tw": "每月50-100",
+                                        "ja": "月額50-100",
+                                        "th": "50-100 ต่อเดือน"
+                                    }
+                                },
+                                {
+                                    "value": "More than 100",
+                                    "label": {
+                                        "en-us": "More than 100",
+                                        "zh-cn": "超过100",
+                                        "vi": "Hơn 100",
+                                        "zh-tw": "超過100",
+                                        "ja": "100を超える",
+                                        "th": "มากกว่า 100"
+                                    }
+                                }
+                            ],
+                            "label": {
+                                "en-us": "Number of new customers opened per month",
+                                "zh-cn": "每月新开的客户数",
+                                "vi": "Số lượng khách hàng mới mỗi tháng",
+                                "zh-tw": "每月新開的客戶數",
+                                "ja": "1か月あたりの新規顧客数",
+                                "th": "จำนวนลูกค้าใหม่ต่อเดือน"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "key": "current_total_funds",
+                            "type": "select",
+                            "options": [
+                                {
+                                    "value": "Less than $100,000",
+                                    "label": {
+                                        "en_us": "Less than $100,000",
+                                        "zh_cn": "少过$100,000",
+                                        "vi": "Dưới 100.000 đô la",
+                                        "zh-tw": "少於$100,000",
+                                        "ja": "$100,000未満",
+                                        "th": "น้อยกว่า $100,000"
+                                    }
+                                },
+                                {
+                                    "value": "$100,000-$500,000",
+                                    "label": {
+                                        "en-us": "$100,000-$500,000",
+                                        "zh-cn": "$100,000-$500,000"
+                                    }
+                                },
+                                {
+                                    "value": "$500,000-$2 million",
+                                    "label": {
+                                        "en-us": "$500,000-$2 million",
+                                        "zh-cn": "$500,000-$2 million"
+                                    }
+                                },
+                                {
+                                    "value": "$2-5 million",
+                                    "label": {
+                                        "en-us": "$2-5 million",
+                                        "zh-cn": "$2-5 million"
+                                    }
+                                },
+                                {
+                                    "value": "$5-10 million",
+                                    "label": {
+                                        "en-us": "$5-10 million",
+                                        "zh-cn": "$5-10 million"
+                                    }
+                                },
+                                {
+                                    "value": "More than $10 million",
+                                    "label": {
+                                        "en-us": "More than $10 million",
+                                        "zh-cn": "超过$10 million",
+                                        "vi": "Trên 10 triệu đô la",
+                                        "zh-tw": "超過$10 million",
+                                        "ja": "1,000万ドル以上",
+                                        "th": "มากกว่า 10 ล้านเหรียญ"
+                                    }
+                                }
+                            ],
+                            "label": {
+                                "en-us": "Current total funds",
+                                "zh-cn": "当前总资金",
+                                "vi": "Tổng quỹ hiện tại",
+                                "zh-tw": "當前總資金",
+                                "ja": "現在の総資金",
+                                "th": "ปัจจุบันเงินทุนรวม",
+                                "id": "Total dana saat ini",
+                                "es": "Fondos totales actuales",
+                                "de": "Aktuelle Gesamtmittel"
+                            },
+                            "required": true,
+                            "default": true
+                        }
+                    ],
+                    "label": {
+                        "en-us": "Agency Qualification",
+                        "zh-cn": "代理资质",
+                        "th": "คุณภาพของตัวแทน",
+                        "id": "Kualifikasi Agensi",
+                        "es": "Calificación de la agencia",
+                        "de": "Agenturqualifikation"
+                    },
+                    "default": true,
+                    "key": "agencyQualification"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

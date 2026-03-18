@@ -1,0 +1,50 @@
+meta {
+  name: Deactivate User MFA
+  type: http
+  seq: 17
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/mfa/deactivation
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "otp":"046604"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 204
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "otp":"548625"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: No Content
+      text: 204
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,1814 @@
+meta {
+  name: Get Deposit Methods
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/deposits/methods?limit=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  limit: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  # Deposit
+  
+  ## 1. Get All Payment Methods
+  
+  ![image.png](attachment:62ca9803-1553-4c0e-a2d9-d3acbcd384de:image.png)
+  
+  ## 2. Get Payment Form By Payment Method ID
+  
+  ![image.png](attachment:8c1387b4-b783-42f9-8e06-dfa8a6420e4b:image.png)
+  
+  ## 3. Check Has Pending Payment Order(Only for fireblocks)
+  
+  ![image.png](attachment:8f99b891-71c6-4072-844a-243f8a7da9d6:image.png)
+  
+  **if pending payment order returns not null , show wallet_address.address for user until order is expired or user cancelled the order.**
+  
+  ## 4. Get Currencies
+  
+  ![image.png](attachment:c138bc19-41bd-493b-b201-9bbc944e29e1:image.png)
+  
+  ## 5. Get Exchange Rate
+  
+  ![image.png](attachment:50b25931-5cd0-4f57-8368-c192e4f59f93:image.png)
+  
+  ## 6. Get Fireblocks Deposit Wallet Address(Create Pending Payment Order)
+  
+  ![image.png](attachment:17760fe9-ea29-4c3f-957c-a21136da1bd1:image.png)
+  
+  ```jsx
+  {
+      "method_id": "de00632j",     // payment method id
+      "payment_currency": "Ethereum Test (Sepolia)",  // payment currency
+      "trading_currency": "USD",      // deposit currency
+      "trading_platform": "fortex",   // deposit platform (List of value:[mt4,mt5,mtr,wta,ctrader,fortex])
+      "trading_connection_id": "z80wqyxy", // deposit connection id
+      "trading_id": "STEV1", //deposit trading account 
+      "trading_amount": "2.96",  // deposit amount 
+      "payment_total": "0.001", // payment amount
+      "payment_fee": "0",  //payment fee
+      "request_type": "deposit",  // request type (deposit)
+      "convert_way": "P2T", // input Payment Amount to calculate Deposit Amount (for backend check rate)
+      "form_data": { 
+          "qtvwvfzu": [],  // deposit method's form data field
+          "form_id": "ob543bux"   //deposit method's form id
+      }
+  }
+  
+  1. when you deposit to wallet , there is no need to pass trading_platform,trading_connection_id and trading_id
+  2. when you use fireblcoks to deposit, convert_way must be P2T. And you need to calculate trading_amount by payment_total with exchange rate.
+  ```
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/deposits/methods
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "74j0o361",
+                "platform": "paysafe",
+                "icon_id": "bbu8dtrn",
+                "label": {
+                    "en-us": "Paysafe001",
+                    "zh-cn": "Paysafe001"
+                },
+                "method": "Paysafe001",
+                "channel_id": "j0th4yut",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "max_deposit": "10000"
+                    }
+                ],
+                "use_external_rate": true,
+                "show_trading_amount": true,
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "external_rate_id": "i5c3fxle",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "dd5xbojp",
+                "platform": "fireblocks",
+                "icon_id": "bbu8dtrn",
+                "label": {
+                    "en-us": "Fireblocks002",
+                    "zh-cn": "Fireblocks002"
+                },
+                "method": "Fireblocks002",
+                "channel_id": "2vvuv8jk",
+                "currencies": [
+                    {
+                        "code": "AC Milan ($CHZ)",
+                        "decimals": 0,
+                        "fireblocks_currency_id": "$ACM_$CHZ",
+                        "min_deposit": "0",
+                        "fee": 0
+                    }
+                ],
+                "use_external_rate": false,
+                "show_trading_amount": true,
+                "users": [],
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "fx21guyw",
+                "platform": "other",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl"
+                ],
+                "method": "111",
+                "label": {
+                    "en-us": "111",
+                    "zh-cn": "111"
+                },
+                "currencies": [
+                    {
+                        "name": "CNY",
+                        "code": "CNY",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 0,
+                        "max_deposit": "100"
+                    },
+                    {
+                        "name": "USD",
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "max_deposit": "10"
+                    }
+                ],
+                "information": {
+                    "en-us": "1",
+                    "zh-cn": "<p style=\"font-size: 18px; line-height: 1.44; font-weight: 500; margin-bottom: 32px;\">\n&nbsp; &nbsp; &nbsp; &nbsp; Bonus trigger conditions\n&nbsp; &nbsp; </p><p style=\"font-size: 14px; font-weight: 500; line-height: 1.57; margin-bottom: 16px;\">\n&nbsp; &nbsp; &nbsp; &nbsp; 1. Client Deposit Bonus&nbsp; &nbsp;&nbsp;<span style=\"background-color: transparent; color: inherit; font-family: Avenir, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;, Roboto, -apple-system, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;\">&nbsp; &nbsp;</span></p><p style=\"font-size: 14px; line-height: 1.57;\">\n&nbsp; &nbsp; &nbsp; &nbsp; · The bonus can be given to the depositing client himself, or to the superior client of the depositing client, and the bonus level can be customized.\n&nbsp; &nbsp; </p><p style=\"font-size: 14px; line-height: 1.57;\">\n&nbsp; &nbsp; &nbsp; &nbsp; · Bonus to trading account credit, balance, and bonus to wallet.&nbsp; &nbsp;&nbsp;<span style=\"background-color: transparent; color: inherit; font-family: Avenir, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;, Roboto, -apple-system, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;\">&nbsp; &nbsp;</span></p><p style=\"font-size: 14px; line-height: 1.57;\">\n&nbsp; &nbsp; &nbsp; &nbsp; · Support bonuses based on the percentage of each deposit amount or a fixed amount, and different bonus ratios can be set for different deposit intervals.&nbsp; &nbsp;&nbsp;<span style=\"background-color: transparent; color: inherit; font-family: Avenir, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;, Roboto, -apple-system, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;\">&nbsp; &nbsp;</span></p><p style=\"font-size: 14px; line-height: 1.57;\">\n&nbsp; &nbsp; &nbsp; &nbsp; · Bonuses are supported based on a percentage of the total deposit amount or a fixed amount during the event, and different bonus ratios can be set for different deposit intervals.\n&nbsp; &nbsp; </p>"
+                },
+                "icon_id": "gmoyxgyl",
+                "order": 1,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "external_rate_id": "i5c3fxle",
+                "show_trading_amount": true,
+                "use_external_rate": true,
+                "icon": {
+                    "id": "j0ys",
+                    "name": "MicrosoftTeams-image.png",
+                    "doc": "apps/admin/kyc/payment_icon/1713344997944-92c10b",
+                    "doc_url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/admin/kyc/payment_icon/1713344997944-92c10b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIATYHHSZ6VG74DYHF5%2F20251112%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20251112T072249Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGcaDmFwLXNvdXRoZWFzdC0xIkcwRQIgeF%2BAyuzM4vjB3%2B9M%2Fx16NkBblZ5tCBzaT77AX4SwNMUCIQCX6MzvlmLmVHr5b%2FLDmbskbYr2f5fnlRI2j9H7NWuVWSqOBAgwEAQaDDI1ODE4MzcxMjY4MiIMpMR6o1tWqiramGOuKusDMPqhqZHFK7MzMp7pznUv6%2FPJ4WhM5MAc8gbBu2fPckn1zIKIfkJvOF5hUd4Db8mrmsd37nOgIbPZbF%2BiYES9SdYDZy%2BfR8hCRW%2BPkJrWsuu1Grktlf15%2BB9lO4D1c2oCCVjFrTx8%2Fp9xrCKQGxjZ3Ag0lyuPzpOzRbiD2FjIoOwH54IV92btTCQGNSNvTP%2FnrMLJlHRHQsVOUCgQTBMLWOOO7FKsQIitFEMdDW5UnnbHo0zyvPApIOlat49qQwCeJ0AD%2B0uLKML9FOI4XaPJaXnIJLfb3yeVKOA7iOF8eGk3rbiI9ounrKZfdH0hRExahBMj%2B1lDZMnOysZ93ivJGMgg1KkcaWy7DzjAGsUGVBeaZ2zEGbJPdPZYKIWVr9vKpyhhEo%2BM%2Fd9z2qyWmCBAoubTHRxGFxOW4C%2FC7gZNfkZsuB9vdLijaN5hPb9CAZRgYc4sr3hUgpXCoQOavKyZmT4IZ5eEwOE4zwbod0hKWXd8jksb%2B7UVPLP97FQHNPTz%2FNfLmoD0Y%2BQovPojsbW%2BG5pvgql4xHiCw6meldIUjbTeGM2NE9ohuVqlnJahBQy62748cPkMOy2pGvWmazux%2FzERdcS%2BOiOnSSN%2B9Qc4j4ZunsmRpA8R27687r0LWUoB6eGBKtGhLUzsLNow9%2BbQyAY6pgF454dW8zaMGe9hfpPO8mdeIkugFGrGthd9jdhb0YnOBPZxatzLUxO%2B1XicDyXTcW97iGZOW35JJOmY2M5%2BoivyM2V77VGsDzk8QDGgHI%2FT8lJSfTc8tyZkOt%2BFWUS1mX1MmJanp5wArj6iy8TBNJmPYJ0DiEwm%2FmxqEdeZJzR9%2BopcdPelLnedypm0jZhlugpCUtK6ASpoq1PaUWFBapLBnrkdzh6f&X-Amz-Signature=cfce4a66333b28e0818ac7328048e0e657b5dbbb26610d220a70b79deab53978&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22MicrosoftTeams-image.png%22&x-id=GetObject"
+                }
+            },
+            {
+                "id": "yxhhwpyw",
+                "platform": "other",
+                "label": {
+                    "en-us": "线下汇款-English",
+                    "zh-cn": "线下汇款"
+                },
+                "information": {
+                    "en-us": "<h2 id=\"h2-u5883u5916u6C47u6B3E2\" style=\"padding: 0px 0px 10px; margin: 0px; box-sizing: border-box; font-size: 20px; font-weight: 700; color: rgb(55, 61, 65); position: relative; line-height: 20px; z-index: -1; font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; letter-spacing: normal; background-color: rgb(255, 255, 255);\">境外汇款</h2><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\">您需先准备加盖公章的合同或者协议，再通过银行网银或柜台向阿里云境外汇款收款账户进行汇款，具体汇款材料以当地银行要求为准。</p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\">注意：境外汇款涉及资金跨境，且不支持专属账号方式，需要财务人工进行结汇及款项认领可能需要消耗较长时间。如不得不需要以此方式进行充值，请提前操作，以免余额不足造成欠费停机。</p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\">以下为阿里云境外汇款账户信息：</p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">公司名称：Alibaba Cloud Computing Ltd.</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">汇款账号：571905493610901</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">开户银行（中文）：招商银行股份有限公司杭州武林支行</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">开户银行（英文）：Hangzhou Wulin Branch of CMB</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">银行代码（Swift Code）：CMBCCNBS281</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">12 码的 CNAPS 系统行号：308331012054</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">收款银行地址（英文）: International Science and Technology Building, Block A in Hangzhou West Lake District Road No. 391</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">公司的英文地址： No. 969，Wenyi Road ,Yuhang District, Hangzhou, Zhejiang Province，China</span></p><p style=\"padding: 0px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255); margin-bottom: 0px !important;\">完成银行汇款后，再<a href=\"https://ia.aliyun.com/home?channel=ticket&amp;mark=ticket-submit\" title=\"提交工单\" style=\"padding: 0px; margin: 0px; box-sizing: border-box; text-decoration-line: none; background: 0px 0px; color: rgb(255, 106, 0); outline: none;\">提交工单</a>，提供汇款凭证及加盖公章的合同或协议，申请财务进行人工结汇和款项认领。</p>",
+                    "zh-cn": "<h2 id=\"h2-u5883u5916u6C47u6B3E2\" style=\"padding: 0px 0px 10px; margin: 0px; box-sizing: border-box; font-size: 20px; font-weight: 700; color: rgb(55, 61, 65); position: relative; line-height: 20px; z-index: -1; font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; letter-spacing: normal; background-color: rgb(255, 255, 255);\">境外汇款</h2><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\">您需先准备加盖公章的合同或者协议，再通过银行网银或柜台向阿里云境外汇款收款账户进行汇款，具体汇款材料以当地银行要求为准。</p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\">注意：境外汇款涉及资金跨境，且不支持专属账号方式，需要财务人工进行结汇及款项认领可能需要消耗较长时间。如不得不需要以此方式进行充值，请提前操作，以免余额不足造成欠费停机。</p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\">以下为阿里云境外汇款账户信息：</p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">公司名称：Alibaba Cloud Computing Ltd.</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">汇款账号：571905493610901</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">开户银行（中文）：招商银行股份有限公司杭州武林支行</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">开户银行（英文）：Hangzhou Wulin Branch of CMB</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">银行代码（Swift Code）：CMBCCNBS281</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">12 码的 CNAPS 系统行号：308331012054</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">收款银行地址（英文）: International Science and Technology Building, Block A in Hangzhou West Lake District Road No. 391</span></p><p style=\"padding: 0px; margin-bottom: 6px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255);\"><span style=\"padding: 0px; margin: 0px; box-sizing: border-box; font-weight: 700;\">公司的英文地址： No. 969，Wenyi Road ,Yuhang District, Hangzhou, Zhejiang Province，China</span></p><p style=\"padding: 0px; box-sizing: border-box; line-height: 24px; color: rgb(51, 51, 51); font-family: &quot;pingfang SC&quot;, &quot;helvetica neue&quot;, arial, &quot;hiragino sans gb&quot;, &quot;microsoft yahei ui&quot;, &quot;microsoft yahei&quot;, simsun, sans-serif; background-color: rgb(255, 255, 255); margin-bottom: 0px !important;\">完成银行汇款后，再<a href=\"https://ia.aliyun.com/home?channel=ticket&amp;mark=ticket-submit\" title=\"提交工单\" style=\"padding: 0px; margin: 0px; box-sizing: border-box; text-decoration-line: none; background: 0px 0px; color: rgb(255, 106, 0); outline: none;\">提交工单</a>，提供汇款凭证及加盖公章的合同或协议，申请财务进行人工结汇和款项认领。</p>"
+                },
+                "currencies": [
+                    {
+                        "name": "CNY",
+                        "code": "CNY",
+                        "decimals": 0,
+                        "min_deposit": "100",
+                        "fee": 1.2
+                    }
+                ],
+                "method": "线下汇款",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "order": 2,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon_id": "bbu8dtrn",
+                "show_trading_amount": true,
+                "use_external_rate": false,
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "sve6raf5",
+                "method": "PSP-deposit limit",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 3,
+                        "min_deposit": "1",
+                        "fee": 0,
+                        "max_deposit": "1000"
+                    },
+                    {
+                        "code": "EUR",
+                        "decimals": 0,
+                        "min_deposit": "1",
+                        "fee": 0,
+                        "max_deposit": "100"
+                    },
+                    {
+                        "code": "SGD",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 0,
+                        "max_deposit": "100"
+                    },
+                    {
+                        "code": "IDR",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 0,
+                        "max_deposit": "100"
+                    }
+                ],
+                "channel_id": "slaj761s",
+                "platform": "psp",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u"
+                ],
+                "label": {
+                    "zh-cn": "PSP-deposit limit1",
+                    "en-us": "PSP-deposit limit2",
+                    "fa": "PSP-deposit limit1"
+                },
+                "icon_id": "bbu8dtrn",
+                "order": 3,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "k1gay05d",
+                "platform": "paypal",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl"
+                ],
+                "method": "s-PayPal0919",
+                "label": {
+                    "zh-cn": "s-PayPal0919",
+                    "en-us": "0919paypal",
+                    "zh-tw": "f",
+                    "kur-ckb": "s-PayPal0919",
+                    "tr": "s-PayPal0919",
+                    "es": "s-PayPal0919"
+                },
+                "channel_id": "ymtqrlcl",
+                "currencies": [
+                    {
+                        "code": "CNY",
+                        "decimals": 0,
+                        "min_deposit": "0",
+                        "fee": 0,
+                        "max_deposit": "10"
+                    },
+                    {
+                        "code": "EUR",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1
+                    },
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 0
+                    }
+                ],
+                "icon_id": "bbu8dtrn",
+                "order": 4,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "o35wh6ti",
+                "platform": "chillpay",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r"
+                ],
+                "method": "ChillPay-1",
+                "label": {
+                    "en-us": "ChillPay-1",
+                    "zh-cn": "ChillPay-1"
+                },
+                "channel_id": "s3wl3v80",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "max_deposit": "100",
+                        "fee": 2
+                    },
+                    {
+                        "code": "CNY",
+                        "decimals": 2,
+                        "min_deposit": "100",
+                        "fee": 2
+                    }
+                ],
+                "order": 5,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon_id": "bbu8dtrn",
+                "show_trading_amount": true,
+                "use_external_rate": false,
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "lescnz3k",
+                "platform": "chillpay",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p"
+                ],
+                "method": "ChillPay-All",
+                "label": {
+                    "zh-cn": "ChillPay-All",
+                    "en-us": "ChillPay-All"
+                },
+                "channel_id": "zlqztgym",
+                "currencies": [
+                    {
+                        "code": "THB",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "max_deposit": "100000",
+                        "fee": 3
+                    },
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "max_deposit": "100000",
+                        "fee": 2
+                    }
+                ],
+                "order": 6,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            },
+            {
+                "id": "8cbnoyqd",
+                "platform": "chillpay",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb"
+                ],
+                "method": "ChillPay-KMA",
+                "label": {
+                    "zh-cn": "ChillPay-KMA",
+                    "en-us": "ChillPay-KMA",
+                    "zh-tw": "ChillPay-KMA",
+                    "ja": "ChillPay-KMA",
+                    "pt": "ChillPay-KMA"
+                },
+                "channel_id": "phyib5qb",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "20",
+                        "fee": 0
+                    },
+                    {
+                        "code": "THB",
+                        "decimals": 2,
+                        "min_deposit": "20",
+                        "fee": 0
+                    },
+                    {
+                        "code": "EUR",
+                        "min_deposit": "20",
+                        "decimals": 2,
+                        "fee": 0
+                    }
+                ],
+                "order": 7,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            },
+            {
+                "id": "e8inwaxw",
+                "platform": "psp",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p"
+                ],
+                "method": "S-psp",
+                "label": {
+                    "zh-cn": "S-psp",
+                    "en-us": "ste-psp"
+                },
+                "channel_id": "xz9pqzl1",
+                "currencies": [
+                    {
+                        "code": "CNY",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1
+                    },
+                    {
+                        "code": "THB",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1
+                    },
+                    {
+                        "code": "EUR",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1
+                    },
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1
+                    }
+                ],
+                "order": 9,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            },
+            {
+                "id": "evqloy8m",
+                "platform": "cheesepay",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "method": "cny_test",
+                "label": {
+                    "en-us": "CNY",
+                    "zh-cn": "CNY"
+                },
+                "currencies": [
+                    {
+                        "code": "CNY",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 0.4,
+                        "name": "Chinese Yuan"
+                    }
+                ],
+                "limit": [
+                    {
+                        "code": "BTC"
+                    },
+                    {
+                        "code": "CHF"
+                    },
+                    {
+                        "code": "ETH"
+                    },
+                    {
+                        "code": "EUR"
+                    },
+                    {
+                        "code": "EUR.i"
+                    },
+                    {
+                        "code": "GBP"
+                    },
+                    {
+                        "code": "JPY"
+                    },
+                    {
+                        "code": "USC"
+                    },
+                    {
+                        "code": "USD"
+                    },
+                    {
+                        "code": "USDT"
+                    }
+                ],
+                "order": 10,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon_id": "bbu8dtrn",
+                "show_trading_amount": true,
+                "use_external_rate": false,
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "j139ohym",
+                "platform": "matchpay",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "method": "MatchPay支付",
+                "label": {
+                    "en-us": "MatchPay支付",
+                    "zh-cn": "MatchPay支付"
+                },
+                "channel_id": "ldpkowuo",
+                "currencies": [
+                    {
+                        "code": "BTC",
+                        "decimals": 4,
+                        "min_deposit": "0.009",
+                        "max_deposit": "50",
+                        "fee": 0
+                    },
+                    {
+                        "code": "ETH",
+                        "decimals": 3,
+                        "min_deposit": "50",
+                        "max_deposit": "500000",
+                        "fee": 0
+                    },
+                    {
+                        "code": "USDT ERC20",
+                        "decimals": 3,
+                        "min_deposit": "0.024",
+                        "max_deposit": "5000",
+                        "fee": 0
+                    }
+                ],
+                "icon_id": "bbu8dtrn",
+                "order": 11,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "show_trading_amount": false,
+                "use_external_rate": false,
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "ps1ziflu",
+                "platform": "migpay",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "label": {
+                    "zh-cn": "PayByCrypto",
+                    "en-us": "PayByCrypto",
+                    "zh-tw": "PayByCrypto",
+                    "kur-ckb": "PayByCrypto"
+                },
+                "method": "PayByCrypto",
+                "channel_id": "wykk1kir",
+                "currencies": [
+                    {
+                        "code": "ETH",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "max_deposit": "100"
+                    },
+                    {
+                        "code": "BTC",
+                        "decimals": 8,
+                        "min_deposit": "1",
+                        "max_deposit": "1000"
+                    },
+                    {
+                        "code": "USDT",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "max_deposit": "100"
+                    },
+                    {
+                        "code": "USDC",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "max_deposit": "100"
+                    },
+                    {
+                        "code": "ROX",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "max_deposit": "100"
+                    }
+                ],
+                "order": 12,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            },
+            {
+                "id": "6cdeebn0",
+                "platform": "cryptoOrangeDeposit",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "label": {
+                    "zh-cn": "CryptoOrange",
+                    "en-us": "CryptoOrange",
+                    "zh-tw": "CryptoOrange",
+                    "kur-ckb": "CryptoOrange"
+                },
+                "method": "CryptoOrange",
+                "channel_id": "awzgale5",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1
+                    }
+                ],
+                "order": 13,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            },
+            {
+                "id": "by7fy2aa",
+                "platform": "stripe",
+                "icon_id": "bbu8dtrn",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "label": {
+                    "zh-cn": "Stripe New tab",
+                    "en-us": "Stripe New tab",
+                    "zh-tw": "Stripe New tab",
+                    "kur-ckb": "Stripe New tab",
+                    "tr": "Stripe New tab",
+                    "es": "Stripe New tab"
+                },
+                "method": "Stripe New tab",
+                "channel_id": "i0eqwdfd",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 0.01,
+                        "max_fee": "100"
+                    },
+                    {
+                        "code": "EUR",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 0.01,
+                        "max_fee": "100"
+                    },
+                    {
+                        "code": "JPY",
+                        "decimals": 0,
+                        "min_deposit": "10",
+                        "fee": 0.01,
+                        "max_fee": "100"
+                    }
+                ],
+                "order": 14,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "z7zwdkgs",
+                "platform": "stripe",
+                "icon_id": "bbu8dtrn",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "label": {
+                    "zh-cn": "Stripe Pop Up",
+                    "en-us": "Stripe Pop Up",
+                    "zh-tw": "Stripe Pop Up",
+                    "kur-ckb": "Stripe Pop Up",
+                    "tr": "Stripe Pop Up",
+                    "es": "Stripe Pop Up"
+                },
+                "method": "Stripe Pop Up",
+                "channel_id": "vsv1d130",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "1",
+                        "fee": 1,
+                        "max_fee": "10"
+                    }
+                ],
+                "order": 15,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "bc3pen0q",
+                "platform": "fireblocks",
+                "icon_id": "bbu8dtrn",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "label": {
+                    "zh-cn": "Fireblocks-1",
+                    "en-us": "Fireblocks-1",
+                    "ar": "Fireblocks-1"
+                },
+                "method": "Fireblocks-1",
+                "channel_id": "i4v1fcyj",
+                "currencies": [
+                    {
+                        "code": "Bitcoin Test",
+                        "decimals": 8,
+                        "fireblocks_currency_id": "BTC_TEST",
+                        "min_deposit": "0",
+                        "fee": 0
+                    },
+                    {
+                        "code": "Manchester City FC ($CHZ)",
+                        "decimals": 0,
+                        "fireblocks_currency_id": "$CITY_$CHZ",
+                        "min_deposit": "0",
+                        "fee": 0
+                    },
+                    {
+                        "code": "FC Barcelona ($CHZ)",
+                        "decimals": 0,
+                        "fireblocks_currency_id": "$BAR_$CHZ",
+                        "min_deposit": "0",
+                        "fee": 0
+                    }
+                ],
+                "order": 16,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "u32c88hz",
+                "platform": "psp",
+                "icon_id": "bbu8dtrn",
+                "label": {
+                    "zh-cn": "Michael Test Advanced",
+                    "en-us": "Michael Test Advanced",
+                    "fa": "Michael Test Advanced"
+                },
+                "method": "Michael Test Advanced",
+                "channel_id": "yxqcsdmg",
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 0
+                    }
+                ],
+                "use_external_rate": false,
+                "users": [],
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "order": 17,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "b6iku4n3",
+                "platform": "luqapay",
+                "icon_id": "bbu8dtrn",
+                "label": {
+                    "zh-cn": "Luqapay001",
+                    "en-us": "Luqapay001",
+                    "fa": "Luqapay001"
+                },
+                "method": "Luqapay001",
+                "channel_id": "aogqz9r7",
+                "currencies": [
+                    {
+                        "code": "JPY",
+                        "decimals": 0,
+                        "min_deposit": "1",
+                        "fee": 0
+                    }
+                ],
+                "use_external_rate": false,
+                "users": [],
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "order": 18,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "l2ehypzp",
+                "platform": "luqapay",
+                "icon_id": "bbu8dtrn",
+                "label": {
+                    "zh-cn": "Luqapay002",
+                    "en-us": "Luqapay002",
+                    "fa": "Luqapay002"
+                },
+                "method": "Luqapay002",
+                "channel_id": "ccxb982u",
+                "currencies": [
+                    {
+                        "code": "JPY",
+                        "decimals": 0,
+                        "min_deposit": "100",
+                        "fee": 2
+                    }
+                ],
+                "use_external_rate": false,
+                "users": [],
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "order": 19,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "icon": {
+                    "doc": "/statics/payment-icons/bitcoin.png"
+                }
+            },
+            {
+                "id": "q83yysbf",
+                "platform": "cheesepay",
+                "method": "banking",
+                "currencies": [
+                    {
+                        "code": "CNY",
+                        "min_deposit": "10",
+                        "max_deposit": "1000000",
+                        "fee": 1.5,
+                        "max_fee": "20",
+                        "decimals": 0,
+                        "name": "Chinese Yuan"
+                    }
+                ],
+                "label": {
+                    "zh-cn": "网银",
+                    "en-us": "Banking",
+                    "tr": "网银",
+                    "pt": "网银",
+                    "ko": "网银",
+                    "zh-tw": "网银",
+                    "vi": "网银"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "mbllvuql"
+                ],
+                "order": 20,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "limit": [
+                    {
+                        "code": "EUR"
+                    },
+                    {
+                        "code": "SGD"
+                    },
+                    {
+                        "code": "USD"
+                    },
+                    {
+                        "code": "VND"
+                    }
+                ]
+            },
+            {
+                "id": "mypccbjm",
+                "platform": "psp",
+                "label": {
+                    "zh-cn": "Sunny-PSP",
+                    "en-us": "Sunny-PSP"
+                },
+                "currencies": [
+                    {
+                        "code": "USD",
+                        "decimals": 0,
+                        "min_deposit": "1",
+                        "fee": 1.533
+                    }
+                ],
+                "method": "Sunny-PSP",
+                "channel_id": "slaj761s",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r"
+                ],
+                "order": 21,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            },
+            {
+                "id": "zwywn4b9",
+                "platform": "cheesepay",
+                "method": "usdt_erc20",
+                "currencies": [
+                    {
+                        "code": "USDT",
+                        "min_deposit": "1",
+                        "max_deposit": "10000000",
+                        "fee": 1.9,
+                        "max_fee": "200",
+                        "decimals": 0,
+                        "name": "USDT"
+                    }
+                ],
+                "label": {
+                    "zh-cn": "USDT - ERC20",
+                    "en-us": "USDT - ERC20",
+                    "zh-tw": "usdt_erc20",
+                    "tr": "USDT - ERC20"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "order": 22,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y",
+                "limit": [
+                    {
+                        "code": "BTC"
+                    },
+                    {
+                        "code": "CHF"
+                    },
+                    {
+                        "code": "ETH"
+                    },
+                    {
+                        "code": "EUR",
+                        "amount": 150,
+                        "days": 1
+                    },
+                    {
+                        "code": "GBP"
+                    },
+                    {
+                        "code": "JPY"
+                    },
+                    {
+                        "code": "SGD",
+                        "amount": 200,
+                        "days": 2
+                    },
+                    {
+                        "code": "USD",
+                        "amount": 300,
+                        "days": 3
+                    },
+                    {
+                        "code": "USDT"
+                    },
+                    {
+                        "code": "VND"
+                    }
+                ]
+            },
+            {
+                "id": "rpclg0kj",
+                "platform": "other",
+                "label": {
+                    "zh-cn": "bankwire04",
+                    "en-us": "56789",
+                    "pt": "bankwire04",
+                    "tr": "bankwire04",
+                    "de": "bankwire04",
+                    "ja": "hfhfgh",
+                    "th": "hfhgfg",
+                    "zh-tw": "hfhgff"
+                },
+                "information": {
+                    "zh-cn": "XXX",
+                    "en-us": "XXXX",
+                    "pt": "XXXX",
+                    "tr": "XXXX",
+                    "de": "XXXX",
+                    "ja": "dss",
+                    "th": "sdss",
+                    "zh-tw": "XX"
+                },
+                "currencies": [
+                    {
+                        "name": "USD",
+                        "code": "USD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 0.7
+                    },
+                    {
+                        "name": "EUR",
+                        "code": "EUR",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.2
+                    },
+                    {
+                        "name": "JPY",
+                        "code": "JPY",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.5
+                    },
+                    {
+                        "name": "AUD",
+                        "code": "AUD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.3
+                    },
+                    {
+                        "name": "GBP",
+                        "code": "GBP",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.5
+                    },
+                    {
+                        "name": "CHF",
+                        "code": "CHF",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 1.4
+                    },
+                    {
+                        "name": "CAD",
+                        "code": "CAD",
+                        "decimals": 2,
+                        "min_deposit": "0",
+                        "fee": 0
+                    }
+                ],
+                "method": "56789",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "order": 23,
+                "updated_at": 1745378217374,
+                "updated_by": "rzdj166y"
+            }
+        ]
+      '''
+    }
+  }
+}

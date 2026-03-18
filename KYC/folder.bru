@@ -1,0 +1,23 @@
+meta {
+  name: KYC
+  seq: 6
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  **1\. Get User Kyc Status**  
+  user kyc verified： user.status==='verified' && !user.processing
+  
+  user kyc not submitted： user.status==='pending' && !user.processing
+  
+  user kyc rejected： user.status==='rejected' && !user.processing
+  
+  user kyc pending： user.processing === true
+  
+  user kyc obsolete： user.status==='obsolete' && !user.processing
+  
+  <img src="https://content.pstmn.io/4dc09be4-cc84-44bb-a756-fde141e216d2/aW1hZ2UucG5n" width="664" height="273">
+}

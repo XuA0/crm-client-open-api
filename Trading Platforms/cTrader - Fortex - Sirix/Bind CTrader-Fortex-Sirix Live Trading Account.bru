@@ -1,0 +1,58 @@
+meta {
+  name: Bind CTrader/Fortex/Sirix Live Trading Account
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/trade/accounts/bind
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "trading_id": "",
+    "password": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/bind
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "connection_id": "abcd1234",
+        "trading_id": "20188",
+        "password": "abcd1234!"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: No Content
+      text: 204
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

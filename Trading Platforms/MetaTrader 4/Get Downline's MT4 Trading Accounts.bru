@@ -1,0 +1,112 @@
+meta {
+  name: Get Downline's MT4 Trading Accounts
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt4/accounts/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/accounts/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "u5mzgkch",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 30450,
+                    "currency": "USD",
+                    "balance": 0,
+                    "credit": 0,
+                    "available_withdrawal": 0,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 0,
+                    "equity": 0,
+                    "margin_free": 0,
+                    "leverage": 125,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2025-06-25T04:44:57.000Z",
+                    "last_active": "2025-06-25T04:44:57.000Z",
+                    "mt_name": "mt4-crea1",
+                    "margin_level": 0,
+                    "mt_email": "mt4-crea1@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "lead_source": "",
+                    "enable_change_password": 1,
+                    "enable_otp": 0,
+                    "send_reports": 0,
+                    "margin": 0,
+                    "group": "Sandbox4",
+                    "trading_account_profit": 0,
+                    "user_id": "dc53prbf",
+                    "email": "mt4-crea1@mail.com",
+                    "name": "mt4-crea1",
+                    "referrer_id": "upf8o96r",
+                    "referrer_name": "徐傲测试",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "tags": [],
+                    "sensitive": false
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

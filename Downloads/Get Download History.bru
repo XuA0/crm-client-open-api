@@ -1,0 +1,68 @@
+meta {
+  name: Get Download History
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/file/downloads?skip=0&limit=10
+  body: none
+  auth: inherit
+}
+
+params:query {
+  skip: 0
+  limit: 10
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/downloads?skip=0&limit=10
+    method: GET
+    mode: none
+    params:query: {
+      skip: 0
+      limit: 10
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "contents": [
+                {
+                    "id": "691591aea1c0a54916db1071",
+                    "name": "Reports_TradeHistory_MT4_QA 1 test show account_20251113080710.xlsx",
+                    "total": 0,
+                    "state": "SUCCESS",
+                    "scene": "TRADE_REPORTS_TRADE_HISTORY_MT4",
+                    "type": "USER_REPORT",
+                    "exportTime": "2025-11-13 08:07:00",
+                    "searches": [
+                        {
+                            "field": "download_time",
+                            "opt": "EQ",
+                            "value": "2025-11-13 08:07:11"
+                        }
+                    ]
+                }
+            ],
+            "count": 1
+        }
+      '''
+    }
+  }
+}

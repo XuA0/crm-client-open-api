@@ -1,0 +1,197 @@
+meta {
+  name: Get PSP Setting
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/psp/setting/:id([a-z0-9]{8})?name=&label=&currencies=&access_key=&access_secret=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  label: 
+  currencies: 
+  access_key: 
+  access_secret: 
+}
+
+params:path {
+  id([a-z0-9]{8}): 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/psp/setting/:id([a-z0-9]{8})
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": slaj761s
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "_id": "6177b558d20850001f68dbf8",
+            "id": "slaj761s",
+            "app_id": "kyc",
+            "merchant_id": "78c45066-8210-4aa7-991d-f09bdb74095e",
+            "token": "c0f62dd8-2d95-4fa7-ba95-2d9f33977926",
+            "created_at": "2021-10-26 07:59:20",
+            "updated_at": "2023-10-11 07:28:53",
+            "is_delete": false,
+            "name": "Sunny-PSP",
+            "label": {
+                "zh-cn": "Sunny-PSP222222",
+                "en-us": "Sunny-PSP2",
+                "zh-tw": "22",
+                "tr": "0322323"
+            },
+            "app_url": "http://local:808080",
+            "currencies": [
+                "USD",
+                "SGD",
+                "IDR"
+            ],
+            "support_batch": false,
+            "enable": true,
+            "order": 8,
+            "updated_by": "cxbldwdq",
+            "limit": [
+                {
+                    "code": "BTC"
+                },
+                {
+                    "code": "CHF"
+                },
+                {
+                    "code": "ETH"
+                },
+                {
+                    "code": "EUR",
+                    "amount": 400,
+                    "days": 1
+                },
+                {
+                    "code": "GBP"
+                },
+                {
+                    "code": "JPY"
+                },
+                {
+                    "code": "SGD",
+                    "amount": 200,
+                    "days": 5
+                },
+                {
+                    "code": "USD",
+                    "amount": 300,
+                    "days": 5
+                },
+                {
+                    "code": "USDT"
+                },
+                {
+                    "code": "VND",
+                    "amount": 100,
+                    "days": 1
+                }
+            ],
+            "refresh_token": true,
+            "allow_amount_inconsistent": true,
+            "language": false,
+            "request_params": [
+                {
+                    "key": "merchant_id",
+                    "type": "system",
+                    "custom_key": "merchant_id",
+                    "enabled": true
+                },
+                {
+                    "key": "order_no",
+                    "type": "system",
+                    "custom_key": "order_no",
+                    "enabled": true
+                },
+                {
+                    "key": "currency",
+                    "type": "system",
+                    "custom_key": "currency",
+                    "enabled": true
+                },
+                {
+                    "key": "amount",
+                    "type": "system",
+                    "custom_key": "amount",
+                    "enabled": true
+                },
+                {
+                    "key": "user_id",
+                    "type": "system",
+                    "custom_key": "user_id",
+                    "optional": true,
+                    "enabled": true
+                },
+                {
+                    "key": "user_name",
+                    "type": "system",
+                    "custom_key": "user_name",
+                    "optional": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email",
+                    "type": "system",
+                    "custom_key": "email",
+                    "optional": true,
+                    "enabled": false
+                },
+                {
+                    "key": "phone",
+                    "type": "system",
+                    "custom_key": "phone",
+                    "optional": true,
+                    "enabled": false
+                },
+                {
+                    "key": "nationality",
+                    "type": "system",
+                    "custom_key": "nationality",
+                    "optional": true,
+                    "enabled": false
+                },
+                {
+                    "key": "language",
+                    "type": "system",
+                    "custom_key": "language",
+                    "optional": true,
+                    "enabled": false
+                },
+                {
+                    "key": "device",
+                    "type": "system",
+                    "custom_key": "device",
+                    "optional": true
+                }
+            ],
+            "signature_algo": "sha1"
+        }
+      '''
+    }
+  }
+}

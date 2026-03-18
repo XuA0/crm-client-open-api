@@ -1,0 +1,28 @@
+meta {
+  name: POST /private/v1/mtr/accounts/demo
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mtr/accounts/demo
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "group": "",
+    "leverage": 0,
+    "account_type_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

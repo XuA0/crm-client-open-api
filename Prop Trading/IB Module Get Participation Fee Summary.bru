@@ -1,0 +1,42 @@
+meta {
+  name: IB Module Get Participation Fee Summary
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/participationFee/summary
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/ib/participationFee/summary
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "direct": 599,
+            "indirect": 3491,
+            "time": 1762992000000
+        }
+      '''
+    }
+  }
+}

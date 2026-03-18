@@ -1,0 +1,19 @@
+meta {
+  name: Get MTR Trading Accounts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mtr/accounts
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}

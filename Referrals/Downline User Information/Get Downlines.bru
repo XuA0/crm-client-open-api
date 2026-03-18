@@ -1,0 +1,52 @@
+meta {
+  name: Get Downlines
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/downlines
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/downlines
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": lo0i7w3o
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "18ens214",
+                "name": "pwa-2",
+                "email": "pwa-2@mail.com",
+                "type": "trader"
+            }
+        ]
+      '''
+    }
+  }
+}

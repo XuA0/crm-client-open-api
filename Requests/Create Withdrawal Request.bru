@@ -1,0 +1,75 @@
+meta {
+  name: Create Withdrawal Request
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/withdrawal
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "trading_currency": "JPY",
+      "method_id": "",
+      "withdrawal_currency": "CNY",
+      "trading_amount": "270",
+      "withdrawal_total": "2700",
+      "form_data": {
+          "rxikuitm": "AAA",
+          "kjyclilh": "AAA",
+          "milyehaz": "AAA",
+          "vrmctrol": "AAA",
+          "vpsgnzgc": "AAA",
+          "form_id": ""
+      },
+      "withdrawal_fee": "0",
+      "external_rate": "10"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/withdrawal
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "trading_currency": "JPY",
+          "method_id": "ua6wfbtj",
+          "withdrawal_currency": "CNY",
+          "trading_amount": "270",
+          "withdrawal_total": "2700",
+          "form_data": {
+              "rxikuitm": "AAA",
+              "kjyclilh": "AAA",
+              "milyehaz": "AAA",
+              "vrmctrol": "AAA",
+              "vpsgnzgc": "AAA",
+              "form_id": "gmijwlqq"
+          },
+          "withdrawal_fee": "0",
+          "external_rate": "10"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "mthedi4o"
+        }
+      '''
+    }
+  }
+}

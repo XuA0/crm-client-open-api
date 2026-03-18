@@ -1,0 +1,300 @@
+meta {
+  name: Search Downline Wallets
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/wallets/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/wallets/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "searches": [
+              {
+                  "field": "id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "user_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "name",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "currency",
+                  "value": [
+                      "BTC",
+                      "CHF",
+                      "USD",
+                      "JPY",
+                      "USC"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "balance",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "pending_withdrawal",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              }
+          ],
+          "key": "name/wallet id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "wallets": [
+                {
+                    "id": "tcx1y9c4",
+                    "user_id": "lifupiht",
+                    "currency": "USDT",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "dus2q5x7",
+                    "user_id": "lifupiht",
+                    "currency": "USD",
+                    "balance": "311.20000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "311.20000000",
+                    "allow_crm_deposit": 0,
+                    "allow_crm_withdrawal": 0,
+                    "allow_crm_transfer": 0,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "mf8zflxw",
+                    "user_id": "lifupiht",
+                    "currency": "USC",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "whe0x2fy",
+                    "user_id": "lifupiht",
+                    "currency": "JPY",
+                    "balance": "1000270.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "1000270.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "ke0toq0s",
+                    "user_id": "lifupiht",
+                    "currency": "GBP",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "bodzztas",
+                    "user_id": "lifupiht",
+                    "currency": "EUR.i",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "mxjrlq77",
+                    "user_id": "lifupiht",
+                    "currency": "EUR",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "7vjsq80y",
+                    "user_id": "lifupiht",
+                    "currency": "ETH",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "qs4enfip",
+                    "user_id": "lifupiht",
+                    "currency": "CHF",
+                    "balance": "0.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "0.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                },
+                {
+                    "id": "kss5nu0f",
+                    "user_id": "lifupiht",
+                    "currency": "BTC",
+                    "balance": "100000.00000000",
+                    "pending_withdrawal": "0.00000000",
+                    "available_balance": "100000.00000000",
+                    "allow_crm_deposit": 1,
+                    "allow_crm_withdrawal": 1,
+                    "allow_crm_transfer": 1,
+                    "email": "open-account-form6@mail.com",
+                    "name": "open-account-form6",
+                    "phone": {
+                        "number": "1246",
+                        "country_code": "1"
+                    },
+                    "referrer_id": "d2a0tvnp",
+                    "referrer_name": "open-account-form9"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

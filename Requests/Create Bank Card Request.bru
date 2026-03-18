@@ -1,0 +1,58 @@
+meta {
+  name: Create Bank Card Request
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/bankcard
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "method_id": "",
+    "bank_name": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/bankcard
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "bank_name": "AAA",
+          "method_id": "2c586y41",
+          "form_data": {
+              "walletaddress": "xxxxxxxx",
+              "form_id": "izh0uk72"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "he2wxojw"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,59 @@
+meta {
+  name: Get S3 Signed URL for Docs
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/file/s3/url
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "urls": [
+      {
+        "name": "",
+        "url": ""
+      }
+    ],
+    "security": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/file/s3/url
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "urls": [
+          {
+            "name": "real_ID_card_back_side.png",
+            "url": "apps/kyc/users/klp9koqa/forms/pwlt0q4e/alt_identity_doc_kn30"
+          }
+        ],
+        "security": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "apps/kyc/users/klp9koqa/forms/pwlt0q4e/alt_identity_doc_kn30": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/apps/kyc/forms/msuv0fdi/kyc_readonly_document_sidz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIATYHHSZ6VLZB5GWK5%2F20251120%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20251120T062513Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECIaDmFwLXNvdXRoZWFzdC0xIkYwRAIgMPwuWbs%2FQhaGpQCN1956T04CqwjD0PKC%2BHxVjU8eTBACIDIaX7gjQHYfp6v%2FrJujjzzcMUc1JpYqxD%2BvENEBXGn3KpcECOv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQBBoMMjU4MTgzNzEyNjgyIgyKJCW7gH4Qr4JEzbcq6wOkcntiEvoSfcefgsu7DY%2FGmKi25mbTN5CJIN5biaGU42MUZafg3jqnHdAv%2B5Ssv%2BQtAblzRD2KgXk2AJJw4bJRdDQ9mfLc2I0q%2BvFi6DfHmxbrLLXSvcjGK3DQQrJkU9d0v9Ta7JqQCcmhAqy%2BVVLCr038NLRyih9Ts2SG%2BJfxU1%2FAcwAsNSsQtOSsXckneyLOUW2XKx1ta1lRFCk0IGJY%2BjsyuYtyxV5RQs1dhXeemylZBgGmenHKU0iPy3fqCyB0PjlVubmAv5ipnt7acYEvHRDZDXaYh3caR7T3p8le2vHw%2FqtEu2n80r%2FW0YMnZkSwU3s%2F2M1Qb%2FEHEE%2FaUeOHd6Z4JY2N8gknur6Ue7zUzRot3APU%2F3MJbW%2Buzw1fn4pgFlRWtAVSw0HV%2Fdi2p%2FgJahoMNKAoflB%2Fc8KdotRFdUfmy%2B6KTmVnt%2FPy%2BOE04gVm%2F754%2FRrcswu4e7yRMChSs5vdOikB4EDyRbY4q2dLOO6s1fLkFRi4pKMPtHci9HAGTso6ZuSI9PiS2TnYSzGE97nq3bjjGA03bDfnJx9pNsqp4uN0OEc9dhpsMraUR1Xkr2ogNrQVpe5wyi5BCI%2FpwGpskqmaY8H%2BGFwJw1Tnn0DYXDjyOvQavQdA2lRheIB6DVn5Ewysblvk2zCh6%2FnIBjqnAdjnZxKaBKD5kb%2BIiyEXEEw4FjfSMapWzpqm%2BJgkP8nrXMp02IAw4RutB%2BrzkdEv5MiBLzWP9nSas8bMxXGYqXTM9ONIlEgrCpjhUIXY7ZyODMhyS7kPCrwBikZ9etG0OvQzzFFkqtF7%2Fqljv8Lh8Zh4AKwGGN2vZbsgzIbA3YbN5m6gTFZHy1NeZogRMlsHs4DOyPLhc5JPs0K0XBzGqjAwnZDyLC2X&X-Amz-Signature=d8cb018efcf5d92c719c781ff0ebabed3034f75cba9e20515ffb03c455a76aa7&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22real_ID_card.png%22&x-id=GetObject"
+        }
+      '''
+    }
+  }
+}

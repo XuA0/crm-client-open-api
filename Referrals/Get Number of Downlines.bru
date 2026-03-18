@@ -1,0 +1,84 @@
+meta {
+  name: Get Number of Downlines
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/summary/referral/count
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/summary/referral/count
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Date: Fri, 31 Oct 2025 08:36:23 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"59-zZjG3cDYoRWeYjhWYtVEcDwWFZ0"
+      x-envoy-upstream-service-time: 90
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=RGdfkkT2t8zXQ3MBmgGz5XkGQ%2BocHKSkUfKPYNWU89VYurO%2FlWHtIKdau3NaKN1KDAAPGApS4c1F99xd%2BMp0esPcawfPpy0IppawmqNij1c%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9971d30bea693928-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "accounts": {
+                "direct": 0,
+                "indirect": 0,
+                "total": 0
+            },
+            "cache": true,
+            "day": "2025-10-31 00:00:00"
+        }
+      '''
+    }
+  }
+}

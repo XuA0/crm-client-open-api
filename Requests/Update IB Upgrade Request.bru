@@ -1,0 +1,144 @@
+meta {
+  name: Update IB Upgrade Request
+  type: http
+  seq: 10
+}
+
+patch {
+  url: {{BASE_URL}}/private/v1/requests/ib
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/ib
+    method: PATCH
+    mode: json
+    body:json: {
+      {
+          "form_data": {
+              "form_id": "omg4gsc2",
+              "type": "ib",
+              "company": "公司1",
+              "current_total_customers": "10-50",
+              "new_customers_opened_per_month": "5-10/month",
+              "current_total_funds": "$2-5 million"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "lastErrorObject": {
+                "n": 1,
+                "updatedExisting": true
+            },
+            "value": {
+                "id": "15g24vbg",
+                "type": "ib",
+                "user_id": "pe4pm8mh",
+                "form_data": {
+                    "name": "q-app1",
+                    "nationality": "bj",
+                    "phone": {
+                        "number": "19382732837",
+                        "country_code": "51"
+                    },
+                    "email": "q-app1@mail.com",
+                    "company": "公司1",
+                    "current_total_customers": "10-50",
+                    "current_total_funds": "$2-5 million",
+                    "form_id": "omg4gsc2",
+                    "new_customers_opened_per_month": "5-10/month",
+                    "ux11f09758f6x886cx8": "af"
+                },
+                "status": "pending",
+                "created_by": "user",
+                "created_at": "2022-12-23T10:18:40.577Z",
+                "ip": "117.176.186.27",
+                "auto": false,
+                "flow": {
+                    "_id": "62a7ea8147174b21e7a4520f",
+                    "type": "ib",
+                    "steps": [
+                        {
+                            "admin_ids": [],
+                            "admin_names": [],
+                            "admin_role_names": [],
+                            "admin_roles": [],
+                            "animateUid": "9ddc5c92-3c22-43ab-847c-e49f3a5c5b52"
+                        }
+                    ],
+                    "version": 9,
+                    "prev_id": "628df7694b72d72f6eb1b616",
+                    "enable": true,
+                    "timestamp": 1655171713428,
+                    "created_by": "il4oi1sb",
+                    "created_name": "Stephen",
+                    "created_at": "2022-06-14 01:55:13",
+                    "current": 0,
+                    "pending": {
+                        "admin_ids": [],
+                        "admin_names": [],
+                        "admin_role_names": [],
+                        "admin_roles": [],
+                        "animateUid": "9ddc5c92-3c22-43ab-847c-e49f3a5c5b52"
+                    },
+                    "process": [
+                        {
+                            "admin": "nancy",
+                            "event": "rejected",
+                            "comment": "1",
+                            "step": 1,
+                            "timestamp": "2025-11-20 10:03:48",
+                            "open_api": false
+                        }
+                    ]
+                },
+                "language": "zh-cn",
+                "logs": [],
+                "submitted_at": "2025-11-20 10:03:09"
+            },
+            "ok": 1,
+            "$clusterTime": {
+                "clusterTime": {
+                    "$timestamp": "7574746246124929025"
+                },
+                "signature": {
+                    "hash": "C31kGRCTShzWuOSX2gAaFsWfP+E=",
+                    "keyId": {
+                        "low": 1,
+                        "high": 1751552866,
+                        "unsigned": false
+                    }
+                }
+            },
+            "operationTime": {
+                "$timestamp": "7574746246124929025"
+            }
+        }
+      '''
+    }
+  }
+}

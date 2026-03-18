@@ -1,0 +1,6666 @@
+meta {
+  name: Export & Save Excel into S3
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "scene": "TRADING_COMPETITION_PRIZE",
+    "downloadType": "BONUS",
+    "sync": true,
+    "searches": [
+      {
+        "field": "string",
+        "opt": "GTE",
+        "value": {}
+      },
+      {
+        "field": "string",
+        "opt": "GT",
+        "value": {}
+      }
+    ],
+    "range": [
+      {
+        "field": "string",
+        "opt": "NOT_BETWEEN",
+        "value": {}
+      },
+      {
+        "field": "string",
+        "opt": "LT",
+        "value": {}
+      }
+    ],
+    "orders": {},
+    "start": "string",
+    "end": "string",
+    "from": "string",
+    "to": "string",
+    "key": "string",
+    "timeZone": "string",
+    "lang": "string",
+    "fieldMap": [
+      {
+        "key": "string",
+        "value": "string",
+        "type": "string",
+        "format": "string"
+      },
+      {
+        "key": "string",
+        "value": "string",
+        "type": "string",
+        "format": "string"
+      }
+    ],
+    "skip": 5874,
+    "limit": 4352,
+    "type": "string",
+    "trader": "string",
+    "currency": "string",
+    "ruleId": "string",
+    "connection_id": "string",
+    "trading_platform": "string",
+    "trading_id": "string",
+    "order_id": "string",
+    "batch_id": "string",
+    "batch_type": "string",
+    "mine": false,
+    "platform": "string",
+    "last": false,
+    "is_active": false,
+    "search_type": "string",
+    "competition_id": "string",
+    "capital_type": "string",
+    "prop_trading_id": "string",
+    "package_id": "string",
+    "prop_trading": false,
+    "mode": "string"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: MT4 Account Capital(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_MT4",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "reportsAccountsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "searches": [],
+          "orders": {},
+          "connection_id": "bigc8liz",
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Account Capital(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_MT5",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "reportsAccountsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "searches": [],
+          "orders": {},
+          "connection_id": "2asdas1z",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Account Capital(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_CTRADER",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "reportsAccountsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "searches": [],
+          "orders": {},
+          "connection_id": "1ijlvhv6",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "capital_type": "balance"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Account Capital(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_FORTEX",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "reportsAccountsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "searches": [],
+          "orders": {},
+          "connection_id": "74mcgsjx",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Account Capital(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_WTA",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "reportsAccountsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "searches": [],
+          "orders": {},
+          "connection_id": "74mcgsjs",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Comprehensive Account Reports(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrerName",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              },
+              {
+                  "key": "firstEquity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "First Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "endEquity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "End Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netEquity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netDeposit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Deposit",
+                  "type": "number"
+              },
+              {
+                  "key": "netCredit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Credit",
+                  "type": "number"
+              },
+              {
+                  "key": "rebateTotal", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Rebate Total",
+                  "type": "number"
+              },
+              {
+                  "key": "netProfit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Profit/Loss"
+              },
+              {
+                  "key": "8983knu6", // （MT4 Symbol）Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "test group",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "bigc8liz",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Comprehensive Account Reports(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrerName",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              },
+              {
+                  "key": "firstEquity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "First Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "endEquity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "End Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netEquity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netDeposit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Deposit",
+                  "type": "number"
+              },
+              {
+                  "key": "netCredit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Credit",
+                  "type": "number"
+              },
+              {
+                  "key": "rebateTotal", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Rebate Total",
+                  "type": "number"
+              },
+              {
+                  "key": "netProfit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Profit/Loss"
+              },
+              {
+                  "key": "69rkigsh", // （MT5 Symbol）Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "kuldeep",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "2asdas1z",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Comprehensive Account Reports(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrerName",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "1ijlvhv6",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Comprehensive Account Reports(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrerName",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "74mcgsjx",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Comprehensive Account Reports(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsCapitalTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrerName",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "74mcgsjs",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fixed Commission(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "CUSTOMER_REPORTS_FIXED_COMMISSIONS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "tradingPlatform",
+                  "value": "Platform"
+              },
+              {
+                  "key": "orderId",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "accountId",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit"
+              },
+              {
+                  "key": "trader",
+                  "value": "Trader"
+              },
+              {
+                  "key": "receiver",
+                  "value": "Receiver"
+              },
+              {
+                  "key": "reportsFixedCommissionsTier",
+                  "value": "Tier of Receiver"
+              },
+              {
+                  "key": "channel",
+                  "value": "Rebate Account"
+              },
+              {
+                  "key": "commission",
+                  "value": "Rebate"
+              },
+              {
+                  "key": "overriding",
+                  "value": "Overriding"
+              },
+              {
+                  "key": "bonus",
+                  "value": "Bonus"
+              },
+              {
+                  "key": "total",
+                  "value": "Total"
+              },
+              {
+                  "key": "tradingFee",
+                  "value": "Commission"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Generated Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "rebate_time",
+                  "value": "Paid Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "status",
+                  "value": "Status"
+              },
+              {
+                  "key": "reason",
+                  "value": "Failure Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 16:00:00",
+                      "end": "2026-01-30 03:06:37"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": [],
+          "mode": "DAILY" // "MINUTE" | "DAILY"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Flexible Commission(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "CUSTOMER_REPORTS_FLEXIBLE_COMMISSIONS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "tradingPlatform",
+                  "value": "Platform"
+              },
+              {
+                  "key": "orderId",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "accountId",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "tradingFee",
+                  "value": "Commission"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit"
+              },
+              {
+                  "key": "trader",
+                  "value": "Trader"
+              },
+              {
+                  "key": "receiver",
+                  "value": "Receiver"
+              },
+              {
+                  "key": "reportsFlexibleCommissionsTier",
+                  "value": "Tier of Receiver"
+              },
+              {
+                  "key": "channel",
+                  "value": "Rebate Account"
+              },
+              {
+                  "key": "parameter",
+                  "value": "Commission parameter"
+              },
+              {
+                  "key": "formula",
+                  "value": "Formula"
+              },
+              {
+                  "key": "commission",
+                  "value": "Rebate"
+              },
+              {
+                  "key": "openTime",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "closeTime",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Generated Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "rebate_time",
+                  "value": "Paid Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "status",
+                  "value": "Status"
+              },
+              {
+                  "key": "reason",
+                  "value": "Failure Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 16:00:00",
+                      "end": "2026-01-30 03:08:43"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": [],
+          "mode": "MINUTE" // "MINUTE" | "DAILY"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Open Positions(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_MT4",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsOpenPositionsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "bigc8liz",
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Open Positions(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_MT5",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsOpenPositionsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "2asdas1z",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Open Positions(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_CTRADER",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsOpenPositionsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "position_id",
+                  "value": "Position ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "trade_side",
+                  "value": "Direction"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "1ijlvhv6",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Open Positions(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_FORTEX",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsOpenPositionsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "74mcgsjx",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Open Positions(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_WTA",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsOpenPositionsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "open position",
+          "connection_id": "74mcgsjs",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Pending Orders(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_MT4",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsPendingOrdersTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "bigc8liz",
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Pending Orders(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_MT5",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsPendingOrdersTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "2asdas1z",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Pending Orders(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_CTRADER",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsPendingOrdersTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "trade_side",
+                  "value": "Direction"
+              },
+              {
+                  "key": "type",
+                  "value": "Order Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "1ijlvhv6",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Pending Orders(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_FORTEX",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsPendingOrdersTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "74mcgsjx",
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Pending Orders(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_WTA",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsPendingOrdersTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "pending order",
+          "connection_id": "74mcgsjs",
+          "range": [],
+          "last": false,
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Trade History(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_MT4",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsTradeHistoryTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "close_price",
+                  "value": "Close Price",
+                  "type": "number"
+              },
+              {
+                  "key": "close_time",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              },
+              {
+                  "key": "reason",
+                  "value": "Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "bigc8liz",
+          "orders": {},
+          "searches": [],
+          "range": [
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Trade History(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_MT5",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsTradeHistoryTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Unique ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "entry",
+                  "value": "Entry"
+              },
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "fee",
+                  "value": "Fee"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              },
+              {
+                  "key": "reason",
+                  "value": "Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "2asdas1z",
+          "orders": {},
+          "searches": [],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Trade History(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_CTRADER",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsTradeHistoryTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "trade_side",
+                  "value": "Closing Direction"
+              },
+              {
+                  "key": "open_trade_side",
+                  "value": "Opening Direction"
+              },
+              {
+                  "key": "type",
+                  "value": "Order Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "close_price",
+                  "value": "Close Price",
+                  "type": "number"
+              },
+              {
+                  "key": "close_time",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "1ijlvhv6",
+          "orders": {},
+          "searches": [],
+          "range": [
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Trade History(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_FORTEX",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsTradeHistoryTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Unique ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "entry",
+                  "value": "Entry"
+              },
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "74mcgsjx",
+          "orders": {},
+          "searches": [],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Trade History(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_WTA",
+          "downloadType": "REFERRALS",
+          "fieldMap": [
+              {
+                  "key": "user_id",
+                  "value": "User ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "reportsTradeHistoryTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "close_price",
+                  "value": "Close Price",
+                  "type": "number"
+              },
+              {
+                  "key": "close_time",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "type": "trade history",
+          "connection_id": "74mcgsjs",
+          "orders": {},
+          "searches": [],
+          "range": [
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Transactions(Downline)
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "CUSTOMER_REPORTS_TRANSACTIONS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "userId",
+                  "value": "User ID"
+              },
+              {
+                  "key": "refId",
+                  "value": "Transaction ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "reportsTransactionsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "referrer",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "tradingAccount",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "relatedId",
+                  "value": "Associated Order Number"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "method",
+                  "value": "Payment/Withdrawal Method"
+              },
+              {
+                  "key": "paymentCurrency",
+                  "value": "Payment/Withdrawal Currency"
+              },
+              {
+                  "key": "total",
+                  "value": "Payment/Withdrawal Amount"
+              },
+              {
+                  "key": "previousBalance",
+                  "value": "Previous Balance"
+              },
+              {
+                  "key": "newBalance",
+                  "value": "New Balance"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 16:00:00",
+                      "end": "2026-01-30 03:21:50"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fixed Commission
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "CUSTOMER_REPORTS_FIXED_COMMISSIONS",
+          "downloadType": "COMMISSIONS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "tradingPlatform",
+                  "value": "Platform"
+              },
+              {
+                  "key": "orderId",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "accountId",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit"
+              },
+              {
+                  "key": "trader",
+                  "value": "Trader"
+              },
+              {
+                  "key": "receiver",
+                  "value": "Receiver"
+              },
+              {
+                  "key": "channel",
+                  "value": "Rebate Account"
+              },
+              {
+                  "key": "commission",
+                  "value": "Rebate"
+              },
+              {
+                  "key": "overriding",
+                  "value": "Overriding"
+              },
+              {
+                  "key": "bonus",
+                  "value": "Bonus"
+              },
+              {
+                  "key": "total",
+                  "value": "Total"
+              },
+              {
+                  "key": "tradingFee",
+                  "value": "Commission"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Generated Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "rebate_time",
+                  "value": "Paid Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "status",
+                  "value": "Status"
+              },
+              {
+                  "key": "reason",
+                  "value": "Failure Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 16:00:00",
+                      "end": "2026-01-30 03:26:52"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": [],
+          "mine": true,
+          "mode": "DAILY" // "MINUTE" | "DAILY"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Flexible Commission
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "CUSTOMER_REPORTS_FLEXIBLE_COMMISSIONS",
+          "downloadType": "COMMISSIONS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "tradingPlatform",
+                  "value": "Platform"
+              },
+              {
+                  "key": "orderId",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "accountId",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "tradingFee",
+                  "value": "Commission"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit"
+              },
+              {
+                  "key": "trader",
+                  "value": "Trader"
+              },
+              {
+                  "key": "receiver",
+                  "value": "Receiver"
+              },
+              {
+                  "key": "channel",
+                  "value": "Rebate Account"
+              },
+              {
+                  "key": "parameter",
+                  "value": "Commission parameter"
+              },
+              {
+                  "key": "formula",
+                  "value": "Formula"
+              },
+              {
+                  "key": "commission",
+                  "value": "Rebate"
+              },
+              {
+                  "key": "openTime",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "closeTime",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Generated Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "rebate_time",
+                  "value": "Paid Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "status",
+                  "value": "Status"
+              },
+              {
+                  "key": "reason",
+                  "value": "Failure Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 16:00:00",
+                      "end": "2026-01-30 03:28:07"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": [],
+          "mine": true,
+          "mode": "MINUTE" // "MINUTE" | "DAILY"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Prop Trading Performance-Commission
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "PROP_COMMISSIONS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "currency",
+                  "value": "Rebate Currency"
+              },
+              {
+                  "key": "commission",
+                  "value": "Rebate"
+              },
+              {
+                  "key": "overriding",
+                  "value": "Overriding"
+              },
+              {
+                  "key": "bonus",
+                  "value": "Bonus"
+              },
+              {
+                  "key": "total",
+                  "value": "Total Commission"
+              },
+              {
+                  "key": "receiver",
+                  "value": "Receiver"
+              },
+              {
+                  "key": "fee",
+                  "value": "Required Fee"
+              },
+              {
+                  "key": "net_prop_trading_fee",
+                  "value": "Net Fee"
+              },
+              {
+                  "key": "user",
+                  "value": "Participants"
+              },
+              {
+                  "key": "rebate_account",
+                  "value": "Rebate Account"
+              },
+              {
+                  "key": "status",
+                  "value": "Status"
+              },
+              {
+                  "key": "fail_reason",
+                  "value": "Reason for failure"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Commission Time"
+              },
+              {
+                  "key": "active_timestamp",
+                  "value": "Activation Time"
+              }
+          ],
+          "searches": [],
+          "skip": 0,
+          "limit": 10,
+          "type": "realtime", // "realtime" | "monthly"
+          "mine": true // true | false
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Prop Trading Performance-Profit Sharing
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "PROP_PROFIT_SHARING",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "id",
+                  "value": "Profit Sharing ID"
+              },
+              {
+                  "key": "package_name",
+                  "value": "Challenge Name"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Profit Sharing Amount"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit"
+              },
+              {
+                  "key": "ratio",
+                  "value": "Profit Sharing Ratio"
+              },
+              {
+                  "key": "challenger",
+                  "value": "Challenger"
+              },
+              {
+                  "key": "receiver",
+                  "value": "Receiver"
+              },
+              {
+                  "key": "status",
+                  "value": "Status"
+              },
+              {
+                  "key": "fail_reason",
+                  "value": "Reason for failure"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Time"
+              },
+              {
+                  "key": "review_time",
+                  "value": "Review Time"
+              }
+          ]
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Prop Trading Performance-Participants
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "PROP_USERS",
+          "downloadType": "REFERRALS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "init_request_id",
+                  "value": "Request ID"
+              },
+              {
+                  "key": "user_name",
+                  "value": "Name"
+              },
+              {
+                  "key": "referrer_id",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "package_name",
+                  "value": "Challenge Name"
+              },
+              {
+                  "key": "step",
+                  "value": "Current Step"
+              },
+              {
+                  "key": "account",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "net_prop_trading_fee",
+                  "value": "Net Fee"
+              },
+              {
+                  "key": "progress",
+                  "value": "Progress"
+              },
+              {
+                  "key": "equity",
+                  "value": "Equity"
+              },
+              {
+                  "key": "max_daily_loss",
+                  "value": "Max Daily Loss"
+              },
+              {
+                  "key": "max_loss",
+                  "value": "Max Loss"
+              },
+              {
+                  "key": "profit_target",
+                  "value": "Profit Target"
+              },
+              {
+                  "key": "created_at",
+                  "value": "Registration Time"
+              },
+              {
+                  "key": "active_timestamp",
+                  "value": "Activation Time"
+              },
+              {
+                  "key": "data_type",
+                  "value": "Data Type"
+              }
+          ],
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Downline Details
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "MY_CLIENTS",
+          "downloadType": "MY_CLIENTS",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "id",
+                  "value": "ID"
+              },
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "email",
+                  "value": "Email"
+              },
+              {
+                  "key": "phoneNumber",
+                  "value": "Phone Number"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "source",
+                  "value": "Source"
+              },
+              {
+                  "key": "tags",
+                  "value": "System Tags"
+              },
+              {
+                  "key": "liveTradingAccounts",
+                  "value": "Live Accounts"
+              },
+              {
+                  "key": "demoTradingAccounts",
+                  "value": "Demo Accounts"
+              },
+              {
+                  "key": "referrerCode",
+                  "value": "Referrer Code"
+              },
+              {
+                  "key": "referrer",
+                  "value": "Referrer"
+              },
+              {
+                  "key": "referralsClientsTier",
+                  "value": "Tier"
+              },
+              {
+                  "key": "kycStatus",
+                  "value": "KYC"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume"
+              },
+              {
+                  "key": "traded",
+                  "value": "Traded"
+              },
+              {
+                  "key": "createdAt",
+                  "value": "Registration Time"
+              },
+              {
+                  "key": "suspended",
+                  "value": "Account Status"
+              },
+              {
+                  "key": "domain",
+                  "value": "Domain"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "from": "2026-01-30 00:00:00",
+          "to": "2026-01-30 23:59:59",
+          "connection_id": "bigc8liz",
+          "platform": "mt4",
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Account Capital
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_MT4",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "connection_id": "bigc8liz",
+          "search_type": "and",
+          "searches": [],
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Account Capital
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_MT5",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "connection_id": "2asdas1z",
+          "search_type": "and",
+          "searches": [],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Account Capital
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_CTRADER",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "connection_id": "1ijlvhv6",
+          "search_type": "and",
+          "searches": [],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "capital_type": "balance",
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Account Capital
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_FORTEX",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "connection_id": "74mcgsjx",
+          "search_type": "and",
+          "searches": [],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Account Capital
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "TRADE_CAPITAL_WTA",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Transaction Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "connection_id": "74mcgsjs",
+          "search_type": "and",
+          "searches": [],
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "last": false,
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Comprehensive Account Reports
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              },
+              {
+                  "key": "firstEquity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "First Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "endEquity", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "End Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netEquityMine", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netDeposit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Deposit",
+                  "type": "number"
+              },
+              {
+                  "key": "netCredit", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Credit",
+                  "type": "number"
+              },
+              {
+                  "key": "rebateTotal", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Rebate Total",
+                  "type": "number"
+              },
+              {
+                  "key": "netProfitMine", // Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "Net Profit/Loss"
+              },
+              {
+                  "key": "dtfbkzop", // （MT4 Symbol）Available only when the MT4 Account Report External app is installed from the Marketplace.
+                  "value": "BO",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "bigc8liz",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59",
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Comprehensive Account Reports
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              },
+              {
+                  "key": "firstEquity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "First Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "endEquity", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "End Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netEquityMine", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Equity",
+                  "type": "number"
+              },
+              {
+                  "key": "netDeposit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Deposit",
+                  "type": "number"
+              },
+              {
+                  "key": "netCredit", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Credit",
+                  "type": "number"
+              },
+              {
+                  "key": "rebateTotal", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Rebate Total",
+                  "type": "number"
+              },
+              {
+                  "key": "netProfitMine", // Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "Net Profit/Loss"
+              },
+              {
+                  "key": "69rkigsh", // （MT5 Symbol）Available only when the MT5 Account Report External app is installed from the Marketplace.
+                  "value": "kuldeep",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "2asdas1z",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59",
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Comprehensive Account Reports
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "1ijlvhv6",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59",
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Comprehensive Account Reports
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "74mcgsjx",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59",
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Comprehensive Account Reports
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "STATISTICS_ACCOUNT_REPORTS",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "name",
+                  "value": "Name"
+              },
+              {
+                  "key": "login",
+                  "value": "Account ID"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "withdrawal",
+                  "value": "Withdraw"
+              },
+              {
+                  "key": "deposit",
+                  "value": "Deposit"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swaps"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit/Loss"
+              },
+              {
+                  "key": "orderNum",
+                  "value": "Total Number Of Orders"
+              },
+              {
+                  "key": "openVolume",
+                  "value": "Open Volume"
+              },
+              {
+                  "key": "closeVolume",
+                  "value": "Close Volume"
+              },
+              {
+                  "key": "firstDepositTime",
+                  "value": "Time Of First Deposit",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstOpenTime",
+                  "value": "Created Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "firstTotal",
+                  "value": "Initial Fund"
+              },
+              {
+                  "key": "endTotal",
+                  "value": "Final Fund"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "74mcgsjs",
+          "searches": [],
+          "last": false,
+          "start": "2026-01-29 00:00:00",
+          "end": "2026-01-29 23:59:59",
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_MT4",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "open position",
+          "orders": {},
+          "last": false,
+          "connection_id": "bigc8liz",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_MT5",
+          "fieldMap": [
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "open position",
+          "orders": {},
+          "last": false,
+          "connection_id": "2asdas1z",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_CTRADER",
+          "fieldMap": [
+              {
+                  "key": "position_id",
+                  "value": "Position ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "trade_side",
+                  "value": "Direction"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "open position",
+          "orders": {},
+          "last": false,
+          "connection_id": "1ijlvhv6",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_FORTEX",
+          "fieldMap": [
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "open position",
+          "orders": {},
+          "last": false,
+          "connection_id": "74mcgsjx",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Open Positions
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_OPEN_POSITIONS_WTA",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "open position",
+          "orders": {},
+          "last": false,
+          "connection_id": "74mcgsjs",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_MT4",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "open_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "pending order",
+          "orders": {},
+          "last": false,
+          "connection_id": "bigc8liz",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_MT5",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "pending order",
+          "orders": {},
+          "last": false,
+          "connection_id": "2asdas1z",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_CTRADER",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "trade_side",
+                  "value": "Direction"
+              },
+              {
+                  "key": "type",
+                  "value": "Order Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2025-12-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "pending order",
+          "orders": {},
+          "last": false,
+          "connection_id": "1ijlvhv6",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_FORTEX",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-01 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "pending order",
+          "orders": {},
+          "last": false,
+          "connection_id": "74mcgsjx",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Pending Orders
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_PENDING_ORDERS_WTA",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [],
+          "type": "pending order",
+          "orders": {},
+          "last": false,
+          "connection_id": "74mcgsjs",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT4 Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_MT4",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "close_price",
+                  "value": "Close Price",
+                  "type": "number"
+              },
+              {
+                  "key": "close_time",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              },
+              {
+                  "key": "reason",
+                  "value": "Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "trade history",
+          "orders": {},
+          "last": false,
+          "connection_id": "bigc8liz",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: MT5 Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_MT5",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Unique ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "entry",
+                  "value": "Entry"
+              },
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "fee",
+                  "value": "Fee"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              },
+              {
+                  "key": "reason",
+                  "value": "Reason"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "trade history",
+          "orders": {},
+          "last": false,
+          "connection_id": "2asdas1z",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_CTRADER",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "trade_side",
+                  "value": "Closing Direction"
+              },
+              {
+                  "key": "open_trade_side",
+                  "value": "Opening Direction"
+              },
+              {
+                  "key": "type",
+                  "value": "Order Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "close_price",
+                  "value": "Close Price",
+                  "type": "number"
+              },
+              {
+                  "key": "close_time",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "trade history",
+          "orders": {},
+          "last": false,
+          "connection_id": "1ijlvhv6",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_FORTEX",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Unique ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "action",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "price",
+                  "value": "Price",
+                  "type": "number"
+              },
+              {
+                  "key": "time",
+                  "value": "Trading Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "entry",
+                  "value": "Entry"
+              },
+              {
+                  "key": "position",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "trade history",
+          "orders": {},
+          "last": false,
+          "connection_id": "74mcgsjx",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix Trade History
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "downloadType": "USER_REPORT",
+          "scene": "TRADE_REPORTS_TRADE_HISTORY_WTA",
+          "fieldMap": [
+              {
+                  "key": "order_id",
+                  "value": "Order ID"
+              },
+              {
+                  "key": "trading_id",
+                  "value": "Trading Account"
+              },
+              {
+                  "key": "cmd",
+                  "value": "Type"
+              },
+              {
+                  "key": "symbol",
+                  "value": "Symbol"
+              },
+              {
+                  "key": "volume",
+                  "value": "Volume",
+                  "type": "number"
+              },
+              {
+                  "key": "open_price",
+                  "value": "Open Price",
+                  "type": "number"
+              },
+              {
+                  "key": "open_time",
+                  "value": "Open Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "close_price",
+                  "value": "Close Price",
+                  "type": "number"
+              },
+              {
+                  "key": "close_time",
+                  "value": "Close Time",
+                  "format": "yyyy-MM-dd HH:mm:ss"
+              },
+              {
+                  "key": "stop_loss",
+                  "value": "Stop Loss",
+                  "type": "number"
+              },
+              {
+                  "key": "take_profit",
+                  "value": "Take Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "commission",
+                  "value": "Commission",
+                  "type": "number"
+              },
+              {
+                  "key": "swaps",
+                  "value": "Swap",
+                  "type": "number"
+              },
+              {
+                  "key": "profit",
+                  "value": "Profit",
+                  "type": "number"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "range": [
+              {
+                  "field": "close_time",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-23 00:00:00",
+                      "end": "2026-01-30 23:59:59"
+                  }
+              }
+          ],
+          "type": "trade history",
+          "orders": {},
+          "last": false,
+          "connection_id": "74mcgsjs",
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: Transactions
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/export/excel/s3
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "scene": "CUSTOMER_REPORTS_TRANSACTIONS",
+          "downloadType": "USER_REPORT",
+          "timeZone": "+08:00",
+          "fieldMap": [
+              {
+                  "key": "id",
+                  "value": "Transaction ID"
+              },
+              {
+                  "key": "type",
+                  "value": "Type"
+              },
+              {
+                  "key": "account",
+                  "value": "Account"
+              },
+              {
+                  "key": "currency",
+                  "value": "Currency"
+              },
+              {
+                  "key": "amount",
+                  "value": "Amount"
+              },
+              {
+                  "key": "method",
+                  "value": "Payment/Withdrawal Method"
+              },
+              {
+                  "key": "payment_currency",
+                  "value": "Payment/Withdrawal Currency"
+              },
+              {
+                  "key": "payment_total",
+                  "value": "Payment/Withdrawal Amount"
+              },
+              {
+                  "key": "timestamp",
+                  "value": "Time"
+              },
+              {
+                  "key": "comment",
+                  "value": "Comment"
+              }
+          ],
+          "skip": 0,
+          "limit": 10,
+          "orders": {},
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-22 16:00:00",
+                      "end": "2026-01-30 15:59:59"
+                  }
+              }
+          ],
+          "searches": [],
+          "mine": true
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

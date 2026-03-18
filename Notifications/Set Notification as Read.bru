@@ -1,0 +1,66 @@
+meta {
+  name: Set Notification as Read
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{BASE_URL}}/private/api/v1/notify/inbox/isRead
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "ids": [
+      "string",
+      "string"
+    ],
+    "isActive": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/inbox/isRead
+    method: PATCH
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+        "ids": [
+          "string",
+          "string"
+        ],
+        "isActive": true
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

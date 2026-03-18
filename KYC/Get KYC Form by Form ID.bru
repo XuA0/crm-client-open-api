@@ -1,0 +1,575 @@
+meta {
+  name: Get KYC Form by Form ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form/kyc/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form/kyc/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: gk5japw8
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Fri, 31 Oct 2025 08:22:34 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2be0-lCVvDdrcXOX8eQNc1Z1wCJIIwtY"
+      x-envoy-upstream-service-time: 60
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Pm4S6N%2Fa2SirU2PgG%2FDWVc7QFdDS%2BfiNlD4Dg49yzW8uLc0JDrKHkJPGHSG7Gj4D6GG42rix5V8UKlyKNUo6pWJq60a5Pb5fnOfyGbbd0lA%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9971beca3c6be642-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "_id": "63ecabe658ed7c230cf6f9b5",
+            "collection_id": "b6829c4n",
+            "id": "gk5japw8",
+            "updated_at": "2023-02-15T09:54:50.500Z",
+            "created_at": "2023-02-15T09:54:46.056Z",
+            "groups": [
+                {
+                    "fields": [
+                        {
+                            "type": "text",
+                            "key": "name",
+                            "label": {
+                                "en-us": "Name",
+                                "zh-cn": "名称",
+                                "vi": "Tên",
+                                "zh-tw": "姓名",
+                                "ja": "名前",
+                                "th": "ชื่อ",
+                                "id": "Nama",
+                                "es": "Nombre",
+                                "de": "Name",
+                                "tr": "İsim",
+                                "pt": "Nome",
+                                "ko": "이름",
+                                "kur-ckb": "ناوی سیانی",
+                                "kur-kmr": "ناڤێ سێ قولى",
+                                "ar": "الإسم"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "country",
+                            "key": "nationality",
+                            "label": {
+                                "en-us": "Nationality",
+                                "zh-cn": "国籍",
+                                "vi": "Quốc tịch",
+                                "zh-tw": "國籍",
+                                "ja": "国籍",
+                                "th": "สัญชาติ",
+                                "id": "Kebangsaan",
+                                "es": "Nacionalidad",
+                                "de": "Staatsangehörigkeit",
+                                "tr": "Milliyet",
+                                "pt": "Nacionalidade",
+                                "ko": "국적",
+                                "kur-ckb": "رەگەزنامە",
+                                "kur-kmr": "ره\u200cگه\u200cزنامه\u200c\u200c",
+                                "ar": "الجنسية"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "radio",
+                            "key": "gender",
+                            "label": {
+                                "en-us": "Gender",
+                                "zh-cn": "性别",
+                                "vi": "Giới tính",
+                                "zh-tw": "性別",
+                                "ja": "性別",
+                                "th": "เพศ",
+                                "id": "Jenis kelamin",
+                                "es": "Sexo",
+                                "de": "Geschlecht",
+                                "tr": "Cinsiyet",
+                                "pt": "Gênero sexual",
+                                "ko": "성별",
+                                "kur-ckb": "رەگەز ",
+                                "kur-kmr": "ره\u200cگه\u200cز",
+                                "ar": "الجنس"
+                            },
+                            "required": true,
+                            "options": [
+                                {
+                                    "value": "male",
+                                    "label": {
+                                        "en-us": "Male",
+                                        "zh-cn": "男性",
+                                        "vi": "Nam",
+                                        "zh-tw": "男性",
+                                        "ja": "男性",
+                                        "th": "ชาย",
+                                        "id": "Laki-laki",
+                                        "es": "Hombre",
+                                        "de": "Männlich",
+                                        "tr": "Erkek",
+                                        "pt": "Macho",
+                                        "ko": "남성",
+                                        "kur-ckb": "مامەڵە چاوەڕێکان",
+                                        "kur-kmr": "مامه\u200cله\u200cيێن چاڤه\u200cرێكرى",
+                                        "ar": "مامەڵە چاوەڕێکان"
+                                    }
+                                },
+                                {
+                                    "value": "female",
+                                    "label": {
+                                        "en-us": "Female",
+                                        "zh-cn": "女性",
+                                        "vi": "Nữ",
+                                        "zh-tw": "女性",
+                                        "ja": "女性",
+                                        "th": "หญิง",
+                                        "id": "Perempuan",
+                                        "es": "Mujer",
+                                        "de": "Weiblich",
+                                        "tr": "Dişi",
+                                        "pt": "Fêmea",
+                                        "ko": "여자",
+                                        "kur-ckb": "مامەڵە چاوەڕێکان",
+                                        "kur-kmr": "مامه\u200cله\u200cيێن چاڤه\u200cرێكرى",
+                                        "ar": "مامەڵە چاوەڕێکان"
+                                    }
+                                }
+                            ],
+                            "default": true
+                        },
+                        {
+                            "type": "date",
+                            "key": "date_of_birth",
+                            "label": {
+                                "en-us": "Date of Birth",
+                                "zh-cn": "生日",
+                                "vi": "Ngày sinh",
+                                "zh-tw": "生日",
+                                "ja": "生年月日",
+                                "th": "วันเกิด",
+                                "id": "Tanggal lahir",
+                                "es": "Fecha de nacimiento",
+                                "de": "Geburtsdatum",
+                                "tr": "Doğum tarihi",
+                                "pt": "Data de nascimento",
+                                "ko": "생일",
+                                "kur-ckb": "رێکەوتی لە دایکبوون",
+                                "kur-kmr": "رێكه\u200cفتێ ژ دايكبوونێ",
+                                "ar": "تاريخ الميلاد"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "phone",
+                            "key": "phone",
+                            "label": {
+                                "en-us": "Phone",
+                                "zh-cn": "手机号",
+                                "vi": "Số điện thoại",
+                                "zh-tw": "手機號",
+                                "ja": "電話番号",
+                                "th": "หมายเลขโทรศัพท์",
+                                "id": "Nomor telepon",
+                                "es": "Número de Teléfono",
+                                "de": "Telefonnummer",
+                                "tr": "Telefon numarası",
+                                "pt": "Número de telefone",
+                                "ko": "전화 번호",
+                                "kur-ckb": "ژمارەی مۆبایل",
+                                "kur-kmr": "ژمارا مۆبايلێ",
+                                "ar": "رقم الهاتف"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "text",
+                            "key": "identity_number",
+                            "label": {
+                                "en-us": "Identity Card/Passport Number",
+                                "zh-cn": "身份证/护照号码",
+                                "vi": "Thẻ căn cước / Số hộ chiếu",
+                                "zh-tw": "身份證/護照號碼",
+                                "ja": "身分証明書 / パスポート番号",
+                                "th": "หมายเลขบัตรประจำตัวประชาชน/หนังสือเดินทาง",
+                                "id": "Kartu Identitas",
+                                "es": "Número de Documento de Identidad/Pasaporte",
+                                "de": "Personalausweis-/Reisepassnummer",
+                                "tr": "Kimlik Kartı/Pasaport Numarası",
+                                "pt": "Número do Bilhete de Identidade/Passaporte",
+                                "ko": "신분증/여권번호",
+                                "kur-ckb": "ژمارەی ناسنامەی نیشتمانی/پاسپۆرت",
+                                "kur-kmr": "ژمارا ناسناما نيشتيمانى/پاسپۆرت",
+                                "ar": "البطاقة الشخصية / جواز السفر"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "location",
+                            "key": "location",
+                            "label": {
+                                "en-us": "Place of Residence",
+                                "zh-cn": "居住地",
+                                "vi": "Nơi cư trú",
+                                "zh-tw": "居住地",
+                                "ja": "居住地",
+                                "th": "ที่อยู่อาศัย",
+                                "id": "Tempat kediaman",
+                                "es": "Lugar de residencia",
+                                "de": "Ort des Wohnsitzes",
+                                "tr": "İkamet yeri",
+                                "pt": "Local de Residência",
+                                "ko": "거주지",
+                                "kur-ckb": "وڵاتی نیشتەجێ بوون",
+                                "kur-kmr": "وه\u200cلاتێ ئاكنجيبوونێ",
+                                "ar": "مكان الإقامة"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "text",
+                            "key": "postal_code",
+                            "label": {
+                                "en-us": "Postal code",
+                                "zh-cn": "邮政编码",
+                                "vi": "Mã bưu điện",
+                                "zh-tw": "郵遞區號",
+                                "ja": "郵便番号",
+                                "th": "รหัสไปรษณีย์",
+                                "id": "Kode pos",
+                                "es": "Código postal",
+                                "de": "Postleitzahl",
+                                "tr": "Posta Kodu",
+                                "pt": "Código postal",
+                                "ko": "우편 번호",
+                                "kur-ckb": "کۆدی پۆست",
+                                "kur-kmr": "كۆدێ پۆستى",
+                                "ar": "الرمز البريدي"
+                            },
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "textarea",
+                            "key": "address",
+                            "label": {
+                                "en-us": "Address",
+                                "zh-cn": "详细地址",
+                                "vi": "Địa chỉ nhà",
+                                "zh-tw": "地址",
+                                "ja": "住所",
+                                "th": "ที่อยู่อาศัย",
+                                "id": "Alamat",
+                                "es": "Dirección",
+                                "de": "Anschrift",
+                                "tr": "Adres",
+                                "pt": "Endereço",
+                                "ko": "주소",
+                                "kur-ckb": "ناونیشانی ماڵ",
+                                "kur-kmr": "ناڤ و نيشان",
+                                "ar": "العنوان"
+                            },
+                            "required": true,
+                            "default": true
+                        }
+                    ],
+                    "label": {
+                        "en-us": "Basic Information",
+                        "zh-cn": "基本信息",
+                        "vi": "Thông tin cơ bản",
+                        "zh-tw": "基本信息",
+                        "ja": "基本情報",
+                        "th": "ข้อมูลพื้นฐาน",
+                        "id": "Informasi dasar",
+                        "es": "Información básica",
+                        "de": "Grundinformation",
+                        "tr": "Temel Bilgiler",
+                        "pt": "Informação básica",
+                        "ko": "기본 정보",
+                        "kur-ckb": "زانیاری سەرەتایی",
+                        "kur-kmr": "زانياريێن ده\u200cسپێكى",
+                        "ar": "المعلومات الأساسية"
+                    },
+                    "default": true,
+                    "key": "personalInfo"
+                },
+                {
+                    "fields": [],
+                    "label": {
+                        "en-us": "test",
+                        "zh-cn": "测试",
+                        "zh-tw": "测试"
+                    },
+                    "key": "uxd30fd58a8xb4c8x2",
+                    "multiple": true
+                },
+                {
+                    "fields": [
+                        {
+                            "type": "select",
+                            "key": "identity_type",
+                            "label": {
+                                "en-us": "Identity Document Type",
+                                "zh-cn": "身份证明文件类型",
+                                "vi": "Loại tài liệu xác thực",
+                                "zh-tw": "身份證明文件類型",
+                                "ja": "身分証明用書類のタイプ",
+                                "th": "ประเภทเอกสารประจำตัว",
+                                "id": "Tipe Dokumen Identitas",
+                                "es": "Tipo de Documento de Identidad",
+                                "de": "Identitätsdokument Typ",
+                                "tr": "Kimlik Belgesi Türü",
+                                "pt": "Tipo de documento de identidade",
+                                "ko": "신원 문서 유형",
+                                "kur-ckb": "جۆری بەڵگەنامەی ناسنامە",
+                                "kur-kmr": "جورێ به\u200cلگه\u200cناما ناسنامێ ",
+                                "ar": "نوع الوثيقة الشخصية"
+                            },
+                            "required": true,
+                            "options": [
+                                {
+                                    "value": "ic",
+                                    "label": {
+                                        "en-us": "Identity Card",
+                                        "zh-cn": "身份证",
+                                        "vi": "Thẻ danh tính",
+                                        "zh-tw": "身份證",
+                                        "ja": "IDカード",
+                                        "th": "บัตรประจำตัวประชาชน",
+                                        "id": "Kartu identitas",
+                                        "es": "Tarjeta de identificación",
+                                        "de": "Personalausweis",
+                                        "tr": "Kimlik kartı",
+                                        "pt": "Cartão de identidade",
+                                        "ko": "신분 증명서"
+                                    }
+                                },
+                                {
+                                    "value": "passport",
+                                    "label": {
+                                        "en-us": "Passport",
+                                        "zh-cn": "护照",
+                                        "vi": "Hộ chiếu",
+                                        "zh-tw": "護照",
+                                        "ja": "パスポート",
+                                        "th": "หนังสือเดินทาง",
+                                        "id": "Paspor",
+                                        "es": "Pasaporte",
+                                        "de": "Reisepass",
+                                        "tr": "Pasaport",
+                                        "pt": "Passaporte",
+                                        "ko": "여권"
+                                    }
+                                }
+                            ],
+                            "default": true
+                        },
+                        {
+                            "type": "document",
+                            "key": "identity_doc",
+                            "label": {
+                                "en-us": "Identity Document",
+                                "zh-cn": "身份证明文件",
+                                "vi": "Tài liệu xác thực",
+                                "zh-tw": "身份證明文件",
+                                "ja": "身分証明用書類",
+                                "th": "เอกสารประจำตัว",
+                                "id": "Dokumen Identitas",
+                                "es": "Documento de Identidad",
+                                "de": "Ausweisdokument",
+                                "tr": "Kimlik belgesi",
+                                "pt": "Documento de identidade",
+                                "ko": "신분 증명서",
+                                "kur-ckb": "بەڵگەنامەی ناسنامە ئەپلۆد کە",
+                                "kur-kmr": "به\u200cلگه\u200cناما ناسنامه\u200c ئه\u200cپلۆد بكه\u200c",
+                                "ar": "الوثيقة الشخصية"
+                            },
+                            "max": 2,
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "document",
+                            "key": "alt_identity_doc",
+                            "label": {
+                                "en-us": "Identity Document (Back)",
+                                "zh-cn": "身份证明文件(背面)",
+                                "vi": "Tài liệu xác thực (mặt sau)",
+                                "zh-tw": "身份證明文件背面",
+                                "ja": "身分証明用書類 (裏面)",
+                                "th": "เอกสารประจำตัว (ด้านหลัง)",
+                                "id": "Dokumen identitas (belakang)",
+                                "es": "Documento de Identidad (reverso)",
+                                "de": "Ausweisdokument (Rückseite)",
+                                "tr": "Kimlik Belgesi (Arka)",
+                                "pt": "Documento de Identidade (Verso)",
+                                "ko": "신분 증명서(뒷면)",
+                                "kur-ckb": "رووی پشتەوەی بەڵگەنامەی ناسنامە ئەپلۆد کە",
+                                "kur-kmr": "به\u200cرگێ پشتێ يێ يه\u200cلگه\u200cناما ناسنامه\u200c ئه\u200cپلۆد بكه\u200c ",
+                                "ar": "الوثيقة الشخصية من الخلف"
+                            },
+                            "max": 2,
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "document",
+                            "key": "bank_card_doc",
+                            "label": {
+                                "en-us": "Bank card",
+                                "zh-cn": "银行卡",
+                                "vi": "Thẻ ngân hàng",
+                                "zh-tw": "銀行卡",
+                                "ja": "バンクカード",
+                                "th": "บัตรเครดิตธนาคาร",
+                                "id": "Kartu bank",
+                                "es": "Tarjeta bancaria",
+                                "de": "Bankkarte",
+                                "tr": "Banka kartı",
+                                "pt": "Cartão do banco",
+                                "ko": "은행 카드",
+                                "kur-ckb": "کارتی بانک",
+                                "kur-kmr": "كارتا بانكێ \u200c",
+                                "ar": "البطاقة البنكية"
+                            },
+                            "max": 2,
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "document",
+                            "key": "selfie_doc",
+                            "label": {
+                                "en-us": "Selfie",
+                                "zh-cn": "自拍",
+                                "vi": "Ảnh chân dung",
+                                "zh-tw": "自拍",
+                                "ja": "自撮り写真",
+                                "th": "เซลฟี่",
+                                "id": "Selfie",
+                                "es": "Selfie",
+                                "de": "Selfie",
+                                "tr": "Özçekim",
+                                "pt": "Selfie",
+                                "ko": "셀카",
+                                "kur-ckb": "وێنەی سێڵفی",
+                                "kur-kmr": "وێنێ سێلفى",
+                                "ar": "صورة سيلفي"
+                            },
+                            "max": 1,
+                            "required": true,
+                            "default": true
+                        },
+                        {
+                            "type": "document",
+                            "key": "address_doc",
+                            "label": {
+                                "en-us": "Address Document(Utility bill,Bank statement,Receipt bill)",
+                                "zh-cn": "地址文件（水电费帐单，银行对 账单，收据单)",
+                                "vi": "Bằng chứng nơi cư trú (hóa đơn tiện ích, sao kê ngân hàng, hóa đơn thanh toán)",
+                                "zh-tw": "地址文件（水電費帳單，銀行對帳單，收據單）",
+                                "ja": "住所確認書類（光熱費請求書、銀行取引明細書、領収書）",
+                                "th": "เอกสารที่อยู่ (ใบแจ้งหนี้ค่าสาธารณูปโภค, ใบแจ้งยอดธนาคาร, ใบเสร็จรับเงิน)",
+                                "id": "Alamat dokumen (tagihan, bank, bon)",
+                                "es": "Documento de Dirección (factura de servicios públicos, extracto bancario, factura de recibos)",
+                                "de": "Adressdokument (Rechnung eines Versorgungsunternehmens, Kontoauszug, Quittungsbeleg)",
+                                "tr": "Adres Belgesi (Fatura, Banka ekstresi, Makbuz faturası)",
+                                "pt": "Documento de endereço (conta de luz, extrato bancário, recibo)",
+                                "ko": "주소 문서(공과금 고지서, 은행 명세서, 영수증 청구서)",
+                                "kur-ckb": "بەڵگەنامەی ناونیشانی ماڵەوەت ئەپلۆد کە",
+                                "kur-kmr": "به\u200cلگه\u200cناما ناڤ و نيشانێن مالا خو ئاپلود بكه\u200c",
+                                "ar": "إثبات العنوان (فاتورة منزل, كشف حساب بنكي, وصل عليه العنوان)"
+                            },
+                            "max": 4,
+                            "required": true,
+                            "default": true
+                        }
+                    ],
+                    "label": {
+                        "en-us": "Documents",
+                        "zh-cn": "文件",
+                        "vi": "Các tài liệu",
+                        "zh-tw": "文件",
+                        "ja": "書類",
+                        "th": "เอกสาร",
+                        "id": "Dokumen",
+                        "es": "Documentos",
+                        "de": "Dokumente",
+                        "tr": "Belgeler",
+                        "pt": "Documentos",
+                        "ko": "서류",
+                        "kur-ckb": "بەڵگەنامەکان",
+                        "kur-kmr": "به\u200cلگه\u200cنامه\u200c\u200c",
+                        "ar": "الوثائق"
+                    },
+                    "default": true,
+                    "key": "documents"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

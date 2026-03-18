@@ -1,0 +1,68 @@
+meta {
+  name: Get User Upline / Downline Summary
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/summary?start=2025-10-23T09:07:25.560Z&end=2025-10-23T09:07:25.560Z&accounts=true&trading_accounts=true&deposits=true&withdrawals=true&payouts=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  start: 2025-10-23T09:07:25.560Z
+  end: 2025-10-23T09:07:25.560Z
+  accounts: true
+  trading_accounts: true
+  deposits: true
+  withdrawals: true
+  payouts: true
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/summary?accounts=true
+    method: GET
+    mode: none
+    params:query: {
+      accounts: true
+    }
+  
+    params:path: {
+      "id([a-z0-9]{8})": lo0i7w3o
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": {
+                "direct": 1,
+                "indirect": 1,
+                "total": 2
+            },
+            "direct": 1,
+            "indirect": 1,
+            "total": 2
+        }
+      '''
+    }
+  }
+}

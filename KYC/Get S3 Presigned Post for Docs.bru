@@ -1,0 +1,65 @@
+meta {
+  name: Get S3 Presigned Post for Docs
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form/s3/signature?content_type=&document=&form_id=&id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  content_type: 
+  document: 
+  form_id: 
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form/s3/signature?content_type=image/png&document=alt_identity_doc&form_id=gl18dz8t&id=6gu1
+    method: GET
+    mode: none
+    params:query: {
+      content_type: image/png
+      document: alt_identity_doc
+      form_id: gl18dz8t
+      id: 6gu1
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "url": "https://crm-broctagon-development-private.s3.ap-southeast-1.amazonaws.com/",
+            "fields": {
+                "acl": "private",
+                "key": "apps/kyc/users/lifupiht/forms/msuv0fdi/alt_identity_doc_77fm",
+                "Content-Type": "image/png",
+                "bucket": "crm-broctagon-development-private",
+                "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
+                "X-Amz-Credential": "ASIATYHHSZ6VDTKV6URS/20251111/ap-southeast-1/s3/aws4_request",
+                "X-Amz-Date": "20251111T070535Z",
+                "X-Amz-Security-Token": "IQoJb3JpZ2luX2VjEEsaDmFwLXNvdXRoZWFzdC0xIkYwRAIgFC2hkQeDt7FyDpoFh9X8utKhkPgcjm1gJm67tLofk4UCIAKIJDco9vkkrQEpHEkFu8g9zHTAcj8joHGeRyRKphC/Ko4ECBQQBBoMMjU4MTgzNzEyNjgyIgwzXDPcZ4W51E2l73wq6wMHZ/Y2M3pmCWu0+RsNXWK/5Ezi6vSkov8N25GDqHvIcM7WRYnEODWoRxU8rGeHw2IsjM7GwsdNpG5WvmX1X1uLxTebQqYmV8gxdb6drxoQM/pjx1rGvdfiiqAA8SkDfM8TNVkuPfW/xsEOFTYfs3+NncChQ+o0yTQRm2izJCkHETxFuvAxssq2cZq7BP6lafPXE1Ug1cwNqHRIwFU9tVRIGrqiCXIDcaXcPqx967mkUUzXsHzgwc/9JX/nV0JYA8fzeQkwmechj8c+mDeFnpryXiAwv8C9bdGpkoZEcM5DbjvdyEYgVK3g8VNZDcJc8ycXlvqsxAsa7ExiGOCMvunXtrtQTvH+PKhmj6RC5LZ2tHId35EpEm4HyVTfnRKRHTq+7aNcBmwVkzJbMaSWW7qm82f9uPlMVmnyGjJrUtqrBgOb7M7dW/++m06M/LVhbmKm+VSWCDJufm2Ogq4S12EERyh8kj6Mcd9z3FRulq6vpwpbyms4QdV5r8PGORl3sIVViY0IFFMOIH4pdg3ETDcHl2Qp4bvEaAxe7JhLi0qgJpe0dGHlda3i78nvNbK5cK1VzHkBIImuQBNwNbOtsKBhuZAt+UlPGpw8dCo8sihuidQZ8LZk0AirXvj7jDl9NEczViJXCuasQ3ZTZjCB0MrIBjqnATFORJnv2OoqIcOw0J+74S9/9GwOEVL+HsLwUhp812f9Pue2wLDWERzEq5gDE3r7MlT3AG7wDcD/agq7GyjOw92Uhzf9TvBpEi//5X4papm9Nr1XwU2WgeCk0PBTnHzkO2VjauStooZp5bPKOT7kPnhzPW3I8XDZ14x2+ShSFH0Mvz9kXqQVGzukuPLdEeVu6CFJ7ghOXkYKgo5oVI4nRMtSNmjtLXOY",
+                "Policy": "eyJleHBpcmF0aW9uIjoiMjAyNS0xMS0xMVQwNzowNjozNVoiLCJjb25kaXRpb25zIjpbeyJrZXkiOiJhcHBzL2t5Yy91c2Vycy9saWZ1cGlodC9mb3Jtcy9tc3V2MGZkaS9hbHRfaWRlbnRpdHlfZG9jXzc3Zm0ifSx7ImFjbCI6InByaXZhdGUifSx7IkNvbnRlbnQtVHlwZSI6ImltYWdlL3BuZyJ9LFsiY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjBdLHsiYnVja2V0IjoiY3JtLWJyb2N0YWdvbi1kZXZlbG9wbWVudC1wcml2YXRlIn0seyJYLUFtei1BbGdvcml0aG0iOiJBV1M0LUhNQUMtU0hBMjU2In0seyJYLUFtei1DcmVkZW50aWFsIjoiQVNJQVRZSEhTWjZWRFRLVjZVUlMvMjAyNTExMTEvYXAtc291dGhlYXN0LTEvczMvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1EYXRlIjoiMjAyNTExMTFUMDcwNTM1WiJ9LHsiWC1BbXotU2VjdXJpdHktVG9rZW4iOiJJUW9KYjNKcFoybHVYMlZqRUVzYURtRndMWE52ZFhSb1pXRnpkQzB4SWtZd1JBSWdGQzJoa1FlRHQ3RnlEcG9GaDlYOHV0S2hrUGdjam0xZ0ptNjd0TG9mazRVQ0lBS0lKRGNvOXZra3JRRXBIRWtGdThnOXpIVEFjajhqb0hHZVJ5UktwaEMvS280RUNCUVFCQm9NTWpVNE1UZ3pOekV5TmpneUlnd3pYRFBjWjRXNTFFMmw3M3dxNndNSFovWTJNM3BtQ1d1MCtSc05YV0svNUV6aTZ2U2tvdjhOMjVHRHFIdkljTTdXUlluRU9EV29SeFU4ckdlSHcySXNqTTdHd3NkTnBHNVd2bVgxWDF1THhUZWJRcVltVjhneGRiNmRyeG9RTS9wangxckd2ZGZpaXFBQThTa0RmTThUTlZrdVBmVy94c0VPRlRZZnMzK05uY0NoUStvMHlUUVJtMml6SkNrSEVUeEZ1dkF4c3NxMmNacTdCUDZsYWZQWEUxVWcxY3dOcUhSSXdGVTl0VlJJR3JxaUNYSURjYVhjUHF4OTY3bWtVVXpYc0h6Z3djLzlKWC9uVjBKWUE4ZnplUWt3bWVjaGo4YyttRGVGbnByeVhpQXd2OEM5YmRHcGtvWkVjTTVEYmp2ZHlFWWdWSzNnOFZOWkRjSmM4eWNYbHZxc3hBc2E3RXhpR09DTXZ1blh0cnRRVHZIK1BLaG1qNlJDNUxaMnRISWQzNUVwRW00SHlWVGZuUktSSFRxKzdhTmNCbXdWa3pKYk1hU1dXN3FtODJmOXVQbE1WbW55R2pKclV0cXJCZ09iN003ZFcvKyttMDZNL0xWaGJtS20rVlNXQ0RKdWZtMk9ncTRTMTJFRVJ5aDhrajZNY2Q5ejNGUnVscTZ2cHdwYnltczRRZFY1cjhQR09SbDNzSVZWaVkwSUZGTU9JSDRwZGczRVREY0hsMlFwNGJ2RWFBeGU3SmhMaTBxZ0pwZTBkR0hsZGEzaTc4bnZOYks1Y0sxVnpIa0JJSW11UUJOd05iT3RzS0JodVpBdCtVbFBHcHc4ZENvOHNpaHVpZFFaOExaazBBaXJYdmo3akRsOU5FY3pWaUpYQ3Vhc1EzWlRaakNCME1ySUJqcW5BVEZPUkpudjJPb3FJY093MEorNzRTOS85R3dPRVZMK0hzTHdVaHA4MTJmOVB1ZTJ3TERXRVJ6RXE1Z0RFM3I3TWxUM0FHN3dEY0QvYWdxN0d5ak93OTJVaHpmOVR2QnBFaS8vNVg0cGFwbTlOcjFYd1UyV2dlQ2swUEJUbkh6a08yVmphdVN0b29acDViUEtPVDdrUG5oelBXM0k4WERaMTR4MitTaFNGSDBNdno5a1hxUVZHenVrdVBMZEVlVnU2Q0ZKN2doT1hrWUtnbzVvVkk0blJNdFNObWp0TFhPWSJ9XX0=",
+                "X-Amz-Signature": "3e897e856273be47818e0e46a55c18089b7974b09ea2ddfb34e82568d62ec987"
+            }
+        }
+      '''
+    }
+  }
+}

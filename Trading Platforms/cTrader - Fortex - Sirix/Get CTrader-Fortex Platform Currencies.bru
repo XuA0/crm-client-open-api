@@ -1,0 +1,200 @@
+meta {
+  name: Get CTrader/Fortex Platform Currencies
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/trade/accounts/currencies?connection_id=
+  body: none
+  auth: inherit
+}
+
+params:query {
+  connection_id: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 Fortex
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/currencies?connection_id=z80wqyxy
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: z80wqyxy
+    }
+  
+    headers: {
+      Content-Type: application/json
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "name": "BTC",
+                "digits": 2,
+                "isFiat": 0
+            },
+            {
+                "name": "ETH",
+                "digits": 2,
+                "isFiat": 0
+            },
+            {
+                "name": "EUR",
+                "digits": 2,
+                "isFiat": 1
+            },
+            {
+                "name": "GBP",
+                "digits": 2,
+                "isFiat": 1
+            },
+            {
+                "name": "JPY",
+                "digits": 3,
+                "isFiat": 1
+            },
+            {
+                "name": "LTC",
+                "digits": 2,
+                "isFiat": 0
+            },
+            {
+                "name": "USD",
+                "digits": 2,
+                "isFiat": 1
+            },
+            {
+                "name": "USDT",
+                "digits": 2,
+                "isFiat": 0
+            },
+            {
+                "name": "XRP",
+                "digits": 2,
+                "isFiat": 0
+            }
+        ]
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 CTrader
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/currencies?connection_id=aqol66lk
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: aqol66lk
+    }
+  
+    headers: {
+      Content-Type: application/json
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+        
+            {
+        
+                "name": "USD",
+        
+                "digits": 2
+        
+            },
+        
+            {
+        
+                "name": "CHF",
+        
+                "digits": 2
+        
+            },
+        
+            {
+        
+                "name": "EUR",
+        
+                "digits": 2
+        
+            },
+        
+            {
+        
+                "name": "GBP",
+        
+                "digits": 2
+        
+            },
+        
+            {
+        
+                "name": "JPY",
+        
+                "digits": 0
+        
+            },
+        
+            {
+        
+                "name": "BTC",
+        
+                "digits": 8
+        
+            },
+        
+            {
+        
+                "name": "ETH",
+        
+                "digits": 8
+        
+            },
+        
+            {
+        
+                "name": "USDT",
+        
+                "digits": 8
+        
+            },
+        
+            {
+        
+                "name": "USC",
+        
+                "digits": 1
+        
+            },
+        
+            {
+        
+                "name": "EUR.I",
+        
+                "digits": 2
+        
+            }
+        
+        ]
+         
+      '''
+    }
+  }
+}

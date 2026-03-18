@@ -1,0 +1,55 @@
+meta {
+  name: Get IB Upgrade Request Status
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/requests/ib
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/ib
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "user_id": "twnpwxyh",
+            "created_at": "2025-11-13T07:07:16.969Z",
+            "created_by": "user",
+            "form_data": {
+                "email": "web01@mail.com",
+                "name": "Lin",
+                "nationality": "kn",
+                "phone": {
+                    "number": "13212312311",
+                    "country_code": "1"
+                },
+                "ux1c1da3ecbcx1415bx18": "2025-03-05"
+            },
+            "id": "xky3vn5s",
+            "ip": "171.213.158.76",
+            "status": "pending"
+        }
+      '''
+    }
+  }
+}

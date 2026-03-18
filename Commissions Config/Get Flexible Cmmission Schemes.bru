@@ -1,0 +1,70 @@
+meta {
+  name: Get Flexible Cmmission Schemes
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/commissions/rules
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/commissions/rules
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+            "name": "灵活返佣方案911",
+            "type": "profit_percent",
+            "unit": "lot",
+            "symbol_groups": [
+                "nsfx5z0v",
+                "y238nqgd"
+            ],
+            "groups": {
+                "mt4": {
+                    "bigc8liz": [
+                        "Sandbox4",
+                        "Sandbox5"
+                    ]
+                },
+                "mt5": {
+                    "2asdas1z": [
+                        "demo\\BBQANET",
+                        "demo\\BBQAHEDGE"
+                    ]
+                }
+            },
+            "order": 0,
+            "id": "kcbkbx9z",
+            "created_at": "2021-12-07T03:56:54.193Z",
+            "created_by": "3ajcp3ys",
+            "updated_at": "2025-11-07T07:20:37.218Z",
+            "updated_by": "rzdj166y",
+            "rebate_currency": "account_currency",
+            "mt5_close_by_scheme": "only_closed_by"
+        }
+        ]
+      '''
+    }
+  }
+}

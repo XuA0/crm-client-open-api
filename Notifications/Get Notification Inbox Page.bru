@@ -1,0 +1,312 @@
+meta {
+  name: Get Notification Inbox Page
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/private/api/v1/notify/inbox/page
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "skip": 0,
+      "limit": 10,
+      "isActive": true,
+      "level": "USER",
+      "type": "POP_UP",
+      "clientType": "user"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/inbox/page
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "isActive": true,
+          "level": "USER",
+          "type": "POP_UP",
+          "clientType": "user"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "contents": [
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762485457608,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762498688242,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "690d64d1d8143862addbadfe",
+                    "messageId": "690d64d1d8143862addbadfd",
+                    "subject": "出金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": true,
+                    "identify": "WEB_WITHDRAWAL_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762307329882,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762310279659,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "690aad01e7a5b334abea3e3d",
+                    "messageId": "690aad01e7a5b334abea3e3c",
+                    "subject": "入金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": true,
+                    "identify": "WEB_ADMIN_DEPOSIT_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762304512367,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762304512367,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "690aa200e7a5b334abea3e3a",
+                    "messageId": "690aa1ffe7a5b334abea3e39",
+                    "subject": "入金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": false,
+                    "identify": "WEB_ADMIN_DEPOSIT_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762250671044,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762250671044,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "6909cfafe7a5b334abea3e28",
+                    "messageId": "6909cfaee7a5b334abea3e27",
+                    "subject": "出金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": false,
+                    "identify": "WEB_WITHDRAWAL_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762247952213,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762247952213,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "6909c5109e7b7c6bc9a8afe1",
+                    "messageId": "6909c5109e7b7c6bc9a8afe0",
+                    "subject": "入金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": false,
+                    "identify": "WEB_ADMIN_DEPOSIT_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762245048591,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762245048591,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "6909b9b89e7b7c6bc9a8afde",
+                    "messageId": "6909b9b89e7b7c6bc9a8afdd",
+                    "subject": "出金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": false,
+                    "identify": "WEB_WITHDRAWAL_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1762242462950,
+                    "createUserId": "hmq796z6",
+                    "createUserName": null,
+                    "modifyTime": 1762243913672,
+                    "modifyUserId": "hmq796z6",
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "6909af9ec28e5d67461f99be",
+                    "messageId": "6909af9ec28e5d67461f99bd",
+                    "subject": "入金成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": true,
+                    "identify": "WEB_ADMIN_DEPOSIT_SUCCESS"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1761807617096,
+                    "createUserId": null,
+                    "createUserName": null,
+                    "modifyTime": 1761807683889,
+                    "modifyUserId": null,
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "69030d01ca1e7259a3097f9d",
+                    "messageId": "69030d01ca1e7259a3097f9c",
+                    "subject": "演示交易账号创建成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": true,
+                    "identify": "WEB_DEMO_TRADING_ACCOUNT_CREATED"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1761807527281,
+                    "createUserId": null,
+                    "createUserName": null,
+                    "modifyTime": 1761807593981,
+                    "modifyUserId": null,
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "69030ca7ca1e7259a3097f9a",
+                    "messageId": "69030ca7ca1e7259a3097f99",
+                    "subject": "演示交易账号创建成功",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": true,
+                    "identify": "WEB_DEMO_TRADING_ACCOUNT_CREATED"
+                },
+                {
+                    "appId": "testing",
+                    "execTime": null,
+                    "createTime": 1761722668668,
+                    "createUserId": null,
+                    "createUserName": null,
+                    "modifyTime": 1761722675602,
+                    "modifyUserId": null,
+                    "isEnable": true,
+                    "isDelete": false,
+                    "id": "6901c12cec4efd4282619ed0",
+                    "messageId": "6901c12cec4efd4282619ece",
+                    "subject": "开户审核已通过",
+                    "content": null,
+                    "from": null,
+                    "fromName": null,
+                    "to": null,
+                    "toUserId": "xrlv118e",
+                    "toName": null,
+                    "level": "TENANT",
+                    "type": "POP_UP",
+                    "read": true,
+                    "identify": "WEB_OPEN_ACCOUNT_PASSED"
+                }
+            ],
+            "count": 11
+        }
+      '''
+    }
+  }
+}

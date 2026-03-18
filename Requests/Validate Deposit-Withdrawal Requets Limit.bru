@@ -1,0 +1,54 @@
+meta {
+  name: Validate Deposit/Withdrawal Requets Limit
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/:type(deposit|withdrawal)/limit
+  body: none
+  auth: bearer
+}
+
+params:path {
+  type(deposit|withdrawal): 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 400
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/:type(deposit|withdrawal)/limit
+    method: POST
+    mode: none
+    params:path: {
+      type(deposit|withdrawal): 
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "error": true,
+            "code": 400,
+            "type": "pending_requests_limit",
+            "info": {
+                "limit": 1
+            },
+            "trace_id": "00004ee9c0",
+            "t": 1763017093642
+        }
+      '''
+    }
+  }
+}

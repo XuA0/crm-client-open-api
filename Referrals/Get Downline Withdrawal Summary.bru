@@ -1,0 +1,45 @@
+meta {
+  name: Get Downline Withdrawal Summary
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/reports/summary/withdrawal
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/reports/summary/withdrawal
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "direct": [
+                {
+                    "currency": "USD",
+                    "amount": 0.74
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

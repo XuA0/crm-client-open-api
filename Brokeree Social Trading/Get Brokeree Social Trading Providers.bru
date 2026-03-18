@@ -1,0 +1,1029 @@
+meta {
+  name: Get Brokeree Social Trading Providers
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/socialTrading/brokeree/providers
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/socialTrading/brokeree/providers
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": 26,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82960,
+                "serverId": 1,
+                "clientId": 25,
+                "accountId": 28,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "LyraFX",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 2,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-06-13T10:31:23",
+                "createdUtc": "2025-06-13T09:31:23.786223",
+                "updatedUtc": "2025-11-03T03:38:44.95077",
+                "externalAccount": 10043,
+                "externalName": "trader-reg1",
+                "equity": 9160.58,
+                "followers": {
+                    "count": 5,
+                    "equityUsd": 116396.49
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 29,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82967,
+                "serverId": 1,
+                "clientId": 55,
+                "accountId": 58,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "AlphaBoard",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 58,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-06-13T11:03:54",
+                "createdUtc": "2025-06-13T10:03:54.845814",
+                "updatedUtc": "2025-11-03T03:38:23.911522",
+                "externalAccount": 10054,
+                "externalName": "gtm-utm3",
+                "equity": 870,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 30,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82964,
+                "serverId": 1,
+                "clientId": 58,
+                "accountId": 61,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "FXGrid",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 61,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-06-17T08:12:04",
+                "createdUtc": "2025-06-17T07:12:04.816636",
+                "updatedUtc": "2025-11-03T03:37:48.347668",
+                "externalAccount": 10060,
+                "externalName": "text-custo1",
+                "equity": 5031.69,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 31,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82965,
+                "serverId": 1,
+                "clientId": 72,
+                "accountId": 75,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "SignalVault",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 75,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-06-18T07:19:09",
+                "createdUtc": "2025-06-18T06:19:09.712538",
+                "updatedUtc": "2025-11-03T03:37:35.227252",
+                "externalAccount": 10074,
+                "externalName": "ib-approv2",
+                "equity": 0,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 33,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82987,
+                "serverId": 1,
+                "clientId": 80,
+                "accountId": 83,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Halo Traders",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 83,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-01T14:56:53",
+                "createdUtc": "2025-07-01T13:56:53.719483",
+                "updatedUtc": "2025-11-03T03:35:48.69948",
+                "externalAccount": 10085,
+                "externalName": "amtest",
+                "equity": 0,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 34,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82984,
+                "serverId": 1,
+                "clientId": 71,
+                "accountId": 74,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "AeraFX",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 74,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-02T03:10:42",
+                "createdUtc": "2025-07-02T02:10:42.405274",
+                "updatedUtc": "2025-11-03T03:35:18.288581",
+                "externalAccount": 10072,
+                "externalName": "Test AM",
+                "equity": 0,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 35,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82985,
+                "serverId": 1,
+                "clientId": 82,
+                "accountId": 85,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Nexo Traders",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": false,
+                    "mode": "All"
+                },
+                "paymentAccountId": 4,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-04T08:28:12",
+                "createdUtc": "2025-07-04T07:28:12.06636",
+                "updatedUtc": "2025-11-03T03:34:53.449741",
+                "externalAccount": 10087,
+                "externalName": "nnn1",
+                "equity": 10214.79,
+                "followers": {
+                    "count": 3,
+                    "equityUsd": 1220205.79
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 36,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82990,
+                "serverId": 1,
+                "clientId": 84,
+                "accountId": 87,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Flow Leaders",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": false,
+                    "mode": "All"
+                },
+                "paymentAccountId": 87,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-04T10:03:31",
+                "createdUtc": "2025-07-04T09:03:31.925926",
+                "updatedUtc": "2025-11-03T03:33:53.065167",
+                "externalAccount": 10089,
+                "externalName": "nnn3",
+                "equity": 10110.37,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 10110.37
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 37,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82991,
+                "serverId": 1,
+                "clientId": 86,
+                "accountId": 89,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "SignalPros",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 89,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-04T10:32:45",
+                "createdUtc": "2025-07-04T09:32:45.022362",
+                "updatedUtc": "2025-11-03T03:33:23.017002",
+                "externalAccount": 10091,
+                "externalName": "nnn5",
+                "equity": 0,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 38,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82988,
+                "serverId": 1,
+                "clientId": 87,
+                "accountId": 90,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Pulse Traders",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 90,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-08T11:05:37",
+                "createdUtc": "2025-07-08T10:05:37.303597",
+                "updatedUtc": "2025-11-03T03:32:57.649096",
+                "externalAccount": 10067,
+                "externalName": "text-custo2",
+                "equity": 0,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 39,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82989,
+                "serverId": 1,
+                "clientId": 88,
+                "accountId": 92,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "CopyMasters",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 5,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-23T08:29:15",
+                "createdUtc": "2025-07-23T07:29:15.571506",
+                "updatedUtc": "2025-11-03T03:32:27.589387",
+                "externalAccount": 10041,
+                "externalName": "open-account-form6",
+                "equity": 10816,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 10011000
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 40,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82978,
+                "serverId": 1,
+                "clientId": 92,
+                "accountId": 96,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "ProSignals",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 7,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-25T03:28:18",
+                "createdUtc": "2025-07-25T02:28:18.708553",
+                "updatedUtc": "2025-11-03T03:31:58.344764",
+                "externalAccount": 10094,
+                "externalName": "ste-top",
+                "equity": 10932.86,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 8762.01
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 41,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82979,
+                "serverId": 1,
+                "clientId": 94,
+                "accountId": 98,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "TradeMakers",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": false,
+                    "mode": "All"
+                },
+                "paymentAccountId": 98,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-30T02:33:54",
+                "createdUtc": "2025-07-30T01:33:54.991759",
+                "updatedUtc": "2025-11-03T03:31:34.316604",
+                "externalAccount": 10096,
+                "externalName": "ste-ib-top",
+                "equity": 10817.21,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 8272.87
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 42,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82976,
+                "serverId": 1,
+                "clientId": 96,
+                "accountId": 100,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Alpha Leaders",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 9,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-30T03:08:14",
+                "createdUtc": "2025-07-30T02:08:14.558454",
+                "updatedUtc": "2025-11-03T03:31:04.969961",
+                "externalAccount": 10098,
+                "externalName": "ste-KH2",
+                "equity": 8784.64,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 7567.4
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 43,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82977,
+                "serverId": 1,
+                "clientId": 98,
+                "accountId": 102,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Strategy Providers",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 102,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-31T03:52:36",
+                "createdUtc": "2025-07-31T02:52:36.238674",
+                "updatedUtc": "2025-11-03T03:30:27.658807",
+                "externalAccount": 10100,
+                "externalName": "ste-luqapay",
+                "equity": 8873.4,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 7425.64
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 44,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82982,
+                "serverId": 1,
+                "clientId": 100,
+                "accountId": 104,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Signal Leaders",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 11,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-07-31T04:19:30",
+                "createdUtc": "2025-07-31T03:19:30.157978",
+                "updatedUtc": "2025-11-03T03:29:20.877291",
+                "externalAccount": 10102,
+                "externalName": "ste-demo-aml-1",
+                "equity": 6692.72,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 5430.63
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 45,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82983,
+                "serverId": 1,
+                "clientId": 103,
+                "accountId": 107,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Gold Master",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 107,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "Join Gold Master — a proven strategy built on precision trading and market momentum. Experience consistency, discipline, and long-term profitability.",
+                    "notes": "Designed for active traders who value stability and clear trade logic. Follows real-time market movements with adaptive risk control."
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-10-10T09:05:09",
+                "createdUtc": "2025-10-10T08:05:09.461264",
+                "updatedUtc": "2025-10-11T04:09:21.466847",
+                "externalAccount": 10108,
+                "externalName": "Addison Walker",
+                "equity": 506720,
+                "followers": {
+                    "count": 3,
+                    "equityUsd": 180973.3
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 46,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82980,
+                "serverId": 1,
+                "clientId": 104,
+                "accountId": 108,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "FX Mastery",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": false,
+                    "mode": "All"
+                },
+                "paymentAccountId": 12,
+                "paymentAccountType": "Internal",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "Precision FX trading that combines technical analysis and real-time market insights to maximize opportunities across major and minor currency pairs.",
+                    "notes": "FX Mastery focuses on momentum-driven strategies with disciplined risk management. Ideal for followers seeking high-frequency, actively managed forex exposure."
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-10-10T15:54:47",
+                "createdUtc": "2025-10-10T14:54:47.581032",
+                "updatedUtc": "2025-10-15T04:09:47.735894",
+                "externalAccount": 10109,
+                "externalName": "Addison Walker",
+                "equity": 335400.28,
+                "followers": {
+                    "count": 4,
+                    "equityUsd": 502022.73
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 47,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 82981,
+                "serverId": 1,
+                "clientId": 107,
+                "accountId": 111,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Silver Hawk",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": false,
+                    "mode": "All"
+                },
+                "paymentAccountId": 111,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "Focused metals trading strategy that targets silver and precious metals markets with precision and agility.",
+                    "notes": "Silver Hawk combines momentum-based trading with risk management to capture profitable swings in metals markets. Ideal for followers looking for high-performance, commodity-focused strategies."
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-10-11T05:26:12",
+                "createdUtc": "2025-10-11T04:26:12.88756",
+                "updatedUtc": "2025-10-11T04:27:04.183481",
+                "externalAccount": 10112,
+                "externalName": "Heidi Green",
+                "equity": 500000,
+                "followers": {
+                    "count": 2,
+                    "equityUsd": 130973.3
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 48,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 83002,
+                "serverId": 1,
+                "clientId": 108,
+                "accountId": 112,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Index Maverick",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": false,
+                    "mode": "All"
+                },
+                "paymentAccountId": 112,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "Specialized indices trading strategy targeting major global indices with precision and momentum-based execution.",
+                    "notes": "Index Maverick leverages market trends, technical signals, and disciplined risk management to capture opportunities across S&P 500, Nasdaq, DAX, and other major indices. Ideal for followers seeking diversified, high-liquidity exposure."
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-10-11T05:28:18",
+                "createdUtc": "2025-10-11T04:28:18.07839",
+                "updatedUtc": "2025-10-11T04:28:50.549753",
+                "externalAccount": 10113,
+                "externalName": "Heidi Green",
+                "equity": 500000,
+                "followers": {
+                    "count": 1,
+                    "equityUsd": 100000
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 49,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 83003,
+                "serverId": 1,
+                "clientId": 115,
+                "accountId": 119,
+                "configurationId": 2,
+                "visibility": "Public",
+                "nickname": "Jaime Byrd",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 119,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "",
+                    "notes": ""
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-10-17T10:01:26",
+                "createdUtc": "2025-10-17T09:01:26.82586",
+                "updatedUtc": "2025-10-17T09:01:26.82586",
+                "externalAccount": 10144,
+                "externalName": "Jaime Byrd",
+                "equity": 0,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            },
+            {
+                "id": 50,
+                "state": "Active",
+                "isActive": true,
+                "publicKey": 83000,
+                "serverId": 1,
+                "clientId": 116,
+                "accountId": 120,
+                "configurationId": 5,
+                "visibility": "Public",
+                "nickname": "CommodEdge",
+                "currency": "USD",
+                "strategy": {
+                    "hideStops": true,
+                    "mode": "All"
+                },
+                "paymentAccountId": 120,
+                "paymentAccountType": "External",
+                "additional": {
+                    "showAccountName": false,
+                    "summary": "CommodEdge is a trading provider specializing in commodities and related market instruments, offering strategy-driven insights and trade signals focused on capturing medium-term trends across energy, metals, and agricultural assets.",
+                    "notes": "CommodEdge blends technical momentum and macroeconomic trend analysis to identify high-probability trading opportunities in global commodity markets. The provider emphasizes disciplined position management, market timing, and cross-asset correlations — aiming to generate consistent returns while managing exposure through diversified commodity portfolios.\n\nTypical instruments include Gold, Oil (WTI/Brent), Natural Gas, and selected agricultural indices."
+                },
+                "public": {
+                    "avatarPath": ""
+                },
+                "sharedProfile": {
+                    "sharedKey": null
+                },
+                "registerTime": "2025-11-03T04:53:17",
+                "createdUtc": "2025-11-03T03:53:17.639998",
+                "updatedUtc": "2025-11-03T03:58:55.929213",
+                "externalAccount": 10147,
+                "externalName": "Heidi Green",
+                "equity": 500000,
+                "followers": {
+                    "count": 0,
+                    "equityUsd": 0
+                },
+                "refs": {
+                    "server": {
+                        "name": "MT5-Server"
+                    }
+                }
+            }
+        ]
+      '''
+    }
+  }
+}

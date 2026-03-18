@@ -1,0 +1,58 @@
+meta {
+  name: Bind MT5 Trading Account
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt5/accounts/bind
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "trading_id": 0,
+    "password": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 204
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts/bind
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "connection_id": "a4ovoup8",
+        "trading_id": 50184,
+        "password": "Abcd1234"
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: No Content
+      text: 204
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

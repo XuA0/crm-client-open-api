@@ -1,0 +1,70 @@
+meta {
+  name: Get MT5 Accounts
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/mt5/accounts
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/mt5/accounts
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": u2owmos2
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 10049,
+                    "currency": "USD",
+                    "balance": 4584.38,
+                    "credit": 0,
+                    "available_withdrawal": 4584.38,
+                    "balance_previous_month": 4887.96,
+                    "balance_previous_day": 4584.38,
+                    "equity": 4584.38,
+                    "margin_free": 4584.38,
+                    "profit": 0,
+                    "leverage": 100,
+                    "enable": true,
+                    "created_at": "2025-06-09T09:06:56.000Z",
+                    "last_active": "2025-11-13T04:13:02.000Z",
+                    "connection_id": "8ddsbygi",
+                    "server_name": "MT5-QA New",
+                    "user_id": "u2owmos2",
+                    "allow_crm_deposit": true,
+                    "allow_crm_withdrawal": true,
+                    "allow_crm_transfer": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

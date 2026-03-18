@@ -1,0 +1,67 @@
+meta {
+  name: Get User's Available Transfer Recipient
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/users/transfer/recipients/dropdown
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "name": "",
+    "skip": 0,
+    "limit": 10
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/transfer/recipients/dropdown
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "name": "",
+        "skip": 0,
+        "limit": 10
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "data": [
+                {
+                    "_id": "629705a33e6eb2a47eba92cd",
+                    "id": "1icpgr61",
+                    "name": "sales"
+                },
+                {
+                    "_id": "63a555691b0c9b46257de20e",
+                    "id": "pe4pm8mh",
+                    "name": "q-app1"
+                }
+            ],
+            "count": 2
+        }
+      '''
+    }
+  }
+}

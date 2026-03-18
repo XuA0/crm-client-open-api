@@ -1,0 +1,19 @@
+meta {
+  name: Trigger User's First Deposit Tagging
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/user/firstDepositEventTrigger
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}

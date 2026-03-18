@@ -1,0 +1,117 @@
+meta {
+  name: Get User's Field Display Config
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/field/config?type=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/field/config?type=mine-report-comprehensive-account-MT4
+    method: GET
+    mode: none
+    params:query: {
+      type: mine-report-comprehensive-account-MT4
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "type": "mine-report-comprehensive-account-MT4",
+            "fields": [
+                {
+                    "field": "name",
+                    "display": "姓名",
+                    "enable": true
+                },
+                {
+                    "field": "login",
+                    "display": "账号ID",
+                    "enable": true
+                },
+                {
+                    "field": "currency",
+                    "display": "货币单位",
+                    "enable": true
+                },
+                {
+                    "field": "withdrawal_total",
+                    "display": "出金",
+                    "enable": true
+                },
+                {
+                    "field": "deposit_total",
+                    "display": "入金",
+                    "enable": true
+                },
+                {
+                    "field": "commission",
+                    "display": "手续费",
+                    "enable": true
+                },
+                {
+                    "field": "swaps",
+                    "display": "利息",
+                    "enable": true
+                },
+                {
+                    "field": "order_num",
+                    "display": "订单数合计",
+                    "enable": true
+                },
+                {
+                    "field": "open_volume",
+                    "display": "开仓手数",
+                    "enable": true
+                },
+                {
+                    "field": "close_volume",
+                    "display": "平仓手数",
+                    "enable": true
+                },
+                {
+                    "field": "first_deposit_time",
+                    "display": "首次入金时间",
+                    "enable": true
+                },
+                {
+                    "field": "first_open_time",
+                    "display": "账户创建时间",
+                    "enable": true
+                },
+                {
+                    "field": "statistics_account_profit_mine",
+                    "display": "盈亏",
+                    "enable": true
+                }
+            ],
+            "id": "73x4qx9c",
+            "app_id": "xxxx",
+            "user_id": "xxxx"
+        }
+      '''
+    }
+  }
+}

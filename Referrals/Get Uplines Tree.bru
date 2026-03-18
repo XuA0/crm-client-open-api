@@ -1,0 +1,85 @@
+meta {
+  name: Get Uplines Tree
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/referrals/uplines/tree
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "trading_id": "",
+    "platform": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/referrals/uplines/tree
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "platform": "mt4",
+          "connection_id": "u5mzgkch",
+          "trading_id": "8288973"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "pgopcq9l",
+            "type": "trader",
+            "created_at": "2022-12-09T10:47:21.186Z",
+            "updated_at": "2022-12-09T10:47:21.186Z",
+            "created_by": "3ajcp3ys",
+            "updated_by": "3ajcp3ys",
+            "rank_id": "rd3ktdmy",
+            "uplines": [
+                {
+                    "id": "d2a0tvnp",
+                    "type": "ib",
+                    "created_at": "2022-12-09T10:32:47.980Z",
+                    "updated_at": "2022-12-09T10:32:47.980Z",
+                    "created_by": "rzdj166y",
+                    "updated_by": "rzdj166y",
+                    "rank_id": "rd3ktdmy",
+                    "height": 0,
+                    "trading_accounts": [
+                        100705
+                    ],
+                    "name": "open-account-form9"
+                }
+            ],
+            "trading_accounts": [
+                40185,
+                50072,
+                100706,
+                100947
+            ],
+            "height": 2,
+            "name": "open-account-form10"
+        }
+      '''
+    }
+  }
+}

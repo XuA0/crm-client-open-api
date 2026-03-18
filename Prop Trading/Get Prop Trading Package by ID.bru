@@ -1,0 +1,467 @@
+meta {
+  name: Get Prop Trading Package by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/package/:package_id?configuration=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  configuration: 
+}
+
+params:path {
+  package_id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/package/:package_id
+    method: GET
+    mode: none
+    params:path: {
+      package_id: gvg6dp10
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "_id": "67db7430bcbb904c76ae155e",
+            "app_id": "kyc",
+            "created_timestamp": 1742435376910,
+            "updated_timestamp": 1762930626906,
+            "id": "gvg6dp10",
+            "is_deleted": false,
+            "publish_status": "published",
+            "status": "pending",
+            "position": -20,
+            "groups": [
+                "all"
+            ],
+            "form": {
+                "account_type": {
+                    "label": {
+                        "en-us": "Account Type",
+                        "zh-cn": "账号类型"
+                    },
+                    "display": true
+                },
+                "balance": {
+                    "label": {
+                        "en-us": "Initial Balance Amount",
+                        "zh-cn": "初始余额"
+                    },
+                    "display": true
+                },
+                "leverage": {
+                    "label": {
+                        "en-us": "Challenge Leverage",
+                        "zh-cn": "挑战杠杆"
+                    },
+                    "display": true
+                },
+                "trading_period": {
+                    "label": {
+                        "en-us": "Trading Period",
+                        "zh-cn": "交易期限"
+                    },
+                    "display": true
+                },
+                "minimum_trading_days": {
+                    "label": {
+                        "en-us": "Minimum Trading Days",
+                        "zh-cn": "最小交易天数"
+                    },
+                    "display": true
+                },
+                "minimum_trading_volumes": {
+                    "label": {
+                        "en-us": "Minimum Trading Volumes",
+                        "zh-cn": "最小交易手数"
+                    },
+                    "display": true
+                },
+                "profit_days": {
+                    "label": {
+                        "en-us": "Profitable Days",
+                        "zh-cn": "盈利天数"
+                    },
+                    "display": true
+                },
+                "max_close_loss_percent": {
+                    "label": {
+                        "en-us": "Maximum Loss Per Close",
+                        "zh-cn": "最大单笔平仓亏损"
+                    },
+                    "display": true
+                },
+                "max_daily_loss_percent": {
+                    "label": {
+                        "en-us": "Maximum Daily Loss",
+                        "zh-cn": "最大单日损失"
+                    },
+                    "display": true
+                },
+                "max_loss_percent": {
+                    "label": {
+                        "en-us": "Maximum Loss",
+                        "zh-cn": "最大损失"
+                    },
+                    "display": true
+                },
+                "profit_target_percent": {
+                    "label": {
+                        "en-us": "Profit Target",
+                        "zh-cn": "盈利目标"
+                    },
+                    "display": true
+                },
+                "free_repeat": {
+                    "label": {
+                        "en-us": "Retry Current Stage",
+                        "zh-cn": "重试当前阶段"
+                    },
+                    "display": true
+                },
+                "pay_repeat": {
+                    "label": {
+                        "en-us": "Retry Cost",
+                        "zh-cn": "重试成本"
+                    },
+                    "display": true
+                },
+                "max_retry_count": {
+                    "label": {
+                        "en-us": "Maximum Retry Count",
+                        "zh-cn": "最大重试次数"
+                    },
+                    "display": true
+                },
+                "fee": {
+                    "label": {
+                        "en-us": "Fee",
+                        "zh-cn": "费用"
+                    },
+                    "display": true
+                }
+            },
+            "challenge_active_type": "auto",
+            "challenge_type_id": "pzwg57dz",
+            "currency": "USD",
+            "display_card_rule": "first_stage",
+            "fee_refundable": true,
+            "immediately_upgrade": true,
+            "max_daily_loss_calculate_rule": [
+                "daily",
+                "dynamic"
+            ],
+            "name": {
+                "en-us": "惊喜套餐",
+                "zh-cn": "惊喜套餐"
+            },
+            "payment_method": [
+                "balance_deduct"
+            ],
+            "profit_sharing_method": "auto",
+            "profit_sharing_user_type": "all",
+            "profit_target_logic": "only_closed_orders",
+            "prop_trading_id": "gsgru2y4",
+            "publish_timestamp": 1762930626906,
+            "rebate_rules": [
+                {
+                    "model": "rank",
+                    "rank_id": "w4lalfzw",
+                    "include_participants": false,
+                    "type": "fixed",
+                    "rank_calculate": {
+                        "type": "realtime"
+                    },
+                    "id": "6d3ed3f0e4a3-4a4d-9da1-5e2a4a798e09",
+                    "structure": [
+                        {
+                            "height": 1,
+                            "value": 10
+                        },
+                        {
+                            "height": 2,
+                            "value": 10
+                        },
+                        {
+                            "height": 3,
+                            "value": 10
+                        },
+                        {
+                            "height": 4,
+                            "value": 10
+                        },
+                        {
+                            "height": 5,
+                            "value": 10
+                        }
+                    ],
+                    "overriding": {
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "bonus": {
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "model": "rank",
+                    "rank_id": "bmxmji0h",
+                    "include_participants": true,
+                    "type": "profit_percent",
+                    "rank_calculate": {
+                        "day": "23",
+                        "hour": "08:00:00",
+                        "type": "monthly"
+                    },
+                    "created_timestamp": 1756952431955,
+                    "id": "3dc4e09e137e-4797-bfc2-039da311bf6c",
+                    "structure": [
+                        {
+                            "height": 1,
+                            "value": 1
+                        },
+                        {
+                            "height": 2,
+                            "value": 1
+                        },
+                        {
+                            "height": 3,
+                            "value": 1
+                        },
+                        {
+                            "height": 4,
+                            "value": 1
+                        },
+                        {
+                            "height": 5,
+                            "value": 1
+                        }
+                    ],
+                    "overriding": {
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    },
+                    "bonus": {
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            }
+                        ]
+                    }
+                },
+                {
+                    "model": "level",
+                    "rank_id": "uoe4px81",
+                    "include_participants": false,
+                    "type": "payment_percent",
+                    "structure": [
+                        {
+                            "height": 1,
+                            "value": 2
+                        },
+                        {
+                            "height": 2,
+                            "value": 4
+                        }
+                    ],
+                    "id": "a367ba45e8eb-41c0-ad5c-79dadf100804",
+                    "overriding": {
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            },
+                            {
+                                "height": 6
+                            },
+                            {
+                                "height": 7
+                            }
+                        ]
+                    },
+                    "bonus": {
+                        "structure": [
+                            {
+                                "height": 1
+                            },
+                            {
+                                "height": 2
+                            },
+                            {
+                                "height": 3
+                            },
+                            {
+                                "height": 4
+                            },
+                            {
+                                "height": 5
+                            },
+                            {
+                                "height": 6
+                            },
+                            {
+                                "height": 7
+                            }
+                        ]
+                    }
+                }
+            ],
+            "steps": [
+                {
+                    "step": 1,
+                    "name": {
+                        "en-us": "Step 1",
+                        "zh-cn": "Step 1"
+                    },
+                    "profit_sharing": {
+                        "structure": [
+                            {
+                                "height": 1,
+                                "value": 1
+                            }
+                        ],
+                        "calculate_time": {
+                            "type": "fixed_interval",
+                            "value": 1
+                        },
+                        "condition": {
+                            "trading_days_logic": "and",
+                            "trading_days_and_profit_logic": "or",
+                            "max_daily_profit_percent": 100
+                        }
+                    },
+                    "account_type": "live",
+                    "balance": 100,
+                    "connection_id": "bigc8liz",
+                    "platform": "mt4",
+                    "group": "Sandbox4",
+                    "leverage": 1,
+                    "trading_period": -1,
+                    "minimum_trading_days": 1,
+                    "minimum_trading_volumes": 1,
+                    "profit_days_percent": 1,
+                    "profit_days": 1,
+                    "max_daily_loss_percent": 1,
+                    "max_loss_percent": 1,
+                    "profit_target_percent": 1,
+                    "free_repeat": false,
+                    "fee": {
+                        "amount": 1000,
+                        "currency": "USD"
+                    },
+                    "max_daily_loss": 1,
+                    "max_loss": 1,
+                    "profit_target": 1,
+                    "profit_days_percent_value": 1
+                }
+            ],
+            "challenge_type": {
+                "en-us": "简单",
+                "zh-cn": "简单"
+            },
+            "prop_trading": {
+                "_id": "68a3e2956bc9849ad75cb2b0",
+                "app_id": "kyc",
+                "id": "gsgru2y4",
+                "time_zone": 8,
+                "start_time": 1743350400000,
+                "created_timestamp": 1755570837412,
+                "is_deleted": false,
+                "next_calculate_time": 1763049600000,
+                "time_interval": 86400000
+            }
+        }
+      '''
+    }
+  }
+}

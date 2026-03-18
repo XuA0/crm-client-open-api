@@ -1,0 +1,25 @@
+meta {
+  name: Delete Bank Card
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

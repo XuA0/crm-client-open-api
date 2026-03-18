@@ -1,0 +1,43 @@
+meta {
+  name: Get Commission Overall Config
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/commissions/settings
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/commissions/settings
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "sync": true,
+            "close_interval": 0,
+            "channel": "WALLET",
+            "mode": "DAILY"
+        }
+      '''
+    }
+  }
+}

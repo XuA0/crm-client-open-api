@@ -1,0 +1,65 @@
+meta {
+  name: Get Deposit or Withdrawal Dynamic Form
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form?type=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form?type=deposit&ref_id=74j0o361
+    method: GET
+    mode: none
+    params:query: {
+      type: deposit
+      ref_id: 74j0o361
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "6wkuopx8",
+            "type": "deposit",
+            "ref_id": "74j0o361",
+            "fields": [
+                {
+                    "key": "qaxnrgwp",
+                    "label": {
+                        "en-us": "A",
+                        "zh-cn": "A"
+                    },
+                    "type": "text",
+                    "required": true,
+                    "disabled": false,
+                    "top": false,
+                    "max": 100,
+                    "min": 0
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

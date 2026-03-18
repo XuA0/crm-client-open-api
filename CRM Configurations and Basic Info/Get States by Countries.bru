@@ -1,0 +1,162 @@
+meta {
+  name: Get States by Countries
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/configuration/states?country_code=
+  body: none
+  auth: inherit
+}
+
+params:query {
+  country_code: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/configuration/states?country_code=
+    method: GET
+    mode: none
+    params:query: {
+      country_code: 
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "621d88d84cb8df6c575b63ba",
+                "name": "Mafeteng District",
+                "isoCode": "e",
+                "countryCode": "ls",
+                "latitude": "-29.8041008",
+                "longitude": "27.5026174",
+                "translation": {
+                    "en-us": "Mafeteng District",
+                    "zh-cn": "馬費滕區"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63bb",
+                "name": "Mohale's Hoek District",
+                "isoCode": "f",
+                "countryCode": "ls",
+                "latitude": "-30.1425917",
+                "longitude": "27.4673845",
+                "translation": {
+                    "en-us": "Mohale's Hoek District",
+                    "zh-cn": "莫哈莱斯胡克区"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63bc",
+                "name": "Mokhotlong District",
+                "isoCode": "j",
+                "countryCode": "ls",
+                "latitude": "-29.2573193",
+                "longitude": "28.9528645",
+                "translation": {
+                    "en-us": "Mokhotlong District",
+                    "zh-cn": "莫霍特隆區"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63bd",
+                "name": "Qacha's Nek District",
+                "isoCode": "h",
+                "countryCode": "ls",
+                "latitude": "-30.1114565",
+                "longitude": "28.678979",
+                "translation": {
+                    "en-us": "Qacha's Nek District",
+                    "zh-cn": "加查斯内克区"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63be",
+                "name": "Leribe District",
+                "isoCode": "c",
+                "countryCode": "ls",
+                "latitude": "-28.8638065",
+                "longitude": "28.0478826",
+                "translation": {
+                    "en-us": "Leribe District",
+                    "zh-cn": "萊里貝區"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63bf",
+                "name": "Quthing District",
+                "isoCode": "g",
+                "countryCode": "ls",
+                "latitude": "-30.4015687",
+                "longitude": "27.7080133",
+                "translation": {
+                    "en-us": "Quthing District",
+                    "zh-cn": "古廷區"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63c0",
+                "name": "Maseru District",
+                "isoCode": "a",
+                "countryCode": "ls",
+                "latitude": "-29.516565",
+                "longitude": "27.8311428",
+                "translation": {
+                    "en-us": "Maseru District",
+                    "zh-cn": "馬塞盧區"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63c1",
+                "name": "Butha-Buthe District",
+                "isoCode": "b",
+                "countryCode": "ls",
+                "latitude": "-28.7653754",
+                "longitude": "28.2468148",
+                "translation": {
+                    "en-us": "Butha-Buthe District",
+                    "zh-cn": "布塔布泰区"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63c2",
+                "name": "Berea District",
+                "isoCode": "d",
+                "countryCode": "ls",
+                "latitude": "41.3661614",
+                "longitude": "-81.8543026",
+                "translation": {
+                    "en-us": "Berea District",
+                    "zh-cn": "伯里亞區"
+                }
+            },
+            {
+                "_id": "621d88d84cb8df6c575b63c3",
+                "name": "Thaba-Tseka District",
+                "isoCode": "k",
+                "countryCode": "ls",
+                "latitude": "-29.5238975",
+                "longitude": "28.6089752",
+                "translation": {
+                    "en-us": "Thaba-Tseka District",
+                    "zh-cn": "塔巴采卡区"
+                }
+            }
+        ]
+      '''
+    }
+  }
+}

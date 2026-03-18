@@ -1,0 +1,52 @@
+meta {
+  name: Dashboard
+  seq: 10
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  #### Example Work Flow
+  
+  **My Funds**
+  
+  1. Get Wallet
+      
+  
+  <img src="https://content.pstmn.io/76dd56dd-6916-4876-b41f-683dcf151057/aW1hZ2UucG5n" width="529" height="279">
+  
+  2\. Get MT4 Trading Accounts
+  
+  <img src="https://content.pstmn.io/280fc5f6-dc93-45de-b26f-78728b64e952/aW1hZ2UucG5n" width="721" height="279">
+  
+  3\. Get MT5 Trading Accounts
+  
+  <img src="https://content.pstmn.io/ed916b41-1295-4210-a1dd-030dd3255789/aW1hZ2UucG5n" width="692" height="266">
+  
+  4\. Get CTrader/Fortex/Sirix Trading Accounts
+  
+  <img src="https://content.pstmn.io/87a4276a-9a98-47c5-a005-9461559042b2/aW1hZ2UucG5n" width="795" height="284">
+  
+  ```
+  Calculation Logic:
+  Retrieve the wallet list and trading platform account list.
+  Filter both lists by the selected currency.
+  Exclude trading platform accounts where:
+  demo = true, or prop_trading = true.
+  Sum all eligible account balances and add the wallet’s available balance.
+  Formula:
+  total_balance = wallet.available_balance + Σ(account.balance)
+  
+   ```
+  
+  **Graph data**
+  
+  <img src="https://content.pstmn.io/00f017ac-3ca7-4df3-8993-8179a27c762c/aW1hZ2UucG5n" width="693" height="332">
+  
+  **Relerral statistics**_  
+  Number of Referrals = response.accounts.direct + response.accounts.indirect
+  
+  <img src="https://content.pstmn.io/7b5e6d70-08a3-41aa-bf1a-f5ae868f0b0d/aW1hZ2UucG5n" width="664" height="368">
+}

@@ -1,0 +1,45 @@
+meta {
+  name: Get MatchTrader Accounts
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/mtr/accounts
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/mtr/accounts
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": u2owmos2
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {"accounts":[]}
+      '''
+    }
+  }
+}

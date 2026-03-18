@@ -1,0 +1,72 @@
+meta {
+  name: Get PayPal Setting
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/paypal/setting/:id([a-z0-9]{8})
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id([a-z0-9]{8}): 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/paypal/setting/:id([a-z0-9]{8})
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": ymtqrlcl
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "label": {
+                "zh-cn": "s-paypal-0919",
+                "en-us": "paypal0919",
+                "tr": "jjjjj",
+                "pt": "ttttttttt",
+                "zh-tw": "gre",
+                "ja": "gh",
+                "vi": "hhhh",
+                "th": "hjj",
+                "id": "ee",
+                "es": "oooo",
+                "de": "grrr"
+            },
+            "access_key": "ARquWmFzU5NVjVDR1haB7243hGETGLUDdQQi-WGjYEdLB7WrjrqiDXng6VaM2xS10yA15lNsr0_Fxqsv",
+            "access_secret": "**********",
+            "currencies": [
+                "CNY",
+                "EUR",
+                "USD"
+            ],
+            "name": "paypal0919",
+            "id": "ymtqrlcl",
+            "created_at": "2022-09-19 01:21:27",
+            "updated_at": "2022-09-19 01:21:27",
+            "is_delete": false,
+            "callback": "https://d-c-api.c64f.com/pay/paypal/callback"
+        }
+      '''
+    }
+  }
+}

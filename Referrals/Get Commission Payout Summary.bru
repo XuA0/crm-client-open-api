@@ -1,0 +1,130 @@
+meta {
+  name: Get Commission Payout Summary
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/summary/payout?start=2025-10-01 00:00:00&end=2025-11-01 00:00:00
+  body: none
+  auth: bearer
+}
+
+params:query {
+  start: 2025-10-01 00:00:00
+  end: 2025-11-01 00:00:00
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/summary/payout?start=2025/11/19&end=2025/11/19
+    method: GET
+    mode: none
+    params:query: {
+      start: 2025/11/19
+      end: 2025/11/19
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Fri, 31 Oct 2025 08:34:36 GMT
+      Content-Type: application/json; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"165-bAh/6F0IPqu36aydLY4dBItB75s"
+      x-envoy-upstream-service-time: 325
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=cCNZpY6Gg4PsZSTLhHOmbYsR5xoQjLvUYx08mmSFgFe2ceiHFY4KYDYXIxzNTsyA7rUHWbLNySLZy6p88z4rdDXudTfSePI789iW72s2TNM%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9971d068eaed38fe-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "payouts": [
+                {
+                    "currency": "BTC",
+                    "amount": 0
+                },
+                {
+                    "currency": "CHF",
+                    "amount": 0
+                },
+                {
+                    "currency": "ETH",
+                    "amount": 0
+                },
+                {
+                    "currency": "EUR",
+                    "amount": 0
+                },
+                {
+                    "currency": "EUR.I",
+                    "amount": 0
+                },
+                {
+                    "currency": "GBP",
+                    "amount": 0
+                },
+                {
+                    "currency": "JPY",
+                    "amount": 0
+                },
+                {
+                    "currency": "USC",
+                    "amount": 0
+                },
+                {
+                    "currency": "USD",
+                    "amount": 0
+                },
+                {
+                    "currency": "USDT",
+                    "amount": 0
+                }
+            ],
+            "cache": true,
+            "day": "2025-10-31 00:00:00"
+        }
+      '''
+    }
+  }
+}

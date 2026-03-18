@@ -1,0 +1,63 @@
+meta {
+  name: Get Withdrawal Exchange Rate
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/withdrawals/rate?payment_currency=&trading_currency=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  payment_currency: 
+  trading_currency: 
+  user_id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/rate?withdrawal_currency=Bitcoin Test&trading_currency=USD
+    method: GET
+    mode: none
+    params:query: {
+      withdrawal_currency: Bitcoin Test
+      trading_currency: USD
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "trading_currency": "USD",
+            "withdrawal_currency": "Bitcoin Test",
+            "id": "yc9oytrk",
+            "hide_amount_info": false,
+            "hide_rate": false,
+            "groups": [
+                "others"
+            ],
+            "type": "auto",
+            "source": "exchange_rate_host",
+            "native_source_currency": "USD",
+            "native_target_currency": "BTC",
+            "markup": "0",
+            "rate": 0.000038
+        }
+      '''
+    }
+  }
+}

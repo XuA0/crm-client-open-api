@@ -1,0 +1,345 @@
+meta {
+  name: Get Referral Links
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/referrals/links/user
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/referrals/links/user
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "au0o83a0",
+                "type": "ib_to_ib",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "en-us": "代理发展代理23",
+                    "zh-cn": "代理发展代理23",
+                    "zh-tw": "代理发展代理23",
+                    "vi": "代理发展代理23",
+                    "id": "代理发展代理23",
+                    "th": "代理发展代理23",
+                    "ja": "代理发展代理23",
+                    "de": "代理发展代理23",
+                    "pt": "代理发展代理23",
+                    "tr": "代理发展代理23",
+                    "es": "代理发展代理23",
+                    "ko": "代理发展代理23"
+                },
+                "user_group": "49g6ijbk",
+                "owner_id": "same_to_upline",
+                "participants": [
+                    "hckt17zi",
+                    "cmxlywbt",
+                    "same_to_upline"
+                ],
+                "referrer_groups": [
+                    "cb22e7mc",
+                    "9ir2id0m",
+                    "49g6ijbk"
+                ],
+                "created_at": "2022-05-12T05:56:51.299Z",
+                "created_by": "zsunmz3p",
+                "updated_at": "2022-07-20T03:27:42.290Z",
+                "updated_by": "3ajcp3ys",
+                "referrers": [
+                    "1ifsvhb4"
+                ],
+                "url": "https://crm-user-testing.c64f.com/register/ib/personalInfo?link_id=au0o83a0&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "boa8k8br",
+                "type": "ib_to_trader",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "en-us": "注册归属人测试-1",
+                    "zh-cn": "注册归属人测试-1",
+                    "zh-tw": "注册归属人测试-1",
+                    "vi": "注册归属人测试-1",
+                    "id": "注册归属人测试-1",
+                    "th": "注册归属人测试-1",
+                    "ja": "注册归属人测试-1",
+                    "de": "注册归属人测试-1",
+                    "pt": "注册归属人测试-1",
+                    "tr": "注册归属人测试-1",
+                    "es": "注册归属人测试-1",
+                    "ko": "注册归属人测试-1"
+                },
+                "referrers": [
+                    "all"
+                ],
+                "user_group": "mbllvuql",
+                "owner_id": "3ajcp3ys",
+                "participants": [
+                    "il4oi1sb"
+                ],
+                "referrer_groups": [
+                    "all_groups",
+                    "h3e8rlg7",
+                    "cb22e7mc"
+                ],
+                "created_at": "2022-05-16T08:08:35.600Z",
+                "created_by": "il4oi1sb",
+                "updated_at": "2022-06-30T06:26:16.687Z",
+                "updated_by": "rzdj166y",
+                "url": "https://crm-user-testing.c64f.com/register/trader?link_id=boa8k8br&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "wgm2a42z",
+                "type": "ib_to_trader",
+                "origin": "https://crm-user-testing1.c64f.com",
+                "name": {
+                    "en-us": "域名1-代理发展直客",
+                    "zh-cn": "域名1-代理发展直客",
+                    "zh-tw": "域名1-代理发展直客",
+                    "vi": "域名1-代理发展直客",
+                    "id": "域名1-代理发展直客",
+                    "th": "域名1-代理发展直客",
+                    "ja": "域名1-代理发展直客",
+                    "de": "域名1-代理发展直客",
+                    "pt": "域名1-代理发展直客",
+                    "tr": "域名1-代理发展直客",
+                    "es": "域名1-代理发展直客",
+                    "ko": "域名1-代理发展直客"
+                },
+                "referrers": [
+                    "all"
+                ],
+                "user_group": "mbllvuql",
+                "trading_group": "",
+                "owner_id": "",
+                "participants": [],
+                "referrer_groups": [],
+                "remove_referrers": [],
+                "remove_referrer_groups": [],
+                "created_at": "2022-05-25T10:20:33.608Z",
+                "created_by": "3ajcp3ys",
+                "url": "https://crm-user-testing1.c64f.com/register/trader?link_id=wgm2a42z&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "g8sapq77",
+                "type": "ib_to_trader",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "en-us": "ste-1023-代直",
+                    "zh-cn": "ste-1023-代直",
+                    "zh-tw": "ste-1023-代直",
+                    "vi": "ste-1023-代直",
+                    "id": "ste-1023-代直",
+                    "th": "ste-1023-代直",
+                    "ja": "ste-1023-代直",
+                    "de": "ste-1023-代直",
+                    "pt": "ste-1023-代直",
+                    "tr": "ste-1023-代直",
+                    "es": "ste-1023-代直",
+                    "ko": "ste-1023-代直"
+                },
+                "referrers": [
+                    "all"
+                ],
+                "user_group": "9ir2id0m",
+                "connection_id": "bigc8liz",
+                "trading_platform": "mt4",
+                "trading_group": "Sandbox4",
+                "owner_id": "",
+                "participants": [],
+                "referrer_groups": [],
+                "remove_referrers": [],
+                "remove_referrer_groups": [],
+                "created_at": "2022-10-23T04:58:13.196Z",
+                "created_by": "il4oi1sb",
+                "url": "https://crm-user-testing.c64f.com/register/trader?link_id=g8sapq77&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "9l84p6x7",
+                "type": "ib_to_ib",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "en-us": "ste-代理发展代理-1023",
+                    "zh-cn": "ste-代理发展代理-1023",
+                    "zh-tw": "ste-代理发展代理-1023",
+                    "vi": "ste-代理发展代理-1023",
+                    "id": "ste-代理发展代理-1023",
+                    "th": "ste-代理发展代理-1023",
+                    "ja": "ste-代理发展代理-1023",
+                    "de": "ste-代理发展代理-1023",
+                    "pt": "ste-代理发展代理-1023",
+                    "tr": "ste-代理发展代理-1023",
+                    "es": "ste-代理发展代理-1023",
+                    "ko": "ste-代理发展代理-1023"
+                },
+                "referrers": [
+                    "all"
+                ],
+                "user_group": "9ir2id0m",
+                "owner_id": "",
+                "participants": [],
+                "referrer_groups": [],
+                "remove_referrers": [],
+                "remove_referrer_groups": [],
+                "created_at": "2022-10-23T05:03:26.769Z",
+                "created_by": "il4oi1sb",
+                "url": "https://crm-user-testing.c64f.com/register/ib/personalInfo?link_id=9l84p6x7&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "rx3ubp0b",
+                "type": "ib_to_trader",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "en-us": "ste-mt5 mongo",
+                    "zh-cn": "ste-mt5 mongo",
+                    "zh-tw": "ste-mt5 mongo",
+                    "vi": "ste-mt5 mongo",
+                    "id": "ste-mt5 mongo",
+                    "th": "ste-mt5 mongo",
+                    "ja": "ste-mt5 mongo",
+                    "de": "ste-mt5 mongo",
+                    "pt": "ste-mt5 mongo",
+                    "tr": "ste-mt5 mongo",
+                    "es": "ste-mt5 mongo",
+                    "ko": "ste-mt5 mongo"
+                },
+                "referrers": [
+                    "all"
+                ],
+                "user_group": "9ir2id0m",
+                "connection_id": "4asdas2z",
+                "trading_platform": "mt5",
+                "trading_group": "demo\\BBQANET",
+                "owner_id": "",
+                "participants": [],
+                "referrer_groups": [
+                    "9ir2id0m",
+                    "49g6ijbk"
+                ],
+                "remove_referrers": [],
+                "remove_referrer_groups": [],
+                "created_at": "2022-11-11T06:12:49.712Z",
+                "created_by": "il4oi1sb",
+                "url": "https://crm-user-testing.c64f.com/register/trader?link_id=rx3ubp0b&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "oid0jt3a",
+                "type": "ib_to_trader",
+                "origin": "http://localhost:8080",
+                "name": {
+                    "en-us": "ctrader",
+                    "zh-cn": "ctrader",
+                    "zh-tw": "ctrader",
+                    "vi": "ctrader",
+                    "id": "ctrader",
+                    "th": "ctrader",
+                    "ja": "ctrader",
+                    "de": "ctrader",
+                    "pt": "ctrader",
+                    "tr": "ctrader",
+                    "es": "ctrader",
+                    "ko": "ctrader"
+                },
+                "referrers": [
+                    "all"
+                ],
+                "user_group": "h3e8rlg7",
+                "connection_id": "8231bsds",
+                "trading_platform": "ctrader",
+                "trading_group": "Default",
+                "owner_id": "",
+                "participants": [],
+                "referrer_groups": [],
+                "remove_referrers": [],
+                "remove_referrer_groups": [],
+                "created_at": "2023-03-28T03:30:19.049Z",
+                "created_by": "rzdj166y",
+                "url": "http://localhost:8080/register/trader?link_id=oid0jt3a&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "gwux8k82",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "zh-cn": "测试待删",
+                    "en-us": "测试待删",
+                    "zh-tw": "测试待删",
+                    "tr": "测试待删",
+                    "ko": "测试待删",
+                    "vi": "测试待删",
+                    "ja": "测试待删"
+                },
+                "user_group": "cb22e7mc",
+                "connection_id": "74mdksjs",
+                "trading_platform": "mtr",
+                "trading_group": "Sandbox5",
+                "type": "ib_to_trader",
+                "referrers": [
+                    "all"
+                ],
+                "referrer_groups": [
+                    "all_groups"
+                ],
+                "remove_referrers": [
+                    "lo0i7w3o",
+                    "akm7cwkn"
+                ],
+                "owner_id": "v2c2wj6r",
+                "participants": [
+                    "cun719ay"
+                ],
+                "created_at": "2023-07-10T05:58:58.031Z",
+                "created_by": "rzdj166y",
+                "offer_uuid": "886ef190-4576-4fd3-a1b4-98169d396998",
+                "updated_at": "2023-07-11T03:07:32.871Z",
+                "updated_by": "rzdj166y",
+                "url": "https://crm-user-testing.c64f.com/register/trader?link_id=gwux8k82&referrer_id=d2a0tvnp"
+            },
+            {
+                "id": "fm4k7spg",
+                "origin": "https://crm-user-testing.c64f.com",
+                "name": {
+                    "zh-cn": "111",
+                    "en-us": "111",
+                    "zh-tw": "111",
+                    "kur-ckb": "111",
+                    "tr": "11",
+                    "es": "111"
+                },
+                "user_group": "h3e8rlg7",
+                "type": "ib_to_ib",
+                "referrers": [
+                    "all"
+                ],
+                "referrer_groups": [],
+                "remove_referrers": [],
+                "remove_referrer_groups": [],
+                "participants": [],
+                "created_at": "2024-01-31T08:40:24.047Z",
+                "created_by": "rzdj166y",
+                "url": "https://crm-user-testing.c64f.com/register/ib/personalInfo?link_id=fm4k7spg&referrer_id=d2a0tvnp"
+            }
+        ]
+      '''
+    }
+  }
+}

@@ -1,0 +1,40 @@
+meta {
+  name: Get Brokeree Social Trading Config
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/socialTrading/brokeree/setting
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/socialTrading/brokeree/setting
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "hostname": "http://103.6.130.16:8080"
+        }
+      '''
+    }
+  }
+}

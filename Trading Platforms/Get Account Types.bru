@@ -1,0 +1,801 @@
+meta {
+  name: Get Account Types
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/trading/accounts/types
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trading/accounts/types
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+            {
+                "id": "pb5tkysy",
+                "connection_id": "bigc8liz",
+                "name": "MT4-QA1-test",
+                "leverages": [
+                    2,
+                    1,
+                    20
+                ],
+                "min_deposit": "0",
+                "label": {
+                    "en-us": "MT4-QA1-test",
+                    "zh-cn": "MT4-QA1-test"
+                },
+                "trading_id_end": 100001,
+                "trading_id_start": 100000,
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e"
+                ],
+                "hide": false,
+                "description": "全部可见",
+                "disable_trading_until_funded": false,
+                "description_disable_on_client_portal": true,
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "wmvqwf16",
+                "connection_id": "w82vltnr",
+                "name": "MT4-QA2-test",
+                "leverages": [
+                    1,
+                    2,
+                    3,
+                    5,
+                    10,
+                    15,
+                    20,
+                    25,
+                    33,
+                    50,
+                    66,
+                    75,
+                    100,
+                    125,
+                    150,
+                    175,
+                    200,
+                    300,
+                    400,
+                    500,
+                    1000
+                ],
+                "leverage_default": 10,
+                "min_deposit": "0",
+                "group": "Sandbox6",
+                "initial_amount": "500",
+                "label": {
+                    "zh-cn": "迷你账户",
+                    "en-us": "Mini Account",
+                    "zh-tw": "迷你账户",
+                    "tr": "迷你账户",
+                    "ko": "迷你账户",
+                    "vi": "迷你账户"
+                },
+                "leverage": 50,
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq"
+                ],
+                "hide": false,
+                "platform": "mt4",
+                "server_name": "Demo QA 2",
+                "demo": true
+            },
+            {
+                "id": "u1d7d483",
+                "connection_id": "w82vltnr",
+                "name": null,
+                "label": {
+                    "zh-cn": "标准账户",
+                    "en-us": "Standard Account"
+                },
+                "group": "Sandbox6",
+                "description": "",
+                "leverage": 100,
+                "leverages": null,
+                "leverage_default": null,
+                "min_deposit": null,
+                "initial_amount": "10000",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq"
+                ],
+                "hide": false,
+                "platform": "mt4",
+                "server_name": "Demo QA 2",
+                "demo": true
+            },
+            {
+                "id": "3sq7p5ky",
+                "connection_id": "w82vltnr",
+                "name": null,
+                "label": {
+                    "zh-cn": "VIP账户",
+                    "en-us": "VVIP Account"
+                },
+                "group": "Sandbox6",
+                "leverage": 100,
+                "leverages": null,
+                "leverage_default": null,
+                "min_deposit": null,
+                "initial_amount": "50000",
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq"
+                ],
+                "hide": false,
+                "platform": "mt4",
+                "server_name": "Demo QA 2",
+                "demo": true
+            },
+            {
+                "id": "nbglpt6g",
+                "connection_id": "bigc8liz",
+                "hide": false,
+                "label": {
+                    "zh-cn": "MT4-QA1-test3",
+                    "en-us": "EN",
+                    "tr": "MT4-QA1-test3",
+                    "pt": "MT4-QA1-test3",
+                    "ko": "MT4-QA1-test3",
+                    "zh-tw": "FTZW",
+                    "vi": "YN"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "leverages": [
+                    2,
+                    1,
+                    10
+                ],
+                "leverage_default": 10,
+                "min_deposit": "0",
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "ybo3uslk",
+                "connection_id": "bigc8liz",
+                "hide": false,
+                "label": {
+                    "en-us": "4646",
+                    "zh-cn": "maowo",
+                    "ja": "fgfcg",
+                    "zh-tw": "dgdfg",
+                    "vi": "fhgfhg",
+                    "th": "fhhg"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "group": "Sandbox5",
+                "leverages": [
+                    10,
+                    2
+                ],
+                "leverage_default": 33,
+                "min_deposit": "0",
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "0qesryti",
+                "connection_id": "bigc8liz",
+                "hide": false,
+                "label": {
+                    "zh-cn": "1220T1",
+                    "en-us": "1220T1",
+                    "tr": "1220T1",
+                    "pt": "1220T1",
+                    "zh-tw": "1220T1"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "trading_id_start": 55555,
+                "trading_id_end": 88888,
+                "leverages": [
+                    2
+                ],
+                "min_deposit": "50",
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "7678odl4",
+                "connection_id": "bigc8liz",
+                "hide": false,
+                "label": {
+                    "en-us": "1220T2",
+                    "zh-cn": "1220T2",
+                    "ja": "1220T2",
+                    "zh-tw": "1220T2",
+                    "vi": "1220T2",
+                    "th": "1220T2",
+                    "de": "1220T2",
+                    "id": "1220T2",
+                    "es": "1220T2"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70"
+                ],
+                "trading_id_start": 66667,
+                "trading_id_end": 77777,
+                "leverages": [
+                    10
+                ],
+                "leverage_default": 75,
+                "min_deposit": "0",
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "9c96qww8",
+                "connection_id": "bigc8liz",
+                "hide": false,
+                "label": {
+                    "zh-cn": "MT4-QA1-new",
+                    "en-us": "MT4-QA1-new",
+                    "vi": "MT4-QA1-new"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "tyjfpvho"
+                ],
+                "group": "Sandbox4",
+                "trading_id_start": "",
+                "trading_id_end": "",
+                "leverages": [
+                    10,
+                    2
+                ],
+                "leverage_default": "",
+                "min_deposit": "0",
+                "description": "",
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "q4u0w93o",
+                "connection_id": "bigc8liz",
+                "hide": false,
+                "label": {
+                    "zh-cn": "ste-MT4",
+                    "en-us": "ste-mt4",
+                    "zh-tw": "1",
+                    "ja": "2",
+                    "pt": "9",
+                    "vi": "3",
+                    "th": "4",
+                    "id": "5",
+                    "es": "6",
+                    "de": "7",
+                    "tr": "8"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e"
+                ],
+                "group": "Sandbox4",
+                "trading_id_start": "",
+                "trading_id_end": "",
+                "leverages": [
+                    10,
+                    2,
+                    1,
+                    5,
+                    3,
+                    20
+                ],
+                "leverage_default": 3,
+                "min_deposit": "0",
+                "description": "",
+                "platform": "mt4",
+                "server_name": "QA 1"
+            },
+            {
+                "id": "zoqnl46c",
+                "connection_id": "2asdas1z",
+                "hide": false,
+                "label": {
+                    "zh-cn": "MT5-1",
+                    "en-us": "MT5-1",
+                    "tr": "MT5-1",
+                    "pt": "MT5-1",
+                    "ko": "MT5-1",
+                    "zh-tw": "MT5-1",
+                    "vi": "MT5-1"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk"
+                ],
+                "group": "demo\\BBQAHEDGE",
+                "leverages": [
+                    10,
+                    5,
+                    15,
+                    3
+                ],
+                "min_deposit": "0",
+                "leverage_default": 15,
+                "platform": "mt5",
+                "server_name": "S1"
+            },
+            {
+                "id": "neisdyh9",
+                "connection_id": "2asdas1z",
+                "hide": false,
+                "label": {
+                    "zh-cn": "MT5-2",
+                    "en-us": "MT5-2",
+                    "zh-tw": "MT5-2",
+                    "ja": "MT5-2",
+                    "pt": "MT5-2",
+                    "vi": "MT5-2",
+                    "th": "MT5-2",
+                    "id": "MT5-2",
+                    "es": "MT5-2",
+                    "de": "MT5-2",
+                    "tr": "MT5-2"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "ii1619va",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk"
+                ],
+                "group": "demo\\BBQAHEDGE",
+                "trading_id_start": 100800,
+                "trading_id_end": 1001000,
+                "leverages": [
+                    20,
+                    25,
+                    33,
+                    50,
+                    66
+                ],
+                "min_deposit": "100",
+                "platform": "mt5",
+                "server_name": "S1"
+            },
+            {
+                "id": "x4huzb9w",
+                "connection_id": "4asdas2z",
+                "hide": false,
+                "label": {
+                    "zh-cn": "ste-1110",
+                    "en-us": "mt5mongo-1110"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "3etzlr5p"
+                ],
+                "group": "demo\\BBQANET",
+                "leverages": [
+                    33,
+                    15,
+                    10,
+                    3
+                ],
+                "leverage_default": 33,
+                "min_deposit": "0",
+                "description": "lalll",
+                "platform": "mt5",
+                "server_name": "S1Mongo"
+            },
+            {
+                "id": "mtadblwd",
+                "connection_id": "4asdas2z",
+                "hide": false,
+                "label": {
+                    "zh-cn": "MT5-Mongo-1",
+                    "en-us": "MT5-Mongo-1"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p"
+                ],
+                "group": "demo\\BBQAHEDGE",
+                "trading_id_start": "",
+                "trading_id_end": "",
+                "leverages": [
+                    150
+                ],
+                "leverage_default": "",
+                "min_deposit": "1",
+                "description": "",
+                "platform": "mt5",
+                "server_name": "S1Mongo"
+            },
+            {
+                "id": "3lugpsl0",
+                "connection_id": "74mcgsjx",
+                "hide": false,
+                "label": {
+                    "zh-cn": "Fortex-test1",
+                    "en-us": "Fortex-test1",
+                    "fa": "Fortex-test1"
+                },
+                "groups": [
+                    "h3e8rlg7",
+                    "cb22e7mc",
+                    "zcsedt38",
+                    "fsx29f0t",
+                    "4gqe6cax",
+                    "9ir2id0m",
+                    "49g6ijbk",
+                    "sdwy9owr",
+                    "rbflqktx",
+                    "3ftk7d0b",
+                    "y7pkuix7",
+                    "27yza2kz",
+                    "mbllvuql",
+                    "3e48uia3",
+                    "l22rg5ut",
+                    "hgbnohcg",
+                    "vg4pd0uq",
+                    "56bvk72e",
+                    "sr27do70",
+                    "46p1dp04",
+                    "09bzu76u",
+                    "za8amt1d",
+                    "ds9s3cnd",
+                    "0oe1sv44",
+                    "06lzuynk",
+                    "z8dq6ofl",
+                    "994g3wwb",
+                    "b5b94m5e",
+                    "n7tq7y99",
+                    "p10bzvme",
+                    "6baahm8p",
+                    "6u23cv8g",
+                    "vjvrch6r",
+                    "3etzlr5p",
+                    "u6tkft27",
+                    "svvexb2p"
+                ],
+                "group": "FORTEX_TEST",
+                "min_deposit": "0",
+                "currencies": [
+                    "USD",
+                    "EUR"
+                ],
+                "min_leverage": 10,
+                "max_leverage": 10,
+                "leverage_default": 10,
+                "platform": "fortex",
+                "server_name": "fortex-live"
+            }
+        ]
+      '''
+    }
+  }
+}

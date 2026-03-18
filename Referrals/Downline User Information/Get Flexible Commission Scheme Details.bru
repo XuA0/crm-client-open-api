@@ -1,0 +1,138 @@
+meta {
+  name: Get Flexible Commission Scheme Details
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/commissions/rules/details
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})/commissions/rules/details
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": pe4pm8mh
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "rule_id": "s0i2ksmx",
+                "self": false,
+                "uplines": [
+                    {
+                        "user_id": "lo0i7w3o",
+                        "value": "4",
+                        "name": "ste-label-2"
+                    },
+                    {
+                        "user_id": "d2a0tvnp",
+                        "value": "2",
+                        "name": "open-account-form9"
+                    },
+                    {
+                        "user_id": "ismcfg8b",
+                        "value": "0",
+                        "name": "open-account-form7"
+                    }
+                ],
+                "order": 0,
+                "rule_name": "灵活返佣方案96"
+            },
+            {
+                "rule_id": "xv5rwja4",
+                "self": true,
+                "uplines": [
+                    {
+                        "user_id": "lo0i7w3o",
+                        "value": "2",
+                        "name": "ste-label-2"
+                    },
+                    {
+                        "user_id": "d2a0tvnp",
+                        "value": "3",
+                        "name": "open-account-form9"
+                    },
+                    {
+                        "user_id": "ismcfg8b",
+                        "value": "0",
+                        "name": "open-account-form7"
+                    }
+                ],
+                "order": 1,
+                "rule_name": "灵活返佣方案92"
+            },
+            {
+                "rule_id": "my20ul5s",
+                "self": false,
+                "uplines": [
+                    {
+                        "user_id": "lo0i7w3o",
+                        "value": "6",
+                        "name": "ste-label-2"
+                    },
+                    {
+                        "user_id": "d2a0tvnp",
+                        "value": "0",
+                        "name": "open-account-form9"
+                    },
+                    {
+                        "user_id": "ismcfg8b",
+                        "value": "0",
+                        "name": "open-account-form7"
+                    }
+                ],
+                "order": 2,
+                "rule_name": "灵活返佣方案93"
+            },
+            {
+                "rule_id": "kcbkbx9z",
+                "self": false,
+                "uplines": [
+                    {
+                        "user_id": "lo0i7w3o",
+                        "value": "0",
+                        "name": "ste-label-2"
+                    },
+                    {
+                        "user_id": "d2a0tvnp",
+                        "value": "0",
+                        "name": "open-account-form9"
+                    },
+                    {
+                        "user_id": "ismcfg8b",
+                        "value": "0",
+                        "name": "open-account-form7"
+                    }
+                ],
+                "order": 3,
+                "rule_name": "灵活返佣方案911"
+            }
+        ]
+      '''
+    }
+  }
+}

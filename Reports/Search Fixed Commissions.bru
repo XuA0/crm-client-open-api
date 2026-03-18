@@ -1,0 +1,465 @@
+meta {
+  name: Search Fixed Commissions
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/reports/payouts/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "key": "",
+    "status": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "range": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "mine": "",
+    "skip": 0,
+    "limit": 0,
+    "is_active": true,
+    "search_type": "",
+    "mode": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/reports/payouts/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "mine":true,
+          "orders": {
+              "commission": 1 // commission | overriding | bonus | total
+          },
+          "range": [
+              {
+                  "field": "timestamp",
+                  "opt": "EQ",
+                  "value": {
+                      "start": "2026-01-25 16:00:00",
+                      "end": "2026-02-02 07:03:49"
+                  }
+              }
+          ],
+          "is_active": true,
+          "searches": [
+              {
+                  "field": "trading_platform",
+                  "value": [
+                      "bigc8liz",
+                      "w82vltnr"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "order_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trader_client_portal",
+                  "value": [
+                      "lo0i7w3o"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "commission",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_fee",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "overriding",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "bonus",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "total",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_time",
+                  "value": {
+                      "start": "2026-02-01 16:00:00",
+                      "end": "2026-02-02 15:59:59"
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "trading_id",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "volume",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "symbol",
+                  "value": [
+                      "MT4-AUDUSD",
+                      "MT4-EURUSD"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "profit",
+                  "value": {
+                      "start": 0,
+                      "end": 1
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "receiver",
+                  "value": {
+                      "user_id": [
+                          "lo0i7w3o"
+                      ],
+                      "type": "oneself", // "oneself" | "all"｜ "upline" ｜ "customer"
+                      "max_depth": 1, // (only type === "customer")
+                      "start_depth": 1 // 0 | 1 (only type === "customer")
+                  },
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_platform",
+                  "value": [
+                      "bigc8liz",
+                      "w82vltnr"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "rebate_account",
+                  "value": "123",
+                  "opt": "EQ"
+              },
+              {
+                  "field": "status",
+                  "value": [
+                      "fail",
+                      "success"
+                  ],
+                  "opt": "EQ"
+              },
+              {
+                  "field": "reason",
+                  "value": [
+                      "mt4_unavailable",
+                      "mt5_unavailable",
+                      "account_not_found",
+                      "custom"
+                  ],
+                  "opt": "EQ"
+              }
+          ],
+          "mode": "DAILY", // "MINUTE" | "DAILY"
+          "key": "order id"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "payouts": [
+                {
+                    "trade_uuid": "485ada33-9525-4a7b-8952-1ff61223f0eb",
+                    "payout_uuid": "6d4885e6-20ee-4991-bc64-9600558395e1",
+                    "type": "FIXED_COMMISSIONS",
+                    "trading_platform": "fortex",
+                    "connection_id": "z80wqyxy",
+                    "order_id": "500008",
+                    "trading_id": "QASTELIVE3",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "89x1pjwx",
+                    "currency": "USD",
+                    "commission": 3.5,
+                    "total": 3.5,
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "symbol": "FORTEX-EUR/USD",
+                    "volume": 0.5,
+                    "swaps": 0,
+                    "trading_fee": 0,
+                    "close_time": "2025-11-13T03:42:16.000Z",
+                    "timestamp": "2025-11-13 08:44:03",
+                    "scheme_id": "jz74o3pm",
+                    "id": "YcjbTKRI",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 08:44:04",
+                    "status": "success",
+                    "created_at": 1763023444369,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30389,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Orianna",
+                    "receiver_email": "orianna@163.com",
+                    "scheme_name": "ste-固定-Level",
+                    "fixed_commissions_mine_profit": 251.5,
+                    "flexible_commissions_mine_profit": 251.5,
+                    "tier": 4,
+                    "reports_fixed_commissions_tier": 4,
+                    "sensitive": true
+                },
+                {
+                    "trade_uuid": "4a69a7bb-f02f-49cf-bb48-c77ea959ea9b",
+                    "payout_uuid": "2a4d9622-1b14-4192-a808-09e952e43b6b",
+                    "type": "FIXED_COMMISSIONS",
+                    "trading_platform": "fortex",
+                    "connection_id": "z80wqyxy",
+                    "order_id": "500012",
+                    "trading_id": "QASTELIVE3",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "89x1pjwx",
+                    "currency": "USD",
+                    "commission": 3.5,
+                    "total": 3.5,
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "symbol": "FORTEX-EUR/USD",
+                    "volume": 0.5,
+                    "swaps": 0,
+                    "trading_fee": 0,
+                    "close_time": "2025-11-13T03:42:17.000Z",
+                    "timestamp": "2025-11-13 08:44:02",
+                    "scheme_id": "jz74o3pm",
+                    "id": "OR4ia5ct",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 08:44:03",
+                    "status": "success",
+                    "created_at": 1763023442884,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30389,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Orianna",
+                    "receiver_email": "orianna@163.com",
+                    "scheme_name": "ste-固定-Level",
+                    "fixed_commissions_mine_profit": 248,
+                    "flexible_commissions_mine_profit": 248,
+                    "tier": 4,
+                    "reports_fixed_commissions_tier": 4,
+                    "sensitive": true
+                },
+                {
+                    "trade_uuid": "ff944574-ecf3-4feb-b8ed-7ca77f2a7fbc",
+                    "payout_uuid": "83899f42-8c92-4229-8dd3-d67c51e9414e",
+                    "type": "FIXED_COMMISSIONS",
+                    "trading_platform": "mt5",
+                    "connection_id": "7io8qo9m",
+                    "order_id": "58018",
+                    "trading_id": "80159",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "89x1pjwx",
+                    "currency": "USD",
+                    "commission": 0.25,
+                    "total": 0.25,
+                    "group": "demo\\BBQANET",
+                    "symbol": "MT5-USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": 0,
+                    "close_time": "2025-11-13T10:36:20.350Z",
+                    "timestamp": "2025-11-13 08:37:02",
+                    "scheme_id": "jz74o3pm",
+                    "id": "cG85Ni6D",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 08:37:04",
+                    "status": "success",
+                    "created_at": 1763023022398,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30389,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Orianna",
+                    "receiver_email": "orianna@163.com",
+                    "scheme_name": "ste-固定-Level",
+                    "fixed_commissions_mine_profit": 1402.98,
+                    "flexible_commissions_mine_profit": 1402.98,
+                    "tier": 4,
+                    "reports_fixed_commissions_tier": 4,
+                    "sensitive": true
+                },
+                {
+                    "trade_uuid": "c022741d-4392-4a15-8e74-f9296e61e1d2",
+                    "payout_uuid": "04252831-be5a-4453-9c7f-8c27653d9bf5",
+                    "type": "FIXED_COMMISSIONS",
+                    "trading_platform": "mt5",
+                    "connection_id": "p6t5xkbm",
+                    "order_id": "58015",
+                    "trading_id": "100550",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "89x1pjwx",
+                    "currency": "USD",
+                    "commission": 0.2,
+                    "total": 0.2,
+                    "group": "demo\\BBQANET",
+                    "symbol": "MT5-USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": 0,
+                    "close_time": "2025-11-13T10:33:47.000Z",
+                    "timestamp": "2025-11-13 08:34:01",
+                    "scheme_id": "jz74o3pm",
+                    "id": "QzTtl4eI",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 08:34:04",
+                    "status": "success",
+                    "created_at": 1763022842462,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30389,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Orianna",
+                    "receiver_email": "orianna@163.com",
+                    "scheme_name": "ste-固定-Level",
+                    "fixed_commissions_mine_profit": 1406.59,
+                    "flexible_commissions_mine_profit": 1406.59,
+                    "tier": 4,
+                    "reports_fixed_commissions_tier": 4,
+                    "sensitive": true
+                },
+                {
+                    "trade_uuid": "1275369a-0314-4c33-a041-07d041fa4ea0",
+                    "payout_uuid": "026b02b2-abfe-4e2d-9f33-b877f78a3cc2",
+                    "type": "FIXED_COMMISSIONS",
+                    "trading_platform": "mt4",
+                    "connection_id": "u5mzgkch",
+                    "order_id": "5657074",
+                    "trading_id": "30393",
+                    "trader_id": "1ut4zjqv",
+                    "receiver_id": "89x1pjwx",
+                    "currency": "USD",
+                    "commission": 4.4,
+                    "total": 4.4,
+                    "group": "Sandbox4",
+                    "symbol": "MT4-USDCAD",
+                    "volume": 1,
+                    "swaps": 0,
+                    "trading_fee": -0.1,
+                    "open_time": "2025-11-13T08:28:43.000Z",
+                    "close_time": "2025-11-13T08:29:12.000Z",
+                    "timestamp": "2025-11-13 06:31:02",
+                    "scheme_id": "jz74o3pm",
+                    "id": "AO3ZbxJx",
+                    "channel": "ACCOUNT",
+                    "overriding": 0,
+                    "bonus": 0,
+                    "rebate_time": "2025-11-13 06:31:04",
+                    "status": "success",
+                    "created_at": 1763015463116,
+                    "locked": false,
+                    "reason": "",
+                    "rebate_account": 30389,
+                    "rebate_connection_id": "u5mzgkch",
+                    "rebate_platform": "mt4",
+                    "retry_counts": 0,
+                    "wallet_id": null,
+                    "trader_name": "Shamina",
+                    "trader_email": "cihige5867@naymedia.com",
+                    "receiver_name": "Orianna",
+                    "receiver_email": "orianna@163.com",
+                    "scheme_name": "ste-固定-Level",
+                    "fixed_commissions_mine_profit": 704.49,
+                    "flexible_commissions_mine_profit": 704.49,
+                    "tier": 4,
+                    "reports_fixed_commissions_tier": 4,
+                    "sensitive": true
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

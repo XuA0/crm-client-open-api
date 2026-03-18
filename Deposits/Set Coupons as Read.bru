@@ -1,0 +1,49 @@
+meta {
+  name: Set Coupons as Read
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/payments/discounts/coupon/read
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "ids": []
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/payments/discounts/coupon/read
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "ids": ["0mj2idf6ax"]
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

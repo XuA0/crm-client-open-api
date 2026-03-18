@@ -1,0 +1,47 @@
+meta {
+  name: Get Pending Withdrawal Requests
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/requests/withdrawal/pending?trading_currency=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  trading_currency: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/withdrawal/pending?trading_currency=JPY
+    method: GET
+    mode: none
+    params:query: {
+      trading_currency: JPY
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "pending_amount":0
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,587 @@
+meta {
+  name: Get Symbol Groups
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/symbols/groups?name=&symbols=&option=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  symbols: 
+  option: true
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/symbols/groups
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "id": "r51g9zl7",
+                "name": "Profit Symbols",
+                "symbols": [
+                    "MT4-AUDCADecn",
+                    "MT4-AUDSGDecn",
+                    "MT5-USDSGD",
+                    "MT5-CADSGD",
+                    "WTA-AUDUSD.",
+                    "WTA-EURUSD.",
+                    "MTR-EURCHF",
+                    "MTR-USDHKD",
+                    "CTRADER-AUDUSD",
+                    "CTRADER-USDCAD",
+                    "FORTEX-EUR/CHF",
+                    "FORTEX-EUR/CAD",
+                    "FORTEX-EUR/AUD",
+                    "MT5-NZDUSD",
+                    "MT4-NZDUSDecn",
+                    "MT4-EURUSDecn",
+                    "MT5-GBPCAD"
+                ],
+                "option": true,
+                "order": 0,
+                "created_at": "2023-01-04T08:38:05.973Z",
+                "updated_at": "2025-08-07T07:17:39.813Z",
+                "created_by": "gryzqxic",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "13o5w14w",
+                "name": "MT5 Symbols",
+                "symbols": [
+                    "MT5-USDCAD",
+                    "MT5-USDCHF",
+                    "MT5-AUDUSD",
+                    "MT5-NZDCAD",
+                    "MT5-EURUSD"
+                ],
+                "option": true,
+                "order": 1,
+                "created_at": "2023-01-04T08:35:46.445Z",
+                "updated_at": "2025-10-31T07:34:05.373Z",
+                "created_by": "gryzqxic",
+                "updated_by": "gryzqxic"
+            },
+            {
+                "id": "8r8rzpaj",
+                "name": "Commission Symbols",
+                "symbols": [
+                    "MT4-AUDCAD",
+                    "MT4-EURCHFecn",
+                    "MT4-EURCADecn",
+                    "MT4-EURSGD",
+                    "MT5-AUDCHF",
+                    "MT5-EURCAD",
+                    "MT5-EURAUD",
+                    "CTRADER-GBPUSD",
+                    "CTRADER-EURCAD",
+                    "CTRADER-AUDNZD",
+                    "WTA-USDSGD.",
+                    "WTA-AUDCAD.",
+                    "MTR-EURCAD",
+                    "MTR-USDCAD",
+                    "FORTEX-EUR/GBP",
+                    "FORTEX-EUR/HUF",
+                    "FORTEX-GBP/CHF"
+                ],
+                "option": true,
+                "order": 2,
+                "created_at": "2023-01-04T08:40:35.672Z",
+                "updated_at": "2025-03-26T07:05:53.195Z",
+                "created_by": "gryzqxic",
+                "updated_by": "gryzqxic"
+            },
+            {
+                "id": "c9jm9qy4",
+                "name": "Metals",
+                "symbols": [
+                    "MT4-GBPUSD",
+                    "MT4-EURUSD",
+                    "MT4-USDCHF",
+                    "MT4-USDCNH",
+                    "MT4-NZDUSD"
+                ],
+                "order": 3,
+                "created_at": "2023-01-05T07:15:10.768Z",
+                "updated_at": "2025-01-14T11:54:11.542Z",
+                "created_by": "3fn7iauk",
+                "updated_by": "vxmwt8rb",
+                "option": true
+            },
+            {
+                "id": "f5alu8tf",
+                "name": "Fixed Symbols",
+                "symbols": [
+                    "MT4-AUDSGD",
+                    "MT4-CADCHF",
+                    "MT4-CADJPY",
+                    "MT4-EURAUDecn",
+                    "MT4-GBPCHFecn",
+                    "MT5-AUDCAD",
+                    "MT5-CADCHF",
+                    "MT5-EURNZD",
+                    "CTRADER-EURGBP",
+                    "CTRADER-NZDUSD",
+                    "CTRADER-EURAUD",
+                    "WTA-EURCHF.",
+                    "WTA-AUDJPY.",
+                    "WTA-GBPUSD.",
+                    "WTA-CADCHF.",
+                    "FORTEX-EUR/HKD",
+                    "FORTEX-EUR/NZD",
+                    "FORTEX-NZD/CHF",
+                    "FORTEX-NZD/CAD",
+                    "MT4-USDCHFecn",
+                    "MT5-NZDCHF",
+                    "MT4-GBPNZDecn",
+                    "MT5-GBPAUD",
+                    "MT4-NZDCADecn"
+                ],
+                "option": true,
+                "order": 4,
+                "created_at": "2023-02-06T07:44:19.432Z",
+                "updated_at": "2025-11-10T07:16:33.678Z",
+                "created_by": "gryzqxic",
+                "updated_by": "gryzqxic"
+            },
+            {
+                "id": "f0b4cn1h",
+                "name": "ste-wta-f",
+                "symbols": [
+                    "WTA-USDCAD",
+                    "WTA-USDCAD.",
+                    "WTA-EURUSD",
+                    "WTA-EURCHF",
+                    "WTA-MANAUSD.",
+                    "WTA-AUDNZD.",
+                    "WTA-GBPCAD.",
+                    "WTA-BTCUSD.",
+                    "WTA-BTCJPY.",
+                    "WTA-BTCEUR",
+                    "WTA-BTCUSD",
+                    "WTA-BTCUSDT.",
+                    "WTA-BTCETH",
+                    "WTA-BTCEUR.",
+                    "WTA-BTCCAD.",
+                    "WTA-BTCGBP."
+                ],
+                "order": 5,
+                "created_at": "2023-02-10T07:43:31.667Z",
+                "updated_at": "2025-03-26T07:04:57.230Z",
+                "created_by": "hmq796z6",
+                "updated_by": "gryzqxic",
+                "option": true
+            },
+            {
+                "id": "x6c7xpig",
+                "name": "MTR",
+                "symbols": [
+                    "MTR-GBPUSD",
+                    "MTR-GBPJPY",
+                    "MTR-USDCHF",
+                    "MTR-EURUSD",
+                    "MT4-USDJPY",
+                    "MT4-BTCUSD",
+                    "MTR-BTCUSD",
+                    "MTR-ETHBTC",
+                    "MTR-BTCEUR",
+                    "MTR-ETHUSD",
+                    "MTR-ETHEUR"
+                ],
+                "option": true,
+                "order": 6,
+                "created_at": "2023-03-28T02:38:35.827Z",
+                "updated_at": "2023-12-10T14:53:38.463Z",
+                "created_by": "hmq796z6",
+                "updated_by": "bh9agr0m"
+            },
+            {
+                "id": "a5jyjyta",
+                "name": "ste-wta-l",
+                "symbols": [
+                    "WTA-AUDCHF",
+                    "WTA-AUDJPY",
+                    "WTA-AUDCAD"
+                ],
+                "option": true,
+                "order": 7,
+                "created_at": "2023-03-28T06:45:11.922Z",
+                "updated_at": "2024-10-17T03:47:56.433Z",
+                "created_by": "hmq796z6",
+                "updated_by": "gryzqxic"
+            },
+            {
+                "id": "55rzbi0i",
+                "name": "ctrader",
+                "symbols": [
+                    "CTRADER-EURUSD",
+                    "CTRADER-USDHKD",
+                    "CTRADER-AUDCAD",
+                    "CTRADER-AUDCHF",
+                    "CTRADER-BTCUSD",
+                    "CTRADER-ETHUSD",
+                    "CTRADER-USDCHF"
+                ],
+                "option": true,
+                "order": 8,
+                "created_at": "2023-04-17T03:20:38.543Z",
+                "updated_at": "2024-12-20T07:12:10.439Z",
+                "created_by": "hmq796z6",
+                "updated_by": "gryzqxic"
+            },
+            {
+                "id": "y1o7126h",
+                "name": "ste-test-**0614",
+                "symbols": [
+                    "MT4-CHFSGD",
+                    "MT4-CHFJPY",
+                    "MT4-EURCAD"
+                ],
+                "order": 9,
+                "created_at": "2023-06-14T06:07:00.907Z",
+                "updated_at": "2024-12-23T03:31:05.536Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6",
+                "option": true
+            },
+            {
+                "id": "ryytokxp",
+                "name": "MT4 Test",
+                "symbols": [
+                    "MT4-AUDCHFecn",
+                    "MT4-AUDNZDecn",
+                    "MT4-USDCADecn",
+                    "MT4-AUDUSDecn",
+                    "MT4-AUDUSD",
+                    "MT4-USDCADbo",
+                    "MT4-USDHKD",
+                    "MT4-EURNOK",
+                    "MT4-USDCAD",
+                    "MT4-AUDNZD"
+                ],
+                "order": 10,
+                "option": true,
+                "created_at": "2023-01-04T08:34:35.083Z",
+                "updated_at": "2023-08-01T09:34:41.322Z",
+                "created_by": "gryzqxic",
+                "updated_by": "gryzqxic"
+            },
+            {
+                "id": "euwrpgm1",
+                "name": "ste-0731",
+                "symbols": [
+                    "MT4-NZDCHF",
+                    "MT4-NZDJPY"
+                ],
+                "option": true,
+                "order": 11,
+                "created_at": "2023-07-31T02:41:53.981Z",
+                "updated_at": "2023-08-08T02:38:16.433Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "dot45v5k",
+                "name": "new",
+                "symbols": [
+                    "MT4-EURHKD",
+                    "MT4-EURGBP",
+                    "MT4-EURJPY",
+                    "MT4-SEKJPY"
+                ],
+                "order": 12,
+                "created_at": "2023-08-01T07:11:50.961Z",
+                "updated_at": "2025-11-10T07:15:29.616Z",
+                "created_by": "gryzqxic",
+                "updated_by": "gryzqxic",
+                "option": true
+            },
+            {
+                "id": "rfct3u6p",
+                "name": "WTA",
+                "symbols": [
+                    "WTA-AUDCHF.",
+                    "WTA-EURCAD.",
+                    "WTA-XAUUSD."
+                ],
+                "option": true,
+                "order": 13,
+                "created_at": "2023-08-03T06:39:54.244Z",
+                "updated_at": "2024-07-05T06:12:04.477Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "iqmwh411",
+                "name": "0808",
+                "symbols": [
+                    "MT4-EURNZD",
+                    "WTA-GBPCHF.",
+                    "WTA-NZDCAD."
+                ],
+                "option": true,
+                "order": 14,
+                "created_at": "2023-08-08T02:30:31.640Z",
+                "updated_at": "2023-08-08T06:27:06.988Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "sw1taodo",
+                "name": "symbol-1",
+                "symbols": [
+                    "MT4-EURAUD"
+                ],
+                "option": true,
+                "order": 15,
+                "created_at": "2023-08-21T01:57:23.499Z",
+                "updated_at": "2023-08-21T01:57:23.499Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "v8lsgs9y",
+                "name": "symbol-2",
+                "symbols": [
+                    "MT4-GBPCHF"
+                ],
+                "option": true,
+                "order": 16,
+                "created_at": "2023-08-21T01:57:31.311Z",
+                "updated_at": "2023-08-21T01:57:31.311Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "3s7xswzt",
+                "name": "symbol-3",
+                "symbols": [
+                    "MT4-GBPNOK"
+                ],
+                "option": true,
+                "order": 17,
+                "created_at": "2023-08-21T01:57:39.054Z",
+                "updated_at": "2023-08-21T01:57:39.054Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "lysyra7d",
+                "name": "symbol-5",
+                "symbols": [
+                    "MT4-GBPJPY"
+                ],
+                "option": true,
+                "order": 18,
+                "created_at": "2023-08-21T01:57:48.493Z",
+                "updated_at": "2023-08-21T01:57:48.493Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "c2upixsq",
+                "name": "symbol-4",
+                "symbols": [
+                    "MT4-GBPPLN"
+                ],
+                "option": true,
+                "order": 19,
+                "created_at": "2023-08-21T01:57:58.398Z",
+                "updated_at": "2023-08-21T01:57:58.398Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "6u546bnt",
+                "name": "symbol-6",
+                "symbols": [
+                    "MT4-USDNOK"
+                ],
+                "option": true,
+                "order": 20,
+                "created_at": "2023-08-21T01:58:08.407Z",
+                "updated_at": "2023-08-21T01:58:08.407Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "8oe5vpqw",
+                "name": "symbol-7",
+                "symbols": [
+                    "MT4-EURSEK"
+                ],
+                "option": true,
+                "order": 21,
+                "created_at": "2023-08-21T01:58:21.653Z",
+                "updated_at": "2023-08-21T01:58:21.653Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "a6nwif8q",
+                "name": "symbol-8",
+                "symbols": [
+                    "MT4-GBPNZD"
+                ],
+                "option": true,
+                "order": 22,
+                "created_at": "2023-08-21T01:58:35.331Z",
+                "updated_at": "2023-08-21T01:58:35.331Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "vss74eyv",
+                "name": "symbol-9",
+                "symbols": [
+                    "MT4-GBPSGD"
+                ],
+                "option": true,
+                "order": 23,
+                "created_at": "2023-08-21T01:58:43.024Z",
+                "updated_at": "2023-08-21T01:58:43.024Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "3ncq1oc9",
+                "name": "symbol-10",
+                "symbols": [
+                    "MT4-EURPLN"
+                ],
+                "option": true,
+                "order": 24,
+                "created_at": "2023-08-21T01:58:51.686Z",
+                "updated_at": "2023-08-21T01:58:51.686Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "8ji1k3a4",
+                "name": "symbol-11",
+                "symbols": [
+                    "MT4-NOKJPY"
+                ],
+                "option": true,
+                "order": 25,
+                "created_at": "2023-08-21T01:59:02.014Z",
+                "updated_at": "2023-08-21T01:59:02.014Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "uiemnfwi",
+                "name": "symbol-12",
+                "symbols": [
+                    "MT4-NOKSEK"
+                ],
+                "option": true,
+                "order": 26,
+                "created_at": "2023-08-21T01:59:13.232Z",
+                "updated_at": "2023-08-21T01:59:13.232Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "povuhkrf",
+                "name": "ste-ssymbol-13",
+                "symbols": [
+                    "MT4-NZDCAD"
+                ],
+                "option": true,
+                "order": 27,
+                "created_at": "2023-08-21T01:59:20.969Z",
+                "updated_at": "2024-06-17T02:25:38.812Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "vsd54ysi",
+                "name": "ste-Fortex",
+                "symbols": [
+                    "FORTEX-AUD/JPY",
+                    "FORTEX-AUD/USD",
+                    "FORTEX-AMZN",
+                    "FORTEX-AUD/NZD",
+                    "FORTEX-CAT"
+                ],
+                "option": true,
+                "order": 28,
+                "created_at": "2024-06-06T02:46:55.367Z",
+                "updated_at": "2024-06-17T02:25:38.812Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "86wzgyv5",
+                "name": "Fortex",
+                "symbols": [
+                    "FORTEX-AUD/CHF",
+                    "FORTEX-AUD/CAD",
+                    "FORTEX-CAD/CHF",
+                    "FORTEX-CAD/SGD",
+                    "FORTEX-EUR/USD",
+                    "FORTEX-USD/CHF"
+                ],
+                "option": true,
+                "order": 29,
+                "created_at": "2024-10-15T03:25:59.937Z",
+                "updated_at": "2025-01-16T08:48:37.259Z",
+                "created_by": "gryzqxic",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "wjkohr2e",
+                "name": "验证移除品种",
+                "symbols": [
+                    "MT4-GBPAUD"
+                ],
+                "option": true,
+                "order": 30,
+                "created_at": "2025-01-16T06:06:26.427Z",
+                "updated_at": "2025-01-17T07:18:08.545Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            },
+            {
+                "id": "6jqndbjl",
+                "name": "BaiMao",
+                "symbols": [
+                    "MT4-USDSEK",
+                    "MT4-USDRUB",
+                    "MT4-USDMXN"
+                ],
+                "option": true,
+                "order": 31,
+                "created_at": "2025-08-07T07:18:06.187Z",
+                "updated_at": "2025-08-07T07:18:06.187Z",
+                "created_by": "hmq796z6",
+                "updated_by": "hmq796z6"
+            }
+        ]
+      '''
+    }
+  }
+}

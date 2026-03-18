@@ -1,0 +1,83 @@
+meta {
+  name: Get Transfer Settings
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/transfers/setting?name=&label=&currencies=&access_key=&access_secret=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  label: 
+  currencies: 
+  access_key: 
+  access_secret: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/transfers/setting
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "transfer_to_oneself": {
+                "EUR": {
+                    "min": "10",
+                    "max": "1000"
+                },
+                "SGD": {
+                    "min": "500",
+                    "max": "3000"
+                },
+                "USD": {
+                    "min": "0",
+                    "max": "4000"
+                },
+                "VND": {
+                    "min": "2000",
+                    "max": "30000"
+                }
+            },
+            "transfer_to_others": {
+                "EUR": {
+                    "min": "100",
+                    "max": "2000"
+                },
+                "SGD": {
+                    "min": "1000",
+                    "max": "6000"
+                },
+                "USD": {
+                    "min": "0",
+                    "max": "8000"
+                },
+                "VND": {
+                    "min": "5000",
+                    "max": "50000"
+                }
+            }
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,46 @@
+meta {
+  name: Get Zip Download URL
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/api/v1/file/:id/download/multiply
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: string
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/:id/download/multiply
+    method: POST
+    mode: none
+    params:path: {
+      id: 
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

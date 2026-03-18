@@ -1,0 +1,62 @@
+meta {
+  name: Get Unread Notifications
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/notify/inbox/unread
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/inbox/unread
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "appId": "testing",
+            "execTime": null,
+            "createTime": 1762307329882,
+            "createUserId": "hmq796z6",
+            "createUserName": null,
+            "modifyTime": 1762310279659,
+            "modifyUserId": "hmq796z6",
+            "isEnable": true,
+            "isDelete": false,
+            "id": "690aad01e7a5b334abea3e3d",
+            "messageId": "690aad01e7a5b334abea3e3c",
+            "subject": "入金成功",
+            "content": "<p><meta charset=\"UTF-8\">\n  \n  <br></p><div class=\"content\">\n    <h1 style=\"font-size: 20px; font-weight: 900; color: var(--brand-grey-6); text-align: center;\">入金成功</h1>\n    <article class=\"article\" style=\"padding: 16px 24px 46px; max-width: 580px; margin: auto;\">\n      <p class=\"normal\" style=\"margin-top: 18px; margin-bottom: 18px; font-size: 16px; line-height: 24px; color: var(--brand-grey-10);\">\n        <span class=\"undefined\">您的账户：30935已入金成功！</span>\n        <br>\n        <span class=\"undefined\">如有疑问请咨询客服，感谢您的支持。</span>\n      </p>\n      <div class=\"converted-table\">\n        <div><span class=\"span1\" style=\"font-size: 16px; font-weight: 500; line-height: 32px; color: var(--brand-grey-6);\">入金账户:</span><span class=\"span2\" style=\"font-size: 16px; color: var(--brand-grey-10); line-height: 32px;\">30935</span></div>\n        <div><span class=\"span1\" style=\"font-size: 16px; font-weight: 500; line-height: 32px; color: var(--brand-grey-6);\">入金金额:</span><span class=\"span2\" style=\"font-size: 16px; color: var(--brand-grey-10); line-height: 32px;\">333</span></div>\n        <div><span class=\"span1\" style=\"font-size: 16px; font-weight: 500; line-height: 32px; color: var(--brand-grey-6);\">货币:</span><span class=\"span2\" style=\"font-size: 16px; color: var(--brand-grey-10); line-height: 32px;\">USD</span></div>\n      </div>\n      <br></article>\n  </div>\n  \n",
+            "from": null,
+            "fromName": null,
+            "to": null,
+            "toUserId": "xrlv118e",
+            "toName": null,
+            "level": "TENANT",
+            "type": "POP_UP",
+            "read": false,
+            "identify": "WEB_ADMIN_DEPOSIT_SUCCESS"
+        }
+      '''
+    }
+  }
+}

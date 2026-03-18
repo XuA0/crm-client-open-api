@@ -1,0 +1,158 @@
+meta {
+  name: Get Ticket Replies
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/ticket/replies
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+  Accept: */*
+}
+
+body:json {
+  {
+    "skip": 9884,
+    "limit": 3369,
+    "sortBy": "string",
+    "direction": "ASC",
+    "scene": "CLOSED",
+    "key": "string",
+    "status": [
+      "PROCESSING",
+      "PROCESSING"
+    ],
+    "start": 7761,
+    "end": 8422,
+    "handlers": [
+      "string",
+      "string"
+    ],
+    "replied": true,
+    "ticketId": "string"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/ticket/replies?ticketId=string&limit=0&skip=0
+    method: POST
+    mode: json
+    params:query: {
+      ticketId: string
+      limit: 0
+      skip: 0
+    }
+  
+    headers: {
+      Content-Type: application/json
+      Accept: */*
+    }
+  
+    body:json: {
+      {
+        "skip": 9884,
+        "limit": 3369,
+        "sortBy": "string",
+        "direction": "ASC",
+        "scene": "CLOSED",
+        "key": "string",
+        "status": [
+          "PROCESSING",
+          "PROCESSING"
+        ],
+        "start": 7761,
+        "end": 8422,
+        "handlers": [
+          "string",
+          "string"
+        ],
+        "replied": true,
+        "ticketId": "string"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: */*
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "contents": [
+            {
+              "error": true,
+              "createTime": 8970,
+              "createUserId": "string",
+              "createUserName": "string",
+              "modifyTime": 6948,
+              "modifyUserId": "string",
+              "id": "string",
+              "ticketId": "string",
+              "content": "string",
+              "atts": [
+                {
+                  "name": "string",
+                  "url": "string",
+                  "mimetype": "string"
+                },
+                {
+                  "name": "string",
+                  "url": "string",
+                  "mimetype": "string"
+                }
+              ],
+              "read": false,
+              "type": "admin"
+            },
+            {
+              "error": false,
+              "createTime": 2572,
+              "createUserId": "string",
+              "createUserName": "string",
+              "modifyTime": 4271,
+              "modifyUserId": "string",
+              "id": "string",
+              "ticketId": "string",
+              "content": "string",
+              "atts": [
+                {
+                  "name": "string",
+                  "url": "string",
+                  "mimetype": "string"
+                },
+                {
+                  "name": "string",
+                  "url": "string",
+                  "mimetype": "string"
+                }
+              ],
+              "read": true,
+              "type": "admin"
+            }
+          ],
+          "count": 4276
+        }
+      '''
+    }
+  }
+}

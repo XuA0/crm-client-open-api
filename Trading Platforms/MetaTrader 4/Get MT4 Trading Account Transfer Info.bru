@@ -1,0 +1,70 @@
+meta {
+  name: Get MT4 Trading Account Transfer Info
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt4/accounts/:id/transfer/info?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt4/accounts/:id/transfer/info?connection_id=u5mzgkch
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: u5mzgkch
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 50085
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "trading_id": 50085,
+            "currency": "EUR",
+            "connection_id": "u5mzgkch",
+            "platform": "mt4",
+            "prop_trading": true
+        }
+      '''
+    }
+  }
+}

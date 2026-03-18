@@ -1,0 +1,192 @@
+meta {
+  name: Get Agreements of Different Types
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/agreements?type=
+  body: none
+  auth: inherit
+}
+
+params:query {
+  type: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 Open Account
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/agreements?type=open_account
+    method: GET
+    mode: none
+    params:query: {
+      type: open_account
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 23 Oct 2025 09:43:33 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"20fe-KUX/8Eklbe1Ubf6wTx/UIipdwEQ"
+      x-envoy-upstream-service-time: 150
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=LkEZWhnHNu0gT144hGbog3Bq14f2yR6mcWdcfsypDcB57V04jt0FX%2FBjXOq4plVKpIQDJm1dWTW3rm%2FfUjvTSO8Km36CERZk92V6aYIveu4%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 99304a6e9ec4d6ff-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+            {
+                "id": "glaazvt1",
+                "type": "open_account",
+                "mode": "click",
+                "content": {
+                    "en-us": "1",
+                    "zh-tw": "1",
+                    "ja": "1",
+                    "ko": "1"
+                },
+                "updated_at": 1760433262889,
+                "auto_mode": "only_toggled",
+                "name": {
+                    "en-us": "User Agreement and Risk Disclosure",
+                    "zh-cn": "用户协议以及风险披露",
+                    "zh-tw": "用戶協議以及風險披露",
+                    "ja": "ユーザー同意書とリスク内容開示",
+                    "ko": "사용자 약정 및 리스크 공개 진술서"
+                },
+                "order": -1.5,
+                "created_at": 1750404325073
+            }
+        ]
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 Transfer to Others
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/agreements?type=transfer_to_others
+    method: GET
+    mode: none
+    params:query: {
+      type: transfer_to_others
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 23 Oct 2025 09:49:18 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"c2ed-H6aa803gfzkwoKfTAwuhe3TO1iQ"
+      x-envoy-upstream-service-time: 74
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=eRLYaRqujy1tsYjZP67%2B%2F9ncQZC6KfxajyuoutFVoJ8kHThtGr01a5ALv85ULqn7pC%2Fto8%2BDvLDYONFLP0lgicKOfbkFSVs6bjJEIup%2FjW0%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 993052d87d6ecc13-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+            {
+                "id": "6ctn24yb",
+                "name": {
+                    "en-us": "xxx"
+                },
+                "type": "transfer_to_others",
+                "mode": null,
+                "content": {
+                    "en-us": "xxx"
+                },
+                "created_at": 1750302722903,
+                "updated_at": 1750732337132,
+                "order": -0.5
+            },
+            {
+                "id": "e9ai8qyk",
+                "type": "transfer_to_others",
+                "mode": "click",
+                "content": {
+                    "en-us": "<div>Transfer Amount</div>"
+                },
+                "updated_at": 1750732334882,
+                "auto_mode": "only_toggled",
+                "name": {
+                    "en-us": "User Agreement and Risk Disclosure"
+                },
+                "order": 0,
+                "created_at": 1750404325073
+            }
+        ]
+      '''
+    }
+  }
+}

@@ -1,0 +1,64 @@
+meta {
+  name: Submit IB Upgrade Request
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/ib/submit
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/ib/submit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "form_data": {
+              "form_id": "omg4gsc2",
+              "type": "ib",
+              "nationality": "bj",
+              "ux11f09758f6x886cx8": "af",
+              "name": "q-app1",
+              "phone": {
+                  "number": "19382732837",
+                  "country_code": "51"
+              },
+              "email": "q-app1@mail.com",
+              "company": "公司1",
+              "current_total_customers": "10-50",
+              "new_customers_opened_per_month": "5-10/month",
+              "current_total_funds": "$2-5 million"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

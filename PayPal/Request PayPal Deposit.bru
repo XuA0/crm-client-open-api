@@ -1,0 +1,123 @@
+meta {
+  name: Request PayPal Deposit
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/paypal/deposit
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "channel_id": "",
+    "order_no": "",
+    "request_type": "",
+    "enter_trading_id": 0,
+    "competition_id": "",
+    "package_id": "",
+    "package_name": {},
+    "convert_way": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/paypal/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "7kg0qnp8",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_platform": "mt4",
+          "trading_connection_id": "u5mzgkch",
+          "trading_id": 30935,
+          "trading_amount": "100",
+          "payment_total": "737",
+          "payment_fee": "7",
+          "convert_way": "T2P",
+          "form_data": {
+              "vmcleltz": [],
+              "form_id": "9wtl7l0i"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+        
+            "paypal_order": {
+        
+                "id": "2R657231YS281193N",
+        
+                "status": "CREATED",
+        
+                "links": [
+        
+                    {
+        
+                        "href": "https://api.paypal.com/v2/checkout/orders/2R657231YS281193N",
+        
+                        "rel": "self",
+        
+                        "method": "GET"
+        
+                    },
+        
+                    {
+        
+                        "href": "https://www.paypal.com/checkoutnow?token=2R657231YS281193N",
+        
+                        "rel": "approve",
+        
+                        "method": "GET"
+        
+                    },
+        
+                    {
+        
+                        "href": "https://api.paypal.com/v2/checkout/orders/2R657231YS281193N",
+        
+                        "rel": "update",
+        
+                        "method": "PATCH"
+        
+                    },
+        
+                    {
+        
+                        "href": "https://api.paypal.com/v2/checkout/orders/2R657231YS281193N/capture",
+        
+                        "rel": "capture",
+        
+                        "method": "POST"
+        
+                    }
+        
+                ]
+        
+            },
+        
+            "order_no": "zadc8rca9r77n8ne"
+        
+        }
+         
+      '''
+    }
+  }
+}

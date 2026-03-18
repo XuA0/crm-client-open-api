@@ -1,0 +1,63 @@
+meta {
+  name: PKCE Get Token
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/oauth/token
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "grant_type": "authorization_code",
+      "code": "",
+      "code_verifier": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/token
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "grant_type": "authorization_code",
+          "code": "",
+          "code_verifier": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFhM2Q2NGRhLWZmOTAtNDdjMS05OGVlLTg2ODIzOTEyZDhmZSJ9.eyJpc3MiOiJ0ZXN0aW5nIiwic3ViIjoiZGRrZmx5eWkiLCJhdWQiOiJ1c2VyLWFwaSIsImlhdCI6MTc2MTIwMjYzMSwiZXhwIjoxNzYxMjA2MjMxLCJjbGllbnRfaWQiOiJhZGM4ZmM2MjVmZDU2MWY2MjdlNmI1YTIifQ.M0lUUKEvruBlmVd8Qki0fECC9Pl3owkS0PzH4f8Y0WzSsklCixMhnHwG_shNtZkFEmfbhpqB4-DkDyFvusWYHYdLpCVBEaSZdZsjISK_QNiV7cO9DGcZZpcc1q__3um7t52fuH0ibmXoY9Al5MplcYQMSQjxhM0T5cAKCzefnaaIA9gfMIvllbnRAKhoAOLopjOxlKSHKExwG2zw9Ff9CWARtjy_41CN0UWGqw2_MgwTkAeyVsFP3N5jHfPb09UkSjuqkxFiU3sm0frVnjIZBCu61FP4P6NWFabGsYzxOKBMWdnGTa-rgcTloCT-f54rm_Gifc701pVj7_ou9kBRxw",
+            "token_type": "Bearer",
+            "expires_in": 3600,
+            "refresh_token": "8df8d855d6df-4c1e-aff0-15a767186d2a"
+        }
+      '''
+    }
+  }
+}

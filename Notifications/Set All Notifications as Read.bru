@@ -1,0 +1,39 @@
+meta {
+  name: Set All Notifications as Read
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{BASE_URL}}/private/api/v1/notify/inbox/isReadAll
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/inbox/isReadAll
+    method: PATCH
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

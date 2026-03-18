@@ -1,0 +1,141 @@
+meta {
+  name: Get User Info
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/users/:id([a-z0-9]{8})
+    method: GET
+    mode: none
+    params:path: {
+      "id([a-z0-9]{8})": lo0i7w3o
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "lo0i7w3o",
+            "owner_id": "il4oi1sb",
+            "name": "ste-label-2",
+            "nationality": "bs",
+            "phone": {
+                "number": "4542",
+                "country_code": "65"
+            },
+            "email": "ste-label-2@163.com",
+            "leads": [
+                {
+                    "id": "nvh2skty",
+                    "name": "ste-label-2"
+                }
+            ],
+            "form_id": "87so0cmn",
+            "type": "ib",
+            "user_code": "lo0i7w3o",
+            "group_id": "cb22e7mc",
+            "owner_name": "Stephen",
+            "status": "pending",
+            "processing": false,
+            "created_at": "2023-04-10T10:11:20.318Z",
+            "updated_at": "2023-04-11T06:48:14.062Z",
+            "lead_origin": null,
+            "referrer_num": 2,
+            "origin": "https://crm-user-testing1.c64f.com",
+            "referrer_id": "d2a0tvnp",
+            "follow_content": "一个新的note",
+            "follow_id": "a7rrnodc",
+            "follow_name": "Joe",
+            "follow_time": "2023-05-15T06:49:50.684Z",
+            "trading_accounts": [
+                {
+                    "platform": "mt4",
+                    "connection_id": "bigc8liz",
+                    "trading_id": 7000459
+                }
+            ],
+            "demo_trading_accounts": [],
+            "live_trading_accounts": [
+                {
+                    "platform": "mt4",
+                    "connection_id": "bigc8liz",
+                    "trading_id": 7000459
+                }
+            ],
+            "sumsub_validate_status_user": "UNVERIFIED",
+            "sumsub_validate_status_admin": "GREEN",
+            "prop_trading": false,
+            "first_deposit_amount": null,
+            "first_open_time": "2022-08-26T09:48:01.000Z",
+            "first_deposit_time": "2022-08-26T09:48:43.000Z",
+            "first_trade_time": "2022-08-26T09:48:50.000Z",
+            "referrer_user_code": "d2a0tvnp",
+            "referrer": {
+                "id": "d2a0tvnp",
+                "name": "open-account-form9",
+                "email": "open-account-form9@mail.com",
+                "type": "ib",
+                "origin": "http://localhost:8080",
+                "group_id": "cb22e7mc",
+                "user_code": "d2a0tvnp",
+                "created_at": "2022-12-09T10:32:47.918Z",
+                "referrer_id": "ismcfg8b"
+            },
+            "ux78a101f05x17659x11": "ux78a0fcfe1x8921x1",
+            "ux819a98af1xe09ax19": [
+                "ux819a8afaex7278x1"
+            ],
+            "uxe464716e6x1964x19": [],
+            "tags": [
+                "is_open",
+                "is_deposit",
+                "is_trade"
+            ],
+            "owner": {
+                "id": "il4oi1sb",
+                "name": "Stephen",
+                "email": "stephen.yang@broctagon.com"
+            },
+            "sensitive": true,
+            "range_rule": {
+                "client_information": true,
+                "client_kyc_profiles": true,
+                "client_accounts": true,
+                "client_funds": true,
+                "client_referral": true,
+                "client_commission_rules": true,
+                "sensitive": false,
+                "client_bankcard": true,
+                "download": true,
+                "min": 1,
+                "max": 1
+            }
+        }
+      '''
+    }
+  }
+}

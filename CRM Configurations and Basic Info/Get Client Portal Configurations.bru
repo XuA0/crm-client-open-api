@@ -1,0 +1,250 @@
+meta {
+  name: Get Client Portal Configurations
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/configuration
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/configuration
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Date: Mon, 29 Dec 2025 09:11:51 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"3735-tjARoK/FL7wGFIprqbkyZuqZ6gU"
+      x-envoy-upstream-service-time: 254
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=yodWBYLPo9tIrOcSVlwocQUHEuGyY5vblf4M4S4QVZeX0fzf2lUg2bHHwW0MwNMLQsJ5XOh7z%2FLWHQsycPdkP5gq%2FZZmjVJyVy6CwrzwRl4%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9b582c231a3cabcb-HKG
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "settings": {             
+                "mfa_scene": [               //which sences need mfa verfication
+                    "login",
+                    "deposit",
+                    "withdrawal"
+                ],
+                "favicon_url": "",
+                "api_url": "",
+                "logo_url": "",
+                "prelogin_logo_url": "",
+                "prelogin_background_url": "",
+                "pw": {       // Password strength 
+                    "weak_password_check": true,
+                    "level": 3 
+                },
+                "login": {  // login type
+                    "phone": true,
+                    "email": true,
+                    "account": true
+                },
+                "ip_data_source": "maxmind", // ip check data source
+                "app_logo": "apps/user/kyc/app_logo",
+                "password": {        //password rules
+                    "uppercase": true,
+                    "number": true,
+                    "min": 8,
+                    "lowercase": true,
+                    "max": 120
+                },
+                "dark": {   //theme 
+                    "bg_base": "#23282a",
+                    "crm-grey-10": "#f2f2fa",
+                    "negative": "#ce1f20",
+                    "dark": "#303037",
+                    "bg-crm-grey-6": "#181820",
+                    "warning": "#f5bd37",
+                    "bg-crm-grey-5": "#181820",
+                    "bg-crm-grey-4": "#181820",
+                    "bg-crm-grey-3": "#212129",
+                    "bg-crm-grey-2": "#27272f",
+                    "bg-crm-grey-1": "#2b2b32",
+                    "dark-page": "#26262e",
+                    "crm-grey-1": "#34343c",
+                    "crm-grey-2": "#383840",
+                    "crm-grey-5": "#66666e",
+                    "crm-grey-6": "#77777f",
+                    "bg-crm-grey-9": "#181820",
+                    "crm-grey-3": "#3e3e46",
+                    "bg-crm-grey-8": "#181820",
+                    "crm-grey-4": "#4d4d54",
+                    "bg-crm-grey-7": "#181820",
+                    "bg_accent": "#2c3235",
+                    "crm-grey-9": "#e0e0e8",
+                    "crm-grey-7": "#909098",
+                    "positive": "#42b549",
+                    "crm-grey-8": "#bbbbc3",
+                    "accent": "#FFFFFF",
+                    "secondary": "#555555",
+                    "bg-crm-grey-10": "#181820",
+                    "primary": "#4F4FF3"
+                },
+                "logo": "apps/user/kyc/logo_1762851471005", //theme 
+                "color_scheme": "default", //theme 
+                "expiry": 720,
+                "prelogin_logo": "apps/user/kyc/prelogin_logo", //theme 
+                "prelogin_background": "apps/user/kyc/prelogin_background", //theme 
+                "alt_web_urls": [
+                    "http://localhost:8080",
+                    "http://192.168.0.178:8080",
+                    "http://10.1.1.7:8080",
+                    "http://192.168.0.8:8080"
+                ],
+                "language_default": "en-us", //language default
+                "logo_dark_url": "",
+                "languages": [
+                    "en-us",
+                    "zh-cn",
+                    "ms"
+                ],
+                "failed_limit_count": 5,
+                "favicon": "apps/user/kyc/favicon", //theme 
+                "theme_default": "dark",
+                "prelogin_position": "center",
+                "mfa": false,  // force mfa
+                "enable_multiply_session": false,
+                "navigation_position": "left",
+                "system_email": "no-reply@ir0t.com",
+                "skip_offsite_login": false,
+                "website_name": "QA - Client Portal - PWA1",
+                "cloudfront_enabled": false,
+                "support_email": "",
+                "web_url": "",
+                "light": {
+                    "bg_base": "#f6f8fa",
+                    "crm-grey-10": "#303842",
+                    "negative": "#ce1f20",
+                    "bg-crm-grey-6": "#adb8c4",
+                    "warning": "#f5bd37",
+                    "bg-crm-grey-5": "#c2c9d4",
+                    "bg-crm-grey-4": "#dfe3e8",
+                    "bg-crm-grey-3": "#eff2f5",
+                    "bg-crm-grey-2": "#f5f8fa",
+                    "bg-crm-grey-1": "#fafbfc",
+                    "crm-grey-1": "#fafbfc",
+                    "crm-grey-2": "#f5f8fa",
+                    "crm-grey-5": "#c2c9d4",
+                    "crm-grey-6": "#adb8c4",
+                    "bg-crm-grey-9": "#3f4c5a",
+                    "crm-grey-3": "#eff2f5",
+                    "bg-crm-grey-8": "#637381",
+                    "crm-grey-4": "#dfe3e8",
+                    "bg-crm-grey-7": "#919eab",
+                    "bg_accent": "#ffffff",
+                    "crm-grey-9": "#3f4c5a",
+                    "crm-grey-7": "#919eab",
+                    "positive": "#ac7be0",
+                    "crm-grey-8": "#637381",
+                    "accent": "#FFFFFF",
+                    "secondary": "#E7F0F9",
+                    "bg-crm-grey-10": "#303842",
+                    "primary": "#c32027"
+                },
+                "app_logo_url": "",
+                "logo_dark": "apps/user/kyc/logo_dark",
+                "register": {
+                    "kyc": true,
+                    "account": true,
+                    "register": true
+                }
+            },
+            "withdrawal_time": {              //enable withdrawal time 
+                "start_time": "00:00",
+                "end_time": "23:59",
+                "time_zone": "GMT +8"
+            },
+            "deposit_time": {       //enable deposit time
+                "start_time": "00:00",
+                "end_time": "23:58",
+                "time_zone": "GMT +8"
+            },
+            "transfer": {   // enable transfer to others
+                "transfer_to_others": true
+            },
+            "account_type_visible": true,  // account type is visable
+            "ib_register": true,   // enable ib register 
+            "trader_register": false, // enable trader register 
+            "kyc": {     // which sences need kyc verified
+                "bind_existing_account": false,
+                "create_live_account": false,
+                "transfer": false,
+                "create_demo_account": false,
+                "deposit": true,
+                "withdrawal": true,
+                "bankcard": false
+            },
+            "open_account_with_kyc": true, //open account with kyc request
+            "leverage_visible": true, // leverage is visable
+            "name": "Broctagon KYC",
+            "wallet": {    
+                "target_account_external": true,    // wallet allow to be target account (transfer to others)
+                "source_account_external": true,    // wallet allow to be source account (transfer to others)
+                "deposit": true,  // wallet allow deposit
+                "source_account": true,  // wallet allow to be source account  (transfer self)
+                "withdrawal": true, // wallet allow withdrawal
+                "target_account": true // wallet allow to be target account (transfer self)
+            },
+            "trading_account_transfer": {  
+                "target_account_external": true,    // trading account allow to be target account (transfer to others)
+                "source_account_external": true,      // trading account allow to be source account (transfer to others)
+                "source_account": true,  // trading account allow to be source account (transfer self)
+                "target_account": true   // trading account allow to be target account (transfer self)
+            },
+            "social_trading_wallet": {
+                "transfer_to_wallet": true,  // allow social trading wallet tranfser to wallet
+                "source_account": false,  //allow social trading wallet be source account(transfer)
+                "transfer_to_trading_account": false //allow social trading wallet transfer to trading account
+            }
+        }
+      '''
+    }
+  }
+}

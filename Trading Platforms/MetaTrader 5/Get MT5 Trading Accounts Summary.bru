@@ -1,0 +1,89 @@
+meta {
+  name: Get MT5 Trading Accounts Summary
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt5/accounts/search/summary
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts/search/summary
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "p6t5xkbm",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "statistics": [
+                {
+                    "sum_currency": "EUR",
+                    "sum_balance": 3377.68,
+                    "sum_equity": 2973.46,
+                    "sum_margin_free": 937.97,
+                    "sum_credit": 5,
+                    "sum_floating": -409.22
+                },
+                {
+                    "sum_currency": "USD",
+                    "sum_balance": 5064.88,
+                    "sum_equity": 5215.57,
+                    "sum_margin_free": 5215.57,
+                    "sum_credit": 150.69,
+                    "sum_floating": 0
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

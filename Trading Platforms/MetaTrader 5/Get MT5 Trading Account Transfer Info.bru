@@ -1,0 +1,65 @@
+meta {
+  name: Get MT5 Trading Account Transfer Info
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/mt5/accounts/:id/transfer/info?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts/:id/transfer/info?connection_id=u5mzgkch
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: u5mzgkch
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 40178
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "trading_id": 40178,
+            "currency": "USD",
+            "connection_id": "u5mzgkch",
+            "platform": "mt5"
+        }
+      '''
+    }
+  }
+}

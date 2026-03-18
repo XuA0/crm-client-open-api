@@ -1,0 +1,27 @@
+meta {
+  name: POST /private/v1/mtr/accounts/bind
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mtr/accounts/bind
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "trading_id": 0,
+    "password": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

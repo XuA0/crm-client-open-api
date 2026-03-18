@@ -1,0 +1,762 @@
+meta {
+  name: Get CTrader/Fortex/Sirix Trading Accounts_1
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/trade/accounts/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: CTrader 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "aqol66lk",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 3000618,
+                    "currency": "USD",
+                    "balance": 20116.36,
+                    "manager_bonus": 0,
+                    "ib_bonus": 0,
+                    "bonus": 0,
+                    "equity": 20539,
+                    "leverage": 100,
+                    "access_rights": 0,
+                    "created_at": "2025-03-26T09:54:29.705Z",
+                    "mt_name": "q-ib5-cl",
+                    "mt_email": "yinzheng5519@gmail.com",
+                    "comment": null,
+                    "group": "Default",
+                    "digits": 2,
+                    "is_precise_money": false,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "z80wqyxy",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": "LAG030",
+                    "currency": "USD",
+                    "balance": 5000,
+                    "equity": 5000,
+                    "leverage": 1,
+                    "created_at": "2025-08-25T04:53:25.000Z",
+                    "mt_name": "refer-type8",
+                    "mt_email": "refer-type8@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "1",
+                    "margin": 0,
+                    "margin_free": 5000,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "8sobvdjy",
+                    "prop_trading": true,
+                    "email": "refer-type8@mail.com",
+                    "name": "refer-type8",
+                    "owner_id": "bh9agr0m",
+                    "owner_name": "Michael",
+                    "referrer_id": "m0vupvzh",
+                    "referrer_name": "remark4",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "LAG029",
+                    "currency": "USD",
+                    "balance": 4870.65,
+                    "equity": 4870.65,
+                    "leverage": 1,
+                    "created_at": "2025-08-25T04:10:19.000Z",
+                    "mt_name": "refer-type8",
+                    "mt_email": "refer-type8@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "1",
+                    "margin": 0,
+                    "margin_free": 4870.65,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "8sobvdjy",
+                    "prop_trading": true,
+                    "email": "refer-type8@mail.com",
+                    "name": "refer-type8",
+                    "owner_id": "bh9agr0m",
+                    "owner_name": "Michael",
+                    "referrer_id": "m0vupvzh",
+                    "referrer_name": "remark4",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "Q006",
+                    "currency": "USD",
+                    "balance": 4948.99,
+                    "equity": 4948.99,
+                    "leverage": 1,
+                    "created_at": "2025-07-14T23:10:10.000Z",
+                    "mt_name": "trader-notify2",
+                    "mt_email": "trader-notify2@mail.com",
+                    "group": "dev\\CRM\\Live-fortexEUR",
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "margin": 0,
+                    "margin_free": 4948.99,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "5878i3lf",
+                    "email": "trader-notify2@mail.com",
+                    "name": "trader-notify2",
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "LAG020",
+                    "currency": "USD",
+                    "balance": 6000,
+                    "equity": 6000,
+                    "leverage": 1,
+                    "created_at": "2025-05-28T02:29:58.000Z",
+                    "mt_name": "remark4",
+                    "mt_email": "remark4@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "1",
+                    "margin": 0,
+                    "margin_free": 6000,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "m0vupvzh",
+                    "prop_trading": true,
+                    "email": "remark4@mail.com",
+                    "name": "remark4",
+                    "phone": {
+                        "number": "1927365253",
+                        "country_code": "44"
+                    },
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "LAG018",
+                    "currency": "USD",
+                    "balance": 5971.12,
+                    "equity": 5971.12,
+                    "leverage": 1,
+                    "created_at": "2025-05-27T06:16:35.000Z",
+                    "mt_name": "remark4",
+                    "mt_email": "remark4@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "1",
+                    "margin": 0,
+                    "margin_free": 5971.12,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "m0vupvzh",
+                    "prop_trading": true,
+                    "email": "remark4@mail.com",
+                    "name": "remark4",
+                    "phone": {
+                        "number": "1927365253",
+                        "country_code": "44"
+                    },
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "LAG017",
+                    "currency": "USD",
+                    "balance": 5663.87,
+                    "equity": 5663.87,
+                    "leverage": 1,
+                    "created_at": "2025-05-27T05:31:55.000Z",
+                    "mt_name": "remark4",
+                    "mt_email": "remark4@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "1",
+                    "margin": 0,
+                    "margin_free": 5663.87,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "m0vupvzh",
+                    "prop_trading": true,
+                    "email": "remark4@mail.com",
+                    "name": "remark4",
+                    "phone": {
+                        "number": "1927365253",
+                        "country_code": "44"
+                    },
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "LAG016",
+                    "currency": "USD",
+                    "balance": 5935.03,
+                    "equity": 5935.03,
+                    "leverage": 1,
+                    "created_at": "2025-05-27T04:37:36.000Z",
+                    "mt_name": "remark4",
+                    "mt_email": "remark4@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "margin": 0,
+                    "margin_free": 5935.03,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "m0vupvzh",
+                    "prop_trading": true,
+                    "email": "remark4@mail.com",
+                    "name": "remark4",
+                    "phone": {
+                        "number": "1927365253",
+                        "country_code": "44"
+                    },
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade",
+                        "is_prop_trading"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "Q005",
+                    "currency": "USD",
+                    "balance": 3528.38,
+                    "equity": 3528.38,
+                    "leverage": 0.5,
+                    "created_at": "2025-02-28T03:10:40.000Z",
+                    "mt_name": "q-ib4-cl",
+                    "mt_email": "q-ib4-cl@mail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "margin": 0,
+                    "margin_free": 3528.38,
+                    "margin_level": 0,
+                    "trading_account_profit": 0,
+                    "user_id": "w6b4ilrz",
+                    "email": "q-ib4-cl@mail.com",
+                    "name": "q-ib4-cl",
+                    "phone": {
+                        "number": "383487427",
+                        "country_code": "228"
+                    },
+                    "owner_id": "gryzqxic",
+                    "owner_name": "Darcy",
+                    "referrer_id": "c5bhvcyc",
+                    "referrer_name": "q-ib3-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "referrals_trading_accounts_tier": 2,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": "Q001",
+                    "currency": "USD",
+                    "balance": 4636.63,
+                    "equity": 4636.63,
+                    "leverage": 0.1,
+                    "created_at": "2024-10-14T23:20:57.000Z",
+                    "mt_name": "q-ib5-cl",
+                    "mt_email": "yinzheng5519@gmail.com",
+                    "group": "dev\\CRM\\QA_testing\\Live-fortex",
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "margin": 1254.55,
+                    "margin_free": 3382.08,
+                    "margin_level": 369.59,
+                    "trading_account_profit": 0,
+                    "user_id": "deuonptq",
+                    "rebate_user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "rebate_user_name": "q-ib5-cl",
+                    "sensitive": false
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: Sirix 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "xi3u7ek5",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 11768715,
+                    "currency": "USD",
+                    "balance": 10,
+                    "credit": 0,
+                    "available_withdrawal": 10,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 10,
+                    "equity": 10,
+                    "margin_free": 10,
+                    "leverage": 100,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2025-04-30T10:57:22.000Z",
+                    "last_active": "1970-01-01T00:00:00.000Z",
+                    "mt_name": "trader-reg2",
+                    "margin_level": 0,
+                    "mt_email": "",
+                    "comment": "",
+                    "agent_account": 0,
+                    "enable_change_password": 1,
+                    "send_reports": 0,
+                    "margin": 0,
+                    "group": "BR Default USD",
+                    "trading_account_profit": 0,
+                    "user_id": "6dpckkrs",
+                    "email": "trader-reg2@mail.com",
+                    "name": "trader-reg2",
+                    "phone": {
+                        "number": "24324",
+                        "country_code": "20"
+                    },
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 9465317,
+                    "currency": "USD",
+                    "balance": 0,
+                    "credit": 0,
+                    "available_withdrawal": 0,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 0,
+                    "equity": 0,
+                    "margin_free": 0,
+                    "leverage": 100,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2024-01-18T09:04:36.000Z",
+                    "last_active": "1970-01-01T00:00:00.000Z",
+                    "mt_name": "q-leverage3",
+                    "margin_level": 0,
+                    "mt_email": "q-leverage3@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "enable_change_password": 1,
+                    "send_reports": 0,
+                    "margin": 0,
+                    "group": "BR USD 2",
+                    "trading_account_profit": 0,
+                    "user_id": "phzxiphf",
+                    "email": "q-leverage3@mail.com",
+                    "name": "q-leverage3",
+                    "referrer_id": "335u902m",
+                    "referrer_name": "q-leverage1",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 8989477,
+                    "currency": "USD",
+                    "balance": 90,
+                    "credit": 10,
+                    "available_withdrawal": 90,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 90,
+                    "equity": 100,
+                    "margin_free": 100,
+                    "leverage": 100,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2023-11-06T08:14:14.000Z",
+                    "last_active": "1970-01-01T00:00:00.000Z",
+                    "mt_name": "leverage4",
+                    "margin_level": 0,
+                    "mt_email": "leverage4@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "enable_change_password": 1,
+                    "send_reports": 0,
+                    "margin": 0,
+                    "group": "EUR 1",
+                    "trading_account_profit": 0,
+                    "user_id": "61s8yrt1",
+                    "email": "leverage4@mail.com",
+                    "name": "leverage4",
+                    "referrer_id": "krqc7rf2",
+                    "referrer_name": "leverage3",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 8989342,
+                    "currency": "EUR",
+                    "balance": 9538.4,
+                    "credit": 0,
+                    "available_withdrawal": 9538.4,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 9538.4,
+                    "equity": 9538.4,
+                    "margin_free": 9538.4,
+                    "leverage": 100,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2023-11-06T05:44:26.000Z",
+                    "last_active": "2023-11-09T12:41:45.000Z",
+                    "mt_name": "trader-notify2",
+                    "margin_level": 0,
+                    "mt_email": "trader-notify2@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "enable_change_password": 1,
+                    "send_reports": 0,
+                    "margin": 0,
+                    "group": "EUR 1",
+                    "trading_account_profit": 0,
+                    "user_id": "5878i3lf",
+                    "email": "trader-notify2@mail.com",
+                    "name": "trader-notify2",
+                    "referrer_id": "deuonptq",
+                    "referrer_name": "q-ib5-cl",
+                    "user_group_id": "default0",
+                    "user_group_name": {
+                        "en-us": "Default"
+                    },
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 11799,
+                    "currency": "USD",
+                    "balance": 9903.67,
+                    "credit": 77,
+                    "available_withdrawal": 11063.42,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 9903.67,
+                    "equity": 12576.94,
+                    "margin_free": 11140.42,
+                    "leverage": 100,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2023-03-14T10:25:40.000Z",
+                    "last_active": "2025-08-15T12:55:43.000Z",
+                    "mt_name": "q-ib5-cl",
+                    "margin_level": 8.7551,
+                    "mt_email": "yinzheng5519@gmail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "enable_change_password": 1,
+                    "send_reports": 0,
+                    "margin": 1436.52,
+                    "group": "BR USD 2",
+                    "trading_account_profit": 1941.07,
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 11755,
+                    "currency": "USD",
+                    "balance": 504415.3,
+                    "credit": 0,
+                    "available_withdrawal": 504415.3,
+                    "balance_previous_month": 0,
+                    "balance_previous_day": 504415.3,
+                    "equity": 504415.3,
+                    "margin_free": 504415.3,
+                    "leverage": 100,
+                    "enable": 1,
+                    "enable_readonly": 0,
+                    "created_at": "2023-03-13T09:34:16.000Z",
+                    "last_active": "1970-01-01T00:00:00.000Z",
+                    "mt_name": "q-ib2-cl",
+                    "margin_level": 0,
+                    "mt_email": "q-ib2-cl@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "enable_change_password": 1,
+                    "send_reports": 0,
+                    "margin": 0,
+                    "group": "BR USD 2",
+                    "trading_account_profit": 0,
+                    "user_id": "4s6ov3xe",
+                    "email": "q-ib2-cl@mail.com",
+                    "name": "q-ib2-cl",
+                    "phone": {
+                        "number": "434243342",
+                        "country_code": "52"
+                    },
+                    "owner_id": "hxuxmfxo",
+                    "owner_name": "test-cl",
+                    "referrer_id": "qanzqpds",
+                    "referrer_name": "q-ib1-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 5,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "sensitive": false
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

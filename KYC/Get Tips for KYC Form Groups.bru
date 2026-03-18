@@ -1,0 +1,47 @@
+meta {
+  name: Get Tips for KYC Form Groups
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/form/kyc/collection/tip
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/form/kyc/collection/tip
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "_id": "639ab9a4ad046ddd8c3f7fa5",
+            "app_id": "kyc",
+            "type": "kyc_collection_tip",
+            "tip": {
+                "zh-cn": "请选择您的身份，请注意不同身份需要填写的信息不同。请选择您的身份，请注意不同身份需要填写的信息不同",
+                "en-us": "Please select your identity. Please note that different identities need to fill in different information.",
+                "zh-tw": "请选择您的身份，请注意不同身份需要填写的信息不同。",
+                "tr": "请选择您的身份，请注意不同身份需要填写的信息不同。",
+                "ko": "请选择您的身份，请注意不同身份需要填写的信息不同。",
+                "vi": "请选择您的身份，请注意不同身份需要填写的信息不同。",
+                "ja": "请选择您的身份，请注意不同身份需要填写的信息不同。"
+            }
+        }
+      '''
+    }
+  }
+}

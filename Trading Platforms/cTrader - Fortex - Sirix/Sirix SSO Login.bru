@@ -1,0 +1,30 @@
+meta {
+  name: Sirix SSO Login
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/trade/accounts/:id/gotoTrade
+  body: json
+  auth: bearer
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "user_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

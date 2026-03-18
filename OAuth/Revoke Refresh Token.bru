@@ -1,0 +1,69 @@
+meta {
+  name: Revoke Refresh Token
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{BASE_URL}}/oauth/revoke
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "refresh_token": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/oauth/revoke
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "refresh_token": ""
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 06:00:18 GMT
+      Content-Type: text/plain; charset=utf-8
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-powered-by: Express
+      etag: W/"2-nOO9QiTIwXgNtWtBJezz8kv3SLc"
+      x-envoy-upstream-service-time: 1834
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Strict-Transport-Security: max-age=31536000
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=a%2FtnOaJAGce65fKN5EUBfGL77MXsCoYpYOocoT%2FNuwsWQt%2FSiq5hA%2FDXzdLp%2BrmLrjI2SGI7B7I57Fz5seUQHoItVbS0VfwDJDZVhcKqkdM%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 9a3eecc00c02ce83-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        OK
+      '''
+    }
+  }
+}

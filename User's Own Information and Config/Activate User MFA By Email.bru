@@ -1,0 +1,80 @@
+meta {
+  name: Activate User MFA By Email
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{BASE_URL}}/private/v2/account/mfa/email/active
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "otp":"467317"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 204
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/account/mfa/email/active
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "otp":"358094"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 25 Nov 2025 09:15:17 GMT
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2-3Sns9SSwMKZSYeMFnEirnh7LJYU"
+      x-envoy-upstream-service-time: 55
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=6kGSDbJWfcVZMJ1eyF3PObHHpDGF2Sff62KeygFfh9tkWZbpap4K2mbEr6McqhzMJZB9h2cufBkkBI4hUBr0paUv0lp5eZAHxPrQfOPuYZw%3D"}]}
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      CF-RAY: 9a400a6bfd90ff7f-SIN
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: No Content
+      text: 204
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

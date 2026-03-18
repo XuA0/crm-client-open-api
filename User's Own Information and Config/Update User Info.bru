@@ -1,0 +1,89 @@
+meta {
+  name: Update User Info
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{BASE_URL}}/private/v2/user
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+      "type": "trader",
+      "form_id": "",
+      "name": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v2/user
+    method: PATCH
+    mode: json
+    body:json: {
+      {
+          "type": "trader",
+          "form_id": "dgkv6nxc",
+          "name": "Test",
+          "uxe553a9d46x3c4ax6": "12345654321"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Fri, 31 Oct 2025 06:17:08 GMT
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"a-bAsFyilMr4Ra1hIU5PyoyFRunpI"
+      x-envoy-upstream-service-time: 453
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Ot30RiVOsuzkWJzduL7i6fwJ6PX7XkqGNze0qW52JAsTAAIcSPV6a4KpJDCVFcWtNdzVQ9NByo2x%2FKXc56ep9IDA%2F0HodSC0RTXl5l3uFck%3D"}]}
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      CF-RAY: 9971070cb80c4e62-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: No Content
+      text: 204
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

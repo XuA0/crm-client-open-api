@@ -1,0 +1,169 @@
+meta {
+  name: Get Daily Report
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/dailyReport?user_id=&trading_id=&connection_id=&platform=&start=&end=&time_range=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  user_id: 
+  trading_id: 
+  connection_id: 
+  platform: 
+  start: 
+  end: 
+  time_range: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/dailyReport?trading_id=DAH144&connection_id=uvpefn1y&platform=fortex&start=1763088651625&end=1763693451625&time_range=month
+    method: GET
+    mode: none
+    params:query: {
+      trading_id: DAH144
+      connection_id: uvpefn1y
+      platform: fortex
+      start: 1763088651625
+      end: 1763693451625
+      time_range: month
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "_id": "690d60beb28b2a3ac0755759",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-07",
+                "time": "2025-11-07 00:00:14",
+                "user_id": "us7mqomw",
+                "timestamp": 1762484414866,
+                "time_range": "month",
+                "deleted_timestamp": 1765076414866
+            },
+            {
+                "_id": "690eb23bb28b2a3ac075eae1",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-08",
+                "time": "2025-11-08 00:00:11",
+                "user_id": "us7mqomw",
+                "timestamp": 1762570811642,
+                "time_range": "month",
+                "deleted_timestamp": 1765162811642
+            },
+            {
+                "_id": "691003bcb28b2a3ac0767d87",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-09",
+                "time": "2025-11-09 00:00:12",
+                "user_id": "us7mqomw",
+                "timestamp": 1762657212601,
+                "time_range": "month",
+                "deleted_timestamp": 1765249212601
+            },
+            {
+                "_id": "6911553cb9308068e69edd54",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-10",
+                "time": "2025-11-10 00:00:12",
+                "user_id": "us7mqomw",
+                "timestamp": 1762743612802,
+                "time_range": "month",
+                "deleted_timestamp": 1765335612802
+            },
+            {
+                "_id": "6912a6bcb28b2a3ac0771742",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-11",
+                "time": "2025-11-11 00:00:12",
+                "user_id": "us7mqomw",
+                "timestamp": 1762830012918,
+                "time_range": "month",
+                "deleted_timestamp": 1765422012918
+            },
+            {
+                "_id": "6913f83c8e4bd7a9ad451399",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-12",
+                "time": "2025-11-12 00:00:12",
+                "user_id": "us7mqomw",
+                "timestamp": 1762916412770,
+                "time_range": "month",
+                "deleted_timestamp": 1765508412770
+            },
+            {
+                "_id": "691549bc7b24a8c2456ca8d7",
+                "app_id": "testing",
+                "prop_trading_user_id": "2j9xvdgr",
+                "trading_id": 30526,
+                "connection_id": "u5mzgkch",
+                "platform": "mt4",
+                "equity": 6000,
+                "balance": 6000,
+                "day": "2025-11-13",
+                "time": "2025-11-13 00:00:12",
+                "user_id": "us7mqomw",
+                "timestamp": 1763002812603,
+                "time_range": "month",
+                "deleted_timestamp": 1765594812603
+            }
+        ]
+      '''
+    }
+  }
+}

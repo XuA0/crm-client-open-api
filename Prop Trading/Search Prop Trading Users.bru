@@ -1,0 +1,1719 @@
+meta {
+  name: Search Prop Trading Users
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/users
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "skip": 0,
+    "limit": 0,
+    "package_id": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/users
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "searches": [],
+          "skip": 0,
+          "limit": 10
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "data": [
+                {
+                    "_id": {
+                        "init_request_id": "al4la4ev"
+                    },
+                    "init_request_id": "al4la4ev",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "jzy7qjhn",
+                    "package_id": "hloqkqzo",
+                    "steps": [
+                        {
+                            "trading_id": 1318,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "en-us": "D1",
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "a4ovoup8",
+                                "platform": "mt5",
+                                "group": "demo\\BBQANET",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "a4ovoup8",
+                            "max_daily_loss": 358.83,
+                            "max_loss": 625.61,
+                            "equity": 7005.88,
+                            "balance": 6999,
+                            "profit_target": -1,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1758038414123,
+                            "profit_sharing_trading_days": 1,
+                            "created_at": 1757665355941,
+                            "active_timestamp": 1757665355917
+                        }
+                    ],
+                    "created_at": 1757665355941,
+                    "active_timestamp": 1757665355917,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 5
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "1318",
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "a4ovoup8",
+                        "platform": "mt5",
+                        "group": "demo\\BBQANET",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "e0vl2okw"
+                    },
+                    "init_request_id": "e0vl2okw",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "uht5b1u2",
+                    "package_id": "1pk3tu11",
+                    "steps": [
+                        {
+                            "trading_id": 8294078,
+                            "platform": "mt4",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "en-us": "D1",
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "21p71b23",
+                                "platform": "mt4",
+                                "group": "Sandbox6",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "21p71b23",
+                            "max_daily_loss": 0,
+                            "max_loss": 0,
+                            "equity": 7000,
+                            "balance": 7000,
+                            "profit_target": 0,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1757433611037,
+                            "created_at": 1757059567898,
+                            "active_timestamp": 1757059567875
+                        }
+                    ],
+                    "created_at": 1757059567898,
+                    "active_timestamp": 1757059567875,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "8294078",
+                            "platform": "mt4",
+                            "connection_id": "21p71b23"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "21p71b23",
+                        "platform": "mt4",
+                        "group": "Sandbox6",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "s3n9m2ma"
+                    },
+                    "init_request_id": "s3n9m2ma",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "uht5b1u2",
+                    "package_id": "1pk3tu11",
+                    "steps": [
+                        {
+                            "trading_id": 8294077,
+                            "platform": "mt4",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "en-us": "D1",
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "21p71b23",
+                                "platform": "mt4",
+                                "group": "Sandbox6",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "21p71b23",
+                            "max_daily_loss": 0,
+                            "max_loss": 0,
+                            "equity": 7000,
+                            "balance": 7000,
+                            "profit_target": 0,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1757433611037,
+                            "created_at": 1757057770290,
+                            "active_timestamp": 1757057770269
+                        }
+                    ],
+                    "created_at": 1757057770290,
+                    "active_timestamp": 1757057770269,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "8294077",
+                            "platform": "mt4",
+                            "connection_id": "21p71b23"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "21p71b23",
+                        "platform": "mt4",
+                        "group": "Sandbox6",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "0nvd8aid"
+                    },
+                    "init_request_id": "0nvd8aid",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "fneldwhg",
+                    "package_id": "n6cud0t0",
+                    "steps": [
+                        {
+                            "trading_id": 1312,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "zh-cn": "D1",
+                                    "en-us": "D1",
+                                    "ar": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "a4ovoup8",
+                                "platform": "mt5",
+                                "group": "demo\\BBQANET",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 20,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "a4ovoup8",
+                            "max_daily_loss": 0,
+                            "max_loss": 0,
+                            "equity": 7000,
+                            "balance": 7000,
+                            "profit_target": 0,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1757347202867,
+                            "created_at": 1756968967903,
+                            "active_timestamp": 1756968967883
+                        }
+                    ],
+                    "created_at": 1756968967903,
+                    "active_timestamp": 1756968967883,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 20
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "1312",
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "zh-cn": "D1",
+                            "en-us": "D1",
+                            "ar": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "a4ovoup8",
+                        "platform": "mt5",
+                        "group": "demo\\BBQANET",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 20,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "d28vsnii"
+                    },
+                    "init_request_id": "d28vsnii",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "8ubljab9",
+                    "package_id": "bi0q99e2",
+                    "steps": [
+                        {
+                            "trading_id": "DAH149",
+                            "platform": "fortex",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "en-us": "D1",
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "uvpefn1y",
+                                "platform": "fortex",
+                                "group": "dev\\CRM\\QA_testing\\Demo-fortex",
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "leverage": 1,
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "uvpefn1y",
+                            "max_daily_loss": 2.35,
+                            "max_loss": 2.35,
+                            "equity": 7000,
+                            "balance": 7485.29,
+                            "profit_target": 485.29,
+                            "status": "success",
+                            "period": 1,
+                            "send_time": 1756742414622,
+                            "profit_sharing_profit_days": 0,
+                            "profit_sharing_trading_days": 0,
+                            "created_at": 1756709487834,
+                            "active_timestamp": 1756709487812
+                        }
+                    ],
+                    "created_at": 1756709487834,
+                    "active_timestamp": 1756709487812,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "DAH149",
+                            "platform": "fortex",
+                            "connection_id": "uvpefn1y"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "uvpefn1y",
+                        "platform": "fortex",
+                        "group": "dev\\CRM\\QA_testing\\Demo-fortex",
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "leverage": 1,
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "bhke7luv"
+                    },
+                    "init_request_id": "bhke7luv",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "w1yeukht",
+                    "package_id": "mycxq6gv",
+                    "steps": [
+                        {
+                            "trading_id": 1302,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "en-us": "D1",
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "a4ovoup8",
+                                "platform": "mt5",
+                                "group": "demo\\BBQANET",
+                                "leverage": 25,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "a4ovoup8",
+                            "max_daily_loss": 154.72,
+                            "max_loss": 204.5,
+                            "equity": 7325.91,
+                            "balance": 6999,
+                            "profit_target": 351.51,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1757088029759,
+                            "profit_sharing_profit_days": 0,
+                            "profit_sharing_trading_days": 1,
+                            "created_at": 1756697542140,
+                            "active_timestamp": 1756697601972
+                        }
+                    ],
+                    "created_at": 1756697542140,
+                    "active_timestamp": 1756697601972,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "1302",
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "a4ovoup8",
+                        "platform": "mt5",
+                        "group": "demo\\BBQANET",
+                        "leverage": 25,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "3ww3rxyw"
+                    },
+                    "init_request_id": "3ww3rxyw",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "uht5b1u2",
+                    "package_id": "1pk3tu11",
+                    "steps": [
+                        {
+                            "trading_id": 8294064,
+                            "platform": "mt4",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "en-us": "D1",
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "ko": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "21p71b23",
+                                "platform": "mt4",
+                                "group": "Sandbox6",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_close_loss_percent": 10,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700
+                            },
+                            "current": true,
+                            "connection_id": "21p71b23",
+                            "max_daily_loss": 0,
+                            "max_loss": 0,
+                            "equity": 7000,
+                            "balance": 13840.89,
+                            "profit_target": 6840.89,
+                            "status": "success",
+                            "period": 1,
+                            "send_time": 1756742423922,
+                            "profit_sharing_profit_days": 0,
+                            "profit_sharing_trading_days": 0,
+                            "created_at": 1756693930437,
+                            "active_timestamp": 1756693930414
+                        }
+                    ],
+                    "created_at": 1756693930437,
+                    "active_timestamp": 1756693930414,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "8294064",
+                            "platform": "mt4",
+                            "connection_id": "21p71b23"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "en-us": "D1",
+                            "zh-cn": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "ko": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "21p71b23",
+                        "platform": "mt4",
+                        "group": "Sandbox6",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_close_loss_percent": 10,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 10,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "rtwd7hhh"
+                    },
+                    "init_request_id": "rtwd7hhh",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "fneldwhg",
+                    "package_id": "n6cud0t0",
+                    "steps": [
+                        {
+                            "trading_id": 1216,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "zh-cn": "D1",
+                                    "en-us": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "th": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "a4ovoup8",
+                                "platform": "mt5",
+                                "group": "demo\\BBQANET",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 20,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700,
+                                "max_close_loss_percent": 10
+                            },
+                            "current": true,
+                            "connection_id": "a4ovoup8",
+                            "max_daily_loss": 0,
+                            "max_loss": 0,
+                            "equity": 7000,
+                            "balance": 7000,
+                            "profit_target": 0,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1746288006729,
+                            "created_at": 1745897207249,
+                            "active_timestamp": 1745897207249
+                        }
+                    ],
+                    "created_at": 1745897207249,
+                    "active_timestamp": 1745897207249,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "1216",
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "zh-cn": "D1",
+                            "en-us": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "th": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "a4ovoup8",
+                        "platform": "mt5",
+                        "group": "demo\\BBQANET",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 20,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700,
+                        "max_close_loss_percent": 10
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "slc0vo7d"
+                    },
+                    "init_request_id": "slc0vo7d",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "fneldwhg",
+                    "package_id": "n6cud0t0",
+                    "steps": [
+                        {
+                            "trading_id": 1215,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "zh-cn": "D1",
+                                    "en-us": "D1",
+                                    "zh-tw": "D1",
+                                    "ja": "D1",
+                                    "th": "D1"
+                                },
+                                "profit_sharing": {
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    },
+                                    "condition": {
+                                        "trading_days_logic": "and",
+                                        "trading_days_and_profit_logic": "or"
+                                    },
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        }
+                                    ]
+                                },
+                                "account_type": "demo",
+                                "balance": 7000,
+                                "connection_id": "a4ovoup8",
+                                "platform": "mt5",
+                                "group": "demo\\BBQANET",
+                                "leverage": 100,
+                                "trading_period": 5,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 1,
+                                "free_repeat": true,
+                                "pay_repeat_amount": 10,
+                                "pay_repeat": true,
+                                "max_retry_count": 2,
+                                "fee": {
+                                    "amount": 20,
+                                    "currency": "USD"
+                                },
+                                "max_daily_loss": 700,
+                                "max_loss": 1400,
+                                "profit_target": 70,
+                                "max_close_loss": 700,
+                                "max_close_loss_percent": 10
+                            },
+                            "current": true,
+                            "connection_id": "a4ovoup8",
+                            "max_daily_loss": 0,
+                            "max_loss": 0,
+                            "equity": 7000,
+                            "balance": 7000,
+                            "profit_target": 0,
+                            "status": "failed",
+                            "period": 5,
+                            "allow_retry": true,
+                            "send_time": 1746288006729,
+                            "created_at": 1745895896109,
+                            "active_timestamp": 1745895896109
+                        }
+                    ],
+                    "created_at": 1745895896109,
+                    "active_timestamp": 1745895896109,
+                    "current_step": 1,
+                    "data_type": "real",
+                    "net_prop_trading_fee": {
+                        "currency": "USD",
+                        "amount": 10
+                    },
+                    "trading_accounts": [
+                        {
+                            "trading_id": "1215",
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8"
+                        }
+                    ],
+                    "step": {
+                        "step": 1,
+                        "name": {
+                            "zh-cn": "D1",
+                            "en-us": "D1",
+                            "zh-tw": "D1",
+                            "ja": "D1",
+                            "th": "D1"
+                        },
+                        "profit_sharing": {
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            },
+                            "condition": {
+                                "trading_days_logic": "and",
+                                "trading_days_and_profit_logic": "or"
+                            },
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 10
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "account_type": "demo",
+                        "balance": 7000,
+                        "connection_id": "a4ovoup8",
+                        "platform": "mt5",
+                        "group": "demo\\BBQANET",
+                        "leverage": 100,
+                        "trading_period": 5,
+                        "minimum_trading_days": 1,
+                        "minimum_trading_volumes": 1,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 1,
+                        "free_repeat": true,
+                        "pay_repeat_amount": 10,
+                        "pay_repeat": true,
+                        "max_retry_count": 2,
+                        "fee": {
+                            "amount": 20,
+                            "currency": "USD"
+                        },
+                        "max_daily_loss": 700,
+                        "max_loss": 1400,
+                        "profit_target": 70,
+                        "max_close_loss": 700,
+                        "max_close_loss_percent": 10
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                },
+                {
+                    "_id": {
+                        "init_request_id": "6uo4l6wf"
+                    },
+                    "init_request_id": "6uo4l6wf",
+                    "user_id": "1ut4zjqv",
+                    "prop_trading_id": "r4pzh574",
+                    "package_id": "35zy091i",
+                    "steps": [
+                        {
+                            "trading_id": 110053,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 2,
+                                "name": {
+                                    "zh-cn": "D2",
+                                    "zh-tw": "D2",
+                                    "en-us": "D2",
+                                    "kur-ckb": "D2"
+                                },
+                                "profit_sharing": {
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 6
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        },
+                                        {
+                                            "height": 3,
+                                            "value": 4
+                                        },
+                                        {
+                                            "height": 4,
+                                            "value": 3
+                                        },
+                                        {
+                                            "height": 5,
+                                            "value": 2
+                                        },
+                                        {
+                                            "height": 6,
+                                            "value": 1
+                                        }
+                                    ],
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    }
+                                },
+                                "account_type": "live",
+                                "balance": 9999,
+                                "connection_id": "p6t5xkbm",
+                                "platform": "mt5",
+                                "group": "demo\\BBQAHEDGE",
+                                "leverage": 300,
+                                "trading_period": 10,
+                                "minimum_trading_days": 2,
+                                "minimum_trading_volumes": 2,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 10,
+                                "free_repeat": true,
+                                "max_retry_count": 2,
+                                "max_daily_loss": 999.9,
+                                "max_loss": 1999.8,
+                                "profit_target": 999.9,
+                                "max_close_loss": 999.9,
+                                "max_close_loss_percent": 10
+                            },
+                            "current": true,
+                            "connection_id": "p6t5xkbm",
+                            "max_daily_loss": 35.27,
+                            "max_loss": 35.27,
+                            "equity": 9999,
+                            "profit_target": 344.1,
+                            "status": "failed",
+                            "period": 10,
+                            "created_at": 1703645195052,
+                            "active_timestamp": 1703645195052
+                        },
+                        {
+                            "trading_id": 126504,
+                            "platform": "mt5",
+                            "step": {
+                                "step": 1,
+                                "name": {
+                                    "zh-cn": "D1",
+                                    "zh-tw": "D1",
+                                    "en-us": "D1",
+                                    "kur-ckb": "D1"
+                                },
+                                "profit_sharing": {
+                                    "structure": [
+                                        {
+                                            "height": 1,
+                                            "value": 10
+                                        },
+                                        {
+                                            "height": 2,
+                                            "value": 5
+                                        },
+                                        {
+                                            "height": 3,
+                                            "value": 4
+                                        },
+                                        {
+                                            "height": 4,
+                                            "value": 3
+                                        },
+                                        {
+                                            "height": 5,
+                                            "value": 2
+                                        },
+                                        {
+                                            "height": 6,
+                                            "value": 1
+                                        }
+                                    ],
+                                    "calculate_time": {
+                                        "type": "fixed_interval",
+                                        "value": 1
+                                    }
+                                },
+                                "account_type": "demo",
+                                "balance": 6000,
+                                "connection_id": "a4ovoup8",
+                                "platform": "mt5",
+                                "group": "demo\\BBQANET",
+                                "leverage": 33,
+                                "trading_period": 10,
+                                "minimum_trading_days": 1,
+                                "minimum_trading_volumes": 1,
+                                "max_daily_loss_percent": 10,
+                                "max_loss_percent": 20,
+                                "profit_target_percent": 10,
+                                "free_repeat": true,
+                                "max_retry_count": 1,
+                                "fee": {
+                                    "amount": 10,
+                                    "currency": "USD"
+                                },
+                                "payment_method": "balance_deduct",
+                                "max_daily_loss": 600,
+                                "max_loss": 1200,
+                                "profit_target": 600,
+                                "max_close_loss": 600,
+                                "max_close_loss_percent": 10
+                            },
+                            "connection_id": "a4ovoup8",
+                            "max_daily_loss": 258.08,
+                            "max_loss": 355.3,
+                            "equity": 6000,
+                            "profit_target": 788.56,
+                            "status": "success",
+                            "period": 8,
+                            "created_at": 1702982283100,
+                            "active_timestamp": 1702982283100
+                        }
+                    ],
+                    "created_at": 1702982283100,
+                    "active_timestamp": 1702982283100,
+                    "current_step": 2,
+                    "data_type": "real",
+                    "net_prop_trading_fee": null,
+                    "trading_accounts": [
+                        {
+                            "trading_id": "110053",
+                            "platform": "mt5",
+                            "connection_id": "p6t5xkbm"
+                        },
+                        {
+                            "trading_id": "126504",
+                            "platform": "mt5",
+                            "connection_id": "a4ovoup8"
+                        }
+                    ],
+                    "step": {
+                        "step": 2,
+                        "name": {
+                            "zh-cn": "D2",
+                            "zh-tw": "D2",
+                            "en-us": "D2",
+                            "kur-ckb": "D2"
+                        },
+                        "profit_sharing": {
+                            "structure": [
+                                {
+                                    "height": 1,
+                                    "value": 6
+                                },
+                                {
+                                    "height": 2,
+                                    "value": 5
+                                },
+                                {
+                                    "height": 3,
+                                    "value": 4
+                                },
+                                {
+                                    "height": 4,
+                                    "value": 3
+                                },
+                                {
+                                    "height": 5,
+                                    "value": 2
+                                },
+                                {
+                                    "height": 6,
+                                    "value": 1
+                                }
+                            ],
+                            "calculate_time": {
+                                "type": "fixed_interval",
+                                "value": 1
+                            }
+                        },
+                        "account_type": "live",
+                        "balance": 9999,
+                        "connection_id": "p6t5xkbm",
+                        "platform": "mt5",
+                        "group": "demo\\BBQAHEDGE",
+                        "leverage": 300,
+                        "trading_period": 10,
+                        "minimum_trading_days": 2,
+                        "minimum_trading_volumes": 2,
+                        "max_daily_loss_percent": 10,
+                        "max_loss_percent": 20,
+                        "profit_target_percent": 10,
+                        "free_repeat": true,
+                        "max_retry_count": 2,
+                        "max_daily_loss": 999.9,
+                        "max_loss": 1999.8,
+                        "profit_target": 999.9,
+                        "max_close_loss": 999.9,
+                        "max_close_loss_percent": 10
+                    },
+                    "user_name": "Shamina",
+                    "referrer_id": "5voplo1f",
+                    "referrer_name": "Ezreal"
+                }
+            ],
+            "count": 39
+        }
+      '''
+    }
+  }
+}

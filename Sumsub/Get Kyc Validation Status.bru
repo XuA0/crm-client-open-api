@@ -1,0 +1,60 @@
+meta {
+  name: Get Kyc Validation Status
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/file/sumsub/getKycValidate?user_id=''&type=user
+  body: none
+  auth: inherit
+}
+
+params:query {
+  user_id: ''
+  type: user
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/file/sumsub/getKycValidate?user_id=string&type=string
+    method: GET
+    mode: none
+    params:query: {
+      user_id: string
+      type: string
+    }
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "levelAutoCheckMode": null,
+            "reviewResult": {
+                "reviewAnswer": "GREEN"
+            },
+            "attemptCnt": 0,
+            "levelName": "QA-new",
+            "reviewStatus": "init",
+            "priority": 0,
+            "reviewId": "qNUHf",
+            "attemptId": "uQZkp",
+            "createDate": "2024-04-24 07:49:13+0000"
+        }
+      '''
+    }
+  }
+}

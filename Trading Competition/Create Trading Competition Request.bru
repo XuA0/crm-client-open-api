@@ -1,0 +1,165 @@
+meta {
+  name: Create Trading Competition Request
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/tradingCompetition
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "enter_trading_id": 0,
+    "competition_id": "",
+    "registration_type": "",
+    "competition_platform": "",
+    "competition_connection_id": "",
+    "competition_name": {},
+    "trading_currency": "",
+    "method_id": "",
+    "trading_amount": "",
+    "payment_platform": "",
+    "payment_currency": "",
+    "payment_fee": "",
+    "payment_total": "",
+    "payment_trading_id": "",
+    "payment_connection_id": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: free
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/tradingCompetition
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "enter_trading_id": 10150,
+          "competition_id": "TC000000p",
+          "registration_type": "free",
+          "competition_platform": "mt5",
+          "competition_connection_id": "8ddsbygi",
+          "trading_amount": "0",
+          "trading_currency": "USD",
+          "competition_name": {
+              "en-us": "QA_new",
+              "ko": "QA_new",
+              "zh-tw": "QA_new",
+              "ja": "QA_new",
+              "zh-cn": "QA_new"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: balance_deduct
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/tradingCompetition
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "enter_trading_id": 10150,
+          "competition_id": "TC000000p",
+          "registration_type": "balance_deduct",
+          "competition_platform": "mt5",
+          "competition_connection_id": "8ddsbygi",
+          "trading_amount": "1000",
+          "trading_currency": "USD",
+          "competition_name": {
+              "en-us": "QA_new",
+              "ko": "QA_new",
+              "zh-tw": "QA_new",
+              "ja": "QA_new",
+              "zh-cn": "QA_new"
+          },
+          "payment_platform": "mt5",
+          "payment_trading_id": 10000,
+          "payment_connection_id": "8ddsbygi"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: new_deposit
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/tradingCompetition
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "ved5f1ip",
+          "payment_currency": "USD",
+          "trading_currency": "USD",
+          "trading_amount": "10",
+          "payment_total": "10.1",
+          "form_data": {
+              "atgxyofy": [
+                  {
+                      "id": "wjz2",
+                      "name": "logo.png",
+                      "doc": "apps/testing/users/xrlv118e/forms/y2yeyc7a/atgxyofy_wjz2"
+                  }
+              ],
+              "form_id": "y2yeyc7a"
+          },
+          "payment_fee": "0.1",
+          "enter_trading_id": 110105,
+          "competition_id": "TC000000o",
+          "registration_type": "new_deposit",
+          "competition_platform": "mt5",
+          "competition_connection_id": "p6t5xkbm",
+          "competition_name": {
+              "en-us": "没有奖金的竞赛",
+              "ko": "没有奖金的竞赛",
+              "zh-tw": "没有奖金的竞赛",
+              "ja": "没有奖金的竞赛",
+              "zh-cn": "没有奖金的竞赛"
+          },
+          "payment_platform": "other"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

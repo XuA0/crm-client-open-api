@@ -1,0 +1,149 @@
+meta {
+  name: Requests
+  seq: 23
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  Request Status : pending , approved , cancelled, processing , rejected
+  
+  Payment Status : pending , success, cancelled ,fail
+  
+  ##### Get Requets History
+  
+  1. get requests history
+      
+  
+  list of type value : account | leverage | forget | deposit | withdrawal | transfer | prop_trading_live_step  
+  prop_trading | prop_trading_retry | trading_competition
+  
+  <img src="https://content.pstmn.io/f1542757-4a2e-470f-b2fd-aadb03b3f376/aW1hZ2UucG5n" width="1346" height="394">
+  
+  2\. create Account Request details
+  
+  send_reports : connection.send_reports ? 1 : 0  
+  enable_readonly:
+  
+  1. Account Type's disable_trading_until_funded (if true)
+      
+  2. if first is false , then connection.disable_trading_until_funded (if true)
+      
+  
+  <img src="https://content.pstmn.io/0240d94e-559b-441b-b8d1-6645a803f0b1/aW1hZ2UucG5n" width="802" height="362">
+  
+  #### **Bidirectional Amount Calculation (P2T / T2P)**
+  
+  The form supports two input modes:
+  
+  - **P2T (Payment → Trading)**:
+      
+      The user inputs the **payment amount**, and the **trading amount** is calculated automatically.
+      
+  - **T2P (Trading → Payment)**:
+      
+      The user inputs the **trading amount**, and the **payment amount** is calculated automatically.
+      
+  
+  In both cases, the fee is calculated based on the **payment currency**.
+  
+  ``` typescript
+  /**
+     * Returns a BigNumber whose value is the value of this BigNumber rounded by rounding mode
+     * `roundingMode` to a maximum of `decimalPlaces` decimal places.
+     *
+     * If `decimalPlaces` is omitted, or is `null` or `undefined`, the return value is the number of
+     * decimal places of the value of this BigNumber, or `null` if the value of this BigNumber is
+     * ±`Infinity` or `NaN`.
+     *
+     * If `roundingMode` is omitted, or is `null` or `undefined`, `ROUNDING_MODE` is used.
+     *
+     * Throws if `decimalPlaces` or `roundingMode` is invalid.
+     *
+     * ```ts
+     * x = new BigNumber(1234.56)
+     * x.dp()                                 // 2
+     * x.dp(1)                                // '1234.6'
+     * x.dp(2)                                // '1234.56'
+     * x.dp(10)                               // '1234.56'
+     * x.dp(0, 1)                             // '1234'
+     * x.dp(0, 6)                             // '1235'
+     * x.dp(1, 1)                             // '1234.5'
+     * x.dp(1, BigNumber.ROUND_HALF_EVEN)     // '1234.6'
+     * x                                      // '1234.56'
+     * y = new BigNumber('9.9e-101')
+     * y.dp()                                 // 102
+     * ```
+     *
+     * @param [decimalPlaces] Decimal places, integer, 0 to 1e+9.
+     * @param [roundingMode] Rounding mode, integer, 0 to 8.
+     */
+  
+   ```
+  
+  1\. P2T (Payment → Trading)
+  
+  The user enters `payment_total`.
+  
+  The system calculates the trading amount after deducting the fee.
+  
+  ``` typescript
+  // selectedCurrency refers to the Payment Currency
+  const convertedAmount = (payment_total)
+    .dp(selectedCurrency.decimals ?? 2)
+  const calculateFee = (convertedAmount * (selectedCurrency.fee ?? 0) / 100)
+    .dp(selectedCurrency.decimals ?? 2)
+  const fee = selectedCurrency.max_fee && selectedCurrency.max_fee < calculateFee
+    ? selectedCurrency.max_fee
+    : calculateFee
+  // Final trading amount (after fee deduction)
+  const trading_amount = ((convertedAmount - fee) / rate)
+    .dp(selectedCurrency.decimals ?? 2)
+  
+   ```
+  
+  2\. T2P (Trading → Payment)
+  
+  The user enters `trading_amount`.
+  
+  The system calculates the required payment amount including the fee.
+  
+  ``` typescript
+  // selectedCurrency refers to the Payment Currency
+  const convertedAmount = (trading_amount * rate)
+    .dp(selectedCurrency.decimals ?? 2)
+  const calculateFee = (convertedAmount * (selectedCurrency.fee ?? 0) / 100)
+    .dp(selectedCurrency.decimals ?? 2)
+  const fee = selectedCurrency.max_fee && selectedCurrency.max_fee < calculateFee
+    ? selectedCurrency.max_fee
+    : calculateFee
+  // Final payment total (including fee)
+  const payment_total = (convertedAmount + fee)
+    .dp(selectedCurrency.decimals ?? 2)
+  
+   ```
+  
+  #### **Withdrawal Amount Calculation**
+  
+  For withdrawals, the user inputs the `trading_amount`.
+  
+  The system converts it into the withdrawal currency and deducts the applicable fee.
+  
+  Calculation Steps
+  
+  ``` typescript
+  // withdrawal_currency refers to the selected withdrawal currency
+  const withdrawalAmount = (trading_amount * rate)
+    .dp(withdrawal_currency.decimals)
+  const calculateFee = (withdrawalAmount * (withdrawal_currency.fee ?? 0) / 100)
+    .dp(withdrawal_currency.decimals)
+  const fee = withdrawal_currency.max_fee && withdrawal_currency.max_fee < calculateFee
+    ? withdrawal_currency.max_fee
+    : calculateFee
+  const withdrawal_total = (withdrawalAmount - fee)
+    .dp(withdrawal_currency.decimals)
+  
+   ```
+}

@@ -1,0 +1,57 @@
+meta {
+  name: Retry Prop Trading Package
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/statistics/propTrading/:package_id/retry
+  body: json
+  auth: bearer
+}
+
+params:path {
+  package_id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "init_request_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/statistics/propTrading/:package_id/retry
+    method: POST
+    mode: json
+    params:path: {
+      package_id: gvg6dp10
+    }
+  
+    body:json: {
+      {
+        "init_request_id": ""0mj2idf6ax""
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

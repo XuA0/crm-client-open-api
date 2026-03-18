@@ -1,0 +1,125 @@
+meta {
+  name: Create Trading Competition External Payment Request
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/externalPayment/tradingCompetition/deposit
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "channel_id": "",
+    "order_no": "",
+    "request_type": "",
+    "enter_trading_id": 0,
+    "competition_id": "",
+    "package_id": "",
+    "package_name": {},
+    "convert_way": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: chillpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/tradingCompetition/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "e8inwaxw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "5835.37",
+          "form_data": {
+              "form_id": "7i8illty"
+          },
+          "payment_fee": "57.77",
+          "request_type": "trading_competition",
+          "enter_trading_id": 9502700,
+          "competition_id": "d4nd4ktx"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "external_order":{
+                "payment_url":"https://xxxxxxx"
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: matchpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/tradingCompetition/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "e8inwaxw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "5835.37",
+          "form_data": {
+              "form_id": "7i8illty"
+          },
+          "payment_fee": "57.77",
+          "request_type": "trading_competition",
+          "enter_trading_id": 9502700,
+          "competition_id": "d4nd4ktx"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "external_order": {
+                "data": {
+                    "paymentId": "81f6d4eb-f820-4e8e-b1c8-bfc28d2d4b8c",
+                    "status": "NEW",
+                    "transactionAmount": 0,
+                    "netAmount": 0,
+                    "transactionCurrency": "ETH",
+                    "processingFee": 0,
+                    "address": "0x31c034e8169ce45b29a687e04374c55d416c9c4b",
+                    "checkoutUrl": "https://wallet-staging.match2pay.com//crypto-payment/81f6d4eb-f820-4e8e-b1c8-bfc28d2d4b8c/paywall",
+                    "finalCurrency": "ETH",
+                    "expiration": null,
+                    "exchangerLinks": {
+                        "moonpay": "https://buy.moonpay.io?apiKey=pk_live_YES0HkJZHGuTZboXExUhR4vfJHk3r&currencyCode=eth&walletAddress=0x31c034e8169ce45b29a687e04374c55d416c9c4b&baseCurrencyAmount=1&baseCurrencyCode=eth&enabledPaymentMethods=credit_debit_card%2Csepa_bank_transfer%2Cgbp_bank_transfer%2Cgbp_open_banking_payment%2Capple_pay%2Cgoogle_pay%2Csamsung_pay&signature=2CFtTIANqXuNmMDrzZSXJ9iAumZsJgKySxqNQ%2FSxZ9g%3D%22,
+                        "onramper": "https://buy.onramper.com/?wallets=ETH:0x31c034e8169ce45b29a687e04374c55d416c9c4b&isAddressEditable=false&onlyCryptos=ETH&defaultAmount=1&defaultFiat=ETH&onlyFiats=ETH%22
+                    },
+                    "errorList": null
+                },
+                "id": "81f6d4eb-f820-4e8e-b1c8-bfc28d2d4b8c"
+            },
+            "order_no": "c2e24z6qu3swfngw"
+        }
+      '''
+    }
+  }
+}

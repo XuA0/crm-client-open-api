@@ -1,0 +1,47 @@
+meta {
+  name: POST /private/v1/mtr/trades/capital/search/count
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mtr/trades/capital/search/count
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "trading_id": 0,
+    "searches": [
+      {
+        "field": "",
+        "value": "",
+        "opt": ""
+      }
+    ],
+    "range": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "last": true,
+    "orders": {},
+    "mine": true,
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

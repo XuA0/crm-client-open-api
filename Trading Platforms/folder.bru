@@ -1,0 +1,93 @@
+meta {
+  name: Trading Platforms
+  seq: 11
+}
+
+auth {
+  mode: inherit
+}
+
+docs {
+  #### Introduction
+  
+  All Trading Platform related operations are described in this Collection
+  
+  Each sub-collection of this collection represents APIs for the specific trading platform.
+  
+  Platform Lists: mt4 , mt5 , mtr , wta, ctrader, fortex
+  
+  <img src="https://content.pstmn.io/d605604d-aaed-4298-ad17-691194018a26/aW1hZ2UucG5n" width="424" height="200">
+  
+  #### Example Work Flow
+  
+  ##### Create Trading Account
+  
+  1. Get Trading Platform Connections
+      
+  
+  <img src="https://content.pstmn.io/79ac0c0b-c330-42d7-bb07-e854e0297ba9/aW1hZ2UucG5n" width="660" height="219">
+  
+  2\. Get Account Types
+  
+  <img src="https://content.pstmn.io/2bed21cd-c9e3-4245-ba55-a13361d9c201/aW1hZ2UucG5n" width="593" height="272">
+  
+  3\. Create Trading Account Request
+  
+  <img src="https://content.pstmn.io/8fee422f-b531-49b2-8285-8c196c832e34/aW1hZ2UucG5n" width="613" height="367">
+  
+  4\. Create MT4 Demo Trading Account
+  
+  <img src="https://content.pstmn.io/1b9d31b5-8817-4477-9491-4e704eae6dc5/aW1hZ2UucG5n" width="589" height="306">
+  
+  5\. Bind Account
+  
+  <img src="https://content.pstmn.io/9c59f72c-ff59-406f-b267-0ce066d7c421/aW1hZ2UucG5n" width="830" height="322">
+  
+  ##### Get Trade History / Get Open Positions / Get Pending Orders
+  
+  1. Get User Rank【Search Field: reports_trade_history_tier/reports_open_positions_tier/reports_pending_orders_tier】
+      
+  
+  <img src="https://content.pstmn.io/7790d10d-bd49-4f2c-9fbf-f15d3a160818/aW1hZ2UucG5n" width="626" height="141">
+  
+  2\. Get Symbols【Search Field: symbol】
+  
+  <img src="https://content.pstmn.io/c5e9c4ca-299c-4b41-8c8e-47bea101a579/aW1hZ2UucG5n" width="546" height="259">
+  
+  3\. Get Referrers 【Search Field: referrer_id】【type: 'clients_reports'】
+  
+  <img src="https://content.pstmn.io/4b2d1d75-ac0e-49e9-8097-277e19a1219f/aW1hZ2UucG5n" width="646" height="385">
+  
+  ##### Get Account Capitals
+  
+  1. Get User Rank【Search Field: reports_accounts_capital_tier】
+      
+  
+  <img src="https://content.pstmn.io/15302539-0019-44b9-b8a3-59061541fecb/aW1hZ2UucG5n" width="626" height="141">
+  
+  2\. Get Referrers 【Search Field: referrer_id】【type: 'clients_reports'】
+  
+  <img src="https://content.pstmn.io/4b2d1d75-ac0e-49e9-8097-277e19a1219f/aW1hZ2UucG5n" width="646" height="385">
+  
+  ##### Management Password Api
+  
+  1. Update Password
+      
+  
+  <img src="https://content.pstmn.io/9f8407d6-2f05-4bde-bdf7-e22c383d1c27/aW1hZ2UucG5n" width="920" height="362">
+  
+  2\. Forgot Password Request(Live Account, Need Requests)
+  
+  <img src="https://content.pstmn.io/ea4ba3ab-c2a4-4aee-84d6-d58fe12107af/aW1hZ2UucG5n" width="1030" height="350">
+  
+  3\. Reset Password (Demo Account , Direct Reset)
+  
+  <img src="https://content.pstmn.io/9b825218-abf4-4583-842d-11517a4734a6/aW1hZ2UucG5n" width="1120" height="356">
+  
+  ##### Update Leverage
+  
+  1. update leverage request (need requests)
+      
+  
+  <img src="https://content.pstmn.io/352bce45-311e-4ec2-b2ba-2a2fd9aacc94/aW1hZ2UucG5n" width="824" height="570">
+}

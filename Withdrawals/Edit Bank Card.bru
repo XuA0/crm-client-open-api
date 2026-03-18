@@ -1,0 +1,64 @@
+meta {
+  name: Edit Bank Card
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "id": "",
+    "bank_name": "",
+    "method_id": "",
+    "form_data": {},
+    "user_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: other
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/withdrawals/bankcard
+    method: PATCH
+    mode: json
+    body:json: {
+      {
+          "bank_name": "AAA人民币",
+          "method_id": "ua6wfbtj",
+          "form_data": {
+              "rxikuitm": "AAA",
+              "kjyclilh": "AAA",
+              "milyehaz": "AAA",
+              "vrmctrol": "AAA",
+              "vpsgnzgc": "AAA",
+              "bowivizf": "",
+              "form_id": "gmijwlqq"
+          },
+          "id": "d9i9g40w"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,209 @@
+meta {
+  name: Get CTrader/Fortex/Sirix Trading Account Details
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/trade/accounts/:id?connection_id=&user_id=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  connection_id: 
+  user_id: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: Sirix 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/:id?connection_id=xi3u7ek5
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: xi3u7ek5
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 9465317
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "app_id": "testing",
+            "user_id": "phzxiphf",
+            "trading_id": 9465317,
+            "currency": "USD",
+            "balance": 0,
+            "credit": 0,
+            "available_withdrawal": 0,
+            "balance_previous_month": 0,
+            "balance_previous_day": 0,
+            "equity": 0,
+            "margin_free": 0,
+            "leverage": 100,
+            "enable": 1,
+            "enable_readonly": 0,
+            "group": "BR USD 2",
+            "created_at": "2024-01-18T09:04:36.000Z",
+            "last_active": "1970-01-01T00:00:00.000Z",
+            "mt_name": "q-leverage3",
+            "margin_level": 0,
+            "mt_email": "q-leverage3@mail.com",
+            "comment": "",
+            "agent_account": 0,
+            "enable_change_password": 1,
+            "send_reports": 0,
+            "margin": 0,
+            "allow_crm_deposit": true,
+            "allow_crm_withdrawal": true,
+            "allow_crm_transfer": true,
+            "name": "q-leverage3",
+            "email": "q-leverage3@mail.com",
+            "trading_account_profit": 0,
+            "platform": "wta"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: CTrader 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/:id?connection_id=aqol66lk
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: aqol66lk
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: 3000618
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "app_id": "testing",
+            "user_id": "deuonptq",
+            "trading_id": "3000618",
+            "manager_bonus": 0,
+            "ib_bonus": 0,
+            "cash_equity": 20539,
+            "leverage": 100,
+            "access_rights": 0,
+            "created_at": "2025-03-26T09:54:29.705Z",
+            "mt_name": "q-ib5-cl",
+            "mt_email": "yinzheng5519@gmail.com",
+            "ctrader_account_type": 0,
+            "total_margin_calculation_type": 0,
+            "agent1": null,
+            "agent2": null,
+            "group": "Default",
+            "currency": "USD",
+            "balance": 20116.36,
+            "bonus": 0,
+            "equity": 20749.93,
+            "margin_free": 19441.22,
+            "max_leverage": 100,
+            "available_withdrawal": 19441.22,
+            "margin": 1308.71,
+            "margin_level": 1585.52,
+            "account_type_id": "pq3921kx",
+            "rebate": false,
+            "allow_crm_deposit": true,
+            "allow_crm_withdrawal": true,
+            "allow_crm_transfer": true,
+            "name": "q-ib5-cl",
+            "email": "yinzheng5519@gmail.com",
+            "phone": {
+                "number": "19283762634",
+                "country_code": "86"
+            },
+            "platform": "ctrader"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: Fortex 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/trade/accounts/:id?connection_id=z80wqyxy
+    method: GET
+    mode: none
+    params:query: {
+      connection_id: z80wqyxy
+      ~user_id: 
+    }
+  
+    params:path: {
+      id: LAG030
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "app_id": "testing",
+            "user_id": "8sobvdjy",
+            "trading_id": "LAG030",
+            "currency": "USD",
+            "balance": 5000,
+            "available_withdrawal": 5000,
+            "equity": 5000,
+            "leverage": 1,
+            "created_at": "2025-08-25T04:53:25.000Z",
+            "mt_name": "refer-type8",
+            "mt_email": "refer-type8@mail.com",
+            "group": "dev\\CRM\\QA_testing\\Live-fortex",
+            "fxmaintmargin": 1,
+            "enable": "1",
+            "enable_readonly": "1",
+            "margin": 0,
+            "margin_free": 5000,
+            "margin_level": 0,
+            "trading_account_profit": 0,
+            "fxliquidmargin": 1,
+            "maxdailydrawdown": 0,
+            "allow_crm_deposit": true,
+            "allow_crm_withdrawal": true,
+            "allow_crm_transfer": true,
+            "prop_trading": true,
+            "name": "refer-type8",
+            "email": "refer-type8@mail.com",
+            "platform": "fortex"
+        }
+      '''
+    }
+  }
+}

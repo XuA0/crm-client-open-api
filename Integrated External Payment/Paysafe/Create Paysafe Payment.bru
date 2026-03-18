@@ -1,0 +1,65 @@
+meta {
+  name: Create Paysafe Payment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/createPaysafePayment
+  body: json
+  auth: bearer
+}
+
+params:path {
+  type: paysafe
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "payment_handle_token": "",
+    "currency_code": "",
+    "amount": 0,
+    "order_no": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id/createPaysafePayment
+    method: POST
+    mode: json
+    params:path: {
+      type: paysafe
+      id: j0th4yut
+    }
+  
+    body:json: {
+      {
+          "payment_handle_token": "PHvtD2zarryt2Qpm",
+          "currency_code": "USD",
+          "amount": 10000,
+          "order_no": "s1rchbbw5z983zof"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

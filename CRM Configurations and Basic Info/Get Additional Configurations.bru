@@ -1,0 +1,115 @@
+meta {
+  name: Get Additional Configurations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/configuration/appSetting?key=
+  body: none
+  auth: inherit
+}
+
+params:query {
+  key: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/configuration/appSetting
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 23 Oct 2025 09:25:20 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"2af-E5kFvovO9zOQPyhKlI8abUr46iE"
+      x-envoy-upstream-service-time: 2951
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Ua2Rx8YalyQrsk%2BdhfVucyMC8FTfFxHbNeJ1LM2ytZTGNejWtd0mD%2BUAOIK5J7%2F4ZwVeT1ZhpGfaMSC4BdYOTJhmSZvet435JKizmQraRD4%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 99302fa9c8fb602a-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "validate_transfer_info": [
+                "email",
+                "phone"
+            ],
+            "match2pay_withdrawal": true,
+            "enable_trader_register": true,
+            "deposit_to_trading_account": true,
+            "withdrawal_from_trading_account": true,
+            "allow_canceled_deposit_requests": [
+                "other",
+                "pay_status_failed",
+                "pay_status_pending"
+            ],
+            "who_can_become_referrer": [
+                "ib",
+                "trader",
+                "admin"
+            ],
+            "mail_to_referrer_types": [],
+            "default_owner": "none",
+            "who_can_become_transfer_recipient": "all",
+            "gtm": {
+                "enable": false,
+                "id": "GTM-K4L4XC4T"
+            },
+            "ga": {
+                "enable": false,
+                "id": "G-N1RF01N1KF"
+            },
+            "default_announcements_location": "top",
+            "open_account_agreement_mode": {
+                "mode": "auto",
+                "auto_mode": "only_toggled"
+            },
+            "transfer_agreement_mode": {
+                "mode": "click"
+            },
+            "mail_to_referrer_heights": "direct_uplines"
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,65 @@
+meta {
+  name: Create Trading Account Request
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/account
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+      "platform": "",
+      "connection_id": "",
+      "leverage": 100,
+      "remarks": "",
+      "account_type_id": "",
+      "send_reports": 0,
+      "enable_readonly": false,
+      "server_name": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/account
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "platform": "MT4",
+          "connection_id": "bigc8liz",
+          "leverage": 2,
+          "remarks": "",
+          "account_type_id": "pb5tkysy",
+          "send_reports": 0,
+          "enable_readonly": false,
+          "server_name": "QA 1"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "mqr9z1hv"
+        }
+      '''
+    }
+  }
+}

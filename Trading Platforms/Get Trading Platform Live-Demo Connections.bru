@@ -1,0 +1,121 @@
+meta {
+  name: Get Trading Platform Live/Demo Connections
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/connections/:type
+  body: none
+  auth: bearer
+}
+
+params:path {
+  type: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/connections/:type
+    method: GET
+    mode: none
+    params:path: {
+      type: live
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Thu, 30 Oct 2025 11:34:37 GMT
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+      x-dns-prefetch-control: off
+      expect-ct: max-age=0
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=31536000
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      x-permitted-cross-domain-policies: none
+      referrer-policy: no-referrer
+      x-xss-protection: 0
+      surrogate-control: no-store
+      Cache-Control: no-store, no-cache, must-revalidate, proxy-revalidate
+      expires: 0
+      access-control-allow-origin: *
+      access-control-allow-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+      access-control-allow-headers: Content-Type, Authorization, App-ID, crm-token, lang, language, sign, st, dk, benchmark, x-device-id, x-device-name, x-explorer-name
+      etag: W/"1885-CpDiD703f6Ayj5nr5f64CaOjBhw"
+      x-envoy-upstream-service-time: 333
+      Server: cloudflare
+      cf-cache-status: DYNAMIC
+      Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+      Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=0jM6tKuO7hYcETEqhyz3kGyOGDcyPQ69f9j020dLTexlo2EriK8jwY34SuZCQtXKxrswfDGksjxuRYo0dmRrR1pDiO%2BvtEkKrYNk0%2B3toZg%3D"}]}
+      Content-Encoding: br
+      CF-RAY: 996a9abe6ed02063-IAD
+      alt-svc: h3=":443"; ma=86400
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        [
+            {
+                "id": "u5mzgkch",
+                "server_name": "QA",
+                "currencies": [
+                    "USD"
+                ],
+                "custom_range": true,
+                "trading_id_start": 30000,
+                "trading_id_end": 9000000,
+                "timezone": "Etc/GMT-2",
+                "demo": false,
+                "leverages": [
+                    66,
+                    75,
+                    100,
+                    125,
+                    175,
+                    200,
+                    300,
+                    400,
+                    10,
+                    500,
+                    1000
+                ],
+                "sync_mysql": 0,
+                "sync_capital": 0,
+                "sync_fields": [
+                    "phone",
+                    "email",
+                    "agent",
+                    "nationality_register"
+                ],
+                "send_reports": false,
+                "user_groups": [],
+                "disable_trading_until_funded": true,
+                "platform": "MT4"
+            }
+        ]
+      '''
+    }
+  }
+}

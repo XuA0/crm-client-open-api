@@ -1,0 +1,293 @@
+meta {
+  name: Get External Payment Setting
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id?name=&label=&currencies=&merchantCode=&routeNo=0&apiKey=&md5Secret=&channelCode=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  label: 
+  currencies: 
+  merchantCode: 
+  routeNo: 0
+  apiKey: 
+  md5Secret: 
+  channelCode: 
+}
+
+params:path {
+  type: 
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: paysafe
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id
+    method: GET
+    mode: none
+    params:path: {
+      type: paysafe
+      id: j0th4yut
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "j0th4yut",
+            "label": {
+                "en-us": "Paysafe001",
+                "zh-cn": "Paysafe001"
+            },
+            "environment": "TEST",
+            "public_key": "**********",
+            "private_key": "**********",
+            "currencies": [
+                "EUR",
+                "USD"
+            ],
+            "payment_methods": [
+                {
+                    "paymentMethod": "SKRILL",
+                    "processorCode": "SKRILL_QCO",
+                    "currencyCode": "USD",
+                    "currency": "USD",
+                    "accountId": "1002959830",
+                    "accountConfiguration": {
+                        "id": "405cb9ae-e3eb-4585-93dc-ff471a0d8181",
+                        "autoSave": false,
+                        "productTypes": [
+                            "PAYSAFE_PAYMENT_API",
+                            "CHECKOUT_V2"
+                        ],
+                        "isCustomerWalletEnabled": false,
+                        "isApplePay": false,
+                        "isGooglePay": false,
+                        "isThreeDsEnabledForVerification": false,
+                        "isVisaInstallmentEnabled": false
+                    }
+                }
+            ],
+            "name": "Paysafe001",
+            "type": "paysafe",
+            "created_at": "2025-06-03 10:05:27",
+            "updated_at": "2025-06-11 07:17:02",
+            "is_delete": false,
+            "callback": "https://d-c-api.c64f.com/callback/paysafe/callback"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: luqapay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id
+    method: GET
+    mode: none
+    params:path: {
+      type: luqapay
+      id: aogqz9r7
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "aogqz9r7",
+            "name": "test",
+            "label": {
+                "zh-cn": "test",
+                "en-us": "test",
+                "fa": "test"
+            },
+            "api_key": "**********",
+            "secret_key": "**********",
+            "sandbox": true,
+            "payment_method": "COMMUNITY_BANK",
+            "float_range": 20000,
+            "type": "luqapay",
+            "created_at": "2025-03-18 09:52:38",
+            "updated_at": "2025-05-06 08:21:42",
+            "is_delete": false,
+            "callback": "https://d-c-api.c64f.com/callback/luqapay/callback"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: matchpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id
+    method: GET
+    mode: none
+    params:path: {
+      type: matchpay
+      id: ldpkowuo
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "ldpkowuo",
+            "label": {
+                "en-us": "MatchPay",
+                "zh-cn": "MatchPay"
+            },
+            "access_key": "**********",
+            "access_secret": "**********",
+            "currencies": [
+                "BTC",
+                "ETH",
+                "USB",
+                "UCX",
+                "USDT ERC20",
+                "USDC ERC20",
+                "USDT BEP20",
+                "USDC BEP20",
+                "BNB",
+                "USDT TRC20",
+                "USDC TRC20",
+                "TRX"
+            ],
+            "name": "MatchPay",
+            "type": "matchpay",
+            "created_at": "2023-05-30 06:34:32",
+            "updated_at": "2025-10-28 08:04:36",
+            "is_delete": false,
+            "api_address": "https://pp-staging-micro.fx-edge.com",
+            "open_with": "new_tab",
+            "auto_adjustment_payment": false,
+            "callback": "https://d-c-api.c64f.com/pay/matchpay/callback/ldpkowuo"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: migpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id
+    method: GET
+    mode: none
+    params:path: {
+      type: migpay
+      id: wykk1kir
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "wykk1kir",
+            "label": {
+                "zh-cn": "PayByCrypto-1",
+                "en-us": "PayByCrypto-1",
+                "zh-tw": "PayByCrypto-1",
+                "kur-ckb": "PayByCrypto-1"
+            },
+            "api_key": "**********",
+            "api_url": "https://sandbox.migpayments.tech/api",
+            "currencies": [
+                "ETH",
+                "BTC",
+                "USDT",
+                "USDC",
+                "ROX"
+            ],
+            "trading_currency": "USD",
+            "name": "PayByCrypto-1",
+            "type": "migpay",
+            "created_at": "2023-11-27 02:37:48",
+            "updated_at": "2023-11-29 07:54:57",
+            "is_delete": false,
+            "callback": "https://d-c-api.c64f.com/pay/migpay/callback/wykk1kir"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: stripe
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/:type/setting/:id
+    method: GET
+    mode: none
+    params:path: {
+      type: stripe
+      id: pvnjto14
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "pvnjto14",
+            "label": {
+                "zh-cn": "Stripe",
+                "zh-tw": "Stripe",
+                "en-us": "Stripe",
+                "id": "Stripe",
+                "ja": "Stripe"
+            },
+            "public_key": "pk_test_51OljIwCGo4yHiHNzn9XR9PQAmGR6iIgcxDW51vhsuW3Q6Fxnd5zKlsNHJ4kPKrfkTbtRWMUuzKro19ZBFAgdIyZW00uzFdA99v",
+            "secret_key": "**********",
+            "currencies": [
+                "USD",
+                "JPY",
+                "GBP",
+                "CHF",
+                "AUD",
+                "CAD",
+                "NZD",
+                "EUR",
+                "ALL"
+            ],
+            "open_with": "pop_up",
+            "name": "Stripe",
+            "type": "stripe",
+            "created_at": "2024-02-21 08:56:03",
+            "updated_at": "2024-05-09 01:19:18",
+            "is_delete": false,
+            "callback": "https://t-c-api.c64f.com/pay/stripe/callback/pvnjto14"
+        }
+      '''
+    }
+  }
+}

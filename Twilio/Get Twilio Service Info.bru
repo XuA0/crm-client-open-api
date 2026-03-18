@@ -1,0 +1,61 @@
+meta {
+  name: Get Twilio Service Info
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/notify/verify/twilio/service
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/notify/verify/twilio/service
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "isEnable": true,
+            "isDelete": false,
+            "service": {
+                "VA97c20f0b12c2a40cf8e05d518e71ed80": {
+                    "appId": null,
+                    "execTime": null,
+                    "createTime": null,
+                    "createUserId": null,
+                    "createUserName": null,
+                    "modifyTime": null,
+                    "modifyUserId": null,
+                    "isEnable": true,
+                    "isDelete": false,
+                    "sms": true,
+                    "call": true,
+                    "whatsapp": true,
+                    "service_sid": "VA97c20f0b12c2a40cf8e05d518e71ed80",
+                    "friendly_name": "CRM",
+                    "enable_service": false
+                }
+            }
+        }
+      '''
+    }
+  }
+}

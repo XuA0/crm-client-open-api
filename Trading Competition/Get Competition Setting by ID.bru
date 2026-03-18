@@ -1,0 +1,136 @@
+meta {
+  name: Get Competition Setting by ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/setting/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: string
+}
+
+headers {
+  Accept: */*
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/api/v1/rule/tradingCompetition/setting/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 
+    }
+  
+    headers: {
+      Accept: */*
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: */*
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "appId": "string",
+          "execTime": 699,
+          "createTime": 5139,
+          "createUserId": "string",
+          "createUserName": "string",
+          "modifyTime": 4365,
+          "modifyUserId": "string",
+          "isEnable": false,
+          "isDelete": true,
+          "id": "string",
+          "name": {
+            "key_0": "string",
+            "key_1": "string",
+            "key_2": "string"
+          },
+          "platform": "string",
+          "description": "string",
+          "prizes": [
+            {
+              "rank": 6545,
+              "amount": 2543,
+              "currency": "string",
+              "type": "string"
+            },
+            {
+              "rank": 2650,
+              "amount": 2692,
+              "currency": "string",
+              "type": "string"
+            }
+          ],
+          "display": {
+            "picture": {
+              "id": "string",
+              "name": "string",
+              "doc": "string",
+              "doc_url": "string"
+            },
+            "poster": {
+              "id": "string",
+              "name": "string",
+              "doc": "string",
+              "doc_url": "string"
+            },
+            "description": {
+              "key_0": "string"
+            },
+            "schema": {
+              "key_0": "string"
+            }
+          },
+          "status": "string",
+          "lock": true,
+          "connection_id": "string",
+          "registration_fee": {
+            "type": "string",
+            "amount": 8629,
+            "currency": "string",
+            "payment_type": [
+              "string",
+              "string"
+            ]
+          },
+          "leader_board_limit": 2055,
+          "ranking_criteria": "string",
+          "time_zone": 4233,
+          "competition_start_time": 6505,
+          "competition_end_time": 9655,
+          "enter_start_time": 8360,
+          "enter_end_time": 2010,
+          "prize_payment": {
+            "type": "string",
+            "payment_target": "string",
+            "payment_time": 4944
+          },
+          "time_interval": 9850,
+          "next_calculate_time": 793
+        }
+      '''
+    }
+  }
+}

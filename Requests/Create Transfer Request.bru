@@ -1,0 +1,109 @@
+meta {
+  name: Create Transfer Request
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/requests/transfer
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "source_platform": "",
+    "source_connection_id": "",
+    "source_trading_id": "",
+    "brokeree_wallet_id": 0,
+    "source_currency": "",
+    "source_amount": "",
+    "target_platform": "",
+    "target_connection_id": "",
+    "target_trading_id": "",
+    "target_currency": "",
+    "target_amount": "",
+    "source_input": true,
+    "beneficiary_name": "",
+    "beneficiary_user_id": "",
+    "beneficiary_email": "",
+    "beneficiary_phone": "",
+    "transfer_type": "",
+    "target_wallet_id": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: oneself
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/transfer
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "source_currency": "USD",
+          "brokeree_wallet_id": 5,
+          "target_currency": "JPY",
+          "source_amount": "10.98",
+          "target_amount": "1456",
+          "source_input": true,
+          "transfer_type": "oneself"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "otvytmt3"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: Create Transfer Request
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/requests/transfer
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "source_platform": "mt4",
+          "source_connection_id": "bigc8liz",
+          "source_trading_id": 40190,
+          "source_currency": "USD",
+          "target_trading_id": 32086,
+          "target_platform": "mt4",
+          "target_connection_id": "bigc8liz",
+          "target_currency": "USD",
+          "source_amount": "14.40",
+          "target_amount": "14.40",
+          "source_input": true,
+          "transfer_type": "others",
+          "beneficiary_user_id": "pe4pm8mh",
+          "beneficiary_name": "q-app1"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "id": "uzgxljqb"
+        }
+      '''
+    }
+  }
+}

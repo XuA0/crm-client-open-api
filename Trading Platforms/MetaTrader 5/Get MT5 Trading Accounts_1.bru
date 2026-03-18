@@ -1,0 +1,275 @@
+meta {
+  name: Get MT5 Trading Accounts_1
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/mt5/accounts/search
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+    "connection_id": "",
+    "key": "",
+    "searches": [
+      {
+        "field": "",
+        "opt": "",
+        "value": ""
+      }
+    ],
+    "orders": {},
+    "skip": 0,
+    "limit": 0,
+    "search_type": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/mt5/accounts/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "skip": 0,
+          "limit": 10,
+          "connection_id": "p6t5xkbm",
+          "orders": {},
+          "searches": []
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "accounts": [
+                {
+                    "trading_id": 100547,
+                    "currency": "EUR",
+                    "balance": 0.6,
+                    "credit": 0,
+                    "available_withdrawal": 0.6,
+                    "balance_previous_month": 0.6,
+                    "balance_previous_day": 0.6,
+                    "equity": 0.6,
+                    "margin_free": 0.6,
+                    "trading_account_profit": 0,
+                    "leverage": 100,
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "created_at": "2025-10-14T11:47:46.000Z",
+                    "last_active": "2025-10-14T11:47:46.000Z",
+                    "mt_name": "q-ib2-cl",
+                    "margin_level": 0,
+                    "mt_email": "q-ib2-cl@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "lead_source": "",
+                    "margin": 0,
+                    "enable_change_password": "1",
+                    "enable_otp": "0",
+                    "send_reports": "1",
+                    "enable_expert_advisors": "0",
+                    "group": "demo\\BBQAHEDGEEUR",
+                    "user_id": "4s6ov3xe",
+                    "email": "q-ib2-cl@mail.com",
+                    "name": "q-ib2-cl",
+                    "phone": {
+                        "number": "434243342",
+                        "country_code": "52"
+                    },
+                    "owner_id": "hxuxmfxo",
+                    "owner_name": "test-cl",
+                    "referrer_id": "qanzqpds",
+                    "referrer_name": "q-ib1-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 5,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 105124,
+                    "currency": "USD",
+                    "balance": 135.95,
+                    "credit": 0,
+                    "available_withdrawal": 135.95,
+                    "balance_previous_month": 135.63,
+                    "balance_previous_day": 135.95,
+                    "equity": 135.95,
+                    "margin_free": 135.95,
+                    "trading_account_profit": 0,
+                    "leverage": 100,
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "created_at": "2025-10-14T11:46:55.000Z",
+                    "last_active": "2025-10-14T11:46:55.000Z",
+                    "mt_name": "q-ib2-cl",
+                    "margin_level": 0,
+                    "mt_email": "q-ib2-cl@mail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "lead_source": "",
+                    "margin": 0,
+                    "enable_change_password": "1",
+                    "enable_otp": "0",
+                    "send_reports": "1",
+                    "enable_expert_advisors": "0",
+                    "group": "demo\\BBQAHEDGE",
+                    "user_id": "4s6ov3xe",
+                    "email": "q-ib2-cl@mail.com",
+                    "name": "q-ib2-cl",
+                    "phone": {
+                        "number": "434243342",
+                        "country_code": "52"
+                    },
+                    "owner_id": "hxuxmfxo",
+                    "owner_name": "test-cl",
+                    "referrer_id": "qanzqpds",
+                    "referrer_name": "q-ib1-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 5,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 105122,
+                    "currency": "EUR",
+                    "balance": 3377.08,
+                    "credit": 5,
+                    "available_withdrawal": 932.37,
+                    "balance_previous_month": 5091.68,
+                    "balance_previous_day": 3377.08,
+                    "equity": 2972.86,
+                    "margin_free": 937.37,
+                    "trading_account_profit": -409.22,
+                    "leverage": 100,
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "created_at": "2025-08-14T12:12:37.000Z",
+                    "last_active": "2025-11-13T05:35:45.000Z",
+                    "mt_name": "q-ib5-cl",
+                    "margin_level": 146.05131933834116,
+                    "mt_email": "yinzheng5519@gmail.com",
+                    "comment": "",
+                    "agent_account": 0,
+                    "lead_source": "",
+                    "margin": 2035.49,
+                    "enable_change_password": "1",
+                    "enable_otp": "0",
+                    "send_reports": "1",
+                    "enable_expert_advisors": "0",
+                    "group": "demo\\BBQAHEDGEEUR",
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                },
+                {
+                    "trading_id": 110080,
+                    "currency": "USD",
+                    "balance": 4928.93,
+                    "credit": 150.69,
+                    "available_withdrawal": 4928.93,
+                    "balance_previous_month": 4984.87,
+                    "balance_previous_day": 5187.02,
+                    "equity": 5079.62,
+                    "margin_free": 5079.62,
+                    "trading_account_profit": 0,
+                    "leverage": 100,
+                    "enable": "1",
+                    "enable_readonly": "0",
+                    "created_at": "2025-08-14T12:12:00.000Z",
+                    "last_active": "2025-11-13T05:28:05.000Z",
+                    "mt_name": "q-ib5-cl",
+                    "margin_level": 0,
+                    "mt_email": "yinzheng5519@gmail.com",
+                    "comment": "",
+                    "agent_account": 10116,
+                    "lead_source": "",
+                    "margin": 0,
+                    "enable_change_password": "1",
+                    "enable_otp": "0",
+                    "send_reports": "1",
+                    "enable_expert_advisors": "0",
+                    "group": "demo\\BBQAHEDGE",
+                    "user_id": "deuonptq",
+                    "email": "yinzheng5519@gmail.com",
+                    "name": "q-ib5-cl",
+                    "phone": {
+                        "number": "19283762634",
+                        "country_code": "86"
+                    },
+                    "referrer_id": "w6b4ilrz",
+                    "referrer_name": "q-ib4-cl",
+                    "user_group_id": "nsyuy9qc",
+                    "user_group_name": {
+                        "en-us": "group-cl"
+                    },
+                    "referrals_trading_accounts_tier": 1,
+                    "rank_id": "6m7l98e4",
+                    "tags": [
+                        "is_deposit",
+                        "is_trade"
+                    ],
+                    "sensitive": false
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

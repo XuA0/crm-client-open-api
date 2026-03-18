@@ -1,0 +1,227 @@
+meta {
+  name: Create Prop Trading External Payment Request
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/externalPayment/propTrading/deposit
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "channel_id": "",
+    "order_no": "",
+    "request_type": "",
+    "enter_trading_id": 0,
+    "competition_id": "",
+    "package_id": "",
+    "package_name": {},
+    "convert_way": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: chillpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/propTrading/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "e8inwaxw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "5835.37",
+          "form_data": {
+              "form_id": "7i8illty"
+          },
+          "payment_fee": "57.77",
+          "request_type": "prop_trading",
+          "package_id": "pbzitnni",
+          "package_name": {
+              "en-us": "套餐——all",
+              "zh-cn": "套餐——所有方式入金"
+          },
+          "init_request_id": "d4nd4ktx"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "external_order":{
+                "payment_url":"https://xxxxxxx"
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: matchpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/propTrading/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "e8inwaxw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "5835.37",
+          "form_data": {
+              "form_id": "7i8illty"
+          },
+          "payment_fee": "57.77",
+          "request_type": "prop_trading",
+          "package_id": "pbzitnni",
+          "package_name": {
+              "en-us": "套餐——all",
+              "zh-cn": "套餐——所有方式入金"
+          },
+          "init_request_id": "d4nd4ktx"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "external_order": {
+                "data": {
+                    "paymentId": "81f6d4eb-f820-4e8e-b1c8-bfc28d2d4b8c",
+                    "status": "NEW",
+                    "transactionAmount": 0,
+                    "netAmount": 0,
+                    "transactionCurrency": "ETH",
+                    "processingFee": 0,
+                    "address": "0x31c034e8169ce45b29a687e04374c55d416c9c4b",
+                    "checkoutUrl": "https://wallet-staging.match2pay.com//crypto-payment/81f6d4eb-f820-4e8e-b1c8-bfc28d2d4b8c/paywall",
+                    "finalCurrency": "ETH",
+                    "expiration": null,
+                    "exchangerLinks": {
+                        "moonpay": "https://buy.moonpay.io?apiKey=pk_live_YES0HkJZHGuTZboXExUhR4vfJHk3r&currencyCode=eth&walletAddress=0x31c034e8169ce45b29a687e04374c55d416c9c4b&baseCurrencyAmount=1&baseCurrencyCode=eth&enabledPaymentMethods=credit_debit_card%2Csepa_bank_transfer%2Cgbp_bank_transfer%2Cgbp_open_banking_payment%2Capple_pay%2Cgoogle_pay%2Csamsung_pay&signature=2CFtTIANqXuNmMDrzZSXJ9iAumZsJgKySxqNQ%2FSxZ9g%3D%22,
+                        "onramper": "https://buy.onramper.com/?wallets=ETH:0x31c034e8169ce45b29a687e04374c55d416c9c4b&isAddressEditable=false&onlyCryptos=ETH&defaultAmount=1&defaultFiat=ETH&onlyFiats=ETH%22
+                    },
+                    "errorList": null
+                },
+                "id": "81f6d4eb-f820-4e8e-b1c8-bfc28d2d4b8c"
+            },
+            "order_no": "c2e24z6qu3swfngw"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: paysafe
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/propTrading/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "e8inwaxw",
+          "payment_currency": "CNY",
+          "trading_currency": "USD",
+          "trading_amount": "800",
+          "payment_total": "5835.37",
+          "form_data": {
+              "form_id": "7i8illty"
+          },
+          "payment_fee": "57.77",
+          "request_type": "prop_trading",
+          "package_id": "pbzitnni",
+          "package_name": {
+              "en-us": "套餐——all",
+              "zh-cn": "套餐——所有方式入金"
+          },
+          "init_request_id": "d4nd4ktx"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "external_order": {
+                "single_used_token": "SPZ0CdeZejkFSFy0",
+                "init_token": "T1QtMTEyMjc4MDpCLXFhMi0wLTY4MmNjNWY4LTAtMzAyZDAyMTUwMDkxMDg3YjM4M2E2ZDg0MGU4MzMwYjNkODcxMjFkNDA5YmY2M2VkMGYwMjE0MjUxYWJiZmM3MzRiOGU2OGU4NDMwNDA1NWYyMDFiNDJmMmEzZDA0Mg=="
+            },
+            "order_no": "jsgzgfff431srst0"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: stripe
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/propTrading/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "42jvgx3u",
+          "payment_currency": "USD",
+          "trading_currency": "USD",
+          "trading_amount": "10",
+          "payment_total": "10.1",
+          "payment_fee": "0.1",
+          "request_type": "prop_trading_retry",
+          "package_step": 1,
+          "init_request_id": "m4rqvyaw",
+          "package_id": "j21izrk5",
+          "package_name": {
+              "en-us": "Fortex-max daily loss",
+              "zh-cn": "Fortex-max daily loss",
+              "zh-tw": "Fortex-max daily loss",
+              "ja": "Fortex-max daily loss",
+              "ko": "Fortex-max daily loss"
+          },
+          "form_data": {
+              "form_id": "eyq6imhc"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "external_order": {
+                "client_secret": "cs_test_a12MLPWQAGHlqJ6B1BJragI5tpsg5tXcal8cRq5ZrUsbgUZCxn8obNui8p_secret_fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0SmlvTHJGQmoxfE1sTUt%2FazxdVzxVVERoQlczbExiZn1BUjA0c212cFI2VDNDfWthMH9OaXZLTU8xblVOd2NuUWdxV1JIUHB%2FTndqNDxfR0NEYmFMfF9SNTVwf0NhRDw8cycpJ3BsSGphYCc%2FJ2BoZ2BhYWBhJyknaWR8anBxUXx1YCc%2FJ3Zsa2JpYFpscWBoJyknd2BhbHdgZnFKa0ZqaHVpYHFsamsnPydrYHNgdycpJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MneCUl",
+                "id": "cs_test_a12MLPWQAGHlqJ6B1BJragI5tpsg5tXcal8cRq5ZrUsbgUZCxn8obNui8p"
+            },
+            "order_no": "4vmudqlv50xat469"
+        }
+      '''
+    }
+  }
+}

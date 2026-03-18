@@ -1,0 +1,220 @@
+meta {
+  name: Create External Payment Deposit Request
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/externalPayment/deposit
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "channel_id": "",
+    "order_no": "",
+    "request_type": "",
+    "enter_trading_id": 0,
+    "competition_id": "",
+    "package_id": "",
+    "package_name": {},
+    "convert_way": "",
+    "form_data": {}
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: chillpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "o35wh6ti",
+          "payment_currency": "USD",
+          "trading_currency": "USD",
+          "trading_platform": "mt4",
+          "trading_connection_id": "bigc8liz",
+          "trading_id": 40190,
+          "trading_amount": "10",
+          "payment_total": "10.2",
+          "payment_fee": "0.2",
+          "request_type": "deposit",
+          "convert_way": "T2P",
+          "form_data": {
+              "btdaykxk": "1",
+              "form_id": "nblh4tcn"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: fireblocks
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "de00632j",
+          "payment_currency": "Ethereum Test (Sepolia)",
+          "trading_currency": "USD",
+          "trading_platform": "mt4",
+          "trading_connection_id": "u5mzgkch",
+          "trading_id": 30935,
+          "trading_amount": "30275.32",
+          "payment_total": "10",
+          "payment_fee": "0",
+          "request_type": "deposit",
+          "convert_way": "P2T",
+          "form_data": {
+              "form_id": "ejksyiz4"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: luqapay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "b6iku4n3",
+          "payment_currency": "JPY",
+          "trading_currency": "JPY",
+          "trading_amount": "100",
+          "payment_total": "100",
+          "payment_fee": "0",
+          "request_type": "deposit",
+          "convert_way": "P2T",
+          "form_data": {
+              "form_id": "sb3qyfmp",
+              "swift_code": "RAKTJPJT",
+              "active_amount_id": 201142045,
+              "country": "JP",
+              "date_of_birth": "2022-12-06",
+              "email": "open-account-form6@mail.com",
+              "first_name": "AAA",
+              "last_name": "AAA"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: matchpay
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "j139ohym",
+          "payment_currency": "BTC",
+          "trading_currency": "USD",
+          "trading_platform": "mt4",
+          "trading_connection_id": "bigc8liz",
+          "trading_id": 40190,
+          "trading_amount": "10",
+          "payment_total": "10",
+          "payment_fee": "0",
+          "request_type": "deposit",
+          "form_data": {
+              "form_id": "v5ng72cn"
+          }
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
+
+example {
+  name: paysafe
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalPayment/deposit
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "method_id": "74j0o361",
+          "payment_currency": "USD",
+          "trading_currency": "USD",
+          "trading_platform": "mt4",
+          "trading_connection_id": "bigc8liz",
+          "trading_id": 40190,
+          "trading_amount": "100",
+          "payment_total": "100",
+          "payment_fee": "0",
+          "request_type": "deposit",
+          "convert_way": "T2P",
+          "form_data": {
+              "qaxnrgwp": "1",
+              "form_id": "6wkuopx8"
+          },
+          "external_rate": "1"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,57 @@
+meta {
+  name: Get External Exchange Rate by ID
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/private/v1/externalRate/:id/getRate?source_currency=&target_currency=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  source_currency: 
+  target_currency: 
+}
+
+params:path {
+  id: 
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/externalRate/:id/getRate?source_currency=USD&target_currency=JPY
+    method: GET
+    mode: none
+    params:query: {
+      source_currency: USD
+      target_currency: JPY
+    }
+  
+    params:path: {
+      id: i0eqwdfd
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        {
+            "rate": 10
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,504 @@
+meta {
+  name: Get User's Rebate History
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BASE_URL}}/private/v1/dashboard/user/rebate/line
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{AUTH_TOKEN}}
+}
+
+body:json {
+  {
+      "type": "rebate",
+      "from": "2025-10-01 00:00:00",
+      "to": "2025-11-01 00:00:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{BASE_URL}}/private/v1/dashboard/user/balance/line
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "type": "rebate",
+          "from": "2025-10-01 00:00:00",
+          "to": "2025-11-01 00:00:00"
+      }
+    }
+  }
+  
+  response: {
+    body: {
+      type: text
+      content: '''
+        [
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-24 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-31 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-04 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-20 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-02 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-31 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-26 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-03 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-26 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-03 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-10 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-22 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-13 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-12 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-09 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-25 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-08 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-18 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-29 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-10 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-09 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-24 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-06 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-17 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-27 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-23 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-25 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-05 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-21 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-07 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-20 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-28 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-16 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-30 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-15 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-16 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-13 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-02 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-29 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-22 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-30 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-07 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-20 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-31 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-05 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-21 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-05 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-14 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-25 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-28 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-04 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-13 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-17 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-15 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-19 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-08 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-27 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-12 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-26 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-01 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-07 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-09 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-23 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-28 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-15 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-14 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-01 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-08 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-10 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-11-01 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-18 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-12 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-22 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-19 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-19 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-30 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-02 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-03 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-27 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-29 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-04 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-17 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-21 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-24 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-11-06 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-11-06 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "CNY",
+                "day": "2025-10-14 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-18 00:00:00"
+            },
+            {
+                "balance": 100000000,
+                "currency": "EUR",
+                "day": "2025-10-16 00:00:00"
+            },
+            {
+                "balance": 10000099,
+                "currency": "USD",
+                "day": "2025-10-23 00:00:00"
+            }
+        ]
+      '''
+    }
+  }
+}
