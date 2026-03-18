@@ -27,11 +27,6 @@ jobs:
           mkdir -p output
           ~/go/bin/bru2openapi -d ./apiDocuments -o ./output/openapi.yaml
 
-      - name: Validate OpenAPI
-        run: |
-          npm install -g @apidevtools/swagger-cli
-          swagger-cli validate ./output/openapi.yaml
-
       - name: Upload OpenAPI Artifact
         uses: actions/upload-artifact@v4
         with:

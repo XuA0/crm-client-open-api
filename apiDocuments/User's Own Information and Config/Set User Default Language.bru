@@ -12,12 +12,19 @@ post {
 
 body:json {
   {
-      "language": "en-us" // "en-us", "zh-cn", "zh-tw", "vi", "ja", "th", "id", "de", "es", "pt", "tr", "ko", "kur-ckb", "kur-kmr", "ar", "fa", "ms"
+      "language": "en-us" 
   }
+  
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
+}
+
+docs {
+    // "en-us", "zh-cn", "zh-tw", "vi", "ja", "th", "id", "de", "es", "pt", "tr", "ko", "kur-ckb", "kur-kmr", "ar", "fa", "ms"
+  
 }
 
 example {
@@ -35,6 +42,11 @@ example {
   }
   
   response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: text
       content: '''
